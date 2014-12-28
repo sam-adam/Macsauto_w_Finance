@@ -1,0 +1,7 @@
+*.sql
+bin
+obj
+*.user
+*.suo
+_ReSharper.*
+*.sln.cache

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Dsn=MS Access Database" IsAppSettingsProperty="false" Modifier="Assembly" Name="ODBC.ACCESS.C:\USERS\SURYA.WIJAYA\DROPBOX\PROJECTS\MAI\02_Application\01_Prototype\Macsauto\Macsauto\Macsauto\bin\Debug\MacsautoIndonesia.accdb" Provider="System.Data.Odbc" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Query1TableAdapter" GeneratorDataComponentClassName="Query1TableAdapter" Name="Query1" UserDataComponentName="Query1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ODBC.ACCESS.C:\USERS\SURYA.WIJAYA\DROPBOX\PROJECTS\MAI\02_Application\01_Prototype\Macsauto\Macsauto\Macsauto\bin\Debug\MacsautoIndonesia.accdb" DbObjectName="[C:\USERS\SURYA.WIJAYA\DROPBOX\PROJECTS\MAI\02_Application\01_Prototype\Macsauto\Macsauto\Macsauto\bin\Debug\MacsautoIndonesia.accdb].Query1" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT sid, sdesc, TYPE, begda, endda, price, amount, discount, stat FROM Query1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="sid" DataSetColumn="sid" />
+              <Mapping SourceColumn="sdesc" DataSetColumn="sdesc" />
+              <Mapping SourceColumn="TYPE" DataSetColumn="TYPE" />
+              <Mapping SourceColumn="begda" DataSetColumn="begda" />
+              <Mapping SourceColumn="endda" DataSetColumn="endda" />
+              <Mapping SourceColumn="price" DataSetColumn="price" />
+              <Mapping SourceColumn="amount" DataSetColumn="amount" />
+              <Mapping SourceColumn="discount" DataSetColumn="discount" />
+              <Mapping SourceColumn="stat" DataSetColumn="stat" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Query1" msprop:Generator_TableClassName="Query1DataTable" msprop:Generator_TableVarName="tableQuery1" msprop:Generator_TablePropName="Query1" msprop:Generator_RowDeletingName="Query1RowDeleting" msprop:Generator_UserTableName="Query1" msprop:Generator_RowChangingName="Query1RowChanging" msprop:Generator_RowEvHandlerName="Query1RowChangeEventHandler" msprop:Generator_RowDeletedName="Query1RowDeleted" msprop:Generator_RowEvArgName="Query1RowChangeEvent" msprop:Generator_RowChangedName="Query1RowChanged" msprop:Generator_RowClassName="Query1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="sid" msprop:Generator_ColumnVarNameInTable="columnsid" msprop:Generator_ColumnPropNameInRow="sid" msprop:Generator_ColumnPropNameInTable="sidColumn" msprop:Generator_UserColumnName="sid">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sdesc" msprop:Generator_ColumnVarNameInTable="columnsdesc" msprop:Generator_ColumnPropNameInRow="sdesc" msprop:Generator_ColumnPropNameInTable="sdescColumn" msprop:Generator_UserColumnName="sdesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TYPE" msprop:Generator_ColumnVarNameInTable="columnTYPE" msprop:Generator_ColumnPropNameInRow="TYPE" msprop:Generator_ColumnPropNameInTable="TYPEColumn" msprop:Generator_UserColumnName="TYPE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="begda" msprop:Generator_ColumnVarNameInTable="columnbegda" msprop:Generator_ColumnPropNameInRow="begda" msprop:Generator_ColumnPropNameInTable="begdaColumn" msprop:Generator_UserColumnName="begda" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="endda" msprop:Generator_ColumnVarNameInTable="columnendda" msprop:Generator_ColumnPropNameInRow="endda" msprop:Generator_ColumnPropNameInTable="enddaColumn" msprop:Generator_UserColumnName="endda" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="price" msprop:Generator_ColumnVarNameInTable="columnprice" msprop:Generator_ColumnPropNameInRow="price" msprop:Generator_ColumnPropNameInTable="priceColumn" msprop:Generator_UserColumnName="price" type="xs:int" minOccurs="0" />
+              <xs:element name="amount" msprop:Generator_ColumnVarNameInTable="columnamount" msprop:Generator_ColumnPropNameInRow="amount" msprop:Generator_ColumnPropNameInTable="amountColumn" msprop:Generator_UserColumnName="amount" type="xs:double" minOccurs="0" />
+              <xs:element name="discount" msprop:Generator_ColumnVarNameInTable="columndiscount" msprop:Generator_ColumnPropNameInRow="discount" msprop:Generator_ColumnPropNameInTable="discountColumn" msprop:Generator_UserColumnName="discount" type="xs:int" minOccurs="0" />
+              <xs:element name="stat" msprop:Generator_ColumnVarNameInTable="columnstat" msprop:Generator_ColumnPropNameInRow="stat" msprop:Generator_ColumnPropNameInTable="statColumn" msprop:Generator_UserColumnName="stat" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Query1" />
+      <xs:field xpath="mstns:sid" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
