@@ -10,7 +10,7 @@
     <OutputType>WinExe</OutputType>
     <StartupObject>MacsautoIndonesia.My.MyApplication</StartupObject>
     <RootNamespace>MacsautoIndonesia</RootNamespace>
-    <AssemblyName>5MacsautoIndonesia</AssemblyName>
+    <AssemblyName>MacsautoIndonesia</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -39,7 +39,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>5MacsautoIndonesia.xml</DocumentationFile>
+    <DocumentationFile>MacsautoIndonesia.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
@@ -50,7 +50,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>5MacsautoIndonesia.xml</DocumentationFile>
+    <DocumentationFile>MacsautoIndonesia.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
