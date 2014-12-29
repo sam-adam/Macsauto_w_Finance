@@ -25,7 +25,16 @@ Partial Class _006_03_Main_Form_Version2
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_006_03_Main_Form_Version2))
         Me.PnlLogo = New System.Windows.Forms.Panel()
+        Me.PBoxMaskot = New System.Windows.Forms.PictureBox()
+        Me.PBoxLogo = New System.Windows.Forms.PictureBox()
         Me.PnlMenu = New System.Windows.Forms.Panel()
+        Me.BtnFinance = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.BtnExit = New System.Windows.Forms.Button()
+        Me.BtnReporting = New System.Windows.Forms.Button()
+        Me.BtnConfiguration = New System.Windows.Forms.Button()
+        Me.BtnMasterData = New System.Windows.Forms.Button()
+        Me.BtnTransaction = New System.Windows.Forms.Button()
         Me.CtxTransaction = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.PointOfSalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductMovementToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -60,34 +69,25 @@ Partial Class _006_03_Main_Form_Version2
         Me.PettyCashToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.BrutoReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductMovementToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BtnFinance = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.BtnExit = New System.Windows.Forms.Button()
-        Me.BtnReporting = New System.Windows.Forms.Button()
-        Me.BtnConfiguration = New System.Windows.Forms.Button()
-        Me.BtnMasterData = New System.Windows.Forms.Button()
-        Me.BtnTransaction = New System.Windows.Forms.Button()
-        Me.PBoxMaskot = New System.Windows.Forms.PictureBox()
-        Me.PBoxLogo = New System.Windows.Forms.PictureBox()
         Me.CtxFinance = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.GeneralLedgerAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.JournalTransactionEntryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.JournalTransactionListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ServiceAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GeneralLedgerReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GeneralLedgeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TrialBalanceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProfitAndLossToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BalancedSheetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ServiceAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PnlLogo.SuspendLayout()
+        CType(Me.PBoxMaskot, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PnlMenu.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CtxTransaction.SuspendLayout()
         Me.CtxMasterData.SuspendLayout()
         Me.CtxConfiguration.SuspendLayout()
         Me.CtxReporting.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PBoxMaskot, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CtxFinance.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -101,6 +101,28 @@ Partial Class _006_03_Main_Form_Version2
         Me.PnlLogo.Name = "PnlLogo"
         Me.PnlLogo.Size = New System.Drawing.Size(976, 75)
         Me.PnlLogo.TabIndex = 1
+        '
+        'PBoxMaskot
+        '
+        Me.PBoxMaskot.Dock = System.Windows.Forms.DockStyle.Right
+        Me.PBoxMaskot.Image = Global.MacsautoIndonesia.My.Resources.Resources.Maskot_I_Love_Wash__final__1_
+        Me.PBoxMaskot.Location = New System.Drawing.Point(457, 0)
+        Me.PBoxMaskot.Name = "PBoxMaskot"
+        Me.PBoxMaskot.Size = New System.Drawing.Size(143, 75)
+        Me.PBoxMaskot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PBoxMaskot.TabIndex = 1
+        Me.PBoxMaskot.TabStop = False
+        '
+        'PBoxLogo
+        '
+        Me.PBoxLogo.Dock = System.Windows.Forms.DockStyle.Right
+        Me.PBoxLogo.Image = Global.MacsautoIndonesia.My.Resources.Resources.Logo_MACSAUTO_only__background_putih__1_
+        Me.PBoxLogo.Location = New System.Drawing.Point(600, 0)
+        Me.PBoxLogo.Name = "PBoxLogo"
+        Me.PBoxLogo.Size = New System.Drawing.Size(376, 75)
+        Me.PBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PBoxLogo.TabIndex = 0
+        Me.PBoxLogo.TabStop = False
         '
         'PnlMenu
         '
@@ -117,6 +139,93 @@ Partial Class _006_03_Main_Form_Version2
         Me.PnlMenu.Name = "PnlMenu"
         Me.PnlMenu.Size = New System.Drawing.Size(211, 493)
         Me.PnlMenu.TabIndex = 2
+        '
+        'BtnFinance
+        '
+        Me.BtnFinance.BackgroundImage = CType(resources.GetObject("BtnFinance.BackgroundImage"), System.Drawing.Image)
+        Me.BtnFinance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnFinance.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnFinance.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.BtnFinance.Location = New System.Drawing.Point(3, 187)
+        Me.BtnFinance.Name = "BtnFinance"
+        Me.BtnFinance.Size = New System.Drawing.Size(205, 40)
+        Me.BtnFinance.TabIndex = 6
+        Me.BtnFinance.Text = "Finance"
+        Me.BtnFinance.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 283)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(211, 249)
+        Me.PictureBox1.TabIndex = 5
+        Me.PictureBox1.TabStop = False
+        '
+        'BtnExit
+        '
+        Me.BtnExit.BackgroundImage = CType(resources.GetObject("BtnExit.BackgroundImage"), System.Drawing.Image)
+        Me.BtnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.BtnExit.Location = New System.Drawing.Point(3, 232)
+        Me.BtnExit.Name = "BtnExit"
+        Me.BtnExit.Size = New System.Drawing.Size(205, 40)
+        Me.BtnExit.TabIndex = 4
+        Me.BtnExit.Text = "Log Out"
+        Me.BtnExit.UseVisualStyleBackColor = True
+        '
+        'BtnReporting
+        '
+        Me.BtnReporting.BackgroundImage = CType(resources.GetObject("BtnReporting.BackgroundImage"), System.Drawing.Image)
+        Me.BtnReporting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnReporting.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnReporting.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.BtnReporting.Location = New System.Drawing.Point(3, 141)
+        Me.BtnReporting.Name = "BtnReporting"
+        Me.BtnReporting.Size = New System.Drawing.Size(205, 40)
+        Me.BtnReporting.TabIndex = 3
+        Me.BtnReporting.Text = "Reporting"
+        Me.BtnReporting.UseVisualStyleBackColor = True
+        '
+        'BtnConfiguration
+        '
+        Me.BtnConfiguration.BackgroundImage = CType(resources.GetObject("BtnConfiguration.BackgroundImage"), System.Drawing.Image)
+        Me.BtnConfiguration.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnConfiguration.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnConfiguration.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.BtnConfiguration.Location = New System.Drawing.Point(3, 95)
+        Me.BtnConfiguration.Name = "BtnConfiguration"
+        Me.BtnConfiguration.Size = New System.Drawing.Size(205, 40)
+        Me.BtnConfiguration.TabIndex = 2
+        Me.BtnConfiguration.Text = "Configuration"
+        Me.BtnConfiguration.UseVisualStyleBackColor = True
+        '
+        'BtnMasterData
+        '
+        Me.BtnMasterData.BackgroundImage = CType(resources.GetObject("BtnMasterData.BackgroundImage"), System.Drawing.Image)
+        Me.BtnMasterData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnMasterData.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnMasterData.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.BtnMasterData.Location = New System.Drawing.Point(3, 49)
+        Me.BtnMasterData.Name = "BtnMasterData"
+        Me.BtnMasterData.Size = New System.Drawing.Size(205, 40)
+        Me.BtnMasterData.TabIndex = 1
+        Me.BtnMasterData.Text = "Master Data"
+        Me.BtnMasterData.UseVisualStyleBackColor = True
+        '
+        'BtnTransaction
+        '
+        Me.BtnTransaction.BackgroundImage = CType(resources.GetObject("BtnTransaction.BackgroundImage"), System.Drawing.Image)
+        Me.BtnTransaction.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnTransaction.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnTransaction.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.BtnTransaction.Location = New System.Drawing.Point(3, 3)
+        Me.BtnTransaction.Name = "BtnTransaction"
+        Me.BtnTransaction.Size = New System.Drawing.Size(205, 40)
+        Me.BtnTransaction.TabIndex = 0
+        Me.BtnTransaction.Text = "Transaction"
+        Me.BtnTransaction.UseVisualStyleBackColor = True
         '
         'CtxTransaction
         '
@@ -322,120 +431,11 @@ Partial Class _006_03_Main_Form_Version2
         Me.ProductMovementToolStripMenuItem1.Size = New System.Drawing.Size(178, 22)
         Me.ProductMovementToolStripMenuItem1.Text = "Product Movement"
         '
-        'BtnFinance
-        '
-        Me.BtnFinance.BackgroundImage = CType(resources.GetObject("BtnFinance.BackgroundImage"), System.Drawing.Image)
-        Me.BtnFinance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnFinance.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnFinance.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnFinance.Location = New System.Drawing.Point(3, 187)
-        Me.BtnFinance.Name = "BtnFinance"
-        Me.BtnFinance.Size = New System.Drawing.Size(205, 40)
-        Me.BtnFinance.TabIndex = 6
-        Me.BtnFinance.Text = "Finance"
-        Me.BtnFinance.UseVisualStyleBackColor = True
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 283)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(211, 249)
-        Me.PictureBox1.TabIndex = 5
-        Me.PictureBox1.TabStop = False
-        '
-        'BtnExit
-        '
-        Me.BtnExit.BackgroundImage = CType(resources.GetObject("BtnExit.BackgroundImage"), System.Drawing.Image)
-        Me.BtnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnExit.Location = New System.Drawing.Point(3, 232)
-        Me.BtnExit.Name = "BtnExit"
-        Me.BtnExit.Size = New System.Drawing.Size(205, 40)
-        Me.BtnExit.TabIndex = 4
-        Me.BtnExit.Text = "Log Out"
-        Me.BtnExit.UseVisualStyleBackColor = True
-        '
-        'BtnReporting
-        '
-        Me.BtnReporting.BackgroundImage = CType(resources.GetObject("BtnReporting.BackgroundImage"), System.Drawing.Image)
-        Me.BtnReporting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnReporting.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnReporting.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnReporting.Location = New System.Drawing.Point(3, 141)
-        Me.BtnReporting.Name = "BtnReporting"
-        Me.BtnReporting.Size = New System.Drawing.Size(205, 40)
-        Me.BtnReporting.TabIndex = 3
-        Me.BtnReporting.Text = "Reporting"
-        Me.BtnReporting.UseVisualStyleBackColor = True
-        '
-        'BtnConfiguration
-        '
-        Me.BtnConfiguration.BackgroundImage = CType(resources.GetObject("BtnConfiguration.BackgroundImage"), System.Drawing.Image)
-        Me.BtnConfiguration.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnConfiguration.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnConfiguration.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnConfiguration.Location = New System.Drawing.Point(3, 95)
-        Me.BtnConfiguration.Name = "BtnConfiguration"
-        Me.BtnConfiguration.Size = New System.Drawing.Size(205, 40)
-        Me.BtnConfiguration.TabIndex = 2
-        Me.BtnConfiguration.Text = "Configuration"
-        Me.BtnConfiguration.UseVisualStyleBackColor = True
-        '
-        'BtnMasterData
-        '
-        Me.BtnMasterData.BackgroundImage = CType(resources.GetObject("BtnMasterData.BackgroundImage"), System.Drawing.Image)
-        Me.BtnMasterData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnMasterData.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnMasterData.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnMasterData.Location = New System.Drawing.Point(3, 49)
-        Me.BtnMasterData.Name = "BtnMasterData"
-        Me.BtnMasterData.Size = New System.Drawing.Size(205, 40)
-        Me.BtnMasterData.TabIndex = 1
-        Me.BtnMasterData.Text = "Master Data"
-        Me.BtnMasterData.UseVisualStyleBackColor = True
-        '
-        'BtnTransaction
-        '
-        Me.BtnTransaction.BackgroundImage = CType(resources.GetObject("BtnTransaction.BackgroundImage"), System.Drawing.Image)
-        Me.BtnTransaction.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnTransaction.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnTransaction.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnTransaction.Location = New System.Drawing.Point(3, 3)
-        Me.BtnTransaction.Name = "BtnTransaction"
-        Me.BtnTransaction.Size = New System.Drawing.Size(205, 40)
-        Me.BtnTransaction.TabIndex = 0
-        Me.BtnTransaction.Text = "Transaction"
-        Me.BtnTransaction.UseVisualStyleBackColor = True
-        '
-        'PBoxMaskot
-        '
-        Me.PBoxMaskot.Dock = System.Windows.Forms.DockStyle.Right
-        Me.PBoxMaskot.Image = Global.MacsautoIndonesia.My.Resources.Resources.Maskot_I_Love_Wash__final__1_
-        Me.PBoxMaskot.Location = New System.Drawing.Point(457, 0)
-        Me.PBoxMaskot.Name = "PBoxMaskot"
-        Me.PBoxMaskot.Size = New System.Drawing.Size(143, 75)
-        Me.PBoxMaskot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PBoxMaskot.TabIndex = 1
-        Me.PBoxMaskot.TabStop = False
-        '
-        'PBoxLogo
-        '
-        Me.PBoxLogo.Dock = System.Windows.Forms.DockStyle.Right
-        Me.PBoxLogo.Image = Global.MacsautoIndonesia.My.Resources.Resources.Logo_MACSAUTO_only__background_putih__1_
-        Me.PBoxLogo.Location = New System.Drawing.Point(600, 0)
-        Me.PBoxLogo.Name = "PBoxLogo"
-        Me.PBoxLogo.Size = New System.Drawing.Size(376, 75)
-        Me.PBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PBoxLogo.TabIndex = 0
-        Me.PBoxLogo.TabStop = False
-        '
         'CtxFinance
         '
         Me.CtxFinance.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GeneralLedgerAccountToolStripMenuItem, Me.JournalTransactionEntryToolStripMenuItem, Me.JournalTransactionListToolStripMenuItem, Me.ServiceAccountToolStripMenuItem, Me.GeneralLedgerReportToolStripMenuItem})
         Me.CtxFinance.Name = "CtxFinance"
-        Me.CtxFinance.Size = New System.Drawing.Size(208, 136)
+        Me.CtxFinance.Size = New System.Drawing.Size(208, 114)
         '
         'GeneralLedgerAccountToolStripMenuItem
         '
@@ -454,6 +454,12 @@ Partial Class _006_03_Main_Form_Version2
         Me.JournalTransactionListToolStripMenuItem.Name = "JournalTransactionListToolStripMenuItem"
         Me.JournalTransactionListToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
         Me.JournalTransactionListToolStripMenuItem.Text = "Journal Transaction List"
+        '
+        'ServiceAccountToolStripMenuItem
+        '
+        Me.ServiceAccountToolStripMenuItem.Name = "ServiceAccountToolStripMenuItem"
+        Me.ServiceAccountToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
+        Me.ServiceAccountToolStripMenuItem.Text = "Service Account"
         '
         'GeneralLedgerReportToolStripMenuItem
         '
@@ -486,12 +492,6 @@ Partial Class _006_03_Main_Form_Version2
         Me.BalancedSheetToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.BalancedSheetToolStripMenuItem.Text = "Balanced Sheet"
         '
-        'ServiceAccountToolStripMenuItem
-        '
-        Me.ServiceAccountToolStripMenuItem.Name = "ServiceAccountToolStripMenuItem"
-        Me.ServiceAccountToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
-        Me.ServiceAccountToolStripMenuItem.Text = "Service Account"
-        '
         '_006_03_Main_Form_Version2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -504,14 +504,14 @@ Partial Class _006_03_Main_Form_Version2
         Me.Text = "MACSAUTO || Main Form"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.PnlLogo.ResumeLayout(False)
+        CType(Me.PBoxMaskot, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PnlMenu.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.CtxTransaction.ResumeLayout(False)
         Me.CtxMasterData.ResumeLayout(False)
         Me.CtxConfiguration.ResumeLayout(False)
         Me.CtxReporting.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PBoxMaskot, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.CtxFinance.ResumeLayout(False)
         Me.ResumeLayout(False)
 

@@ -10,8 +10,12 @@ Module Module1
     Public reader, reader1
     Public findserviceFlag
     Public DbPassword As String = "root"
-
+<<<<<<< HEAD
+    ' Dim con As New MySqlConnection("Server=127.0.0.1;Uid=root;Pwd=2302;Database=macsauto;")
+    Dim con As New MySqlConnection("Server=127.0.0.1;Uid=root;Pwd=root;Database=macsauto_clean;Convert Zero Datetime=True")
+=======
     Dim con As New MySqlConnection("Server=" & My.Settings.Host & ";Uid=" & My.Settings.Username & ";Pwd=" & My.Settings.Password & ";Database=" & My.Settings.Database & ";Convert Zero Datetime=True")
+>>>>>>> 05d7c7b89ebdc2e09aa9a3776f361851c6c86b9b
     Dim cmd As New MySqlCommand
     Dim cardReaders As List(Of SmartCardReader)
     Public Sub InitCardReader()

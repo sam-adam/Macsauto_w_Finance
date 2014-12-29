@@ -257,7 +257,7 @@
                 My.MySettings.Default.MySQLBackupPath = dialog.SelectedPath
 
                 Try
-                    BackupDatabase(mysqlDumpPath, "macsauto", My.MySettings.Default.MySQLBackupPath, "root", DbPassword)
+                    BackupDatabase(mysqlDumpPath, My.Settings.Database, My.MySettings.Default.MySQLBackupPath, My.Settings.Username, My.Settings.Password)
 
                     MsgBox("Database backed-up")
                 Catch ex As Exception
