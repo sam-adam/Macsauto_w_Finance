@@ -4,7 +4,7 @@ Imports System.Text
 Imports System.Globalization
 
 Module GlobalModule
-    Public LoggedInEmployee As Employee = New DummyEmployee()
+    Public LoggedInEmployee As Employee
 
     <Extension()>
     Public Function IsIn(ByVal anObject As DockStyle, ByVal listToCompare As DockStyle()) As Boolean

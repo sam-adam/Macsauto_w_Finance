@@ -624,7 +624,11 @@ Public Class _003_02_TrDetail2
         transactionPage.AppendFooter("MENINGGALKAN OUTLET KAMI.")
         transactionPage.AppendFooter("© MACSAUTO INDONESIA")
 
-        printer.Print(transactionPage)
+        Try
+            printer.Print(transactionPage)
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub printBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles printBtn.Click
@@ -741,7 +745,7 @@ Public Class _003_02_TrDetail2
                 dictionary.Add("glaccount", reader("glnum").ToString())
                 dictionary.Add("amount", subTotal)
 
-                glAccounts.Add("SERVICE", dictionary)
+                glAccounts.Add("SERVICE-" & reader("idsvc").ToString(), dictionary)
             End While
         End If
 
@@ -760,7 +764,7 @@ Public Class _003_02_TrDetail2
                 dictionary.Add("id", reader("idpdt").ToString())
                 dictionary.Add("glaccount", reader("glnum").ToString())
                 dictionary.Add("amount", subTotal)
-                glAccounts.Add("PRODUCT", dictionary)
+                glAccounts.Add("PRODUCT-" & reader("idpdt").ToString(), dictionary)
             End While
         End If
 

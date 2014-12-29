@@ -78,6 +78,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Migrations\_001_AccountTypeTableCreate.vb" />
+    <Compile Include="Migrations\_002_ActDocTypeTableCreate.vb" />
+    <Compile Include="Migrations\_003_GLAccountMSTableCreate.vb" />
+    <Compile Include="Migrations\_004_HServiceTableAlterAddGLNum.vb" />
+    <Compile Include="Migrations\_005_HTransactionTableAlterAddRemrk.vb" />
+    <Compile Include="Migrations\_006_JourHDTableCreate.vb" />
     <Compile Include="Migrator.vb" />
     <Compile Include="Module1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
