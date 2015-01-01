@@ -54,15 +54,19 @@ Partial Class _001_09_Assign_PromotionToProdServ
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Edit = New System.Windows.Forms.Button()
         Me.cancelBtn = New System.Windows.Forms.Button()
         Me.deleteBtn = New System.Windows.Forms.Button()
+        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.Label7 = New System.Windows.Forms.Label()
         CType(Me.PromoGrid, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer1.Panel1.SuspendLayout()
+        Me.SplitContainer1.Panel2.SuspendLayout()
+        Me.SplitContainer1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ProductRbtn
@@ -70,7 +74,7 @@ Partial Class _001_09_Assign_PromotionToProdServ
         Me.ProductRbtn.AutoSize = True
         Me.ProductRbtn.Checked = True
         Me.ProductRbtn.Enabled = False
-        Me.ProductRbtn.Location = New System.Drawing.Point(9, 9)
+        Me.ProductRbtn.Location = New System.Drawing.Point(21, 11)
         Me.ProductRbtn.Name = "ProductRbtn"
         Me.ProductRbtn.Size = New System.Drawing.Size(74, 21)
         Me.ProductRbtn.TabIndex = 0
@@ -82,7 +86,7 @@ Partial Class _001_09_Assign_PromotionToProdServ
         '
         Me.ServiceRbtn.AutoSize = True
         Me.ServiceRbtn.Enabled = False
-        Me.ServiceRbtn.Location = New System.Drawing.Point(106, 9)
+        Me.ServiceRbtn.Location = New System.Drawing.Point(118, 11)
         Me.ServiceRbtn.Name = "ServiceRbtn"
         Me.ServiceRbtn.Size = New System.Drawing.Size(69, 21)
         Me.ServiceRbtn.TabIndex = 1
@@ -92,7 +96,7 @@ Partial Class _001_09_Assign_PromotionToProdServ
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 42)
+        Me.Label1.Location = New System.Drawing.Point(18, 44)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(56, 17)
         Me.Label1.TabIndex = 2
@@ -103,7 +107,7 @@ Partial Class _001_09_Assign_PromotionToProdServ
         Me.pdtsvcbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.pdtsvcbo.Enabled = False
         Me.pdtsvcbo.FormattingEnabled = True
-        Me.pdtsvcbo.Location = New System.Drawing.Point(144, 42)
+        Me.pdtsvcbo.Location = New System.Drawing.Point(156, 44)
         Me.pdtsvcbo.Name = "pdtsvcbo"
         Me.pdtsvcbo.Size = New System.Drawing.Size(255, 25)
         Me.pdtsvcbo.TabIndex = 3
@@ -111,7 +115,7 @@ Partial Class _001_09_Assign_PromotionToProdServ
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 76)
+        Me.Label2.Location = New System.Drawing.Point(18, 78)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(74, 17)
         Me.Label2.TabIndex = 4
@@ -122,7 +126,7 @@ Partial Class _001_09_Assign_PromotionToProdServ
         Me.PromoCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.PromoCbo.Enabled = False
         Me.PromoCbo.FormattingEnabled = True
-        Me.PromoCbo.Location = New System.Drawing.Point(144, 77)
+        Me.PromoCbo.Location = New System.Drawing.Point(156, 79)
         Me.PromoCbo.Name = "PromoCbo"
         Me.PromoCbo.Size = New System.Drawing.Size(255, 25)
         Me.PromoCbo.TabIndex = 5
@@ -130,7 +134,7 @@ Partial Class _001_09_Assign_PromotionToProdServ
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 113)
+        Me.Label3.Location = New System.Drawing.Point(18, 115)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(68, 17)
         Me.Label3.TabIndex = 6
@@ -139,7 +143,7 @@ Partial Class _001_09_Assign_PromotionToProdServ
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 145)
+        Me.Label4.Location = New System.Drawing.Point(18, 147)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(62, 17)
         Me.Label4.TabIndex = 7
@@ -148,7 +152,7 @@ Partial Class _001_09_Assign_PromotionToProdServ
         'Begda
         '
         Me.Begda.Enabled = False
-        Me.Begda.Location = New System.Drawing.Point(144, 113)
+        Me.Begda.Location = New System.Drawing.Point(156, 115)
         Me.Begda.Name = "Begda"
         Me.Begda.Size = New System.Drawing.Size(255, 23)
         Me.Begda.TabIndex = 8
@@ -156,7 +160,7 @@ Partial Class _001_09_Assign_PromotionToProdServ
         'endda
         '
         Me.endda.Enabled = False
-        Me.endda.Location = New System.Drawing.Point(144, 145)
+        Me.endda.Location = New System.Drawing.Point(156, 147)
         Me.endda.Name = "endda"
         Me.endda.Size = New System.Drawing.Size(255, 23)
         Me.endda.TabIndex = 9
@@ -164,7 +168,7 @@ Partial Class _001_09_Assign_PromotionToProdServ
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(421, 45)
+        Me.Label5.Location = New System.Drawing.Point(433, 47)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(116, 17)
         Me.Label5.TabIndex = 10
@@ -174,7 +178,7 @@ Partial Class _001_09_Assign_PromotionToProdServ
         '
         Me.status.AutoSize = True
         Me.status.Enabled = False
-        Me.status.Location = New System.Drawing.Point(563, 44)
+        Me.status.Location = New System.Drawing.Point(575, 46)
         Me.status.Name = "status"
         Me.status.Size = New System.Drawing.Size(65, 21)
         Me.status.TabIndex = 11
@@ -188,7 +192,7 @@ Partial Class _001_09_Assign_PromotionToProdServ
         Me.Add.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Add.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Add.Location = New System.Drawing.Point(457, 128)
+        Me.Add.Location = New System.Drawing.Point(469, 130)
         Me.Add.Name = "Add"
         Me.Add.Size = New System.Drawing.Size(80, 40)
         Me.Add.TabIndex = 19
@@ -202,7 +206,7 @@ Partial Class _001_09_Assign_PromotionToProdServ
         Me.SaveBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SaveBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.SaveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.SaveBtn.Location = New System.Drawing.Point(501, 128)
+        Me.SaveBtn.Location = New System.Drawing.Point(513, 130)
         Me.SaveBtn.Name = "SaveBtn"
         Me.SaveBtn.Size = New System.Drawing.Size(80, 40)
         Me.SaveBtn.TabIndex = 22
@@ -214,7 +218,7 @@ Partial Class _001_09_Assign_PromotionToProdServ
         '
         Me.Member.AutoSize = True
         Me.Member.Enabled = False
-        Me.Member.Location = New System.Drawing.Point(563, 76)
+        Me.Member.Location = New System.Drawing.Point(575, 78)
         Me.Member.Name = "Member"
         Me.Member.Size = New System.Drawing.Size(48, 21)
         Me.Member.TabIndex = 21
@@ -224,7 +228,7 @@ Partial Class _001_09_Assign_PromotionToProdServ
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(421, 77)
+        Me.Label6.Location = New System.Drawing.Point(433, 79)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(133, 17)
         Me.Label6.TabIndex = 20
@@ -233,7 +237,7 @@ Partial Class _001_09_Assign_PromotionToProdServ
         'RadioButton2
         '
         Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(61, 6)
+        Me.RadioButton2.Location = New System.Drawing.Point(255, 185)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(64, 21)
         Me.RadioButton2.TabIndex = 2
@@ -244,7 +248,7 @@ Partial Class _001_09_Assign_PromotionToProdServ
         '
         Me.RadioButton1.AutoSize = True
         Me.RadioButton1.Checked = True
-        Me.RadioButton1.Location = New System.Drawing.Point(12, 6)
+        Me.RadioButton1.Location = New System.Drawing.Point(206, 185)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(43, 21)
         Me.RadioButton1.TabIndex = 1
@@ -258,10 +262,11 @@ Partial Class _001_09_Assign_PromotionToProdServ
         Me.PromoGrid.AllowUserToDeleteRows = False
         Me.PromoGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.PromoGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10})
-        Me.PromoGrid.Location = New System.Drawing.Point(13, 28)
+        Me.PromoGrid.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PromoGrid.Location = New System.Drawing.Point(0, 0)
         Me.PromoGrid.Name = "PromoGrid"
         Me.PromoGrid.ReadOnly = True
-        Me.PromoGrid.Size = New System.Drawing.Size(901, 331)
+        Me.PromoGrid.Size = New System.Drawing.Size(945, 364)
         Me.PromoGrid.TabIndex = 0
         '
         'Column1
@@ -338,22 +343,10 @@ Partial Class _001_09_Assign_PromotionToProdServ
         Me.Column10.ReadOnly = True
         Me.Column10.Visible = False
         '
-        'Panel1
-        '
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.RadioButton3)
-        Me.Panel1.Controls.Add(Me.RadioButton1)
-        Me.Panel1.Controls.Add(Me.RadioButton2)
-        Me.Panel1.Controls.Add(Me.PromoGrid)
-        Me.Panel1.Location = New System.Drawing.Point(12, 214)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(926, 376)
-        Me.Panel1.TabIndex = 21
-        '
         'RadioButton3
         '
         Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(131, 6)
+        Me.RadioButton3.Location = New System.Drawing.Point(325, 185)
         Me.RadioButton3.Name = "RadioButton3"
         Me.RadioButton3.Size = New System.Drawing.Size(81, 21)
         Me.RadioButton3.TabIndex = 3
@@ -363,7 +356,11 @@ Partial Class _001_09_Assign_PromotionToProdServ
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.Label7)
+        Me.Panel2.Controls.Add(Me.RadioButton3)
         Me.Panel2.Controls.Add(Me.Edit)
+        Me.Panel2.Controls.Add(Me.RadioButton1)
+        Me.Panel2.Controls.Add(Me.RadioButton2)
         Me.Panel2.Controls.Add(Me.cancelBtn)
         Me.Panel2.Controls.Add(Me.deleteBtn)
         Me.Panel2.Controls.Add(Me.SaveBtn)
@@ -382,9 +379,10 @@ Partial Class _001_09_Assign_PromotionToProdServ
         Me.Panel2.Controls.Add(Me.ServiceRbtn)
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Controls.Add(Me.Label5)
-        Me.Panel2.Location = New System.Drawing.Point(12, 12)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(921, 196)
+        Me.Panel2.Size = New System.Drawing.Size(945, 230)
         Me.Panel2.TabIndex = 22
         '
         'Edit
@@ -394,7 +392,7 @@ Partial Class _001_09_Assign_PromotionToProdServ
         Me.Edit.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Edit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Edit.Location = New System.Drawing.Point(548, 128)
+        Me.Edit.Location = New System.Drawing.Point(560, 130)
         Me.Edit.Name = "Edit"
         Me.Edit.Size = New System.Drawing.Size(80, 40)
         Me.Edit.TabIndex = 25
@@ -408,7 +406,7 @@ Partial Class _001_09_Assign_PromotionToProdServ
         Me.cancelBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cancelBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.cancelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cancelBtn.Location = New System.Drawing.Point(587, 128)
+        Me.cancelBtn.Location = New System.Drawing.Point(599, 130)
         Me.cancelBtn.Name = "cancelBtn"
         Me.cancelBtn.Size = New System.Drawing.Size(80, 40)
         Me.cancelBtn.TabIndex = 24
@@ -423,12 +421,39 @@ Partial Class _001_09_Assign_PromotionToProdServ
         Me.deleteBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.deleteBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.deleteBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.deleteBtn.Location = New System.Drawing.Point(640, 128)
+        Me.deleteBtn.Location = New System.Drawing.Point(652, 130)
         Me.deleteBtn.Name = "deleteBtn"
         Me.deleteBtn.Size = New System.Drawing.Size(80, 40)
         Me.deleteBtn.TabIndex = 23
         Me.deleteBtn.Text = "DELETE"
         Me.deleteBtn.UseVisualStyleBackColor = True
+        '
+        'SplitContainer1
+        '
+        Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer1.Name = "SplitContainer1"
+        Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'SplitContainer1.Panel1
+        '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Panel2)
+        '
+        'SplitContainer1.Panel2
+        '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.PromoGrid)
+        Me.SplitContainer1.Size = New System.Drawing.Size(945, 598)
+        Me.SplitContainer1.SplitterDistance = 230
+        Me.SplitContainer1.TabIndex = 23
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(18, 185)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(165, 17)
+        Me.Label7.TabIndex = 26
+        Me.Label7.Text = "Display Promotion status"
         '
         '_001_09_Assign_PromotionToProdServ
         '
@@ -436,18 +461,19 @@ Partial Class _001_09_Assign_PromotionToProdServ
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Info
         Me.ClientSize = New System.Drawing.Size(945, 598)
-        Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.SplitContainer1)
         Me.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "_001_09_Assign_PromotionToProdServ"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Assign Promotion to Service or Product"
         CType(Me.PromoGrid, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        Me.SplitContainer1.Panel1.ResumeLayout(False)
+        Me.SplitContainer1.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -470,7 +496,6 @@ Partial Class _001_09_Assign_PromotionToProdServ
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Member As System.Windows.Forms.CheckBox
     Friend WithEvents SaveBtn As System.Windows.Forms.Button
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents deleteBtn As System.Windows.Forms.Button
     Friend WithEvents cancelBtn As System.Windows.Forms.Button
@@ -486,4 +511,6 @@ Partial Class _001_09_Assign_PromotionToProdServ
     Friend WithEvents Column9 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column10 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents RadioButton3 As System.Windows.Forms.RadioButton
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
 End Class

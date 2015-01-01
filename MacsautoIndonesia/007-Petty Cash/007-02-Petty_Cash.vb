@@ -9,9 +9,9 @@
     End Function
     Private Function getCurrentAmt()
         reader = ExecQueryReader("SELECT (SUM(CASE WHEN PSTKY = '10' THEN PSAMT ELSE '0' END)- SUM(CASE WHEN PSTKY = '20' THEN PSAMT ELSE '0' END))'amount' FROM JOURHD A, JOURDT B,GLACCOUNTMS C  WHERE A.DOCID = B.DOCID AND C.GLNUM =B.GLNUM  and DSTAT <> 'X' AND B.GLNUM = '" + pcact + "' and pstdt LIKE '" + getCurrentPeriod() + "%' GROUP BY  B.GLNUM")
-
-        reader.read()
-        Return reader(0)
+        While reader.read
+            Return reader(0)
+        End While
     End Function
     Private Sub autoPostPettyCash()
         Jcode = NewJournalCode()

@@ -48,13 +48,13 @@
         Else
             If flag = 0 Then
                 If MsgBox("Are you sure to reverse the document?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
-                    ExecQueryNonReader("UPDATE Jourhd SET DSTAT = 'X' , CANCL = '" + CANREA.Text + "', CGDAT = NOW() WHERE DOCID = '" + ID.Text + "'")
+                    ExecQueryNonReader("UPDATE Jourhd SET DSTAT = 'X' , CANCL = '" + CANREA.Text + "', CGDAT = NOW(),UNAME = '" + LoggedInEmployee.Id + "' WHERE DOCID = '" + ID.Text + "'")
                     MsgBox("Journal Posting reversed")
                     Me.Close()
                 End If
             Else
                 If MsgBox("Are you sure to cancel reversal the document?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
-                    ExecQueryNonReader("UPDATE Jourhd SET DSTAT = ' ' , CANCL = '', CGDAT = NOW() WHERE DOCID = '" + ID.Text + "'")
+                    ExecQueryNonReader("UPDATE Jourhd SET DSTAT = ' ' , CANCL = '', CGDAT = NOW(), UNAME = '" + LoggedInEmployee.Id + "' WHERE DOCID = '" + ID.Text + "'")
                     MsgBox("Journal Posting reversal cancelled")
                     Me.Close()
                 End If

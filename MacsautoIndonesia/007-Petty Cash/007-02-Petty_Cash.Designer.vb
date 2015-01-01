@@ -23,9 +23,6 @@ Partial Class _007_02_Petty_Cash
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_007_02_Petty_Cash))
         Me.PettyCashType = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -66,12 +63,28 @@ Partial Class _007_02_Petty_Cash
         Me.Label6 = New System.Windows.Forms.Label()
         Me.save = New System.Windows.Forms.Button()
         Me.Cancel = New System.Windows.Forms.Button()
+        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         CType(Me.pettycashGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel8.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer1.Panel1.SuspendLayout()
+        Me.SplitContainer1.Panel2.SuspendLayout()
+        Me.SplitContainer1.SuspendLayout()
+        Me.TabControl1.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
+        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer2.Panel1.SuspendLayout()
+        Me.SplitContainer2.Panel2.SuspendLayout()
+        Me.SplitContainer2.SuspendLayout()
         Me.SuspendLayout()
         '
         'PettyCashType
@@ -80,19 +93,19 @@ Partial Class _007_02_Petty_Cash
         Me.PettyCashType.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PettyCashType.FormattingEnabled = True
         Me.PettyCashType.Items.AddRange(New Object() {"CASH IN", "CASH OUT"})
-        Me.PettyCashType.Location = New System.Drawing.Point(113, 28)
+        Me.PettyCashType.Location = New System.Drawing.Point(195, 76)
         Me.PettyCashType.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.PettyCashType.Name = "PettyCashType"
-        Me.PettyCashType.Size = New System.Drawing.Size(153, 25)
+        Me.PettyCashType.Size = New System.Drawing.Size(233, 25)
         Me.PettyCashType.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(9, 29)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(26, 81)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(38, 17)
+        Me.Label2.Size = New System.Drawing.Size(44, 16)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Type"
         '
@@ -100,7 +113,7 @@ Partial Class _007_02_Petty_Cash
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft YaHei", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(368, 88)
+        Me.Label5.Location = New System.Drawing.Point(24, 292)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(89, 26)
         Me.Label5.TabIndex = 9
@@ -110,7 +123,7 @@ Partial Class _007_02_Petty_Cash
         '
         Me.pettyCashAmt.BackColor = System.Drawing.Color.Gold
         Me.pettyCashAmt.Font = New System.Drawing.Font("Microsoft YaHei", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.pettyCashAmt.Location = New System.Drawing.Point(513, 88)
+        Me.pettyCashAmt.Location = New System.Drawing.Point(196, 287)
         Me.pettyCashAmt.MaxLength = 9
         Me.pettyCashAmt.Name = "pettyCashAmt"
         Me.pettyCashAmt.Size = New System.Drawing.Size(194, 33)
@@ -121,26 +134,26 @@ Partial Class _007_02_Petty_Cash
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(371, 58)
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(27, 262)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(136, 17)
+        Me.Label4.Size = New System.Drawing.Size(153, 16)
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "Reference Document"
         '
         'PettyCashRef
         '
         Me.PettyCashRef.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PettyCashRef.Location = New System.Drawing.Point(513, 58)
+        Me.PettyCashRef.Location = New System.Drawing.Point(196, 257)
         Me.PettyCashRef.MaxLength = 50
         Me.PettyCashRef.Name = "PettyCashRef"
-        Me.PettyCashRef.Size = New System.Drawing.Size(194, 23)
+        Me.PettyCashRef.Size = New System.Drawing.Size(232, 23)
         Me.PettyCashRef.TabIndex = 5
         '
         'PettyCashRea
         '
         Me.PettyCashRea.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PettyCashRea.Location = New System.Drawing.Point(114, 90)
+        Me.PettyCashRea.Location = New System.Drawing.Point(196, 141)
         Me.PettyCashRea.MaxLength = 200
         Me.PettyCashRea.Multiline = True
         Me.PettyCashRea.Name = "PettyCashRea"
@@ -150,10 +163,10 @@ Partial Class _007_02_Petty_Cash
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(9, 90)
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(26, 146)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(54, 17)
+        Me.Label3.Size = New System.Drawing.Size(62, 16)
         Me.Label3.TabIndex = 12
         Me.Label3.Text = "Remark"
         '
@@ -162,37 +175,14 @@ Partial Class _007_02_Petty_Cash
         Me.pettycashGrid.AllowUserToAddRows = False
         Me.pettycashGrid.AllowUserToDeleteRows = False
         Me.pettycashGrid.AllowUserToOrderColumns = True
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.pettycashGrid.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.pettycashGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.pettycashGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Type, Me.Amount, Me.Reference, Me.Remark, Me.Column1})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.pettycashGrid.DefaultCellStyle = DataGridViewCellStyle3
-        Me.pettycashGrid.Location = New System.Drawing.Point(3, 29)
+        Me.pettycashGrid.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pettycashGrid.Location = New System.Drawing.Point(0, 0)
         Me.pettycashGrid.Name = "pettycashGrid"
         Me.pettycashGrid.ReadOnly = True
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.pettycashGrid.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.pettycashGrid.RowHeadersVisible = False
-        Me.pettycashGrid.Size = New System.Drawing.Size(717, 261)
+        Me.pettycashGrid.Size = New System.Drawing.Size(722, 406)
         Me.pettycashGrid.TabIndex = 24
         '
         'Id
@@ -209,8 +199,8 @@ Partial Class _007_02_Petty_Cash
         '
         'Amount
         '
-        DataGridViewCellStyle2.Format = "C2"
-        Me.Amount.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Format = "C2"
+        Me.Amount.DefaultCellStyle = DataGridViewCellStyle1
         Me.Amount.HeaderText = "Amount"
         Me.Amount.Name = "Amount"
         Me.Amount.ReadOnly = True
@@ -238,39 +228,34 @@ Partial Class _007_02_Petty_Cash
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.DateTimePicker1)
-        Me.Panel1.Controls.Add(Me.DateTimePicker2)
-        Me.Panel1.Controls.Add(Me.Label9)
-        Me.Panel1.Controls.Add(Me.Label8)
-        Me.Panel1.Controls.Add(Me.ExportBtn)
-        Me.Panel1.Controls.Add(Me.Panel2)
-        Me.Panel1.Controls.Add(Me.pettycashGrid)
-        Me.Panel1.Location = New System.Drawing.Point(4, 38)
+        Me.Panel1.Controls.Add(Me.SplitContainer2)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(3, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(727, 297)
+        Me.Panel1.Size = New System.Drawing.Size(724, 445)
         Me.Panel1.TabIndex = 25
         '
         'DateTimePicker1
         '
         Me.DateTimePicker1.CustomFormat = ""
-        Me.DateTimePicker1.Location = New System.Drawing.Point(249, 3)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(250, 6)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(185, 20)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(185, 22)
         Me.DateTimePicker1.TabIndex = 31
         '
         'DateTimePicker2
         '
         Me.DateTimePicker2.CustomFormat = ""
-        Me.DateTimePicker2.Location = New System.Drawing.Point(464, 3)
+        Me.DateTimePicker2.Location = New System.Drawing.Point(465, 6)
         Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(186, 20)
+        Me.DateTimePicker2.Size = New System.Drawing.Size(186, 22)
         Me.DateTimePicker2.TabIndex = 30
         '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(433, 3)
+        Me.Label9.Location = New System.Drawing.Point(434, 6)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(25, 15)
         Me.Label9.TabIndex = 28
@@ -280,7 +265,7 @@ Partial Class _007_02_Petty_Cash
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(184, 6)
+        Me.Label8.Location = New System.Drawing.Point(185, 9)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(59, 15)
         Me.Label8.TabIndex = 27
@@ -292,7 +277,7 @@ Partial Class _007_02_Petty_Cash
         Me.ExportBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ExportBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ExportBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ExportBtn.Location = New System.Drawing.Point(693, 1)
+        Me.ExportBtn.Location = New System.Drawing.Point(681, 4)
         Me.ExportBtn.Name = "ExportBtn"
         Me.ExportBtn.Size = New System.Drawing.Size(27, 22)
         Me.ExportBtn.TabIndex = 26
@@ -304,7 +289,7 @@ Partial Class _007_02_Petty_Cash
         Me.Panel2.BackColor = System.Drawing.Color.NavajoWhite
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Location = New System.Drawing.Point(-1, -1)
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(179, 24)
         Me.Panel2.TabIndex = 25
@@ -313,7 +298,7 @@ Partial Class _007_02_Petty_Cash
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(1, 3)
+        Me.Label1.Location = New System.Drawing.Point(2, 2)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(172, 15)
         Me.Label1.TabIndex = 0
@@ -327,41 +312,42 @@ Partial Class _007_02_Petty_Cash
         Me.Panel8.Controls.Add(Me.RadioButton2)
         Me.Panel8.Controls.Add(Me.RadioButton1)
         Me.Panel8.Controls.Add(Me.Label17)
-        Me.Panel8.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel8.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel8.Location = New System.Drawing.Point(0, 0)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(738, 35)
+        Me.Panel8.Size = New System.Drawing.Size(738, 37)
         Me.Panel8.TabIndex = 32
         '
         'RadioButton3
         '
         Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(647, 8)
+        Me.RadioButton3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButton3.Location = New System.Drawing.Point(292, 8)
         Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(83, 17)
+        Me.RadioButton3.Size = New System.Drawing.Size(108, 20)
         Me.RadioButton3.TabIndex = 10
-        Me.RadioButton3.TabStop = True
         Me.RadioButton3.Text = "w/ Reversal"
         Me.RadioButton3.UseVisualStyleBackColor = True
         '
         'RadioButton2
         '
         Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Checked = True
-        Me.RadioButton2.Location = New System.Drawing.Point(552, 8)
+        Me.RadioButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButton2.Location = New System.Drawing.Point(169, 8)
         Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(89, 17)
+        Me.RadioButton2.Size = New System.Drawing.Size(117, 20)
         Me.RadioButton2.TabIndex = 9
-        Me.RadioButton2.TabStop = True
         Me.RadioButton2.Text = "w/o Reversal"
         Me.RadioButton2.UseVisualStyleBackColor = True
         '
         'RadioButton1
         '
         Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(510, 8)
+        Me.RadioButton1.Checked = True
+        Me.RadioButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButton1.Location = New System.Drawing.Point(119, 8)
         Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(36, 17)
+        Me.RadioButton1.Size = New System.Drawing.Size(44, 20)
         Me.RadioButton1.TabIndex = 8
         Me.RadioButton1.TabStop = True
         Me.RadioButton1.Text = "All"
@@ -373,12 +359,13 @@ Partial Class _007_02_Petty_Cash
         Me.Label17.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.Location = New System.Drawing.Point(11, 8)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(218, 19)
+        Me.Label17.Size = New System.Drawing.Size(102, 19)
         Me.Label17.TabIndex = 3
-        Me.Label17.Text = "PETTY CASH TRANSACTION"
+        Me.Label17.Text = "PETTY CASH"
         '
         'Panel3
         '
+        Me.Panel3.BackColor = System.Drawing.SystemColors.Info
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel3.Controls.Add(Me.TransDate)
         Me.Panel3.Controls.Add(Me.Label12)
@@ -397,25 +384,26 @@ Partial Class _007_02_Petty_Cash
         Me.Panel3.Controls.Add(Me.Label3)
         Me.Panel3.Controls.Add(Me.PettyCashRef)
         Me.Panel3.Controls.Add(Me.Label4)
-        Me.Panel3.Location = New System.Drawing.Point(5, 341)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel3.Location = New System.Drawing.Point(3, 3)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(727, 177)
+        Me.Panel3.Size = New System.Drawing.Size(724, 445)
         Me.Panel3.TabIndex = 33
         '
         'TransDate
         '
-        Me.TransDate.Location = New System.Drawing.Point(513, 31)
+        Me.TransDate.Location = New System.Drawing.Point(196, 230)
         Me.TransDate.Name = "TransDate"
-        Me.TransDate.Size = New System.Drawing.Size(194, 20)
+        Me.TransDate.Size = New System.Drawing.Size(232, 22)
         Me.TransDate.TabIndex = 4
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(371, 31)
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(27, 235)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(106, 17)
+        Me.Label12.Size = New System.Drawing.Size(119, 16)
         Me.Label12.TabIndex = 30
         Me.Label12.Text = "Petty Cash Date"
         '
@@ -424,7 +412,7 @@ Partial Class _007_02_Petty_Cash
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Label11.Location = New System.Drawing.Point(581, 3)
+        Me.Label11.Location = New System.Drawing.Point(238, 41)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(126, 19)
         Me.Label11.TabIndex = 29
@@ -436,7 +424,7 @@ Partial Class _007_02_Petty_Cash
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Label10.Location = New System.Drawing.Point(369, 3)
+        Me.Label10.Location = New System.Drawing.Point(26, 41)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(209, 19)
         Me.Label10.TabIndex = 28
@@ -447,19 +435,19 @@ Partial Class _007_02_Petty_Cash
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(114, 58)
+        Me.ComboBox1.Location = New System.Drawing.Point(196, 109)
         Me.ComboBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(152, 25)
+        Me.ComboBox1.Size = New System.Drawing.Size(232, 25)
         Me.ComboBox1.TabIndex = 2
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(9, 58)
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(26, 114)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(80, 17)
+        Me.Label7.Size = New System.Drawing.Size(90, 16)
         Me.Label7.TabIndex = 26
         Me.Label7.Text = "Transaction"
         '
@@ -489,7 +477,7 @@ Partial Class _007_02_Petty_Cash
         Me.save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.save.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.save.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.save.Location = New System.Drawing.Point(540, 132)
+        Me.save.Location = New System.Drawing.Point(223, 331)
         Me.save.Name = "save"
         Me.save.Size = New System.Drawing.Size(77, 35)
         Me.save.TabIndex = 7
@@ -502,12 +490,88 @@ Partial Class _007_02_Petty_Cash
         Me.Cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Cancel.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Cancel.Location = New System.Drawing.Point(630, 132)
+        Me.Cancel.Location = New System.Drawing.Point(313, 331)
         Me.Cancel.Name = "Cancel"
         Me.Cancel.Size = New System.Drawing.Size(77, 35)
         Me.Cancel.TabIndex = 8
         Me.Cancel.Text = "CANCEL"
         Me.Cancel.UseVisualStyleBackColor = True
+        '
+        'SplitContainer1
+        '
+        Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer1.Name = "SplitContainer1"
+        Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'SplitContainer1.Panel1
+        '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Panel8)
+        '
+        'SplitContainer1.Panel2
+        '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.TabControl1)
+        Me.SplitContainer1.Size = New System.Drawing.Size(738, 521)
+        Me.SplitContainer1.SplitterDistance = 37
+        Me.SplitContainer1.TabIndex = 33
+        '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(738, 480)
+        Me.TabControl1.TabIndex = 0
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.Panel1)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(730, 451)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "Petty Cash Transaction List"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.Panel3)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(730, 451)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Create New Petty Cash "
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'SplitContainer2
+        '
+        Me.SplitContainer2.BackColor = System.Drawing.SystemColors.Info
+        Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer2.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer2.Name = "SplitContainer2"
+        Me.SplitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'SplitContainer2.Panel1
+        '
+        Me.SplitContainer2.Panel1.Controls.Add(Me.Panel2)
+        Me.SplitContainer2.Panel1.Controls.Add(Me.DateTimePicker1)
+        Me.SplitContainer2.Panel1.Controls.Add(Me.Label8)
+        Me.SplitContainer2.Panel1.Controls.Add(Me.DateTimePicker2)
+        Me.SplitContainer2.Panel1.Controls.Add(Me.ExportBtn)
+        Me.SplitContainer2.Panel1.Controls.Add(Me.Label9)
+        '
+        'SplitContainer2.Panel2
+        '
+        Me.SplitContainer2.Panel2.Controls.Add(Me.pettycashGrid)
+        Me.SplitContainer2.Size = New System.Drawing.Size(722, 443)
+        Me.SplitContainer2.SplitterDistance = 33
+        Me.SplitContainer2.TabIndex = 32
         '
         '_007_02_Petty_Cash
         '
@@ -515,16 +579,14 @@ Partial Class _007_02_Petty_Cash
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Info
         Me.ClientSize = New System.Drawing.Size(738, 521)
-        Me.Controls.Add(Me.Panel3)
-        Me.Controls.Add(Me.Panel8)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.SplitContainer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "_007_02_Petty_Cash"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Petty Cash"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.pettycashGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel8.ResumeLayout(False)
@@ -533,6 +595,18 @@ Partial Class _007_02_Petty_Cash
         Me.Panel3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
+        Me.SplitContainer1.Panel1.ResumeLayout(False)
+        Me.SplitContainer1.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer1.ResumeLayout(False)
+        Me.TabControl1.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
+        Me.TabPage2.ResumeLayout(False)
+        Me.SplitContainer2.Panel1.ResumeLayout(False)
+        Me.SplitContainer2.Panel1.PerformLayout()
+        Me.SplitContainer2.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -575,4 +649,9 @@ Partial Class _007_02_Petty_Cash
     Friend WithEvents RadioButton3 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+    Friend WithEvents SplitContainer2 As System.Windows.Forms.SplitContainer
+    Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
+    Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
+    Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
 End Class

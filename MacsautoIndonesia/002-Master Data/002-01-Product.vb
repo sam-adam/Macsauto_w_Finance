@@ -19,8 +19,13 @@
             reader.read()
             If reader(0).ToString = "False" Then
                 consume.Checked = False
+                ProdSAmt.Text = "0"
+                ProdSAmt.Enabled = True
             Else
                 consume.Checked = True
+                ProdSAmt.Text = "0"
+                ProdSAmt.Enabled = False
+
             End If
         Catch ex As Exception
 
@@ -497,7 +502,7 @@
         GLDesc.Text = getDescription()
     End Sub
 
-    Private Sub BtnExport_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnExport.Click
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         If ProductGridView.Rows.Count = 0 Then
             MsgBox("No data to be exported")
         Else

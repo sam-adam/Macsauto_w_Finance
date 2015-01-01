@@ -22,18 +22,12 @@ Partial Class _009_02_Journal_Transaction
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_009_02_Journal_Transaction))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_009_02_Journal_Transaction))
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.PostingDate = New System.Windows.Forms.DateTimePicker()
         Me.JournalGrid = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.rdoc = New System.Windows.Forms.TextBox()
@@ -50,44 +44,300 @@ Partial Class _009_02_Journal_Transaction
         Me.Add = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.DocType = New System.Windows.Forms.ComboBox()
+        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
+        Me.SplitContainer3 = New System.Windows.Forms.SplitContainer()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.JournalGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer1.Panel1.SuspendLayout()
+        Me.SplitContainer1.Panel2.SuspendLayout()
+        Me.SplitContainer1.SuspendLayout()
+        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer2.Panel1.SuspendLayout()
+        Me.SplitContainer2.Panel2.SuspendLayout()
+        Me.SplitContainer2.SuspendLayout()
+        CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer3.Panel1.SuspendLayout()
+        Me.SplitContainer3.Panel2.SuspendLayout()
+        Me.SplitContainer3.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Gold
-        Me.Label1.Location = New System.Drawing.Point(19, 15)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(78, 16)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Posting Date"
         '
         'PostingDate
         '
-        Me.PostingDate.Location = New System.Drawing.Point(117, 12)
-        Me.PostingDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.PostingDate.Location = New System.Drawing.Point(135, 16)
+        Me.PostingDate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PostingDate.Name = "PostingDate"
-        Me.PostingDate.Size = New System.Drawing.Size(233, 22)
+        Me.PostingDate.Size = New System.Drawing.Size(298, 22)
         Me.PostingDate.TabIndex = 1
         '
         'JournalGrid
         '
         Me.JournalGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.JournalGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column3, Me.Column2, Me.Column4, Me.Column5})
-        Me.JournalGrid.Location = New System.Drawing.Point(12, 199)
-        Me.JournalGrid.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.JournalGrid.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.JournalGrid.Location = New System.Drawing.Point(0, 0)
+        Me.JournalGrid.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.JournalGrid.Name = "JournalGrid"
-        Me.JournalGrid.Size = New System.Drawing.Size(640, 199)
+        Me.JournalGrid.Size = New System.Drawing.Size(854, 195)
         Me.JournalGrid.TabIndex = 2
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(18, 82)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(72, 16)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Ref. Doc."
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(462, 16)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(62, 16)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "Remark"
+        '
+        'rdoc
+        '
+        Me.rdoc.Location = New System.Drawing.Point(135, 82)
+        Me.rdoc.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rdoc.MaxLength = 20
+        Me.rdoc.Name = "rdoc"
+        Me.rdoc.Size = New System.Drawing.Size(298, 22)
+        Me.rdoc.TabIndex = 5
+        '
+        'rmark
+        '
+        Me.rmark.Location = New System.Drawing.Point(532, 16)
+        Me.rmark.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rmark.MaxLength = 1000
+        Me.rmark.Multiline = True
+        Me.rmark.Name = "rmark"
+        Me.rmark.Size = New System.Drawing.Size(319, 88)
+        Me.rmark.TabIndex = 6
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(60, 23)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(117, 16)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "total Db Amount"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(62, 50)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(112, 16)
+        Me.Label5.TabIndex = 8
+        Me.Label5.Text = "total Cr Amount"
+        '
+        'totalDb
+        '
+        Me.totalDb.Enabled = False
+        Me.totalDb.Location = New System.Drawing.Point(213, 23)
+        Me.totalDb.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.totalDb.Name = "totalDb"
+        Me.totalDb.Size = New System.Drawing.Size(148, 22)
+        Me.totalDb.TabIndex = 9
+        '
+        'totalCr
+        '
+        Me.totalCr.Enabled = False
+        Me.totalCr.Location = New System.Drawing.Point(213, 49)
+        Me.totalCr.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.totalCr.Name = "totalCr"
+        Me.totalCr.Size = New System.Drawing.Size(148, 22)
+        Me.totalCr.TabIndex = 10
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.ForeColor = System.Drawing.Color.Red
+        Me.Label6.Location = New System.Drawing.Point(437, 14)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(273, 16)
+        Me.Label6.TabIndex = 20
+        Me.Label6.Text = "Press 'F4' button to search GL Account"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(19, 9)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(0, 16)
+        Me.Label7.TabIndex = 21
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.totalDb)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.totalCr)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.GroupBox1.Size = New System.Drawing.Size(417, 83)
+        Me.GroupBox1.TabIndex = 22
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Transaction Amount"
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.Gold
+        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel3.Controls.Add(Me.Label8)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel3.Location = New System.Drawing.Point(0, 0)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(854, 29)
+        Me.Panel3.TabIndex = 24
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.Color.Gold
+        Me.Label8.Font = New System.Drawing.Font("Microsoft YaHei", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(12, 3)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(148, 22)
+        Me.Label8.TabIndex = 2
+        Me.Label8.Text = "JOURNAL ENTRY"
+        '
+        'Add
+        '
+        Me.Add.BackgroundImage = CType(resources.GetObject("Add.BackgroundImage"), System.Drawing.Image)
+        Me.Add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Add.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Add.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Add.Location = New System.Drawing.Point(721, 37)
+        Me.Add.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.Add.Name = "Add"
+        Me.Add.Size = New System.Drawing.Size(120, 48)
+        Me.Add.TabIndex = 19
+        Me.Add.Text = "Post Journal"
+        Me.Add.UseVisualStyleBackColor = True
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(18, 49)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(70, 16)
+        Me.Label9.TabIndex = 25
+        Me.Label9.Text = "Act. Doc."
+        '
+        'DocType
+        '
+        Me.DocType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.DocType.FormattingEnabled = True
+        Me.DocType.Location = New System.Drawing.Point(135, 49)
+        Me.DocType.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.DocType.Name = "DocType"
+        Me.DocType.Size = New System.Drawing.Size(298, 24)
+        Me.DocType.TabIndex = 26
+        '
+        'SplitContainer1
+        '
+        Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer1.Name = "SplitContainer1"
+        Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'SplitContainer1.Panel1
+        '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Label1)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.DocType)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.rmark)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.PostingDate)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Label3)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Label9)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Label2)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.rdoc)
+        '
+        'SplitContainer1.Panel2
+        '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer2)
+        Me.SplitContainer1.Size = New System.Drawing.Size(854, 426)
+        Me.SplitContainer1.SplitterDistance = 122
+        Me.SplitContainer1.TabIndex = 27
+        '
+        'SplitContainer2
+        '
+        Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer2.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer2.Name = "SplitContainer2"
+        Me.SplitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'SplitContainer2.Panel1
+        '
+        Me.SplitContainer2.Panel1.Controls.Add(Me.JournalGrid)
+        '
+        'SplitContainer2.Panel2
+        '
+        Me.SplitContainer2.Panel2.Controls.Add(Me.Label6)
+        Me.SplitContainer2.Panel2.Controls.Add(Me.Add)
+        Me.SplitContainer2.Panel2.Controls.Add(Me.GroupBox1)
+        Me.SplitContainer2.Size = New System.Drawing.Size(854, 300)
+        Me.SplitContainer2.SplitterDistance = 195
+        Me.SplitContainer2.TabIndex = 0
+        '
+        'SplitContainer3
+        '
+        Me.SplitContainer3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer3.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer3.Name = "SplitContainer3"
+        Me.SplitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'SplitContainer3.Panel1
+        '
+        Me.SplitContainer3.Panel1.Controls.Add(Me.Panel3)
+        '
+        'SplitContainer3.Panel2
+        '
+        Me.SplitContainer3.Panel2.Controls.Add(Me.SplitContainer1)
+        Me.SplitContainer3.Size = New System.Drawing.Size(854, 459)
+        Me.SplitContainer3.SplitterDistance = 29
+        Me.SplitContainer3.TabIndex = 28
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(18, 16)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(97, 16)
+        Me.Label1.TabIndex = 27
+        Me.Label1.Text = "Posting Date"
         '
         'Column1
         '
         Me.Column1.HeaderText = "GL Act."
         Me.Column1.Name = "Column1"
-        Me.Column1.Width = 80
+        Me.Column1.Width = 120
         '
         'Column3
         '
@@ -96,7 +346,7 @@ Partial Class _009_02_Journal_Transaction
         Me.Column3.HeaderText = "GL Description"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
-        Me.Column3.Width = 150
+        Me.Column3.Width = 200
         '
         'Column2
         '
@@ -119,199 +369,44 @@ Partial Class _009_02_Journal_Transaction
         Me.Column5.HeaderText = "Notes"
         Me.Column5.MaxInputLength = 255
         Me.Column5.Name = "Column5"
-        Me.Column5.Width = 255
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 80)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(57, 16)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Ref. Doc."
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(342, 46)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(51, 16)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Remark"
-        '
-        'rdoc
-        '
-        Me.rdoc.Location = New System.Drawing.Point(103, 80)
-        Me.rdoc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.rdoc.MaxLength = 20
-        Me.rdoc.Name = "rdoc"
-        Me.rdoc.Size = New System.Drawing.Size(233, 22)
-        Me.rdoc.TabIndex = 5
-        '
-        'rmark
-        '
-        Me.rmark.Location = New System.Drawing.Point(345, 66)
-        Me.rmark.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.rmark.MaxLength = 1000
-        Me.rmark.Multiline = True
-        Me.rmark.Name = "rmark"
-        Me.rmark.Size = New System.Drawing.Size(307, 125)
-        Me.rmark.TabIndex = 6
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(47, 23)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(101, 16)
-        Me.Label4.TabIndex = 7
-        Me.Label4.Text = "total Db Amount"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(48, 50)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(97, 16)
-        Me.Label5.TabIndex = 8
-        Me.Label5.Text = "total Cr Amount"
-        '
-        'totalDb
-        '
-        Me.totalDb.Enabled = False
-        Me.totalDb.Location = New System.Drawing.Point(166, 23)
-        Me.totalDb.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.totalDb.Name = "totalDb"
-        Me.totalDb.Size = New System.Drawing.Size(116, 22)
-        Me.totalDb.TabIndex = 9
-        '
-        'totalCr
-        '
-        Me.totalCr.Enabled = False
-        Me.totalCr.Location = New System.Drawing.Point(166, 49)
-        Me.totalCr.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.totalCr.Name = "totalCr"
-        Me.totalCr.Size = New System.Drawing.Size(116, 22)
-        Me.totalCr.TabIndex = 10
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.ForeColor = System.Drawing.Color.Red
-        Me.Label6.Location = New System.Drawing.Point(12, 401)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(218, 16)
-        Me.Label6.TabIndex = 20
-        Me.Label6.Text = "Press 'F4' button to search GL Account"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(15, 9)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(0, 16)
-        Me.Label7.TabIndex = 21
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.totalDb)
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Controls.Add(Me.totalCr)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 109)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(324, 83)
-        Me.GroupBox1.TabIndex = 22
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Account Amount"
-        '
-        'Panel3
-        '
-        Me.Panel3.BackColor = System.Drawing.Color.Gold
-        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel3.Controls.Add(Me.Label8)
-        Me.Panel3.Controls.Add(Me.PostingDate)
-        Me.Panel3.Controls.Add(Me.Label1)
-        Me.Panel3.Location = New System.Drawing.Point(-15, -4)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(694, 43)
-        Me.Panel3.TabIndex = 24
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.Color.Gold
-        Me.Label8.Font = New System.Drawing.Font("Microsoft YaHei", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(484, 11)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(148, 22)
-        Me.Label8.TabIndex = 2
-        Me.Label8.Text = "JOURNAL ENTRY"
-        '
-        'Add
-        '
-        Me.Add.BackgroundImage = CType(resources.GetObject("Add.BackgroundImage"), System.Drawing.Image)
-        Me.Add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Add.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Add.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Add.Location = New System.Drawing.Point(559, 405)
-        Me.Add.Name = "Add"
-        Me.Add.Size = New System.Drawing.Size(93, 48)
-        Me.Add.TabIndex = 19
-        Me.Add.Text = "Post Journal"
-        Me.Add.UseVisualStyleBackColor = True
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(12, 48)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(58, 16)
-        Me.Label9.TabIndex = 25
-        Me.Label9.Text = "Act. Doc."
-        '
-        'DocType
-        '
-        Me.DocType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.DocType.FormattingEnabled = True
-        Me.DocType.Location = New System.Drawing.Point(103, 48)
-        Me.DocType.Name = "DocType"
-        Me.DocType.Size = New System.Drawing.Size(233, 24)
-        Me.DocType.TabIndex = 26
+        Me.Column5.Width = 300
         '
         '_009_02_Journal_Transaction
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Info
-        Me.ClientSize = New System.Drawing.Size(664, 459)
-        Me.Controls.Add(Me.DocType)
-        Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.ClientSize = New System.Drawing.Size(854, 459)
+        Me.Controls.Add(Me.SplitContainer3)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Add)
-        Me.Controls.Add(Me.rmark)
-        Me.Controls.Add(Me.rdoc)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.JournalGrid)
-        Me.Controls.Add(Me.Panel3)
-        Me.Font = New System.Drawing.Font("Microsoft YaHei", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "_009_02_Journal_Transaction"
-        Me.Text = "Journal Entry Transaction"
+        Me.Text = "Posting Date"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.JournalGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        Me.SplitContainer1.Panel1.ResumeLayout(False)
+        Me.SplitContainer1.Panel1.PerformLayout()
+        Me.SplitContainer1.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer1.ResumeLayout(False)
+        Me.SplitContainer2.Panel1.ResumeLayout(False)
+        Me.SplitContainer2.Panel2.ResumeLayout(False)
+        Me.SplitContainer2.Panel2.PerformLayout()
+        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer2.ResumeLayout(False)
+        Me.SplitContainer3.Panel1.ResumeLayout(False)
+        Me.SplitContainer3.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer3.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents PostingDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents JournalGrid As System.Windows.Forms.DataGridView
     Friend WithEvents Label2 As System.Windows.Forms.Label
@@ -330,6 +425,10 @@ Partial Class _009_02_Journal_Transaction
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents DocType As System.Windows.Forms.ComboBox
+    Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents SplitContainer2 As System.Windows.Forms.SplitContainer
+    Friend WithEvents SplitContainer3 As System.Windows.Forms.SplitContainer
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column2 As System.Windows.Forms.DataGridViewComboBoxColumn

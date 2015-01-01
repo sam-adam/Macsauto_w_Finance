@@ -117,7 +117,7 @@
         Else
             If MsgBox("Save Journal Transaction?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
                 code = CreateNewCode()
-                ExecQueryNonReader("INSERT INTO JOURHD(DOCID,DOCDT,PSTDT,RFDOC,RMARK,DSTAT,UNAME,CGDAT,DTNUM) VALUES('" + code + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + PostingDate.Value.ToString("yyyy-MM-dd HH:mm:ss") + "','" + rdoc.Text + "','" + rmark.Text + "','','','0000-00-00','" + DocType.SelectedItem.ToString.Substring(0, 2) + "')")
+                ExecQueryNonReader("INSERT INTO JOURHD(DOCID,DOCDT,PSTDT,RFDOC,RMARK,DSTAT,UNAME,CGDAT,DTNUM) VALUES('" + code + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + PostingDate.Value.ToString("yyyy-MM-dd HH:mm:ss") + "','" + rdoc.Text + "','" + rmark.Text + "','','" + LoggedInEmployee.Id + "','0000-00-00','" + DocType.SelectedItem.ToString.Substring(0, 2) + "')")
                 For i = 0 To JournalGrid.Rows.Count - 2
                     ExecQueryNonReader("INSERT INTO JOURDT(DOCID,GLNUM,PSTKY,PSAMT,NOTES) VALUES('" + code + "','" + JournalGrid.Rows(i).Cells(0).Value.ToString + "','" + getPstKey(i) + "','" + JournalGrid.Rows(i).Cells(3).Value.ToString + "','')")
                 Next i
