@@ -29,6 +29,6 @@ Public Class Migrator
     End Sub
 
     Public Sub TextWriterHandler(ByVal text As String)
-        Debug.WriteLine(text)
+        Console.WriteLine(text)
     End Sub
 End Class

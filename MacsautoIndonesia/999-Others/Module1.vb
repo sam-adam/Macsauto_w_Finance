@@ -9,11 +9,11 @@ Imports MacsautoIndonesia.SmartCard.Reader
 Module Module1
     Public reader, reader1
     Public findserviceFlag
-    Public DbPassword As String = "root"
 
     Dim con As New MySqlConnection("Server=" & My.Settings.Host & ";Uid=" & My.Settings.Username & ";Pwd=" & My.Settings.Password & ";Database=" & My.Settings.Database & ";Convert Zero Datetime=True")
     Dim cmd As New MySqlCommand
     Dim cardReaders As List(Of SmartCardReader)
+
     Public Sub InitCardReader()
         SmartCardManager.Initialize()
         cardReaders = SmartCardManager.CardReaders

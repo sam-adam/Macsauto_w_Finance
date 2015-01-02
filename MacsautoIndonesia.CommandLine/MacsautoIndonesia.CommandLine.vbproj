@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BE879F0D-EAFD-4057-A87F-FA59317B2AFE}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>MacsautoIndonesia.CommandLine.Module1</StartupObject>
+    <StartupObject>MacsautoIndonesia.CommandLine.MainModule</StartupObject>
     <RootNamespace>MacsautoIndonesia.CommandLine</RootNamespace>
     <AssemblyName>MacsautoIndonesia.CommandLine</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -85,7 +85,7 @@
     <Compile Include="Migrations\_005_HTransactionTableAlterAddRemrk.vb" />
     <Compile Include="Migrations\_006_JourHDTableCreate.vb" />
     <Compile Include="Migrator.vb" />
-    <Compile Include="Module1.vb" />
+    <Compile Include="MainModule.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

@@ -30,7 +30,7 @@
         Catch ex As Exception
 
         End Try
-       
+
     End Sub
 
     Private Sub LoadProductType()
@@ -78,7 +78,7 @@
         Remove.Visible = False
         save.Visible = True
         Cancel.Visible = True
-        
+
         PanelInfo.Enabled = True
         PANELLocation.Enabled = True
         PANELAct.Enabled = True
@@ -270,7 +270,7 @@
                 End If
             End If
 
- 
+
             'TabControl1.SelectedIndex = 0
 
         End If
@@ -459,11 +459,11 @@
         End If
     End Sub
 
-   
-  
-  
+
+
+
     Private Sub ProductType_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ProductType.SelectedIndexChanged
-        getProductcons
+        getProductcons()
     End Sub
 
     Private Sub prodAmt_TextChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles prodAmt.TextChanged
@@ -495,7 +495,7 @@
         Catch ex As Exception
 
         End Try
-       
+
     End Function
 
     Private Sub GLNumber_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GLNumber.TextChanged
