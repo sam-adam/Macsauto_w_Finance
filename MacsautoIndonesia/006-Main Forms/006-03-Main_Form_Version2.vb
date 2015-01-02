@@ -146,7 +146,7 @@
         LoadForm(Of _008_04_InitialStockReport)()
     End Sub
 
-    Private Sub TransactionReceiptToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TransactionReceiptToolStripMenuItem.Click
+    Private Sub TransactionReceiptToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         LoadForm(Of _008_05_TransactionReport)()
     End Sub
 

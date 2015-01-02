@@ -64,8 +64,6 @@ Partial Class _006_03_Main_Form_Version2
         Me.GoodIssueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GoodReceiptToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InitialStockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TransactionReceiptToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CustomerARToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PettyCashToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.BrutoReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductMovementToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -373,62 +371,50 @@ Partial Class _006_03_Main_Form_Version2
         '
         'CtxReporting
         '
-        Me.CtxReporting.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StockTransferToolStripMenuItem, Me.GoodIssueToolStripMenuItem, Me.GoodReceiptToolStripMenuItem, Me.InitialStockToolStripMenuItem, Me.TransactionReceiptToolStripMenuItem, Me.CustomerARToolStripMenuItem, Me.PettyCashToolStripMenuItem1, Me.BrutoReportToolStripMenuItem, Me.ProductMovementToolStripMenuItem1})
+        Me.CtxReporting.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StockTransferToolStripMenuItem, Me.GoodIssueToolStripMenuItem, Me.GoodReceiptToolStripMenuItem, Me.InitialStockToolStripMenuItem, Me.PettyCashToolStripMenuItem1, Me.BrutoReportToolStripMenuItem, Me.ProductMovementToolStripMenuItem1})
         Me.CtxReporting.Name = "CtxMasterData"
-        Me.CtxReporting.Size = New System.Drawing.Size(179, 202)
+        Me.CtxReporting.Size = New System.Drawing.Size(178, 158)
         '
         'StockTransferToolStripMenuItem
         '
         Me.StockTransferToolStripMenuItem.Name = "StockTransferToolStripMenuItem"
-        Me.StockTransferToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
+        Me.StockTransferToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.StockTransferToolStripMenuItem.Text = "Stock Transfer"
         '
         'GoodIssueToolStripMenuItem
         '
         Me.GoodIssueToolStripMenuItem.Name = "GoodIssueToolStripMenuItem"
-        Me.GoodIssueToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
+        Me.GoodIssueToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.GoodIssueToolStripMenuItem.Text = "Good Issue"
         '
         'GoodReceiptToolStripMenuItem
         '
         Me.GoodReceiptToolStripMenuItem.Name = "GoodReceiptToolStripMenuItem"
-        Me.GoodReceiptToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
+        Me.GoodReceiptToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.GoodReceiptToolStripMenuItem.Text = "Good Receipt"
         '
         'InitialStockToolStripMenuItem
         '
         Me.InitialStockToolStripMenuItem.Name = "InitialStockToolStripMenuItem"
-        Me.InitialStockToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
+        Me.InitialStockToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.InitialStockToolStripMenuItem.Text = "Initial Stock"
-        '
-        'TransactionReceiptToolStripMenuItem
-        '
-        Me.TransactionReceiptToolStripMenuItem.Name = "TransactionReceiptToolStripMenuItem"
-        Me.TransactionReceiptToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
-        Me.TransactionReceiptToolStripMenuItem.Text = "Transaction Receipt"
-        '
-        'CustomerARToolStripMenuItem
-        '
-        Me.CustomerARToolStripMenuItem.Name = "CustomerARToolStripMenuItem"
-        Me.CustomerARToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
-        Me.CustomerARToolStripMenuItem.Text = "Customer AR"
         '
         'PettyCashToolStripMenuItem1
         '
         Me.PettyCashToolStripMenuItem1.Name = "PettyCashToolStripMenuItem1"
-        Me.PettyCashToolStripMenuItem1.Size = New System.Drawing.Size(178, 22)
+        Me.PettyCashToolStripMenuItem1.Size = New System.Drawing.Size(177, 22)
         Me.PettyCashToolStripMenuItem1.Text = "Petty Cash"
         '
         'BrutoReportToolStripMenuItem
         '
         Me.BrutoReportToolStripMenuItem.Name = "BrutoReportToolStripMenuItem"
-        Me.BrutoReportToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
+        Me.BrutoReportToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.BrutoReportToolStripMenuItem.Text = "Bruto Report"
         '
         'ProductMovementToolStripMenuItem1
         '
         Me.ProductMovementToolStripMenuItem1.Name = "ProductMovementToolStripMenuItem1"
-        Me.ProductMovementToolStripMenuItem1.Size = New System.Drawing.Size(178, 22)
+        Me.ProductMovementToolStripMenuItem1.Size = New System.Drawing.Size(177, 22)
         Me.ProductMovementToolStripMenuItem1.Text = "Product Movement"
         '
         'CtxFinance
@@ -549,8 +535,6 @@ Partial Class _006_03_Main_Form_Version2
     Friend WithEvents GoodIssueToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GoodReceiptToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents InitialStockToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents TransactionReceiptToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents CustomerARToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PettyCashToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BtnExit As System.Windows.Forms.Button
     Friend WithEvents PointRedemptionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem

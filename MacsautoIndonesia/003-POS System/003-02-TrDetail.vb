@@ -489,8 +489,6 @@ Public Class _003_02_TrDetail2
     Private Sub PayMethod_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PayMethod.SelectedIndexChanged
         If PayMethod.SelectedIndex <> -1 Then
             RemainingAR.Enabled = True
-            printBtn.Enabled = True
-
         End If
 
         If PayMethod.SelectedIndex = 1 Or PayMethod.SelectedIndex = 2 Then
