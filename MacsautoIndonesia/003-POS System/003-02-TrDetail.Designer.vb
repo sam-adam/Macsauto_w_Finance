@@ -143,7 +143,6 @@ Partial Class _003_02_TrDetail2
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.printBtn = New System.Windows.Forms.Button()
         Me.CancelBtn = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.voidBtn = New System.Windows.Forms.Button()
@@ -339,7 +338,7 @@ Partial Class _003_02_TrDetail2
         Me.Panel2.Controls.Add(Me.Label5)
         Me.Panel2.Enabled = False
         Me.Panel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel2.Location = New System.Drawing.Point(416, 38)
+        Me.Panel2.Location = New System.Drawing.Point(424, 38)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(354, 195)
         Me.Panel2.TabIndex = 5
@@ -1222,17 +1221,6 @@ Partial Class _003_02_TrDetail2
         Me.Panel8.Size = New System.Drawing.Size(760, 42)
         Me.Panel8.TabIndex = 29
         '
-        'printBtn
-        '
-        Me.printBtn.BackgroundImage = CType(resources.GetObject("printBtn.BackgroundImage"), System.Drawing.Image)
-        Me.printBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.printBtn.Enabled = False
-        Me.printBtn.Location = New System.Drawing.Point(1096, 599)
-        Me.printBtn.Name = "printBtn"
-        Me.printBtn.Size = New System.Drawing.Size(60, 55)
-        Me.printBtn.TabIndex = 30
-        Me.printBtn.UseVisualStyleBackColor = True
-        '
         'CancelBtn
         '
         Me.CancelBtn.BackgroundImage = CType(resources.GetObject("CancelBtn.BackgroundImage"), System.Drawing.Image)
@@ -1263,7 +1251,7 @@ Partial Class _003_02_TrDetail2
         Me.voidBtn.Enabled = False
         Me.voidBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.voidBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.voidBtn.Location = New System.Drawing.Point(1030, 599)
+        Me.voidBtn.Location = New System.Drawing.Point(1095, 599)
         Me.voidBtn.Name = "voidBtn"
         Me.voidBtn.Size = New System.Drawing.Size(60, 55)
         Me.voidBtn.TabIndex = 31
@@ -1274,7 +1262,7 @@ Partial Class _003_02_TrDetail2
         Me.QUEUE.BackgroundImage = CType(resources.GetObject("QUEUE.BackgroundImage"), System.Drawing.Image)
         Me.QUEUE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.QUEUE.Enabled = False
-        Me.QUEUE.Location = New System.Drawing.Point(964, 599)
+        Me.QUEUE.Location = New System.Drawing.Point(1029, 599)
         Me.QUEUE.Name = "QUEUE"
         Me.QUEUE.Size = New System.Drawing.Size(60, 55)
         Me.QUEUE.TabIndex = 32
@@ -1287,7 +1275,7 @@ Partial Class _003_02_TrDetail2
         Me.SaveBtn.Enabled = False
         Me.SaveBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SaveBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.SaveBtn.Location = New System.Drawing.Point(898, 599)
+        Me.SaveBtn.Location = New System.Drawing.Point(963, 599)
         Me.SaveBtn.Name = "SaveBtn"
         Me.SaveBtn.Size = New System.Drawing.Size(60, 55)
         Me.SaveBtn.TabIndex = 19
@@ -1303,7 +1291,6 @@ Partial Class _003_02_TrDetail2
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.QUEUE)
         Me.Controls.Add(Me.voidBtn)
-        Me.Controls.Add(Me.printBtn)
         Me.Controls.Add(Me.Panel7)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel4)
@@ -1456,7 +1443,6 @@ Partial Class _003_02_TrDetail2
     Friend WithEvents Column13 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column9 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column10 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents printBtn As System.Windows.Forms.Button
     Friend WithEvents Column6 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn

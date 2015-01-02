@@ -631,7 +631,7 @@ Public Class _003_02_TrDetail2
         End Try
     End Sub
 
-    Private Sub printBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles printBtn.Click
+    Private Sub printBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         PrintForm("-")
     End Sub
 
