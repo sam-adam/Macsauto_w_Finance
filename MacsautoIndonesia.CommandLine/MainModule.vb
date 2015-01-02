@@ -81,7 +81,7 @@ Module MainModule
         Do While IsNothing(key) OrElse Not key.Key = ConsoleKey.Enter
             key = Console.ReadKey(True)
 
-            If Not key.Key = ConsoleKey.Backspace Then
+            If Not (key.Key = ConsoleKey.Backspace Or key.Key = ConsoleKey.Enter) Then
                 connectionPassword &= key.KeyChar
                 Console.Write("*")
             Else

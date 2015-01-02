@@ -2,6 +2,7 @@
 Imports FluentMigrator
 
 Namespace Migrations
+    <Migration(201501011222)>
     Public Class _010_SCashTableCreate
         Inherits Migration
 

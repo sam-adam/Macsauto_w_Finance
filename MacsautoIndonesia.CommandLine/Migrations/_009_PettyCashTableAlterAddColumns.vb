@@ -1,6 +1,7 @@
 ﻿Imports FluentMigrator
 
 Namespace Migrations
+    <Migration(201501011220)>
     Public Class _009_PettyCashTableAlterAddColumns
         Inherits Migration
 

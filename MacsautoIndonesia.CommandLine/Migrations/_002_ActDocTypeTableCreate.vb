@@ -14,10 +14,10 @@ Namespace Migrations
 
             Insert.IntoTable(_tableName) _
                 .Row(New With {Key .dtnum = "AD", Key .dtdes = "ACCOUNTING DOCUMENT"}) _
-                .Row(New With {Key .actid = "GI", Key .actds = "GOODS ISSUE"}) _
-                .Row(New With {Key .actid = "GR", Key .actds = "GOODS RECEIPT"}) _
-                .Row(New With {Key .actid = "PC", Key .actds = "PETTY CASH"}) _
-                .Row(New With {Key .actid = "TR", Key .actds = "TRANSACTION"})
+                .Row(New With {Key .dtnum = "GI", Key .dtdes = "GOODS ISSUE"}) _
+                .Row(New With {Key .dtnum = "GR", Key .dtdes = "GOODS RECEIPT"}) _
+                .Row(New With {Key .dtnum = "PC", Key .dtdes = "PETTY CASH"}) _
+                .Row(New With {Key .dtnum = "TR", Key .dtdes = "TRANSACTION"})
         End Sub
 
         Public Overrides Sub Down()

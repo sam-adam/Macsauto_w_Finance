@@ -1,6 +1,7 @@
 ﻿Imports FluentMigrator
 
 Namespace Migrations
+    <Migration(201501011210)>
     Public Class _007_JourDTTableCreate
         Inherits Migration
 

@@ -2,6 +2,7 @@
 Imports FluentMigrator
 
 Namespace Migrations
+    <Migration(201501011221)>
     Public Class _010_PrActTableCreate
         Inherits Migration
 

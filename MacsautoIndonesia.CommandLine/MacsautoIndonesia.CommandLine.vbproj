@@ -84,6 +84,10 @@
     <Compile Include="Migrations\_004_HServiceTableAlterAddGLNum.vb" />
     <Compile Include="Migrations\_005_HTransactionTableAlterAddRemrk.vb" />
     <Compile Include="Migrations\_006_JourHDTableCreate.vb" />
+    <Compile Include="Migrations\_008_MTracTableCreate.vb" />
+    <Compile Include="Migrations\_009_PettyCashTableAlterAddColumns.vb" />
+    <Compile Include="Migrations\_010_PrActTableCreate.vb" />
+    <Compile Include="Migrations\_010_SCashTableCreate.vb" />
     <Compile Include="Migrator.vb" />
     <Compile Include="MainModule.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -101,6 +105,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Migrations\_007_JourDTTableCreate.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

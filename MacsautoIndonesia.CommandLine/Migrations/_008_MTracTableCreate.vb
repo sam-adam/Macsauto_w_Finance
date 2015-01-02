@@ -1,6 +1,7 @@
 ﻿Imports FluentMigrator
 
 Namespace Migrations
+    <Migration(201501011215)>
     Public Class _008_MTracTableCreate
         Inherits Migration
 
