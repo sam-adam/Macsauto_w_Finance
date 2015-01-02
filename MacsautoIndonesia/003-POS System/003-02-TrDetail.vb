@@ -32,7 +32,7 @@ Public Class _003_02_TrDetail2
         Dim Curdate, company As String
         Curdate = Date.Today.ToString("MM") & "-" & Date.Today.Year
         company = getText("select * from company", 0)
-        reader = ExecQueryReader("SELECT *  FROM HTRANSACTION order by TRSID DESC")
+        reader = ExecQueryReader("SELECT *  FROM HTRANSACTION order by trdat DESC LIMIT 1")
         reader.read()
         Dim lastCode As Integer
         Dim newcode As String
