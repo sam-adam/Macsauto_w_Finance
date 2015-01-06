@@ -51,7 +51,7 @@
     End Function
     Private Sub loadCboUsage()
         ComboBox1.Items.Clear()
-        reader = ExecQueryReader("SELECT BTRDC,glnum FROM BTRGL WHERE CTYPE LIKE '" + PettyCashType.SelectedItem.ToString + "'")
+        reader = ExecQueryReader("SELECT btrdc,glnum FROM btrgl WHERE ctype LIKE '" + PettyCashType.SelectedItem.ToString + "'")
         While reader.read
             ComboBox1.Items.Add(reader(0).ToString + "-" + reader(1).ToString)
         End While

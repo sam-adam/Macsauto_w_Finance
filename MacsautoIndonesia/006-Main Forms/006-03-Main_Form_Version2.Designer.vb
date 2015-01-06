@@ -77,6 +77,7 @@ Partial Class _006_03_Main_Form_Version2
         Me.TrialBalanceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProfitAndLossToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BalancedSheetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PettyCashUsageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PnlLogo.SuspendLayout()
         CType(Me.PBoxMaskot, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -419,9 +420,9 @@ Partial Class _006_03_Main_Form_Version2
         '
         'CtxFinance
         '
-        Me.CtxFinance.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GeneralLedgerAccountToolStripMenuItem, Me.JournalTransactionEntryToolStripMenuItem, Me.JournalTransactionListToolStripMenuItem, Me.ServiceAccountToolStripMenuItem, Me.GeneralLedgerReportToolStripMenuItem})
+        Me.CtxFinance.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GeneralLedgerAccountToolStripMenuItem, Me.JournalTransactionEntryToolStripMenuItem, Me.JournalTransactionListToolStripMenuItem, Me.ServiceAccountToolStripMenuItem, Me.PettyCashUsageToolStripMenuItem, Me.GeneralLedgerReportToolStripMenuItem})
         Me.CtxFinance.Name = "CtxFinance"
-        Me.CtxFinance.Size = New System.Drawing.Size(208, 114)
+        Me.CtxFinance.Size = New System.Drawing.Size(208, 158)
         '
         'GeneralLedgerAccountToolStripMenuItem
         '
@@ -477,6 +478,12 @@ Partial Class _006_03_Main_Form_Version2
         Me.BalancedSheetToolStripMenuItem.Name = "BalancedSheetToolStripMenuItem"
         Me.BalancedSheetToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.BalancedSheetToolStripMenuItem.Text = "Balanced Sheet"
+        '
+        'PettyCashUsageToolStripMenuItem
+        '
+        Me.PettyCashUsageToolStripMenuItem.Name = "PettyCashUsageToolStripMenuItem"
+        Me.PettyCashUsageToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
+        Me.PettyCashUsageToolStripMenuItem.Text = "Petty Cash Usage"
         '
         '_006_03_Main_Form_Version2
         '
@@ -555,4 +562,5 @@ Partial Class _006_03_Main_Form_Version2
     Friend WithEvents ProfitAndLossToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BalancedSheetToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ServiceAccountToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents PettyCashUsageToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

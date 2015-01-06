@@ -25,7 +25,7 @@
         Next i
     End Sub
     Private Sub loadSourceTable()
-        reader = ExecQueryReader("SELECT SOUID,SOIDC, A.GLNUM, GLDES FROM SCASH A, GLACCOUNTMS B WHERE A.GLNUM = B.GLNUM")
+        reader = ExecQueryReader("SELECT souid,soudc, A.glnum, gldes FROM scash A, glaccountms B WHERE A.glnum = B.glnum")
         SourceTable.Rows.Clear()
         While reader.Read()
             SourceTable.Rows.Add(reader(0).ToString, reader(1).ToString, reader(2), reader(3))
@@ -33,7 +33,7 @@
 
     End Sub
     Private Sub loadSourceTable1()
-        reader = ExecQueryReader("SELECT SOUID,SOIDC, A.GLNUM, GLDES FROM SCASH A, GLACCOUNTMS B WHERE A.GLNUM = B.GLNUM")
+        reader = ExecQueryReader("SELECT souid,soudc, A.glnum, gldes FROM scash A, glaccountms B WHERE A.glnum = B.glnum")
         SourceTable.Rows.Clear()
         While reader.Read()
             Account.Text = reader(2).ToString
@@ -49,7 +49,7 @@
         Next i
     End Sub
     Private Sub loadUsageTable()
-        reader = ExecQueryReader("SELECT BTRID, BTRDC, A.GLNUM, GLDES,CTYPE FROM BTRGL A, GLACCOUNTMS B WHERE A.GLNUM = B.GLNUM")
+        reader = ExecQueryReader("SELECT BTRID, BTRDC, A.glnum, gldes,CTYPE FROM BTRGL A, glaccountms B WHERE A.glnum = B.glnum")
         usageTable.Rows.Clear()
         While reader.Read()
             usageTable.Rows.Add(reader(0).ToString, reader(1).ToString, reader(2), reader(3), reader(4))

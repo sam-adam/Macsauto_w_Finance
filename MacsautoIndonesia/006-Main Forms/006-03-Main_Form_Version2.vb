@@ -178,6 +178,10 @@
         LoadForm(Of _001_12_MySQLDumper)()
     End Sub
 
+    Private Sub PettyCashUsageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PettyCashUsageToolStripMenuItem.Click
+        LoadForm(Of _001_15_Petty_Cash_Config)()
+    End Sub
+
     Private Sub LoadForm(Of T As Form)()
         Dim formType As Type = GetType(T)
         Dim form As Form
@@ -268,6 +272,4 @@
             End If
         End If
     End Sub
-
-
 End Class
