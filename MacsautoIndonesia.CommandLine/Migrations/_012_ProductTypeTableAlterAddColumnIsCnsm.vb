@@ -8,11 +8,11 @@ Namespace Migrations
         Private ReadOnly _tableName As String = "producttype"
 
         Public Overrides Sub Up()
-            Alter.Table(_tableName).AddColumn("glnum").AsBoolean().Indexed()
+            Alter.Table(_tableName).AddColumn("iscnsm").AsBoolean().Indexed()
         End Sub
 
         Public Overrides Sub Down()
-            Delete.Column("glnum").FromTable(_tableName)
+            Delete.Column("iscnsm").FromTable(_tableName)
         End Sub
     End Class
 End Namespace

@@ -8,7 +8,7 @@
         Return reader(0).ToString & "-" & reader(1).ToString
     End Function
     Private Function getCurrentAmt()
-        reader = ExecQueryReader("SELECT (SUM(CASE WHEN pstky = '10' THEN psamt ELSE '0' END)- SUM(CASE WHEN pstky = '20' THEN psamt ELSE '0' END))'amount' FROM JOURHD A, JOURDT B,GLACCOUNTMS C  WHERE A.docid = B.docid AND C.glnum =B.glnum  and DSTAT <> 'X' AND B.glnum = '" + pcact + "' and pstdt LIKE '" + getCurrentPeriod() + "%' GROUP BY  B.glnum")
+        reader = ExecQueryReader("SELECT (SUM(CASE WHEN pstky = '10' THEN psamt ELSE '0' END)- SUM(CASE WHEN pstky = '20' THEN psamt ELSE '0' END))'amount' FROM JOURHD A, JOURDT B,GLACCOUNTMS C  WHERE A.docid = B.docid AND C.glnum = B.glnum  and DSTAT <> 'X' AND B.glnum = '" + pcact + "' and pstdt LIKE '" + getCurrentPeriod() + "%' GROUP BY  B.glnum")
         While reader.read
             Return reader(0)
         End While
