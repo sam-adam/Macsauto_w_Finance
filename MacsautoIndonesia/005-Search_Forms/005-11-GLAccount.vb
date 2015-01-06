@@ -1,5 +1,4 @@
 ﻿Imports MySql.Data.MySqlClient
-Imports Enumerable = System.Linq.Enumerable
 
 Public Class _005_11_GLAccount
     Private ReadOnly _dataTable As DataTable
@@ -14,6 +13,8 @@ Public Class _005_11_GLAccount
 
         Dim reader As MySqlDataReader = ExecQueryReader("SELECT actid, actds FROM accounttype")
 
+        TreeView1.Nodes.Clear()
+
         While reader.Read()
             Dim newNode As TreeNode = TreeView1.Nodes.Add(reader("actid").ToString(), reader("actid").ToString() & " - " & reader("actds").ToString())
 
@@ -24,17 +25,21 @@ Public Class _005_11_GLAccount
     End Sub
 
     Private Sub TreeView1_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles TreeView1.MouseDoubleClick
-        TrySetSelectedAccount()
+        If TreeView1.SelectedNode.Level > 0 Then
+            TrySetSelectedAccount()
+        End If
     End Sub
 
     Private Sub TreeView1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TreeView1.KeyPress
-        TrySetSelectedAccount()
+        If TreeView1.SelectedNode.Level > 0 Then
+            TrySetSelectedAccount()
+        End If
     End Sub
 
     Private Sub TrySetSelectedAccount()
         Dim selectedNode As TreeNode = TreeView1.SelectedNode
 
-        If selectedNode.Level = 0 Then
+        If selectedNode.Level > 0 Then
             MsgBox("You cannot select Account Type, please select a GL Account")
         Else
             Dim selectedAccount As DataRow = _dataTable.Select("glnum = " & selectedNode.Name).First()
