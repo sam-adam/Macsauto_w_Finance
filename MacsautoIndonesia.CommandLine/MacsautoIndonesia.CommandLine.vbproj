@@ -107,6 +107,8 @@
     <Compile Include="Migrations\_010_SCashTableCreate.vb" />
     <Compile Include="Migrations\_011_HProductTableAlterAddColumnGLNum.vb" />
     <Compile Include="Migrations\_012_ProductTypeTableAlterAddColumnIsCnsm.vb" />
+    <Compile Include="Migrations\_013_JourDTTableAlterRenameColumnPstAmt.vb" />
+    <Compile Include="Migrations\_014_BtrGLTableCreate.vb" />
     <Compile Include="Migrator.vb" />
     <Compile Include="MainModule.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

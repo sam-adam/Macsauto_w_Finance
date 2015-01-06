@@ -8,20 +8,20 @@
         Return reader(0).ToString & "-" & reader(1).ToString
     End Function
     Private Function getCurrentAmt()
-        reader = ExecQueryReader("SELECT (SUM(CASE WHEN PSTKY = '10' THEN PSAMT ELSE '0' END)- SUM(CASE WHEN PSTKY = '20' THEN PSAMT ELSE '0' END))'amount' FROM JOURHD A, JOURDT B,GLACCOUNTMS C  WHERE A.DOCID = B.DOCID AND C.GLNUM =B.GLNUM  and DSTAT <> 'X' AND B.GLNUM = '" + pcact + "' and pstdt LIKE '" + getCurrentPeriod() + "%' GROUP BY  B.GLNUM")
+        reader = ExecQueryReader("SELECT (SUM(CASE WHEN pstky = '10' THEN psamt ELSE '0' END)- SUM(CASE WHEN pstky = '20' THEN psamt ELSE '0' END))'amount' FROM JOURHD A, JOURDT B,GLACCOUNTMS C  WHERE A.docid = B.docid AND C.glnum =B.glnum  and DSTAT <> 'X' AND B.glnum = '" + pcact + "' and pstdt LIKE '" + getCurrentPeriod() + "%' GROUP BY  B.glnum")
         While reader.read
             Return reader(0)
         End While
     End Function
     Private Sub autoPostPettyCash()
         Jcode = NewJournalCode()
-        ExecQueryNonReader("INSERT INTO JOURHD(DOCID,DOCDT,PSTDT,RFDOC,RMARK,DSTAT,UNAME,CGDAT,DTNUM) VALUES('" + Jcode + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + TransDate.Value.ToString("yyyy-MM-dd hh:mm:ss") + "','" + code + "','" + PettyCashRea.Text + "','','','0000-00-00','PC')")
+        ExecQueryNonReader("INSERT INTO JOURHD(docid,DOCDT,PSTDT,RFDOC,RMARK,DSTAT,UNAME,CGDAT,DTNUM) VALUES('" + Jcode + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + TransDate.Value.ToString("yyyy-MM-dd hh:mm:ss") + "','" + code + "','" + PettyCashRea.Text + "','','','0000-00-00','PC')")
         If PettyCashType.SelectedItem.ToString = "CASH IN" Then
-            ExecQueryNonReader("INSERT INTO JOURDT(DOCID,GLNUM,PSTKY,PSAMT,NOTES) VALUES('" + Jcode + "','" + pcact + "','10','" + pettyCashAmt.Text + "','')")
-            ExecQueryNonReader("INSERT INTO JOURDT(DOCID,GLNUM,PSTKY,PSAMT,NOTES) VALUES('" + Jcode + "','" + btrans + "','20','" + pettyCashAmt.Text + "','')")
+            ExecQueryNonReader("INSERT INTO JOURDT(docid,glnum,pstky,psamt,notes) VALUES('" + Jcode + "','" + pcact + "','10','" + pettyCashAmt.Text + "','')")
+            ExecQueryNonReader("INSERT INTO JOURDT(docid,glnum,pstky,psamt,notes) VALUES('" + Jcode + "','" + btrans + "','20','" + pettyCashAmt.Text + "','')")
         Else
-            ExecQueryNonReader("INSERT INTO JOURDT(DOCID,GLNUM,PSTKY,PSAMT,NOTES) VALUES('" + Jcode + "','" + btrans + "','10','" + pettyCashAmt.Text + "','')")
-            ExecQueryNonReader("INSERT INTO JOURDT(DOCID,GLNUM,PSTKY,PSAMT,NOTES) VALUES('" + Jcode + "','" + pcact + "','20','" + pettyCashAmt.Text + "','')")
+            ExecQueryNonReader("INSERT INTO JOURDT(docid,glnum,pstky,psamt,notes) VALUES('" + Jcode + "','" + btrans + "','10','" + pettyCashAmt.Text + "','')")
+            ExecQueryNonReader("INSERT INTO JOURDT(docid,glnum,pstky,psamt,notes) VALUES('" + Jcode + "','" + pcact + "','20','" + pettyCashAmt.Text + "','')")
         End If
     End Sub
 
@@ -51,7 +51,7 @@
     End Function
     Private Sub loadCboUsage()
         ComboBox1.Items.Clear()
-        reader = ExecQueryReader("SELECT BTRDC,GLNUM FROM BTRGL WHERE CTYPE LIKE '" + PettyCashType.SelectedItem.ToString + "'")
+        reader = ExecQueryReader("SELECT BTRDC,glnum FROM BTRGL WHERE CTYPE LIKE '" + PettyCashType.SelectedItem.ToString + "'")
         While reader.read
             ComboBox1.Items.Add(reader(0).ToString + "-" + reader(1).ToString)
         End While
@@ -84,7 +84,7 @@
         'PettyCashType.SelectedIndex = 1
     End Sub
     Private Sub getPettyCashAct()
-        reader = ExecQueryReader("SELECT GLNUM FROM SCASH")
+        reader = ExecQueryReader("SELECT glnum FROM SCASH")
         While reader.read
             pcact = reader(0).ToString
         End While
