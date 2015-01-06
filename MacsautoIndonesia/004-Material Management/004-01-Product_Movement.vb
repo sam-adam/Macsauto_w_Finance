@@ -22,24 +22,24 @@
             '(Cr)Inventory
             '==============================================================
             Dim sumtotal, Subtotal, cogs As Double
-            ExecQueryNonReader("INSERT INTO JOURHD VALUES('" + Code + "',NOW(),'" + MoveDate.Value.ToString("yyyy-MM-dd") + "','" + MoveID.Text + "','" + MoveRea.Text + "','','','0000-00-00 00:00:00','GI','')")
+            ExecQueryNonReader("INSERT INTO jourhd VALUES('" + Code + "',NOW(),'" + MoveDate.Value.ToString("yyyy-MM-dd") + "','" + MoveID.Text + "','" + MoveRea.Text + "','','','0000-00-00 00:00:00','GI','')")
             Dim i As Integer
             sumtotal = 0
             cogs = 0
             For i = 0 To ProdMoveGrid.Rows.Count - 2
                 If ProdMoveGrid.Rows(i).Cells(9).Value = "False" Then
-                    'MsgBox(getGLAccount("SELECT ppamt FROM HPRODUCT WHERE idpdt LIKE '" + ProdMoveGrid.Rows(i).Cells(2).Value + "'"))
+                    'MsgBox(getGLAccount("SELECT ppamt FROM hproduct WHERE idpdt LIKE '" + ProdMoveGrid.Rows(i).Cells(2).Value + "'"))
                     Subtotal = 0
-                    Subtotal = (getGLAccount("SELECT ppamt FROM HPRODUCT WHERE idpdt LIKE '" + ProdMoveGrid.Rows(i).Cells(0).Value + "'") * ProdMoveGrid.Rows(i).Cells(2).Value)
-                    ExecQueryNonReader("INSERT INTO JOURDT VALUES('" + Code + "','" + ProdMoveGrid.Rows(i).Cells(8).Value.ToString + "','20','" + Subtotal.ToString + "','" + ProdMoveGrid.Rows(i).Cells(1).Value.ToString + "')")
+                    Subtotal = (getGLAccount("SELECT ppamt FROM hproduct WHERE idpdt LIKE '" + ProdMoveGrid.Rows(i).Cells(0).Value + "'") * ProdMoveGrid.Rows(i).Cells(2).Value)
+                    ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + ProdMoveGrid.Rows(i).Cells(8).Value.ToString + "','20','" + Subtotal.ToString + "','" + ProdMoveGrid.Rows(i).Cells(1).Value.ToString + "')")
                     sumtotal = sumtotal + (ProdMoveGrid.Rows(i).Cells(2).Value * ProdMoveGrid.Rows(i).Cells(3).Value)
                     cogs = cogs + Subtotal
                 End If
             Next i
 
-            ExecQueryNonReader("INSERT INTO JOURDT VALUES('" + Code + "','" + glaccount + "','10','" + sumtotal.ToString + "','')")
-            ExecQueryNonReader("INSERT INTO JOURDT VALUES('" + Code + "','" + salesAct + "','20','" + sumtotal.ToString + "','')")
-            ExecQueryNonReader("INSERT INTO JOURDT VALUES('" + Code + "','" + COGSAct + "','10','" + cogs.ToString + "','')")
+            ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + glaccount + "','10','" + sumtotal.ToString + "','')")
+            ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + salesAct + "','20','" + sumtotal.ToString + "','')")
+            ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + COGSAct + "','10','" + cogs.ToString + "','')")
         Else
             'Initial stock entry  & Goods Receipt
             '==============================================================
@@ -47,12 +47,12 @@
             'EXPENSE (Expense account yang nempel ke material)
             '               CASH IN BANK 
             '==============================================================
-            ExecQueryNonReader("INSERT INTO JOURHD VALUES('" + Code + "',NOW(),'" + MoveDate.Value.ToString("yyyy-MM-dd") + "','" + MoveID.Text + "','" + MoveRea.Text + "','','','0000-00-00 00:00:00','GR','')")
+            ExecQueryNonReader("INSERT INTO jourhd VALUES('" + Code + "',NOW(),'" + MoveDate.Value.ToString("yyyy-MM-dd") + "','" + MoveID.Text + "','" + MoveRea.Text + "','','','0000-00-00 00:00:00','GR','')")
             Dim i As Integer
             For i = 0 To ProdMoveGrid.Rows.Count - 2
-                ExecQueryNonReader("INSERT INTO JOURDT VALUES('" + Code + "','" + ProdMoveGrid.Rows(i).Cells(8).Value.ToString + "','10','" + (ProdMoveGrid.Rows(i).Cells(2).Value * ProdMoveGrid.Rows(i).Cells(3).Value).ToString + "','" + ProdMoveGrid.Rows(i).Cells(1).Value.ToString + "')")
+                ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + ProdMoveGrid.Rows(i).Cells(8).Value.ToString + "','10','" + (ProdMoveGrid.Rows(i).Cells(2).Value * ProdMoveGrid.Rows(i).Cells(3).Value).ToString + "','" + ProdMoveGrid.Rows(i).Cells(1).Value.ToString + "')")
             Next i
-            ExecQueryNonReader("INSERT INTO JOURDT VALUES('" + Code + "','" + glaccount + "','20','" + MoveTotalPrice.Text + "','')")
+            ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + glaccount + "','20','" + MoveTotalPrice.Text + "','')")
         End If
     End Sub
     Private Sub UpdateAveragePrice()
@@ -60,7 +60,7 @@
         Dim newMAP As String
         For i = 0 To ProdMoveGrid.Rows.Count - 1
             '            reader = ExecQueryReader("select round(sum(mvqty*mpric)/sum(mvqty)) from hpmovement a, dpmovement b where a.pmvid = b.pmvid and  idpdt like '" + ProdMoveGrid.Rows(i).Cells(0).Value.ToString + "'")
-            reader = ExecQueryReader("select  ROUND((SUM(CASE WHEN PSTKY = '10' THEN b.PSAMT ELSE '0' END)- SUM(CASE WHEN PSTKY = '20' THEN b.PSAMT ELSE '0' END))/pdqty) as 'amount' from hproduct a, jourdt b where a.glnum = b.glnum and idpdt = '" + ProdMoveGrid.Rows(i).Cells(0).Value.ToString + "' group by idpdt")
+            reader = ExecQueryReader("select  ROUND((SUM(CASE WHEN pstky = '10' THEN b.psamt ELSE '0' END)- SUM(CASE WHEN pstky = '20' THEN b.psamt ELSE '0' END))/pdqty) as 'amount' from hproduct a, jourdt b where a.glnum = b.glnum and idpdt = '" + ProdMoveGrid.Rows(i).Cells(0).Value.ToString + "' group by idpdt")
             reader.read()
             newMAP = reader(0).ToString
             ExecQueryNonReader("UPDATE hproduct SET ppamt = '" + newMAP + "' WHERE idpdt = '" + ProdMoveGrid.Rows(i).Cells(0).Value + "'")
@@ -94,8 +94,8 @@
     Public Function CreateNewCode()
         Dim lastCode As Integer
         Dim newcode, prefix As String
-        prefix = "M" & getText("SELECT * FROM COMPANY", 0)
-        reader = ExecQueryReader("SELECT * FROM HPMOVEMENT ORDER BY PMVID DESC")
+        prefix = "M" & getText("SELECT * FROM company", 0)
+        reader = ExecQueryReader("SELECT * FROM hpmovement ORDER BY PMVID DESC")
         reader.read()
         If reader.HasRows Then
             If Date.Today.Year.ToString.Substring(2, 2) = reader(0).ToString().Substring(5, 2) Then
@@ -115,9 +115,9 @@
         MoveType.SelectedIndex = 0
         MoveID.Text = CreateNewCode()
         _005_03_Product.indexType = 1
-        glaccount = getGLAccount("SELECT GLNUM FROM MTRAC WHERE MTRID ='1'")
-        salesAct = getGLAccount("SELECT GLNUM FROM MTRAC WHERE MTRID ='2'")
-        COGSAct = getGLAccount("SELECT GLNUM FROM MTRAC WHERE MTRID ='3'")
+        glaccount = getGLAccount("SELECT glnum FROM mtrac WHERE mtrid ='1'")
+        salesAct = getGLAccount("SELECT glnum FROM mtrac WHERE mtrid ='2'")
+        COGSAct = getGLAccount("SELECT glnum FROM mtrac WHERE mtrid ='3'")
 
 
     End Sub
@@ -142,7 +142,7 @@
         TotalProductQTY.Text = "0"
     End Sub
     Private Function checkActPeriod()
-        reader = ExecQueryReader("SELECT ACMON,ACYER FROM PRACT WHERE ACTIV = '1'")
+        reader = ExecQueryReader("SELECT acmon,acyer FROM PRACT WHERE activ = '1'")
         reader.read()
         Return reader(1).ToString & "-" & reader(0).ToString
     End Function
@@ -158,11 +158,11 @@
             MsgBox("Please enter the product data")
         Else
             If (MoveDate.Value.Year.ToString & "-" & MoveDate.Value.Month.ToString("00")) <> checkActPeriod() Then
-                MsgBox("Accounting Period '" & MoveDate.Value.Year.ToString & "-" & MoveDate.Value.Month.ToString("00") & "' is not activated (Current Active Accounting Period : '" + checkActPeriod() + "')")
+                MsgBox("Accounting Period '" & MoveDate.Value.Year.ToString & "-" & MoveDate.Value.Month.ToString("00") & "' is not activated (Current active Accounting Period : '" + checkActPeriod() + "')")
             Else
 
                 If MsgBox(note & "?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
-                    ExecQueryNonReader("INSERT INTO HPMOVEMENT VALUES('" + MoveID.Text + "','" + MoveType.SelectedItem.ToString + "','" + (MoveDate.Value.ToString("yyyy-MM-dd") & " " & DateTime.Now.ToString("HH:mm:ss")) + "','" + MoveRef.Text + "','" + MoveRea.Text + "','" + Date.Today.ToString("yyyy-MM-dd") + "')")
+                    ExecQueryNonReader("INSERT INTO hpmovement VALUES('" + MoveID.Text + "','" + MoveType.SelectedItem.ToString + "','" + (MoveDate.Value.ToString("yyyy-MM-dd") & " " & DateTime.Now.ToString("HH:mm:ss")) + "','" + MoveRef.Text + "','" + MoveRea.Text + "','" + Date.Today.ToString("yyyy-MM-dd") + "')")
 
                     For i = 0 To ProdMoveGrid.Rows.Count - 2
                         Dim previousStock As Integer = 0
@@ -175,16 +175,16 @@
                         End If
 
                         If ProdMoveGrid.Rows(i).Cells(0).Value.ToString <> "" Then
-                            ExecQueryNonReader("INSERT INTO DPMOVEMENT VALUES('" + MoveID.Text + "','" + ProdMoveGrid.Rows(i).Cells(0).Value.ToString + "','" + ProdMoveGrid.Rows(i).Cells(1).Value.ToString + "','" + ProdMoveGrid.Rows(i).Cells(2).Value.ToString + "','" + ProdMoveGrid.Rows(i).Cells(3).Value.ToString + "','" + ProdMoveGrid.Rows(i).Cells(4).Value.ToString + "','" + ProdMoveGrid.Rows(i).Cells(5).Value.ToString + "', " & previousStock & ")")
+                            ExecQueryNonReader("INSERT INTO dpmovement VALUES('" + MoveID.Text + "','" + ProdMoveGrid.Rows(i).Cells(0).Value.ToString + "','" + ProdMoveGrid.Rows(i).Cells(1).Value.ToString + "','" + ProdMoveGrid.Rows(i).Cells(2).Value.ToString + "','" + ProdMoveGrid.Rows(i).Cells(3).Value.ToString + "','" + ProdMoveGrid.Rows(i).Cells(4).Value.ToString + "','" + ProdMoveGrid.Rows(i).Cells(5).Value.ToString + "', " & previousStock & ")")
 
                             If flag = 1 Then
-                                ExecQueryNonReader("update Hproduct set pdqty = pdqty -" + ProdMoveGrid.Rows(i).Cells(2).Value.ToString + " where idpdt = '" + ProdMoveGrid.Rows(i).Cells(0).Value.ToString + "'")
+                                ExecQueryNonReader("update hproduct set pdqty = pdqty -" + ProdMoveGrid.Rows(i).Cells(2).Value.ToString + " where idpdt = '" + ProdMoveGrid.Rows(i).Cells(0).Value.ToString + "'")
                                 ExecQueryNonReader("update dproduct set slqty = slqty -" + ProdMoveGrid.Rows(i).Cells(2).Value.ToString + " where idpdt = '" + ProdMoveGrid.Rows(i).Cells(0).Value.ToString + "' AND idslc like '" + ProdMoveGrid.Rows(i).Cells(5).Value.ToString + "'")
                             ElseIf flag = 2 Then
-                                ExecQueryNonReader("update Hproduct set pdqty = pdqty +" + ProdMoveGrid.Rows(i).Cells(2).Value.ToString + " where idpdt = '" + ProdMoveGrid.Rows(i).Cells(0).Value.ToString + "'")
+                                ExecQueryNonReader("update hproduct set pdqty = pdqty +" + ProdMoveGrid.Rows(i).Cells(2).Value.ToString + " where idpdt = '" + ProdMoveGrid.Rows(i).Cells(0).Value.ToString + "'")
                                 ExecQueryNonReader("update dproduct set slqty = slqty +" + ProdMoveGrid.Rows(i).Cells(2).Value.ToString + " where idpdt = '" + ProdMoveGrid.Rows(i).Cells(0).Value.ToString + "' AND idslc like '" + ProdMoveGrid.Rows(i).Cells(5).Value.ToString + "'")
                             Else
-                                ExecQueryNonReader("update Hproduct set pdqty = pdqty +" + ProdMoveGrid.Rows(i).Cells(2).Value.ToString + " where idpdt = '" + ProdMoveGrid.Rows(i).Cells(0).Value.ToString + "'")
+                                ExecQueryNonReader("update hproduct set pdqty = pdqty +" + ProdMoveGrid.Rows(i).Cells(2).Value.ToString + " where idpdt = '" + ProdMoveGrid.Rows(i).Cells(0).Value.ToString + "'")
                                 ExecQueryNonReader("update dproduct set slqty = slqty +" + ProdMoveGrid.Rows(i).Cells(2).Value.ToString + " where idpdt = '" + ProdMoveGrid.Rows(i).Cells(0).Value.ToString + "' AND idslc like '" + ProdMoveGrid.Rows(i).Cells(5).Value.ToString + "'")
                             End If
                         End If
@@ -212,7 +212,7 @@
             If ProdMoveGrid.CurrentCell.ColumnIndex <> 5 Then
                 _005_03_Product.ShowDialog()
             Else
-                loadTable("SELECT a.idslc, slocd, slqty FROM DPRODUCT a, sloc b  WHERE a.idslc = b.idslc and IDPDT LIKE '" + ProdMoveGrid.CurrentRow.Cells(0).Value.ToString + "'", _005_04_Storage_Location__Movement_.SearchSloc)
+                loadTable("SELECT a.idslc, slocd, slqty FROM DPRODUCT a, sloc b  WHERE a.idslc = b.idslc and idpdt LIKE '" + ProdMoveGrid.CurrentRow.Cells(0).Value.ToString + "'", _005_04_Storage_Location__Movement_.SearchSloc)
                 _005_04_Storage_Location__Movement_.ShowDialog()
 
             End If
@@ -242,8 +242,8 @@
             MoveTotalPrice.Text = countTotal()
             TotalProductQTY.Text = countTotalqty()
         ElseIf e.ColumnIndex = 5 Then
-            ProdMoveGrid.CurrentRow.Cells(6).Value = getText("SELECT a.idslc, slocd, slqty FROM DPRODUCT a, sloc b  WHERE a.idslc = b.idslc and IDPDT LIKE '" + ProdMoveGrid.CurrentRow.Cells(0).Value.ToString + "'", 1)
-            ProdMoveGrid.CurrentRow.Cells(7).Value = getText("SELECT a.idslc, slocd, slqty FROM DPRODUCT a, sloc b  WHERE a.idslc = b.idslc and IDPDT LIKE '" + ProdMoveGrid.CurrentRow.Cells(0).Value.ToString + "'", 2)
+            ProdMoveGrid.CurrentRow.Cells(6).Value = getText("SELECT a.idslc, slocd, slqty FROM DPRODUCT a, sloc b  WHERE a.idslc = b.idslc and idpdt LIKE '" + ProdMoveGrid.CurrentRow.Cells(0).Value.ToString + "'", 1)
+            ProdMoveGrid.CurrentRow.Cells(7).Value = getText("SELECT a.idslc, slocd, slqty FROM DPRODUCT a, sloc b  WHERE a.idslc = b.idslc and idpdt LIKE '" + ProdMoveGrid.CurrentRow.Cells(0).Value.ToString + "'", 2)
 
         End If
     End Sub
