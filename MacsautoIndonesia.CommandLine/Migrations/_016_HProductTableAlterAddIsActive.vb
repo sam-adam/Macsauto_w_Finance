@@ -8,7 +8,7 @@ Namespace Migrations
         Private ReadOnly _tableName As String = "hproduct"
 
         Public Overrides Sub Up()
-            Alter.Table(_tableName).AddColumn("is_active").AsBoolean().NotNullable().WithDefaultValue(1)
+            Alter.Table(_tableName).AddColumn("is_active").AsBoolean().NotNullable().WithDefaultValue(True)
         End Sub
 
         Public Overrides Sub Down()
