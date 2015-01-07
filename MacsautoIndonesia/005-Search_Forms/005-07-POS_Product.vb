@@ -1,8 +1,7 @@
 ﻿Public Class _005_07_POS_Product
 
     Private Sub _005_07_POS_Product_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'loadTable("select A.idpdt as 'PRODUCT #',pdtds AS 'PRODUCT DESCRIPTION',b.slqty AS 'QTY',uodsc AS 'UNIT',psamt as 'PRICE' from HProduct a, DProduct b, uom c where a.idpdt = b.idpdt AND a.iduom = c.iduom AND defsl = 'True'", SProductGrid)
-        loadTable("SELECT B.idpdt as 'PRODUCT#', pdtds AS 'DESCRIPTION', slqty AS 'QUANTITY', uodsc AS 'UNIT', psamt AS 'PRICE' ,pmdcp AS 'PROMOTION',pdamt AS 'Disc. Amount', pdpct as 'Disc. %' FROM HProduct A join DProduct B ON A.idpdt = B.idpdt  join UOM C ON A.iduom = C.iduom and B.defsl = 'True' join ProductType F ON F.idptp = A.idptp and F.ismrch = '0' left join promoAssignment as D on A.idpdt = D.iditm and D.atype = 'P' and D.begda <= curdate() and D.endda >= curdate() and D.astat = 'True'left join promotion as E on D.idpmt = E.idpmt order by a.idpdt asc", SProductGrid)
+        loadTable("SELECT B.idpdt as 'PRODUCT#', pdtds AS 'DESCRIPTION', slqty AS 'QUANTITY', uodsc AS 'UNIT', psamt AS 'PRICE' ,pmdcp AS 'PROMOTION',pdamt AS 'Disc. Amount', pdpct as 'Disc. %' FROM HProduct A join DProduct B ON A.idpdt = B.idpdt  join UOM C ON A.iduom = C.iduom and B.defsl = 'True' join ProductType F ON F.idptp = A.idptp and F.ismrch = '0' left join promoAssignment as D on A.idpdt = D.iditm and D.atype = 'P' and D.begda <= curdate() and D.endda >= curdate() and D.astat = 'True'left join promotion as E on D.idpmt = E.idpmt WHERE A.is_active = 1 order by a.idpdt asc", SProductGrid)
         Me.SProductGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
 
         Marking(SProductGrid)
