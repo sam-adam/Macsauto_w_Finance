@@ -95,6 +95,8 @@
   <ItemGroup>
     <Compile Include="CommandLine.vb" />
     <Compile Include="GLAccountImporter.vb" />
+    <Compile Include="Migrations\_017_HServiceTableAlterAddIsActive.vb" />
+    <Compile Include="Migrations\_016_HProductTableAlterAddIsActive.vb" />
     <Compile Include="Migrations\_001_AccountTypeTableCreate.vb" />
     <Compile Include="Migrations\_002_ActDocTypeTableCreate.vb" />
     <Compile Include="Migrations\_003_GLAccountMSTableCreate.vb" />
