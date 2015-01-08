@@ -1,0 +1,3 @@
+﻿Public Class _018_PettyCashTableAlterColumnCRTDTNullable
+
+End Class
