@@ -15,7 +15,7 @@
     End Function
     Private Sub autoPostPettyCash()
         Jcode = NewJournalCode()
-        ExecQueryNonReader("INSERT INTO JOURHD(docid,docdt,pstdt,rfdoc,rmark,dstat,uname,cgdat,dtnum) VALUES('" + Jcode + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + TransDate.Value.ToString("yyyy-MM-dd hh:mm:ss") + "','" + code + "','" + PettyCashRea.Text + "','','','0000-00-00','PC')")
+        ExecQueryNonReader("INSERT INTO JOURHD(docid,docdt,pstdt,rfdoc,rmark,dstat,uname,cgdat,dtnum) VALUES('" + Jcode + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + TransDate.Value.ToString("yyyy-MM-dd hh:mm:ss") + "','" + code + "','" + PettyCashRea.Text + "','','" + LoggedInEmployee.Name + "','0000-00-00','PC')")
         If PettyCashType.SelectedItem.ToString = "CASH IN" Then
             ExecQueryNonReader("INSERT INTO JOURDT(docid,glnum,pstky,psamt,notes) VALUES('" + Jcode + "','" + pcact + "','10','" + pettyCashAmt.Text + "','')")
             ExecQueryNonReader("INSERT INTO JOURDT(docid,glnum,pstky,psamt,notes) VALUES('" + Jcode + "','" + btrans + "','20','" + pettyCashAmt.Text + "','')")
@@ -67,7 +67,7 @@
         pettycashGrid.Rows.Clear()
         reader = ExecQueryReader("SELECT * FROM pettycash WHERE date BETWEEN '" + DateTimePicker1.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND '" + DateTimePicker2.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' ORDER BY id DESC")
         While reader.read
-            pettycashGrid.Rows.Add(reader(0).ToString, reader(1).ToString, reader(2), reader(3).ToString, reader(4).ToString, reader(5))
+            pettycashGrid.Rows.Add(reader(0).ToString, reader(1).ToString, reader(2), reader(3).ToString, reader(4).ToString, reader(5), reader(6), reader(9), reader(10))
         End While
         Marking(pettycashGrid)
 
@@ -77,7 +77,7 @@
         pettycashGrid.Rows.Clear()
         reader = ExecQueryReader("SELECT * FROM pettycash WHERE date BETWEEN '" + DateTimePicker1.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' and '" + DateTimePicker2.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND dflag = '" + flag + "' ORDER BY id DESC")
         While reader.read
-            pettycashGrid.Rows.Add(reader(0).ToString, reader(1).ToString, reader(2), reader(3).ToString, reader(4).ToString, reader(5))
+            pettycashGrid.Rows.Add(reader(0).ToString, reader(1).ToString, reader(2), reader(3).ToString, reader(4).ToString, reader(5), reader(6), reader(9), reader(10))
         End While
         Marking(pettycashGrid)
 
@@ -102,28 +102,37 @@
         Return reader(1).ToString & "-" & reader(0).ToString
     End Function
     Private Sub save_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles save.Click
-        If pettyCashAmt.Text = "0" Then
-            MsgBox("Please enter petty cash amount")
-        ElseIf (TransDate.Value.Year.ToString & "-" & TransDate.Value.Month.ToString("00")) <> checkActPeriod() Then
-            MsgBox("Accounting Period '" & TransDate.Value.Year.ToString & "-" & TransDate.Value.Month.ToString("00") & "'is not activated (Current Active Accounting Period : '" + checkActPeriod() + "')")
-        ElseIf PettyCashRef.Text = "" Then
-            MsgBox("Please enter petty cash reference")
-        ElseIf PettyCashRea.Text = "" Then
-            MsgBox("Please enter petty cash remark")
-        Else
-            If MsgBox("Add new petty cash?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
-                code = CreateNewCode()
+        Try
+            If pettyCashAmt.Text = "0" Then
+                MsgBox("Please enter petty cash amount")
+            ElseIf (TransDate.Value.Year.ToString & "-" & TransDate.Value.Month.ToString("00")) <> checkActPeriod() Then
+                MsgBox("Accounting Period '" & TransDate.Value.Year.ToString & "-" & TransDate.Value.Month.ToString("00") & "'is not activated (Current Active Accounting Period : '" + checkActPeriod() + "')")
+            ElseIf PettyCashRef.Text = "" Then
+                MsgBox("Please enter petty cash reference")
+            ElseIf PettyCashRea.Text = "" Then
+                MsgBox("Please enter petty cash remark")
+            ElseIf ComboBox1.Text = "" Then
+                MsgBox("Please select petty cash business transaction")
+            Else
+                If MsgBox("Add new petty cash?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
+                    code = CreateNewCode()
 
-                ExecQueryNonReader("INSERT INTO pettycash VALUES('" + code + "','" + PettyCashType.SelectedItem.ToString + "','" + pettyCashAmt.Text + "','" + PettyCashRef.Text + "','" + PettyCashRea.Text + "','" + TransDate.Value.ToString("yyyy-MM-dd hh:mm:ss") + "','" + word(0) + "',' ','')")
-                autoPostPettyCash()
+                    ExecQueryNonReader("INSERT INTO pettycash VALUES('" + code + "','" + PettyCashType.SelectedItem.ToString + "','" + pettyCashAmt.Text + "','" + PettyCashRef.Text + "','" + PettyCashRea.Text + "','" + TransDate.Value.ToString("yyyy-MM-dd hh:mm:ss") + "','" + word(0) + "',' ','',NOW(),'" + LoggedInEmployee.Name + "')")
+                    autoPostPettyCash()
 
-                MsgBox("New petty cash added")
 
-                Print(code, GetPrintHeader())
+                    MsgBox("New petty cash added")
 
-                Close()
+                    Print(code, GetPrintHeader())
+
+                    Close()
+                End If
             End If
-        End If
+        Catch ex As Exception
+            MsgBox("Petty Cash transaction cannot be created,Accounting Period need to be configured")
+            Me.Close()
+        End Try
+        
     End Sub
 
 

@@ -24,14 +24,14 @@ Partial Class _001_15_Petty_Cash_Config
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_001_15_Petty_Cash_Config))
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.Description = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Account = New System.Windows.Forms.TextBox()
@@ -45,7 +45,6 @@ Partial Class _001_15_Petty_Cash_Config
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.usageTable = New System.Windows.Forms.DataGridView()
         Me.BtnSave = New System.Windows.Forms.Button()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -71,6 +70,7 @@ Partial Class _001_15_Petty_Cash_Config
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -80,10 +80,10 @@ Partial Class _001_15_Petty_Cash_Config
         'TabPage1
         '
         Me.TabPage1.Controls.Add(Me.SplitContainer2)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 25)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(639, 310)
+        Me.TabPage1.Size = New System.Drawing.Size(639, 307)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Source Account"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -108,9 +108,20 @@ Partial Class _001_15_Petty_Cash_Config
         '
         Me.SplitContainer2.Panel2.BackColor = System.Drawing.SystemColors.Info
         Me.SplitContainer2.Panel2.Controls.Add(Me.sourceBtn)
-        Me.SplitContainer2.Size = New System.Drawing.Size(633, 304)
-        Me.SplitContainer2.SplitterDistance = 256
+        Me.SplitContainer2.Size = New System.Drawing.Size(633, 301)
+        Me.SplitContainer2.SplitterDistance = 253
         Me.SplitContainer2.TabIndex = 4
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.Red
+        Me.Label8.Location = New System.Drawing.Point(18, 58)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(280, 17)
+        Me.Label8.TabIndex = 17
+        Me.Label8.Text = "Press ""F4"" on the field to search GL Account"
         '
         'Description
         '
@@ -143,14 +154,6 @@ Partial Class _001_15_Petty_Cash_Config
         'SourceTable
         '
         Me.SourceTable.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.SourceTable.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.SourceTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.SourceTable.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.Column3, Me.Column4})
         Me.SourceTable.Location = New System.Drawing.Point(458, 199)
@@ -161,8 +164,8 @@ Partial Class _001_15_Petty_Cash_Config
         '
         'DataGridViewTextBoxColumn1
         '
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewTextBoxColumn1.FillWeight = 120.0!
         Me.DataGridViewTextBoxColumn1.HeaderText = "Source #"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
@@ -183,8 +186,8 @@ Partial Class _001_15_Petty_Cash_Config
         '
         'Column4
         '
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column4.HeaderText = "GL Description"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
@@ -206,10 +209,10 @@ Partial Class _001_15_Petty_Cash_Config
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.SplitContainer1)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 25)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(639, 310)
+        Me.TabPage2.Size = New System.Drawing.Size(639, 307)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Usage"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -229,27 +232,27 @@ Partial Class _001_15_Petty_Cash_Config
         '
         Me.SplitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Info
         Me.SplitContainer1.Panel2.Controls.Add(Me.BtnSave)
-        Me.SplitContainer1.Size = New System.Drawing.Size(633, 304)
-        Me.SplitContainer1.SplitterDistance = 256
+        Me.SplitContainer1.Size = New System.Drawing.Size(633, 301)
+        Me.SplitContainer1.SplitterDistance = 253
         Me.SplitContainer1.TabIndex = 4
         '
         'usageTable
         '
         Me.usageTable.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.usageTable.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.usageTable.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.usageTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.usageTable.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column5, Me.Column6, Me.Column7})
         Me.usageTable.Dock = System.Windows.Forms.DockStyle.Fill
         Me.usageTable.Location = New System.Drawing.Point(0, 0)
         Me.usageTable.Name = "usageTable"
-        Me.usageTable.Size = New System.Drawing.Size(633, 256)
+        Me.usageTable.Size = New System.Drawing.Size(633, 253)
         Me.usageTable.TabIndex = 0
         '
         'BtnSave
@@ -265,45 +268,34 @@ Partial Class _001_15_Petty_Cash_Config
         Me.BtnSave.Text = "SAVE"
         Me.BtnSave.UseVisualStyleBackColor = True
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.Red
-        Me.Label8.Location = New System.Drawing.Point(18, 58)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(280, 17)
-        Me.Label8.TabIndex = 17
-        Me.Label8.Text = "Press ""F4"" on the field to search GL Account"
-        '
         'Column1
         '
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveBorder
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveBorder
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column1.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column1.FillWeight = 120.0!
         Me.Column1.HeaderText = "Usage #"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
-        Me.Column1.Width = 80
         '
         'Column2
         '
         Me.Column2.HeaderText = "Usage Description"
         Me.Column2.MaxInputLength = 200
         Me.Column2.Name = "Column2"
-        Me.Column2.Width = 160
+        Me.Column2.Width = 200
         '
         'Column5
         '
         Me.Column5.HeaderText = "GL Account"
         Me.Column5.MaxInputLength = 10
         Me.Column5.Name = "Column5"
+        Me.Column5.Width = 120
         '
         'Column6
         '
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle5
         Me.Column6.HeaderText = "GL Account Description"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True

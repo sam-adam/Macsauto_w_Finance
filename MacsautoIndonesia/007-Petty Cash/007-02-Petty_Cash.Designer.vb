@@ -22,8 +22,8 @@ Partial Class _007_02_Petty_Cash
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_007_02_Petty_Cash))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PettyCashType = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -33,20 +33,15 @@ Partial Class _007_02_Petty_Cash
         Me.PettyCashRea = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.pettycashGrid = New System.Windows.Forms.DataGridView()
-        Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Type = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Amount = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Reference = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Remark = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.ExportBtn = New System.Windows.Forms.Button()
+        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.ExportBtn = New System.Windows.Forms.Button()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
@@ -67,9 +62,22 @@ Partial Class _007_02_Petty_Cash
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
+        Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Type = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Amount = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Reference = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Remark = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.pettycashGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer2.Panel1.SuspendLayout()
+        Me.SplitContainer2.Panel2.SuspendLayout()
+        Me.SplitContainer2.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel8.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -81,10 +89,6 @@ Partial Class _007_02_Petty_Cash
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
-        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SplitContainer2.Panel1.SuspendLayout()
-        Me.SplitContainer2.Panel2.SuspendLayout()
-        Me.SplitContainer2.SuspendLayout()
         Me.SuspendLayout()
         '
         'PettyCashType
@@ -176,54 +180,14 @@ Partial Class _007_02_Petty_Cash
         Me.pettycashGrid.AllowUserToDeleteRows = False
         Me.pettycashGrid.AllowUserToOrderColumns = True
         Me.pettycashGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.pettycashGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Type, Me.Amount, Me.Reference, Me.Remark, Me.Column1})
+        Me.pettycashGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Type, Me.Amount, Me.Reference, Me.Remark, Me.Column5, Me.Column1, Me.Column2, Me.Column3, Me.Column4})
         Me.pettycashGrid.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pettycashGrid.Location = New System.Drawing.Point(0, 0)
         Me.pettycashGrid.Name = "pettycashGrid"
         Me.pettycashGrid.ReadOnly = True
         Me.pettycashGrid.RowHeadersVisible = False
-        Me.pettycashGrid.Size = New System.Drawing.Size(722, 406)
+        Me.pettycashGrid.Size = New System.Drawing.Size(866, 406)
         Me.pettycashGrid.TabIndex = 24
-        '
-        'Id
-        '
-        Me.Id.HeaderText = "Id"
-        Me.Id.Name = "Id"
-        Me.Id.ReadOnly = True
-        '
-        'Type
-        '
-        Me.Type.HeaderText = "Type"
-        Me.Type.Name = "Type"
-        Me.Type.ReadOnly = True
-        '
-        'Amount
-        '
-        DataGridViewCellStyle1.Format = "C2"
-        Me.Amount.DefaultCellStyle = DataGridViewCellStyle1
-        Me.Amount.HeaderText = "Amount"
-        Me.Amount.Name = "Amount"
-        Me.Amount.ReadOnly = True
-        '
-        'Reference
-        '
-        Me.Reference.HeaderText = "Reference"
-        Me.Reference.Name = "Reference"
-        Me.Reference.ReadOnly = True
-        '
-        'Remark
-        '
-        Me.Remark.HeaderText = "Remark"
-        Me.Remark.Name = "Remark"
-        Me.Remark.ReadOnly = True
-        Me.Remark.Width = 150
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Doc. Date"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Width = 150
         '
         'Panel1
         '
@@ -232,57 +196,32 @@ Partial Class _007_02_Petty_Cash
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(3, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(724, 445)
+        Me.Panel1.Size = New System.Drawing.Size(868, 445)
         Me.Panel1.TabIndex = 25
         '
-        'DateTimePicker1
+        'SplitContainer2
         '
-        Me.DateTimePicker1.CustomFormat = ""
-        Me.DateTimePicker1.Location = New System.Drawing.Point(250, 6)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(185, 22)
-        Me.DateTimePicker1.TabIndex = 31
+        Me.SplitContainer2.BackColor = System.Drawing.SystemColors.Info
+        Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer2.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer2.Name = "SplitContainer2"
+        Me.SplitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
-        'DateTimePicker2
+        'SplitContainer2.Panel1
         '
-        Me.DateTimePicker2.CustomFormat = ""
-        Me.DateTimePicker2.Location = New System.Drawing.Point(465, 6)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(186, 22)
-        Me.DateTimePicker2.TabIndex = 30
+        Me.SplitContainer2.Panel1.Controls.Add(Me.Panel2)
+        Me.SplitContainer2.Panel1.Controls.Add(Me.DateTimePicker1)
+        Me.SplitContainer2.Panel1.Controls.Add(Me.Label8)
+        Me.SplitContainer2.Panel1.Controls.Add(Me.DateTimePicker2)
+        Me.SplitContainer2.Panel1.Controls.Add(Me.ExportBtn)
+        Me.SplitContainer2.Panel1.Controls.Add(Me.Label9)
         '
-        'Label9
+        'SplitContainer2.Panel2
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(434, 6)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(25, 15)
-        Me.Label9.TabIndex = 28
-        Me.Label9.Text = "TO"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(185, 9)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(59, 15)
-        Me.Label8.TabIndex = 27
-        Me.Label8.Text = "PERIOD"
-        '
-        'ExportBtn
-        '
-        Me.ExportBtn.BackgroundImage = CType(resources.GetObject("ExportBtn.BackgroundImage"), System.Drawing.Image)
-        Me.ExportBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ExportBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ExportBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ExportBtn.Location = New System.Drawing.Point(681, 4)
-        Me.ExportBtn.Name = "ExportBtn"
-        Me.ExportBtn.Size = New System.Drawing.Size(27, 22)
-        Me.ExportBtn.TabIndex = 26
-        Me.ExportBtn.Tag = "Export to Excel"
-        Me.ExportBtn.UseVisualStyleBackColor = True
+        Me.SplitContainer2.Panel2.Controls.Add(Me.pettycashGrid)
+        Me.SplitContainer2.Size = New System.Drawing.Size(866, 443)
+        Me.SplitContainer2.SplitterDistance = 33
+        Me.SplitContainer2.TabIndex = 32
         '
         'Panel2
         '
@@ -304,6 +243,55 @@ Partial Class _007_02_Petty_Cash
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Petty Cash Transction List"
         '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.CustomFormat = ""
+        Me.DateTimePicker1.Location = New System.Drawing.Point(250, 6)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(240, 22)
+        Me.DateTimePicker1.TabIndex = 31
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(185, 9)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(59, 15)
+        Me.Label8.TabIndex = 27
+        Me.Label8.Text = "PERIOD"
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.CustomFormat = ""
+        Me.DateTimePicker2.Location = New System.Drawing.Point(558, 6)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(239, 22)
+        Me.DateTimePicker2.TabIndex = 30
+        '
+        'ExportBtn
+        '
+        Me.ExportBtn.BackgroundImage = CType(resources.GetObject("ExportBtn.BackgroundImage"), System.Drawing.Image)
+        Me.ExportBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ExportBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ExportBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.ExportBtn.Location = New System.Drawing.Point(814, 5)
+        Me.ExportBtn.Name = "ExportBtn"
+        Me.ExportBtn.Size = New System.Drawing.Size(27, 22)
+        Me.ExportBtn.TabIndex = 26
+        Me.ExportBtn.Tag = "Export to Excel"
+        Me.ExportBtn.UseVisualStyleBackColor = True
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(516, 6)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(25, 15)
+        Me.Label9.TabIndex = 28
+        Me.Label9.Text = "TO"
+        '
         'Panel8
         '
         Me.Panel8.BackColor = System.Drawing.Color.NavajoWhite
@@ -315,7 +303,7 @@ Partial Class _007_02_Petty_Cash
         Me.Panel8.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel8.Location = New System.Drawing.Point(0, 0)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(738, 37)
+        Me.Panel8.Size = New System.Drawing.Size(882, 37)
         Me.Panel8.TabIndex = 32
         '
         'RadioButton3
@@ -511,7 +499,7 @@ Partial Class _007_02_Petty_Cash
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.TabControl1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(738, 521)
+        Me.SplitContainer1.Size = New System.Drawing.Size(882, 521)
         Me.SplitContainer1.SplitterDistance = 37
         Me.SplitContainer1.TabIndex = 33
         '
@@ -524,7 +512,7 @@ Partial Class _007_02_Petty_Cash
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(738, 480)
+        Me.TabControl1.Size = New System.Drawing.Size(882, 480)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
@@ -533,7 +521,7 @@ Partial Class _007_02_Petty_Cash
         Me.TabPage1.Location = New System.Drawing.Point(4, 25)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(730, 451)
+        Me.TabPage1.Size = New System.Drawing.Size(874, 451)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Petty Cash Transaction List"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -549,36 +537,80 @@ Partial Class _007_02_Petty_Cash
         Me.TabPage2.Text = "Create New Petty Cash "
         Me.TabPage2.UseVisualStyleBackColor = True
         '
-        'SplitContainer2
+        'Id
         '
-        Me.SplitContainer2.BackColor = System.Drawing.SystemColors.Info
-        Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer2.Location = New System.Drawing.Point(0, 0)
-        Me.SplitContainer2.Name = "SplitContainer2"
-        Me.SplitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal
+        Me.Id.HeaderText = "Id"
+        Me.Id.Name = "Id"
+        Me.Id.ReadOnly = True
         '
-        'SplitContainer2.Panel1
+        'Type
         '
-        Me.SplitContainer2.Panel1.Controls.Add(Me.Panel2)
-        Me.SplitContainer2.Panel1.Controls.Add(Me.DateTimePicker1)
-        Me.SplitContainer2.Panel1.Controls.Add(Me.Label8)
-        Me.SplitContainer2.Panel1.Controls.Add(Me.DateTimePicker2)
-        Me.SplitContainer2.Panel1.Controls.Add(Me.ExportBtn)
-        Me.SplitContainer2.Panel1.Controls.Add(Me.Label9)
+        Me.Type.HeaderText = "Type"
+        Me.Type.Name = "Type"
+        Me.Type.ReadOnly = True
         '
-        'SplitContainer2.Panel2
+        'Amount
         '
-        Me.SplitContainer2.Panel2.Controls.Add(Me.pettycashGrid)
-        Me.SplitContainer2.Size = New System.Drawing.Size(722, 443)
-        Me.SplitContainer2.SplitterDistance = 33
-        Me.SplitContainer2.TabIndex = 32
+        DataGridViewCellStyle1.Format = "C2"
+        Me.Amount.DefaultCellStyle = DataGridViewCellStyle1
+        Me.Amount.HeaderText = "Amount"
+        Me.Amount.Name = "Amount"
+        Me.Amount.ReadOnly = True
+        '
+        'Reference
+        '
+        Me.Reference.HeaderText = "Reference"
+        Me.Reference.Name = "Reference"
+        Me.Reference.ReadOnly = True
+        '
+        'Remark
+        '
+        Me.Remark.HeaderText = "Remark"
+        Me.Remark.Name = "Remark"
+        Me.Remark.ReadOnly = True
+        Me.Remark.Width = 150
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Business Transaction"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 200
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Doc. Date"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Width = 150
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Creation Date"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 150
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Created By"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 150
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Cancel Reason"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Width = 300
         '
         '_007_02_Petty_Cash
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Info
-        Me.ClientSize = New System.Drawing.Size(738, 521)
+        Me.ClientSize = New System.Drawing.Size(882, 521)
         Me.Controls.Add(Me.SplitContainer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "_007_02_Petty_Cash"
@@ -587,6 +619,11 @@ Partial Class _007_02_Petty_Cash
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.pettycashGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
+        Me.SplitContainer2.Panel1.ResumeLayout(False)
+        Me.SplitContainer2.Panel1.PerformLayout()
+        Me.SplitContainer2.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer2.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel8.ResumeLayout(False)
@@ -602,11 +639,6 @@ Partial Class _007_02_Petty_Cash
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
-        Me.SplitContainer2.Panel1.ResumeLayout(False)
-        Me.SplitContainer2.Panel1.PerformLayout()
-        Me.SplitContainer2.Panel2.ResumeLayout(False)
-        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SplitContainer2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -640,12 +672,6 @@ Partial Class _007_02_Petty_Cash
     Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
     Friend WithEvents TransDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents Id As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Type As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Amount As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Reference As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Remark As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents RadioButton3 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
@@ -654,4 +680,14 @@ Partial Class _007_02_Petty_Cash
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
+    Friend WithEvents Id As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Type As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Amount As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Reference As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Remark As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
