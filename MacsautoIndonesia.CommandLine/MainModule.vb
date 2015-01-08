@@ -80,12 +80,15 @@ Module MainModule
         Console.Write("{0,-20}{1,-30}{2,-1}", "Database password", "", ": ")
 
         Dim key As ConsoleKeyInfo
-
+        Dim newPass = ""
         Do While IsNothing(key) OrElse Not key.Key = ConsoleKey.Enter
+
             key = Console.ReadKey(True)
 
             If Not (key.Key = ConsoleKey.Backspace Or key.Key = ConsoleKey.Enter) Then
-                My.Settings.DatabasePass &= key.KeyChar
+
+                newPass &= key.KeyChar
+                My.Settings.DatabasePass = newPass
                 Console.Write("*")
             Else
                 If key.Key = ConsoleKey.Backspace And My.Settings.DatabasePass.Length > 0 Then
