@@ -44,12 +44,13 @@ Partial Class _001_15_Petty_Cash_Config
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.usageTable = New System.Windows.Forms.DataGridView()
+        Me.BtnSave = New System.Windows.Forms.Button()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.BtnSave = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -69,10 +70,11 @@ Partial Class _001_15_Petty_Cash_Config
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Location = New System.Drawing.Point(1, 0)
+        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(646, 335)
+        Me.TabControl1.Size = New System.Drawing.Size(647, 336)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
@@ -81,7 +83,7 @@ Partial Class _001_15_Petty_Cash_Config
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(638, 309)
+        Me.TabPage1.Size = New System.Drawing.Size(639, 310)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Source Account"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -96,6 +98,7 @@ Partial Class _001_15_Petty_Cash_Config
         'SplitContainer2.Panel1
         '
         Me.SplitContainer2.Panel1.BackColor = System.Drawing.SystemColors.Info
+        Me.SplitContainer2.Panel1.Controls.Add(Me.Label8)
         Me.SplitContainer2.Panel1.Controls.Add(Me.Description)
         Me.SplitContainer2.Panel1.Controls.Add(Me.Label1)
         Me.SplitContainer2.Panel1.Controls.Add(Me.Account)
@@ -105,7 +108,7 @@ Partial Class _001_15_Petty_Cash_Config
         '
         Me.SplitContainer2.Panel2.BackColor = System.Drawing.SystemColors.Info
         Me.SplitContainer2.Panel2.Controls.Add(Me.sourceBtn)
-        Me.SplitContainer2.Size = New System.Drawing.Size(632, 303)
+        Me.SplitContainer2.Size = New System.Drawing.Size(633, 304)
         Me.SplitContainer2.SplitterDistance = 256
         Me.SplitContainer2.TabIndex = 4
         '
@@ -206,7 +209,7 @@ Partial Class _001_15_Petty_Cash_Config
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(638, 309)
+        Me.TabPage2.Size = New System.Drawing.Size(639, 310)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Usage"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -226,7 +229,7 @@ Partial Class _001_15_Petty_Cash_Config
         '
         Me.SplitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Info
         Me.SplitContainer1.Panel2.Controls.Add(Me.BtnSave)
-        Me.SplitContainer1.Size = New System.Drawing.Size(632, 303)
+        Me.SplitContainer1.Size = New System.Drawing.Size(633, 304)
         Me.SplitContainer1.SplitterDistance = 256
         Me.SplitContainer1.TabIndex = 4
         '
@@ -246,12 +249,37 @@ Partial Class _001_15_Petty_Cash_Config
         Me.usageTable.Dock = System.Windows.Forms.DockStyle.Fill
         Me.usageTable.Location = New System.Drawing.Point(0, 0)
         Me.usageTable.Name = "usageTable"
-        Me.usageTable.Size = New System.Drawing.Size(632, 256)
+        Me.usageTable.Size = New System.Drawing.Size(633, 256)
         Me.usageTable.TabIndex = 0
+        '
+        'BtnSave
+        '
+        Me.BtnSave.BackgroundImage = CType(resources.GetObject("BtnSave.BackgroundImage"), System.Drawing.Image)
+        Me.BtnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnSave.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.BtnSave.Location = New System.Drawing.Point(549, 4)
+        Me.BtnSave.Name = "BtnSave"
+        Me.BtnSave.Size = New System.Drawing.Size(78, 39)
+        Me.BtnSave.TabIndex = 1
+        Me.BtnSave.Text = "SAVE"
+        Me.BtnSave.UseVisualStyleBackColor = True
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.Red
+        Me.Label8.Location = New System.Drawing.Point(18, 58)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(280, 17)
+        Me.Label8.TabIndex = 17
+        Me.Label8.Text = "Press ""F4"" on the field to search GL Account"
         '
         'Column1
         '
         DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveBorder
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Column1.DefaultCellStyle = DataGridViewCellStyle5
         Me.Column1.FillWeight = 120.0!
         Me.Column1.HeaderText = "Usage #"
@@ -287,19 +315,6 @@ Partial Class _001_15_Petty_Cash_Config
         Me.Column7.Items.AddRange(New Object() {"CASH IN", "CASH OUT"})
         Me.Column7.Name = "Column7"
         '
-        'BtnSave
-        '
-        Me.BtnSave.BackgroundImage = CType(resources.GetObject("BtnSave.BackgroundImage"), System.Drawing.Image)
-        Me.BtnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnSave.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnSave.Location = New System.Drawing.Point(549, 4)
-        Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.Size = New System.Drawing.Size(78, 39)
-        Me.BtnSave.TabIndex = 1
-        Me.BtnSave.Text = "SAVE"
-        Me.BtnSave.UseVisualStyleBackColor = True
-        '
         '_001_15_Petty_Cash_Config
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -309,6 +324,7 @@ Partial Class _001_15_Petty_Cash_Config
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "_001_15_Petty_Cash_Config"
         Me.Text = "_001_15_Petty_Cash_Config"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.SplitContainer2.Panel1.ResumeLayout(False)
@@ -342,6 +358,7 @@ Partial Class _001_15_Petty_Cash_Config
     Friend WithEvents Description As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Account As System.Windows.Forms.TextBox
+    Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column5 As System.Windows.Forms.DataGridViewTextBoxColumn

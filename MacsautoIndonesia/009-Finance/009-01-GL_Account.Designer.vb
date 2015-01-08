@@ -373,6 +373,7 @@ Partial Class _009_01_GL_Account
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "_009_01_GL_Account"
         Me.Text = "GL Account Master Data"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.GLActGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

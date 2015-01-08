@@ -38,19 +38,19 @@ Partial Class _006_02_LoginForm
         '
         'UsernameTextBox
         '
-        Me.UsernameTextBox.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UsernameTextBox.Location = New System.Drawing.Point(125, 95)
+        Me.UsernameTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UsernameTextBox.Location = New System.Drawing.Point(136, 98)
         Me.UsernameTextBox.Name = "UsernameTextBox"
-        Me.UsernameTextBox.Size = New System.Drawing.Size(220, 25)
+        Me.UsernameTextBox.Size = New System.Drawing.Size(220, 24)
         Me.UsernameTextBox.TabIndex = 1
         '
         'PasswordTextBox
         '
-        Me.PasswordTextBox.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PasswordTextBox.Location = New System.Drawing.Point(125, 126)
+        Me.PasswordTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PasswordTextBox.Location = New System.Drawing.Point(136, 129)
         Me.PasswordTextBox.Name = "PasswordTextBox"
         Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.PasswordTextBox.Size = New System.Drawing.Size(220, 25)
+        Me.PasswordTextBox.Size = New System.Drawing.Size(220, 24)
         Me.PasswordTextBox.TabIndex = 3
         '
         'OK
@@ -60,7 +60,7 @@ Partial Class _006_02_LoginForm
         Me.OK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.OK.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OK.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.OK.Location = New System.Drawing.Point(236, 157)
+        Me.OK.Location = New System.Drawing.Point(172, 159)
         Me.OK.Name = "OK"
         Me.OK.Size = New System.Drawing.Size(94, 40)
         Me.OK.TabIndex = 4
@@ -74,7 +74,7 @@ Partial Class _006_02_LoginForm
         Me.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Cancel.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Cancel.Location = New System.Drawing.Point(338, 158)
+        Me.Cancel.Location = New System.Drawing.Point(272, 160)
         Me.Cancel.Name = "Cancel"
         Me.Cancel.Size = New System.Drawing.Size(94, 40)
         Me.Cancel.TabIndex = 5
@@ -84,11 +84,11 @@ Partial Class _006_02_LoginForm
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(25, 95)
+        Me.Label1.Location = New System.Drawing.Point(36, 98)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(76, 19)
+        Me.Label1.Size = New System.Drawing.Size(85, 18)
         Me.Label1.TabIndex = 6
         Me.Label1.Text = "Username"
         '
@@ -96,11 +96,11 @@ Partial Class _006_02_LoginForm
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(25, 126)
+        Me.Label2.Location = New System.Drawing.Point(36, 129)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(73, 19)
+        Me.Label2.Size = New System.Drawing.Size(83, 18)
         Me.Label2.TabIndex = 7
         Me.Label2.Text = "Password"
         '
@@ -111,7 +111,7 @@ Partial Class _006_02_LoginForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.CancelButton = Me.Cancel
-        Me.ClientSize = New System.Drawing.Size(444, 211)
+        Me.ClientSize = New System.Drawing.Size(408, 211)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Cancel)
