@@ -119,7 +119,7 @@ Partial Class _001_16_Material_Account
         Me.Font = New System.Drawing.Font("Microsoft YaHei", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "_001_16_Material_Account"
-        Me.Text = "_001_16_Material_Account"
+        Me.Text = "GL Account for Product Movement Transaction"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

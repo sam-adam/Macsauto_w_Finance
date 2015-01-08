@@ -25,8 +25,8 @@
 
     Private Sub BtnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSave.Click
 
-        If glact.SelectedIndex = -1 Then
-            MsgBox("Please select GL Account for material transaction purpose")
+        If glact.SelectedIndex = -1 Or Sales.SelectedIndex = -1 Or COGS.SelectedIndex = -1 Then
+            MsgBox("Please complete configuration for product's GL Account")
         Else
             word = glact.SelectedItem.ToString.Split("-")
             sale = Sales.SelectedItem.ToString.Split("-")
