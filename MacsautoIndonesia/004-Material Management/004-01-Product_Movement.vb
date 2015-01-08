@@ -22,7 +22,7 @@
             '(Cr)Inventory
             '==============================================================
             Dim sumtotal, Subtotal, cogs As Double
-            ExecQueryNonReader("INSERT INTO jourhd VALUES('" + Code + "',NOW(),'" + MoveDate.Value.ToString("yyyy-MM-dd") + "','" + MoveID.Text + "','" + MoveRea.Text + "','','','0000-00-00 00:00:00','GI','')")
+            ExecQueryNonReader("INSERT INTO jourhd VALUES('" + Code + "',NOW(),'" + MoveDate.Value.ToString("yyyy-MM-dd") + "','" + MoveID.Text + "','" + MoveRea.Text + "','','" + LoggedInEmployee.Name + "','0000-00-00 00:00:00','GI','')")
             Dim i As Integer
             sumtotal = 0
             cogs = 0
@@ -47,7 +47,7 @@
             'EXPENSE (Expense account yang nempel ke material)
             '               CASH IN BANK 
             '==============================================================
-            ExecQueryNonReader("INSERT INTO jourhd VALUES('" + Code + "',NOW(),'" + MoveDate.Value.ToString("yyyy-MM-dd") + "','" + MoveID.Text + "','" + MoveRea.Text + "','','','0000-00-00 00:00:00','GR','')")
+            ExecQueryNonReader("INSERT INTO jourhd VALUES('" + Code + "',NOW(),'" + MoveDate.Value.ToString("yyyy-MM-dd") + "','" + MoveID.Text + "','" + MoveRea.Text + "','','" + LoggedInEmployee.Name + "','0000-00-00 00:00:00','GR','')")
             Dim i As Integer
             For i = 0 To ProdMoveGrid.Rows.Count - 2
                 ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + ProdMoveGrid.Rows(i).Cells(8).Value.ToString + "','10','" + (ProdMoveGrid.Rows(i).Cells(2).Value * ProdMoveGrid.Rows(i).Cells(3).Value).ToString + "','" + ProdMoveGrid.Rows(i).Cells(1).Value.ToString + "')")
@@ -60,7 +60,7 @@
         Dim newMAP As String
         For i = 0 To ProdMoveGrid.Rows.Count - 1
             '            reader = ExecQueryReader("select round(sum(mvqty*mpric)/sum(mvqty)) from hpmovement a, dpmovement b where a.pmvid = b.pmvid and  idpdt like '" + ProdMoveGrid.Rows(i).Cells(0).Value.ToString + "'")
-            reader = ExecQueryReader("select  ROUND((SUM(CASE WHEN pstky = '10' THEN b.psamt ELSE '0' END)- SUM(CASE WHEN pstky = '20' THEN b.psamt ELSE '0' END))/pdqty) as 'amount' from hproduct a, jourdt b where a.glnum = b.glnum and idpdt = '" + ProdMoveGrid.Rows(i).Cells(0).Value.ToString + "' group by idpdt")
+            reader = ExecQueryReader("SELECT ROUND((SUM(CASE WHEN pstky = '10' THEN b.psamt ELSE '0' END)- SUM(CASE WHEN pstky = '20' THEN b.psamt ELSE '0' END))/pdqty) AS 'amount' FROM hproduct a, jourdt b where a.glnum = b.glnum AND idpdt = '" + ProdMoveGrid.Rows(i).Cells(0).Value.ToString + "' GROUP BY idpdt")
             reader.read()
             newMAP = reader(0).ToString
             ExecQueryNonReader("UPDATE hproduct SET ppamt = '" + newMAP + "' WHERE idpdt = '" + ProdMoveGrid.Rows(i).Cells(0).Value + "'")
@@ -115,11 +115,15 @@
         MoveType.SelectedIndex = 0
         MoveID.Text = CreateNewCode()
         _005_03_Product.indexType = 1
-        glaccount = getGLAccount("SELECT glnum FROM mtrac WHERE mtrid ='1'")
-        salesAct = getGLAccount("SELECT glnum FROM mtrac WHERE mtrid ='2'")
-        COGSAct = getGLAccount("SELECT glnum FROM mtrac WHERE mtrid ='3'")
-
-
+        Try '
+            glaccount = getGLAccount("SELECT glnum FROM mtrac WHERE mtrid ='1'")
+            salesAct = getGLAccount("SELECT glnum FROM mtrac WHERE mtrid ='2'")
+            COGSAct = getGLAccount("SELECT glnum FROM mtrac WHERE mtrid ='3'")
+        Catch ex As Exception
+            MsgBox("Please complete configuration for material account in order to continue product movement transaction ")
+            _001_16_Material_Account.ShowDialog()
+            Me.Close()
+        End Try
     End Sub
 
     Private Sub MoveType_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MoveType.SelectedIndexChanged
