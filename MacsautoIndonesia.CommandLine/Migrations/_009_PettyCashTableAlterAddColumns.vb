@@ -13,7 +13,11 @@ Namespace Migrations
                 .AlterColumn("type").AsString(10).Indexed() _
                 .AddColumn("btransa").AsString(100) _
                 .AddColumn("dflag").AsString(1).Indexed() _
-                .AddColumn("canre").AsString(100)
+                .AddColumn("canre").AsString(100) _
+                .AddColumn("crtdt").AsDate() _
+                .AddColumn("uname").AsString(100)
+
+
         End Sub
 
         Public Overrides Sub Down()
