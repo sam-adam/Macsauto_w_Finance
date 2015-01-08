@@ -3,19 +3,19 @@
     Dim word() As String
     Dim pcact, btrans, Jcode, code As String
     Private Function getCurrentPeriod()
-        reader = ExecQueryReader("SELECT ACYER,ACMON FROM PRACT WHERE ACTIV ='1'")
+        reader = ExecQueryReader("SELECT acyer,acmon FROM PRACT WHERE activ ='1'")
         reader.read()
         Return reader(0).ToString & "-" & reader(1).ToString
     End Function
     Private Function getCurrentAmt()
-        reader = ExecQueryReader("SELECT (SUM(CASE WHEN pstky = '10' THEN psamt ELSE '0' END)- SUM(CASE WHEN pstky = '20' THEN psamt ELSE '0' END))'amount' FROM JOURHD A, JOURDT B,GLACCOUNTMS C  WHERE A.docid = B.docid AND C.glnum = B.glnum  and DSTAT <> 'X' AND B.glnum = '" + pcact + "' and pstdt LIKE '" + getCurrentPeriod() + "%' GROUP BY  B.glnum")
+        reader = ExecQueryReader("SELECT (SUM(CASE WHEN pstky = '10' THEN psamt ELSE '0' END)- SUM(CASE WHEN pstky = '20' THEN psamt ELSE '0' END))'amount' FROM jourhd A, jourdt B,glaccountms C  WHERE A.docid = B.docid AND C.glnum = B.glnum  AND dstat <> 'X' AND B.glnum = '" + pcact + "' AND pstdt LIKE '" + getCurrentPeriod() + "%' GROUP BY  B.glnum")
         While reader.read
             Return reader(0)
         End While
     End Function
     Private Sub autoPostPettyCash()
         Jcode = NewJournalCode()
-        ExecQueryNonReader("INSERT INTO JOURHD(docid,DOCDT,PSTDT,RFDOC,RMARK,DSTAT,UNAME,CGDAT,DTNUM) VALUES('" + Jcode + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + TransDate.Value.ToString("yyyy-MM-dd hh:mm:ss") + "','" + code + "','" + PettyCashRea.Text + "','','','0000-00-00','PC')")
+        ExecQueryNonReader("INSERT INTO JOURHD(docid,docdt,pstdt,rfdoc,rmark,dstat,uname,cgdat,dtnum) VALUES('" + Jcode + "','" + Date.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','" + TransDate.Value.ToString("yyyy-MM-dd hh:mm:ss") + "','" + code + "','" + PettyCashRea.Text + "','','','0000-00-00','PC')")
         If PettyCashType.SelectedItem.ToString = "CASH IN" Then
             ExecQueryNonReader("INSERT INTO JOURDT(docid,glnum,pstky,psamt,notes) VALUES('" + Jcode + "','" + pcact + "','10','" + pettyCashAmt.Text + "','')")
             ExecQueryNonReader("INSERT INTO JOURDT(docid,glnum,pstky,psamt,notes) VALUES('" + Jcode + "','" + btrans + "','20','" + pettyCashAmt.Text + "','')")
@@ -33,7 +33,7 @@
         Dim lastCode As Integer
         Dim newcode, prefix As String
         prefix = "PC" & getText("SELECT * FROM company", 0)
-        reader = ExecQueryReader("SELECT * FROM pettycash ORDER BY date DESC")
+        reader = ExecQueryReader("SELECT * FROM pettycash ORDER BY id DESC")
         reader.read()
         If reader.HasRows Then
             If Date.Today.Year.ToString.Substring(2, 2) = reader(0).ToString().Substring(6, 2) Then
@@ -58,14 +58,14 @@
     End Sub
     Private Sub loadCboSource()
         MsgBox("test")
-        reader = ExecQueryReader("SELECT SOiDC FROM SCASH")
+        reader = ExecQueryReader("SELECT soidc FROM SCASH")
         While reader.read
             PettyCashType.Items.Add(reader(0).ToString)
         End While
     End Sub
     Private Sub loadAllHistory()
         pettycashGrid.Rows.Clear()
-        reader = ExecQueryReader("SELECT * FROM pettycash where date between '" + DateTimePicker1.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' and '" + DateTimePicker2.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' ORDER BY id DESC")
+        reader = ExecQueryReader("SELECT * FROM pettycash WHERE date BETWEEN '" + DateTimePicker1.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND '" + DateTimePicker2.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' ORDER BY id DESC")
         While reader.read
             pettycashGrid.Rows.Add(reader(0).ToString, reader(1).ToString, reader(2), reader(3).ToString, reader(4).ToString, reader(5))
         End While
@@ -75,7 +75,7 @@
     End Sub
     Private Sub loadHistory(ByVal flag As String)
         pettycashGrid.Rows.Clear()
-        reader = ExecQueryReader("SELECT * FROM pettycash where date between '" + DateTimePicker1.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' and '" + DateTimePicker2.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' and dflag = '" + flag + "' ORDER BY id DESC")
+        reader = ExecQueryReader("SELECT * FROM pettycash WHERE date BETWEEN '" + DateTimePicker1.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' and '" + DateTimePicker2.Value.ToString("yyyy-MM-dd hh:mm:ss") + "' AND dflag = '" + flag + "' ORDER BY id DESC")
         While reader.read
             pettycashGrid.Rows.Add(reader(0).ToString, reader(1).ToString, reader(2), reader(3).ToString, reader(4).ToString, reader(5))
         End While
