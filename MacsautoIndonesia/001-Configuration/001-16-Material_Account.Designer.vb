@@ -107,6 +107,7 @@ Partial Class _001_16_Material_Account
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.Info
         Me.ClientSize = New System.Drawing.Size(604, 111)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.COGS)
