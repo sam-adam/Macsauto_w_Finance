@@ -2,7 +2,7 @@
     Public indexType
 
     Private Sub _005_03_Product_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        loadTable("SELECT idpdt as 'PRODUCT #',pdtds AS 'PRODUCT DESCRIPTION',uodsc AS 'UOM',glnum as 'GL. Act.',c.iscnsm as 'Consumable'  from hproduct a, uom b, productType c where a.iduom = b.iduom and a.idptp = c.idptp WHERE a.is_active = 1", productGrid)
+        loadTable("SELECT idpdt as 'PRODUCT #',pdtds AS 'PRODUCT DESCRIPTION',uodsc AS 'UOM',glnum as 'GL. Act.',c.iscnsm as 'Consumable'  from hproduct a, uom b, productType c where a.iduom = b.iduom and a.idptp = c.idptp AND a.is_active = 1", productGrid)
         Marking(productGrid)
         '   MsgBox(_004_01_Product_Movement.MoveType.SelectedIndex.ToString())
         'MsgBox(indexType)
