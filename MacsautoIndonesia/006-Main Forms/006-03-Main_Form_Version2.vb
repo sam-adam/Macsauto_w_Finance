@@ -1,17 +1,33 @@
 ﻿Public Class _006_03_Main_Form_Version2
     Private ReadOnly _loginForm As _006_02_LoginForm
+    Private _isDatabaseConfigured As Boolean = True
 
     Public Sub New()
-        _loginForm = New _006_02_LoginForm
+        If String.IsNullOrEmpty(My.Settings.Password) Then
+            Dim databaseConfiguration = New _001_18_Define_Database()
 
-        AddHandler _loginForm.LoginSucceded, AddressOf _loginForm_LoginSucceded
-        AddHandler _loginForm.LoginCanceled, AddressOf _loginForm_LoginCancelled
-        AddHandler _loginForm.Closed, AddressOf _loginForm_Closed
+            AddHandler databaseConfiguration.Closed,
+                Sub(sender As Object, e As EventArgs)
+                    If String.IsNullOrEmpty(My.Settings.Password) Then
+                        _isDatabaseConfigured = False
+                    End If
+                End Sub
 
-        InitializeComponent()
+            databaseConfiguration.ShowDialog()
+        End If
 
-        If LoggedInEmployee Is Nothing Then
-            _loginForm.ShowDialog()
+        If _isDatabaseConfigured Then
+            _loginForm = New _006_02_LoginForm
+
+            AddHandler _loginForm.LoginSucceded, AddressOf _loginForm_LoginSucceded
+            AddHandler _loginForm.LoginCanceled, AddressOf _loginForm_LoginCancelled
+            AddHandler _loginForm.Closed, AddressOf _loginForm_Closed
+
+            InitializeComponent()
+
+            If LoggedInEmployee Is Nothing Then
+                _loginForm.ShowDialog()
+            End If
         End If
     End Sub
 
@@ -246,7 +262,7 @@
     Private Sub _006_03_Main_Form_Version2_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
         Dim mysqlDumpPath As String = My.MySettings.Default.MySQLDumpPath
 
-        If Not String.IsNullOrEmpty(mysqlDumpPath) Then
+        If Not String.IsNullOrEmpty(mysqlDumpPath) And _isDatabaseConfigured Then
             If MsgBox("Backup database now?", MsgBoxStyle.YesNo, "Database backup") = MsgBoxResult.Yes Then
                 Dim dialog As FolderBrowserDialog = New FolderBrowserDialog()
 
@@ -270,6 +286,12 @@
                     End If
                 End Try
             End If
+        End If
+    End Sub
+
+    Private Sub _006_03_Main_Form_Version2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If Not _isDatabaseConfigured Then
+            Application.Exit()
         End If
     End Sub
 End Class

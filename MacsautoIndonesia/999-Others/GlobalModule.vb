@@ -65,6 +65,64 @@ Module GlobalModule
         End If
     End Sub
 
+    Public Sub CreateDatabase(ByVal mysql As String, ByVal database As String, ByVal user As String, ByVal password As String)
+        Dim ignoredWarnings As String() = {
+            "Warning: Using a password on the command line interface can be insecure."
+        }
+        Dim process As Process = New Process()
+        Dim processInfo As ProcessStartInfo = New ProcessStartInfo()
+
+        With processInfo
+            .UseShellExecute = False
+            .RedirectStandardError = True
+            .RedirectStandardOutput = True
+            .CreateNoWindow = False
+            .FileName = mysql
+            .Arguments = String.Format("--host=127.0.0.1 --user={0} --password={1} -e 'CREATE DATABASE {2}'", user, password, database)
+        End With
+
+        process.StartInfo = processInfo
+        process.Start()
+
+        Dim errorMessage As String = ignoredWarnings.Aggregate(process.StandardError.ReadToEnd(), Function(current, ignoredWarning) current.Replace(ignoredWarning, ""))
+
+        process.WaitForExit()
+        process.Close()
+
+        If Not String.IsNullOrEmpty(errorMessage.Trim()) Then
+            Throw New Exception(errorMessage)
+        End If
+    End Sub
+
+    Public Sub ImportDatabase(ByVal mysql As String, ByVal database As String, ByVal user As String, ByVal password As String)
+        Dim ignoredWarnings As String() = {
+            "Warning: Using a password on the command line interface can be insecure."
+        }
+        Dim process As Process = New Process()
+        Dim processInfo As ProcessStartInfo = New ProcessStartInfo()
+
+        With processInfo
+            .UseShellExecute = False
+            .RedirectStandardError = True
+            .RedirectStandardOutput = True
+            .CreateNoWindow = True
+            .FileName = mysql
+            .Arguments = String.Format("--host=127.0.0.1 --user={0} --password={1} {2} < '{3}'", user, password, database, Directory.GetCurrentDirectory() & "/macsauto_structure.sql")
+        End With
+
+        process.StartInfo = processInfo
+        process.Start()
+
+        Dim errorMessage As String = process.StandardError.ReadToEnd()
+
+        process.WaitForExit()
+        process.Close()
+
+        If Not String.IsNullOrEmpty(errorMessage.Trim()) Then
+            Throw New Exception(errorMessage)
+        End If
+    End Sub
+
     Public Sub WriteToFile(ByVal filename As String, ByVal buffer As String)
         Dim fileStream As FileStream = New FileStream(filename, FileMode.Create, FileAccess.Write)
 
