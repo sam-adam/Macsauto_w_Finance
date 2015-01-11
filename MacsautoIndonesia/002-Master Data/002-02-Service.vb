@@ -1,6 +1,14 @@
 ﻿Public Class _002_02_Service
     Dim flag As Boolean
     Dim i As Integer
+
+    Public Sub New()
+        InitializeComponent()
+
+        Add.Visible = (LoggedInEmployee.Position = Position.Manager)
+        Edit.Visible = (LoggedInEmployee.Position = Position.Manager)
+    End Sub
+
     Private Sub loadServiceType()
         reader = ExecQueryReader("SELECT * FROM serviceType")
         ServiceType.Items.Clear()

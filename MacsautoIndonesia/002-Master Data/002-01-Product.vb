@@ -1,6 +1,15 @@
 ﻿Public Class _002_01_Product
     Dim flag As Boolean
     Dim s As Integer
+
+    Public Sub New()
+        InitializeComponent()
+
+        Add.Visible = (LoggedInEmployee.Position = Position.Manager)
+        Edit.Visible = (LoggedInEmployee.Position = Position.Manager)
+        Remove.Visible = (LoggedInEmployee.Position = Position.Manager)
+    End Sub
+
     Private Function checkToTransaction(ByVal pcode As String)
         Dim i As Integer
         i = 0
