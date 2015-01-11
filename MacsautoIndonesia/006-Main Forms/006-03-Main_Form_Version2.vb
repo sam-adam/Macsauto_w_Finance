@@ -294,4 +294,12 @@
             Application.Exit()
         End If
     End Sub
+
+    Private Sub AccountingPeriodToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AccountingPeriodToolStripMenuItem.Click
+        LoadForm(Of _001_17_Define_Accounting_Period)()
+    End Sub
+
+    Private Sub DefineGLAccountForProductToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DefineGLAccountForProductToolStripMenuItem.Click
+        LoadForm(Of _001_16_Material_Account)()
+    End Sub
 End Class
