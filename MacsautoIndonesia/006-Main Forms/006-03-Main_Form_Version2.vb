@@ -1,6 +1,7 @@
 ﻿Public Class _006_03_Main_Form_Version2
     Private ReadOnly _loginForm As _006_02_LoginForm
     Private _isDatabaseConfigured As Boolean = True
+    Private _isLoggedIn As Boolean = True
 
     Public Sub New()
         If String.IsNullOrEmpty(My.Settings.Password) Then
@@ -32,13 +33,15 @@
     End Sub
 
     Private Sub _loginForm_Closed(ByVal sender As Object, ByVal e As EventArgs)
-        If MessageBox.Show(_loginForm, "Exit application?", "Confirmation", MessageBoxButtons.YesNo) = DialogResult.Yes Then
-            Application.Exit()
-        End If
+        _isLoggedIn = False
+
+        Application.Exit()
     End Sub
 
     Private Sub _loginForm_LoginCancelled(ByVal sender As Object, ByVal e As EventArgs)
         If MessageBox.Show(_loginForm, "Exit application?", "Confirmation", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+            _isLoggedIn = False
+
             Application.Exit()
         End If
     End Sub
@@ -290,7 +293,7 @@
     End Sub
 
     Private Sub _006_03_Main_Form_Version2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If Not _isDatabaseConfigured Then
+        If Not _isDatabaseConfigured Or Not _isLoggedIn Then
             Application.Exit()
         End If
     End Sub
