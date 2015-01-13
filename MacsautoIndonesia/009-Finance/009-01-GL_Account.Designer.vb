@@ -167,7 +167,7 @@ Partial Class _009_01_GL_Account
         Me.GLDesc.Location = New System.Drawing.Point(210, 48)
         Me.GLDesc.Name = "GLDesc"
         Me.GLDesc.Size = New System.Drawing.Size(224, 22)
-        Me.GLDesc.TabIndex = 6
+        Me.GLDesc.TabIndex = 2
         '
         'actTypeCbo
         '
@@ -178,7 +178,7 @@ Partial Class _009_01_GL_Account
         Me.actTypeCbo.Location = New System.Drawing.Point(210, 73)
         Me.actTypeCbo.Name = "actTypeCbo"
         Me.actTypeCbo.Size = New System.Drawing.Size(174, 24)
-        Me.actTypeCbo.TabIndex = 7
+        Me.actTypeCbo.TabIndex = 3
         '
         'PLSelect
         '
@@ -188,7 +188,7 @@ Partial Class _009_01_GL_Account
         Me.PLSelect.Location = New System.Drawing.Point(210, 103)
         Me.PLSelect.Name = "PLSelect"
         Me.PLSelect.Size = New System.Drawing.Size(93, 20)
-        Me.PLSelect.TabIndex = 8
+        Me.PLSelect.TabIndex = 4
         Me.PLSelect.TabStop = True
         Me.PLSelect.Text = "P&L Account"
         Me.PLSelect.UseVisualStyleBackColor = True
@@ -201,7 +201,7 @@ Partial Class _009_01_GL_Account
         Me.BSSelect.Location = New System.Drawing.Point(309, 103)
         Me.BSSelect.Name = "BSSelect"
         Me.BSSelect.Size = New System.Drawing.Size(165, 20)
-        Me.BSSelect.TabIndex = 9
+        Me.BSSelect.TabIndex = 5
         Me.BSSelect.TabStop = True
         Me.BSSelect.Text = "Balance Sheet Account"
         Me.BSSelect.UseVisualStyleBackColor = True
@@ -215,7 +215,7 @@ Partial Class _009_01_GL_Account
         Me.BtnSave.Location = New System.Drawing.Point(605, 40)
         Me.BtnSave.Name = "BtnSave"
         Me.BtnSave.Size = New System.Drawing.Size(78, 39)
-        Me.BtnSave.TabIndex = 10
+        Me.BtnSave.TabIndex = 9
         Me.BtnSave.Text = "SAVE"
         Me.BtnSave.UseVisualStyleBackColor = True
         Me.BtnSave.Visible = False
@@ -229,7 +229,7 @@ Partial Class _009_01_GL_Account
         Me.btnAdd.Location = New System.Drawing.Point(605, 14)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(78, 39)
-        Me.btnAdd.TabIndex = 11
+        Me.btnAdd.TabIndex = 6
         Me.btnAdd.Text = "ADD"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
@@ -242,7 +242,7 @@ Partial Class _009_01_GL_Account
         Me.btnCancel.Location = New System.Drawing.Point(605, 85)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(78, 39)
-        Me.btnCancel.TabIndex = 12
+        Me.btnCancel.TabIndex = 10
         Me.btnCancel.Text = "CANCEL"
         Me.btnCancel.UseVisualStyleBackColor = True
         Me.btnCancel.Visible = False
@@ -256,7 +256,7 @@ Partial Class _009_01_GL_Account
         Me.btnEdit.Location = New System.Drawing.Point(605, 62)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(78, 39)
-        Me.btnEdit.TabIndex = 13
+        Me.btnEdit.TabIndex = 7
         Me.btnEdit.Text = "EDIT"
         Me.btnEdit.UseVisualStyleBackColor = True
         '
@@ -269,7 +269,7 @@ Partial Class _009_01_GL_Account
         Me.btnDel.Location = New System.Drawing.Point(605, 110)
         Me.btnDel.Name = "btnDel"
         Me.btnDel.Size = New System.Drawing.Size(78, 39)
-        Me.btnDel.TabIndex = 14
+        Me.btnDel.TabIndex = 8
         Me.btnDel.Text = "DELETE"
         Me.btnDel.UseVisualStyleBackColor = True
         '
@@ -326,7 +326,7 @@ Partial Class _009_01_GL_Account
         Me.GLNum.Mask = "0000000000"
         Me.GLNum.Name = "GLNum"
         Me.GLNum.Size = New System.Drawing.Size(100, 22)
-        Me.GLNum.TabIndex = 10
+        Me.GLNum.TabIndex = 1
         '
         'SplitContainer1
         '

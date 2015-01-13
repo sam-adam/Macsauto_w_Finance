@@ -42,8 +42,8 @@
             BSSelect.Checked = True
         End If
     End Function
-    Private Function checkTransaction()
-        reader = ExecQueryReader("SELECT count(*) from jourdt where glnum like '" + GLNum.Text + "'")
+    Private Function checkTransaction(ByVal query As String)
+        reader = ExecQueryReader(query)
         reader.read()
         Return reader(0).ToString
     End Function
@@ -170,14 +170,16 @@
             MsgBox("Please Select GL Account that need to be deactivated")
         Else
 
-            If checkTransaction() = 0 Then
+            If checkTransaction("SELECT count(*) from jourdt where glnum like '" + GLNum.Text + "'") = 1 Or checkTransaction("SELECT count(*) from mtrac where glnum like '" + GLNum.Text + "'") = 1 Or checkTransaction("SELECT count(*) from btrgl where glnum like '" + GLNum.Text + "'") = 1 Or checkTransaction("SELECT count(*) from scash where glnum like '" + GLNum.Text + "'") = 1 Or checkTransaction("SELECT count(*) from hproduct where glnum like '" + GLNum.Text + "'") = 1 Or checkTransaction("SELECT count(*) from hservice where glnum like '" + GLNum.Text + "'") = 1 Then
+                MsgBox("GL Account cannot be delete, because it has been used in transaction or configuration")
+
+            Else
                 If MsgBox("Delete GL Account ?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
                     removeGLAccount()
                     MsgBox("GL Account Deleted")
                     loadGLTable()
                 End If
-            Else
-                MsgBox("GL Account cannot be delete, because it has been used in transaction")
+
             End If
            
         End If
