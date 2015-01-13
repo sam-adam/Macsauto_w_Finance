@@ -39,9 +39,6 @@ Partial Class _002_08_Service_List
         Me.EditBtn = New System.Windows.Forms.Button()
         Me.AddBtn = New System.Windows.Forms.Button()
         Me.ServicePricesDataGrid = New System.Windows.Forms.DataGridView()
-        Me.VehicleSizeIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VehicleSizeDescCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServicePriceCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.AccountCbo = New System.Windows.Forms.ComboBox()
         Me.ServiceTypeCbo = New System.Windows.Forms.ComboBox()
@@ -49,6 +46,10 @@ Partial Class _002_08_Service_List
         Me.ServiceNameTxt = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ServiceIdLbl = New System.Windows.Forms.Label()
+        Me.VehicleSizeIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VehicleSizeDescCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServicePriceCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NewPriceCol = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Panel8.SuspendLayout()
         CType(Me.SplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer.Panel1.SuspendLayout()
@@ -246,36 +247,13 @@ Partial Class _002_08_Service_List
         Me.ServicePricesDataGrid.AllowUserToDeleteRows = False
         Me.ServicePricesDataGrid.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ServicePricesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ServicePricesDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.VehicleSizeIdCol, Me.VehicleSizeDescCol, Me.ServicePriceCol})
+        Me.ServicePricesDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.VehicleSizeIdCol, Me.VehicleSizeDescCol, Me.ServicePriceCol, Me.NewPriceCol})
         Me.ServicePricesDataGrid.Location = New System.Drawing.Point(6, 156)
         Me.ServicePricesDataGrid.Name = "ServicePricesDataGrid"
         Me.ServicePricesDataGrid.ReadOnly = True
         Me.ServicePricesDataGrid.RowHeadersVisible = False
         Me.ServicePricesDataGrid.Size = New System.Drawing.Size(390, 187)
         Me.ServicePricesDataGrid.TabIndex = 13
-        '
-        'VehicleSizeIdCol
-        '
-        Me.VehicleSizeIdCol.HeaderText = "Vehicle Size Id"
-        Me.VehicleSizeIdCol.Name = "VehicleSizeIdCol"
-        Me.VehicleSizeIdCol.ReadOnly = True
-        Me.VehicleSizeIdCol.Visible = False
-        '
-        'VehicleSizeDescCol
-        '
-        Me.VehicleSizeDescCol.HeaderText = "Size"
-        Me.VehicleSizeDescCol.Name = "VehicleSizeDescCol"
-        Me.VehicleSizeDescCol.ReadOnly = True
-        '
-        'ServicePriceCol
-        '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle2.Format = "N0"
-        DataGridViewCellStyle2.NullValue = "0"
-        Me.ServicePriceCol.DefaultCellStyle = DataGridViewCellStyle2
-        Me.ServicePriceCol.HeaderText = "Price"
-        Me.ServicePriceCol.Name = "ServicePriceCol"
-        Me.ServicePriceCol.ReadOnly = True
         '
         'Label5
         '
@@ -349,6 +327,36 @@ Partial Class _002_08_Service_List
         Me.ServiceIdLbl.TabIndex = 0
         Me.ServiceIdLbl.Text = "[Service Id]"
         '
+        'VehicleSizeIdCol
+        '
+        Me.VehicleSizeIdCol.HeaderText = "Vehicle Size Id"
+        Me.VehicleSizeIdCol.Name = "VehicleSizeIdCol"
+        Me.VehicleSizeIdCol.ReadOnly = True
+        Me.VehicleSizeIdCol.Visible = False
+        '
+        'VehicleSizeDescCol
+        '
+        Me.VehicleSizeDescCol.HeaderText = "Size"
+        Me.VehicleSizeDescCol.Name = "VehicleSizeDescCol"
+        Me.VehicleSizeDescCol.ReadOnly = True
+        '
+        'ServicePriceCol
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle2.Format = "N0"
+        DataGridViewCellStyle2.NullValue = "0"
+        Me.ServicePriceCol.DefaultCellStyle = DataGridViewCellStyle2
+        Me.ServicePriceCol.HeaderText = "Price"
+        Me.ServicePriceCol.Name = "ServicePriceCol"
+        Me.ServicePriceCol.ReadOnly = True
+        '
+        'NewPriceCol
+        '
+        Me.NewPriceCol.HeaderText = "NewPrice"
+        Me.NewPriceCol.Name = "NewPriceCol"
+        Me.NewPriceCol.ReadOnly = True
+        Me.NewPriceCol.Visible = False
+        '
         '_002_08_Service_List
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -388,12 +396,13 @@ Partial Class _002_08_Service_List
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents AccountCbo As System.Windows.Forms.ComboBox
     Friend WithEvents ServicePricesDataGrid As System.Windows.Forms.DataGridView
-    Friend WithEvents VehicleSizeIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents VehicleSizeDescCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ServicePriceCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents RemoveBtn As System.Windows.Forms.Button
     Friend WithEvents EditBtn As System.Windows.Forms.Button
     Friend WithEvents AddBtn As System.Windows.Forms.Button
     Friend WithEvents CancelBtn As System.Windows.Forms.Button
     Friend WithEvents SaveBtn As System.Windows.Forms.Button
+    Friend WithEvents VehicleSizeIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents VehicleSizeDescCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ServicePriceCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents NewPriceCol As System.Windows.Forms.DataGridViewCheckBoxColumn
 End Class

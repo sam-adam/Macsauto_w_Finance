@@ -285,6 +285,18 @@
     <Compile Include="002-Master Data\002-05-Mechandise.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="002-Master Data\002-08-Service_List.Designer.vb">
+      <DependentUpon>002-08-Service_List.vb</DependentUpon>
+    </Compile>
+    <Compile Include="002-Master Data\002-08-Service_List.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="002-Master Data\002-07-Service_Add.Designer.vb">
+      <DependentUpon>002-07-Service_Add.vb</DependentUpon>
+    </Compile>
+    <Compile Include="002-Master Data\002-07-Service_Add.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="002-Master Data\_002_06_User.Designer.vb">
       <DependentUpon>_002_06_User.vb</DependentUpon>
     </Compile>
@@ -551,6 +563,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="999-Others\AccountingModule.vb" />
+    <Compile Include="999-Others\FormValidator.vb" />
     <Compile Include="999-Others\GlobalModule.vb" />
     <Compile Include="999-Others\HashModule.vb" />
     <Compile Include="999-Others\ListBoxExtensions.vb" />
@@ -684,6 +697,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="002-Master Data\002-05-Mechandise.resx">
       <DependentUpon>002-05-Mechandise.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="002-Master Data\002-08-Service_List.resx">
+      <DependentUpon>002-08-Service_List.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="002-Master Data\002-07-Service_Add.resx">
+      <DependentUpon>002-07-Service_Add.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="002-Master Data\_002_06_User.resx">
       <DependentUpon>_002_06_User.vb</DependentUpon>

@@ -22,7 +22,7 @@ Partial Class _002_07_Service_Add
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.AddServiceTabControl = New System.Windows.Forms.TabControl()
         Me.GeneralTabPage = New System.Windows.Forms.TabPage()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -34,6 +34,9 @@ Partial Class _002_07_Service_Add
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PricingTabPage = New System.Windows.Forms.TabPage()
         Me.ServicePriceGridView = New System.Windows.Forms.DataGridView()
+        Me.VehicleSizeIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VehicleSizeDescCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServicePriceCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ToGeneralBtn = New System.Windows.Forms.Button()
         Me.ToAccountingBtn = New System.Windows.Forms.Button()
@@ -45,9 +48,6 @@ Partial Class _002_07_Service_Add
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.AccountCbo = New System.Windows.Forms.ComboBox()
-        Me.VehicleSizeIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VehicleSizeDescCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServicePriceCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AddServiceTabControl.SuspendLayout()
         Me.GeneralTabPage.SuspendLayout()
         Me.PricingTabPage.SuspendLayout()
@@ -117,7 +117,7 @@ Partial Class _002_07_Service_Add
         '
         Me.ServiceTypeCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ServiceTypeCbo.FormattingEnabled = True
-        Me.ServiceTypeCbo.Location = New System.Drawing.Point(109, 68)
+        Me.ServiceTypeCbo.Location = New System.Drawing.Point(109, 91)
         Me.ServiceTypeCbo.Name = "ServiceTypeCbo"
         Me.ServiceTypeCbo.Size = New System.Drawing.Size(315, 24)
         Me.ServiceTypeCbo.TabIndex = 8
@@ -125,7 +125,7 @@ Partial Class _002_07_Service_Add
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(63, 71)
+        Me.Label2.Location = New System.Drawing.Point(63, 94)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(40, 17)
         Me.Label2.TabIndex = 7
@@ -135,8 +135,9 @@ Partial Class _002_07_Service_Add
         '
         Me.ServiceNameTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.ServiceNameTxt.Location = New System.Drawing.Point(109, 39)
+        Me.ServiceNameTxt.Multiline = True
         Me.ServiceNameTxt.Name = "ServiceNameTxt"
-        Me.ServiceNameTxt.Size = New System.Drawing.Size(180, 23)
+        Me.ServiceNameTxt.Size = New System.Drawing.Size(315, 46)
         Me.ServiceNameTxt.TabIndex = 6
         '
         'Label1
@@ -144,9 +145,9 @@ Partial Class _002_07_Service_Add
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(7, 42)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(96, 17)
+        Me.Label1.Size = New System.Drawing.Size(91, 17)
         Me.Label1.TabIndex = 5
-        Me.Label1.Text = "Service Name"
+        Me.Label1.Text = "Service Desc"
         '
         'PricingTabPage
         '
@@ -174,6 +175,31 @@ Partial Class _002_07_Service_Add
         Me.ServicePriceGridView.RowHeadersVisible = False
         Me.ServicePriceGridView.Size = New System.Drawing.Size(481, 115)
         Me.ServicePriceGridView.TabIndex = 0
+        '
+        'VehicleSizeIdCol
+        '
+        Me.VehicleSizeIdCol.HeaderText = "Vehicle Size Id"
+        Me.VehicleSizeIdCol.Name = "VehicleSizeIdCol"
+        Me.VehicleSizeIdCol.ReadOnly = True
+        Me.VehicleSizeIdCol.Visible = False
+        Me.VehicleSizeIdCol.Width = 106
+        '
+        'VehicleSizeDescCol
+        '
+        Me.VehicleSizeDescCol.HeaderText = "Vehicle Size"
+        Me.VehicleSizeDescCol.Name = "VehicleSizeDescCol"
+        Me.VehicleSizeDescCol.ReadOnly = True
+        Me.VehicleSizeDescCol.Width = 110
+        '
+        'ServicePriceCol
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle3.Format = "N0"
+        DataGridViewCellStyle3.NullValue = "0"
+        Me.ServicePriceCol.DefaultCellStyle = DataGridViewCellStyle3
+        Me.ServicePriceCol.HeaderText = "Price"
+        Me.ServicePriceCol.Name = "ServicePriceCol"
+        Me.ServicePriceCol.Width = 65
         '
         'Panel1
         '
@@ -225,7 +251,7 @@ Partial Class _002_07_Service_Add
         'BackToPricingBtn
         '
         Me.BackToPricingBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.BackToPricingBtn.Location = New System.Drawing.Point(8, 126)
+        Me.BackToPricingBtn.Location = New System.Drawing.Point(6, 126)
         Me.BackToPricingBtn.Name = "BackToPricingBtn"
         Me.BackToPricingBtn.Size = New System.Drawing.Size(140, 30)
         Me.BackToPricingBtn.TabIndex = 13
@@ -289,31 +315,6 @@ Partial Class _002_07_Service_Add
         Me.AccountCbo.Size = New System.Drawing.Size(367, 24)
         Me.AccountCbo.TabIndex = 0
         '
-        'VehicleSizeIdCol
-        '
-        Me.VehicleSizeIdCol.HeaderText = "Vehicle Size Id"
-        Me.VehicleSizeIdCol.Name = "VehicleSizeIdCol"
-        Me.VehicleSizeIdCol.ReadOnly = True
-        Me.VehicleSizeIdCol.Visible = False
-        Me.VehicleSizeIdCol.Width = 106
-        '
-        'VehicleSizeDescCol
-        '
-        Me.VehicleSizeDescCol.HeaderText = "Vehicle Size"
-        Me.VehicleSizeDescCol.Name = "VehicleSizeDescCol"
-        Me.VehicleSizeDescCol.ReadOnly = True
-        Me.VehicleSizeDescCol.Width = 110
-        '
-        'ServicePriceCol
-        '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle1.Format = "N0"
-        DataGridViewCellStyle1.NullValue = "0"
-        Me.ServicePriceCol.DefaultCellStyle = DataGridViewCellStyle1
-        Me.ServicePriceCol.HeaderText = "Price"
-        Me.ServicePriceCol.Name = "ServicePriceCol"
-        Me.ServicePriceCol.Width = 65
-        '
         '_002_07_Service_Add
         '
         Me.AcceptButton = Me.ToPricingBtn
@@ -326,6 +327,7 @@ Partial Class _002_07_Service_Add
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "_002_07_Service_Add"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Service - Create New"
         Me.AddServiceTabControl.ResumeLayout(False)
         Me.GeneralTabPage.ResumeLayout(False)

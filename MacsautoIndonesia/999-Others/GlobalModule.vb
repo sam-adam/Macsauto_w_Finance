@@ -133,4 +133,10 @@ Module GlobalModule
 
         fileStream.Close()
     End Sub
+
+    Public Sub ErrorInput(ByRef input As Control, ByVal errorMessage As String)
+        MsgBox(errorMessage, MsgBoxStyle.Critical, "Error")
+
+        input.Focus()
+    End Sub
 End Module

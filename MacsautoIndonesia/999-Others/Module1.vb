@@ -328,20 +328,28 @@ Module Module1
         Return newcode
     End Function
 
-    Public Sub DoInTransaction(ByRef func As Func(Of Boolean))
+    Public Sub DoInTransaction(ByRef func As Func(Of MySqlCommand, Boolean))
         If con.State = ConnectionState.Open Then
             con.Close()
             con.Open()
         End If
 
-        Dim transaction As MySqlTransaction = con.BeginTransaction()
+        Dim command As MySqlCommand = New MySqlCommand()
+        Dim transaction As MySqlTransaction = con.BeginTransaction(IsolationLevel.ReadCommitted)
+
+        command.Connection = con
+        command.Transaction = transaction
 
         Try
-            func.DynamicInvoke()
+            func.Invoke(command)
 
             GetConnection()
 
             transaction.Commit()
+        Catch ex As MySqlException
+            transaction.Rollback()
+
+            Throw
         Catch ex As Exception
             transaction.Rollback()
 
@@ -355,6 +363,12 @@ Module Module1
         command = New MySqlCommand(query, GetConnection())
         command.ExecuteReader().Close()
     End Sub
+
+    Public Function HasResult(ByVal query As String)
+        Dim dataReader As MySqlDataReader = ExecQueryReader(query)
+
+        Return dataReader.HasRows
+    End Function
 
     Public Function GetConnection() As MySqlConnection
         Try

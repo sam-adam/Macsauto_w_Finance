@@ -320,20 +320,16 @@
         End If
     End Sub
     Private Sub Remove_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Remove.Click
-        If checkToTransaction(ProductID.Text) = 1 Then
-            MsgBox("This product cannot be remove because it has been used in transaction")
-        ElseIf ProductID.Text = "xxxxxx" Then
+        If ProductID.Text = "xxxxxx" Then
             MsgBox("Please select product to be deleted")
         Else
             If MsgBox("Delete product?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
-                ExecQueryNonReader("DELETE FROM hproduct WHERE idpdt = '" + ProductID.Text + "'")
-                ExecQueryNonReader("DELETE FROM dproduct WHERE idpdt = '" + ProductID.Text + "'")
+                ExecQueryNonReader("UPDATE hproduct SET is_active = 0")
                 MsgBox("Product data removed")
                 loadProductTable()
                 ProductID.Text = "xxxxxx"
                 ProdSLoc.Rows.Clear()
                 clearAll()
-
             End If
         End If
     End Sub
