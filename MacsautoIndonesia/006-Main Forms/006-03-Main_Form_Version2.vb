@@ -197,7 +197,7 @@
         LoadForm(Of _001_12_MySQLDumper)()
     End Sub
 
-    Private Sub PettyCashUsageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PettyCashUsageToolStripMenuItem.Click
+    Private Sub PettyCashUsageToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
         LoadForm(Of _001_15_Petty_Cash_Config)()
     End Sub
 
@@ -258,7 +258,7 @@
         LoadForm(Of _009_08_Balanced_Sheet)()
     End Sub
 
-    Private Sub ServiceAccountToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ServiceAccountToolStripMenuItem.Click
+    Private Sub ServiceAccountToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
         LoadForm(Of _009_09_Set_Service_Account)()
     End Sub
 
@@ -298,11 +298,33 @@
         End If
     End Sub
 
-    Private Sub AccountingPeriodToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AccountingPeriodToolStripMenuItem.Click
+    Private Sub AccountingPeriodToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         LoadForm(Of _001_17_Define_Accounting_Period)()
     End Sub
 
     Private Sub DefineGLAccountForProductToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DefineGLAccountForProductToolStripMenuItem.Click
         LoadForm(Of _001_16_Material_Account)()
     End Sub
+
+
+    Private Sub GLAccountTypeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GLAccountTypeToolStripMenuItem.Click
+        LoadForm(Of _001_13_Define_Account_Type)()
+    End Sub
+
+    Private Sub AccountingDocumentTypeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AccountingDocumentTypeToolStripMenuItem.Click
+        LoadForm(Of _001_14_Acct_Doc_Type)()
+    End Sub
+
+    Private Sub PettyCashAccountToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PettyCashAccountToolStripMenuItem.Click
+        LoadForm(Of _001_15_Petty_Cash_Config)()
+    End Sub
+
+    Private Sub DefineAccountingPeriodToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DefineAccountingPeriodToolStripMenuItem.Click
+        LoadForm(Of _001_17_Define_Accounting_Period)()
+    End Sub
+
+    Private Sub DefineServiceAccountToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DefineServiceAccountToolStripMenuItem.Click
+        LoadForm(Of _009_09_Set_Service_Account)()
+    End Sub
+
 End Class

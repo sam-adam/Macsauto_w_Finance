@@ -59,6 +59,7 @@ Partial Class _006_03_Main_Form_Version2
         Me.DefineBasePointForCustomerPointToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SetPrinterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SetMySQLDumperToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DefineGLAccountForProductToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CtxReporting = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.StockTransferToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GoodIssueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -71,15 +72,17 @@ Partial Class _006_03_Main_Form_Version2
         Me.GeneralLedgerAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.JournalTransactionEntryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.JournalTransactionListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ServiceAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PettyCashUsageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GeneralLedgerReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GeneralLedgeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TrialBalanceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProfitAndLossToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BalancedSheetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AccountingPeriodToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DefineGLAccountForProductToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConfigurationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GLAccountTypeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AccountingDocumentTypeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PettyCashAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DefineAccountingPeriodToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DefineServiceAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PnlLogo.SuspendLayout()
         CType(Me.PBoxMaskot, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -304,7 +307,7 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.CtxConfiguration.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DefineCompanyToolStripMenuItem, Me.DefineStorageLocationToolStripMenuItem, Me.DefineUnitOfMeasureToolStripMenuItem, Me.DefineVehicleBrandAndModelToolStripMenuItem, Me.DefineVehicleSizeToolStripMenuItem, Me.DefineVehicleColorToolStripMenuItem, Me.DefineProductTypeToolStripMenuItem, Me.DefineServiceTypeToolStripMenuItem, Me.DefineBasePointForCustomerPointToolStripMenuItem, Me.SetPrinterToolStripMenuItem, Me.SetMySQLDumperToolStripMenuItem, Me.DefineGLAccountForProductToolStripMenuItem})
         Me.CtxConfiguration.Name = "CtxMasterData"
-        Me.CtxConfiguration.Size = New System.Drawing.Size(250, 290)
+        Me.CtxConfiguration.Size = New System.Drawing.Size(250, 268)
         '
         'DefineCompanyToolStripMenuItem
         '
@@ -372,6 +375,12 @@ Partial Class _006_03_Main_Form_Version2
         Me.SetMySQLDumperToolStripMenuItem.Size = New System.Drawing.Size(249, 22)
         Me.SetMySQLDumperToolStripMenuItem.Text = "Set MySQL Dumper"
         '
+        'DefineGLAccountForProductToolStripMenuItem
+        '
+        Me.DefineGLAccountForProductToolStripMenuItem.Name = "DefineGLAccountForProductToolStripMenuItem"
+        Me.DefineGLAccountForProductToolStripMenuItem.Size = New System.Drawing.Size(249, 22)
+        Me.DefineGLAccountForProductToolStripMenuItem.Text = "Define GL Account for Product"
+        '
         'CtxReporting
         '
         Me.CtxReporting.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StockTransferToolStripMenuItem, Me.GoodIssueToolStripMenuItem, Me.GoodReceiptToolStripMenuItem, Me.InitialStockToolStripMenuItem, Me.PettyCashToolStripMenuItem1, Me.BrutoReportToolStripMenuItem, Me.ProductMovementToolStripMenuItem1})
@@ -422,9 +431,9 @@ Partial Class _006_03_Main_Form_Version2
         '
         'CtxFinance
         '
-        Me.CtxFinance.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GeneralLedgerAccountToolStripMenuItem, Me.JournalTransactionEntryToolStripMenuItem, Me.JournalTransactionListToolStripMenuItem, Me.ServiceAccountToolStripMenuItem, Me.PettyCashUsageToolStripMenuItem, Me.GeneralLedgerReportToolStripMenuItem, Me.AccountingPeriodToolStripMenuItem})
+        Me.CtxFinance.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GeneralLedgerAccountToolStripMenuItem, Me.JournalTransactionEntryToolStripMenuItem, Me.JournalTransactionListToolStripMenuItem, Me.GeneralLedgerReportToolStripMenuItem, Me.ConfigurationToolStripMenuItem})
         Me.CtxFinance.Name = "CtxFinance"
-        Me.CtxFinance.Size = New System.Drawing.Size(198, 158)
+        Me.CtxFinance.Size = New System.Drawing.Size(198, 136)
         '
         'GeneralLedgerAccountToolStripMenuItem
         '
@@ -444,18 +453,6 @@ Partial Class _006_03_Main_Form_Version2
         Me.JournalTransactionListToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
         Me.JournalTransactionListToolStripMenuItem.Text = "Journal Transaction List"
         '
-        'ServiceAccountToolStripMenuItem
-        '
-        Me.ServiceAccountToolStripMenuItem.Name = "ServiceAccountToolStripMenuItem"
-        Me.ServiceAccountToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
-        Me.ServiceAccountToolStripMenuItem.Text = "Service Account"
-        '
-        'PettyCashUsageToolStripMenuItem
-        '
-        Me.PettyCashUsageToolStripMenuItem.Name = "PettyCashUsageToolStripMenuItem"
-        Me.PettyCashUsageToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
-        Me.PettyCashUsageToolStripMenuItem.Text = "Petty Cash Usage"
-        '
         'GeneralLedgerReportToolStripMenuItem
         '
         Me.GeneralLedgerReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GeneralLedgeToolStripMenuItem, Me.TrialBalanceToolStripMenuItem, Me.ProfitAndLossToolStripMenuItem, Me.BalancedSheetToolStripMenuItem})
@@ -466,38 +463,63 @@ Partial Class _006_03_Main_Form_Version2
         'GeneralLedgeToolStripMenuItem
         '
         Me.GeneralLedgeToolStripMenuItem.Name = "GeneralLedgeToolStripMenuItem"
-        Me.GeneralLedgeToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.GeneralLedgeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.GeneralLedgeToolStripMenuItem.Text = "General Ledger"
         '
         'TrialBalanceToolStripMenuItem
         '
         Me.TrialBalanceToolStripMenuItem.Name = "TrialBalanceToolStripMenuItem"
-        Me.TrialBalanceToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.TrialBalanceToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.TrialBalanceToolStripMenuItem.Text = "Trial Balance"
         '
         'ProfitAndLossToolStripMenuItem
         '
         Me.ProfitAndLossToolStripMenuItem.Name = "ProfitAndLossToolStripMenuItem"
-        Me.ProfitAndLossToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.ProfitAndLossToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ProfitAndLossToolStripMenuItem.Text = "Profit And Loss"
         '
         'BalancedSheetToolStripMenuItem
         '
         Me.BalancedSheetToolStripMenuItem.Name = "BalancedSheetToolStripMenuItem"
-        Me.BalancedSheetToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.BalancedSheetToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.BalancedSheetToolStripMenuItem.Text = "Balanced Sheet"
         '
-        'AccountingPeriodToolStripMenuItem
+        'ConfigurationToolStripMenuItem
         '
-        Me.AccountingPeriodToolStripMenuItem.Name = "AccountingPeriodToolStripMenuItem"
-        Me.AccountingPeriodToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
-        Me.AccountingPeriodToolStripMenuItem.Text = "Accounting Period"
+        Me.ConfigurationToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GLAccountTypeToolStripMenuItem, Me.AccountingDocumentTypeToolStripMenuItem, Me.PettyCashAccountToolStripMenuItem, Me.DefineAccountingPeriodToolStripMenuItem, Me.DefineServiceAccountToolStripMenuItem})
+        Me.ConfigurationToolStripMenuItem.Name = "ConfigurationToolStripMenuItem"
+        Me.ConfigurationToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
+        Me.ConfigurationToolStripMenuItem.Text = "Configuration"
         '
-        'DefineGLAccountForProductToolStripMenuItem
+        'GLAccountTypeToolStripMenuItem
         '
-        Me.DefineGLAccountForProductToolStripMenuItem.Name = "DefineGLAccountForProductToolStripMenuItem"
-        Me.DefineGLAccountForProductToolStripMenuItem.Size = New System.Drawing.Size(249, 22)
-        Me.DefineGLAccountForProductToolStripMenuItem.Text = "Define GL Account for Product"
+        Me.GLAccountTypeToolStripMenuItem.Name = "GLAccountTypeToolStripMenuItem"
+        Me.GLAccountTypeToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.GLAccountTypeToolStripMenuItem.Text = "GL Account Type"
+        '
+        'AccountingDocumentTypeToolStripMenuItem
+        '
+        Me.AccountingDocumentTypeToolStripMenuItem.Name = "AccountingDocumentTypeToolStripMenuItem"
+        Me.AccountingDocumentTypeToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.AccountingDocumentTypeToolStripMenuItem.Text = "Accounting Document Type"
+        '
+        'PettyCashAccountToolStripMenuItem
+        '
+        Me.PettyCashAccountToolStripMenuItem.Name = "PettyCashAccountToolStripMenuItem"
+        Me.PettyCashAccountToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.PettyCashAccountToolStripMenuItem.Text = "Petty Cash Account"
+        '
+        'DefineAccountingPeriodToolStripMenuItem
+        '
+        Me.DefineAccountingPeriodToolStripMenuItem.Name = "DefineAccountingPeriodToolStripMenuItem"
+        Me.DefineAccountingPeriodToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.DefineAccountingPeriodToolStripMenuItem.Text = "Define Accounting Period"
+        '
+        'DefineServiceAccountToolStripMenuItem
+        '
+        Me.DefineServiceAccountToolStripMenuItem.Name = "DefineServiceAccountToolStripMenuItem"
+        Me.DefineServiceAccountToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.DefineServiceAccountToolStripMenuItem.Text = "Define Service Account"
         '
         '_006_03_Main_Form_Version2
         '
@@ -575,8 +597,11 @@ Partial Class _006_03_Main_Form_Version2
     Friend WithEvents TrialBalanceToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ProfitAndLossToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BalancedSheetToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ServiceAccountToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents PettyCashUsageToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents AccountingPeriodToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DefineGLAccountForProductToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ConfigurationToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents GLAccountTypeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AccountingDocumentTypeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents PettyCashAccountToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DefineAccountingPeriodToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DefineServiceAccountToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
