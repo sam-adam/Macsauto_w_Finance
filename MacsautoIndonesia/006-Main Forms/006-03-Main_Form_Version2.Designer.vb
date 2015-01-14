@@ -25,11 +25,14 @@ Partial Class _006_03_Main_Form_Version2
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_006_03_Main_Form_Version2))
         Me.PnlLogo = New System.Windows.Forms.Panel()
+        Me.Time = New System.Windows.Forms.Label()
+        Me.currentDate = New System.Windows.Forms.Label()
+        Me.empTxt = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.PBoxMaskot = New System.Windows.Forms.PictureBox()
         Me.PBoxLogo = New System.Windows.Forms.PictureBox()
         Me.PnlMenu = New System.Windows.Forms.Panel()
         Me.BtnFinance = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BtnExit = New System.Windows.Forms.Button()
         Me.BtnReporting = New System.Windows.Forms.Button()
         Me.BtnConfiguration = New System.Windows.Forms.Button()
@@ -83,21 +86,38 @@ Partial Class _006_03_Main_Form_Version2
         Me.PettyCashAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DefineAccountingPeriodToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DefineServiceAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.add = New System.Windows.Forms.Label()
+        Me.strt = New System.Windows.Forms.Label()
+        Me.phone = New System.Windows.Forms.Label()
+        Me.phone2 = New System.Windows.Forms.Label()
+        Me.web = New System.Windows.Forms.Label()
+        Me.city = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.PnlLogo.SuspendLayout()
         CType(Me.PBoxMaskot, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PnlMenu.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CtxTransaction.SuspendLayout()
         Me.CtxMasterData.SuspendLayout()
         Me.CtxConfiguration.SuspendLayout()
         Me.CtxReporting.SuspendLayout()
         Me.CtxFinance.SuspendLayout()
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer1.Panel1.SuspendLayout()
+        Me.SplitContainer1.Panel2.SuspendLayout()
+        Me.SplitContainer1.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'PnlLogo
         '
         Me.PnlLogo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(116, Byte), Integer))
+        Me.PnlLogo.Controls.Add(Me.Time)
+        Me.PnlLogo.Controls.Add(Me.currentDate)
+        Me.PnlLogo.Controls.Add(Me.empTxt)
+        Me.PnlLogo.Controls.Add(Me.Label1)
         Me.PnlLogo.Controls.Add(Me.PBoxMaskot)
         Me.PnlLogo.Controls.Add(Me.PBoxLogo)
         Me.PnlLogo.Dock = System.Windows.Forms.DockStyle.Top
@@ -105,6 +125,46 @@ Partial Class _006_03_Main_Form_Version2
         Me.PnlLogo.Name = "PnlLogo"
         Me.PnlLogo.Size = New System.Drawing.Size(976, 75)
         Me.PnlLogo.TabIndex = 1
+        '
+        'Time
+        '
+        Me.Time.AutoSize = True
+        Me.Time.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Time.Location = New System.Drawing.Point(226, 6)
+        Me.Time.Name = "Time"
+        Me.Time.Size = New System.Drawing.Size(43, 16)
+        Me.Time.TabIndex = 5
+        Me.Time.Text = "Time"
+        '
+        'currentDate
+        '
+        Me.currentDate.AutoSize = True
+        Me.currentDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.currentDate.Location = New System.Drawing.Point(12, 6)
+        Me.currentDate.Name = "currentDate"
+        Me.currentDate.Size = New System.Drawing.Size(41, 16)
+        Me.currentDate.TabIndex = 4
+        Me.currentDate.Text = "Date"
+        '
+        'empTxt
+        '
+        Me.empTxt.AutoSize = True
+        Me.empTxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.empTxt.Location = New System.Drawing.Point(95, 32)
+        Me.empTxt.Name = "empTxt"
+        Me.empTxt.Size = New System.Drawing.Size(85, 20)
+        Me.empTxt.TabIndex = 3
+        Me.empTxt.Text = "employee"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(11, 32)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(87, 20)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Welcome,"
         '
         'PBoxMaskot
         '
@@ -132,16 +192,15 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.PnlMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(116, Byte), Integer))
         Me.PnlMenu.Controls.Add(Me.BtnFinance)
-        Me.PnlMenu.Controls.Add(Me.PictureBox1)
         Me.PnlMenu.Controls.Add(Me.BtnExit)
         Me.PnlMenu.Controls.Add(Me.BtnReporting)
         Me.PnlMenu.Controls.Add(Me.BtnConfiguration)
         Me.PnlMenu.Controls.Add(Me.BtnMasterData)
         Me.PnlMenu.Controls.Add(Me.BtnTransaction)
-        Me.PnlMenu.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PnlMenu.Location = New System.Drawing.Point(0, 75)
+        Me.PnlMenu.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PnlMenu.Location = New System.Drawing.Point(0, 0)
         Me.PnlMenu.Name = "PnlMenu"
-        Me.PnlMenu.Size = New System.Drawing.Size(211, 493)
+        Me.PnlMenu.Size = New System.Drawing.Size(219, 298)
         Me.PnlMenu.TabIndex = 2
         '
         'BtnFinance
@@ -156,15 +215,6 @@ Partial Class _006_03_Main_Form_Version2
         Me.BtnFinance.TabIndex = 6
         Me.BtnFinance.Text = "Finance"
         Me.BtnFinance.UseVisualStyleBackColor = True
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 283)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(211, 249)
-        Me.PictureBox1.TabIndex = 5
-        Me.PictureBox1.TabStop = False
         '
         'BtnExit
         '
@@ -433,7 +483,7 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.CtxFinance.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GeneralLedgerAccountToolStripMenuItem, Me.JournalTransactionEntryToolStripMenuItem, Me.JournalTransactionListToolStripMenuItem, Me.GeneralLedgerReportToolStripMenuItem, Me.ConfigurationToolStripMenuItem})
         Me.CtxFinance.Name = "CtxFinance"
-        Me.CtxFinance.Size = New System.Drawing.Size(198, 136)
+        Me.CtxFinance.Size = New System.Drawing.Size(198, 114)
         '
         'GeneralLedgerAccountToolStripMenuItem
         '
@@ -463,25 +513,25 @@ Partial Class _006_03_Main_Form_Version2
         'GeneralLedgeToolStripMenuItem
         '
         Me.GeneralLedgeToolStripMenuItem.Name = "GeneralLedgeToolStripMenuItem"
-        Me.GeneralLedgeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.GeneralLedgeToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.GeneralLedgeToolStripMenuItem.Text = "General Ledger"
         '
         'TrialBalanceToolStripMenuItem
         '
         Me.TrialBalanceToolStripMenuItem.Name = "TrialBalanceToolStripMenuItem"
-        Me.TrialBalanceToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.TrialBalanceToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.TrialBalanceToolStripMenuItem.Text = "Trial Balance"
         '
         'ProfitAndLossToolStripMenuItem
         '
         Me.ProfitAndLossToolStripMenuItem.Name = "ProfitAndLossToolStripMenuItem"
-        Me.ProfitAndLossToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ProfitAndLossToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.ProfitAndLossToolStripMenuItem.Text = "Profit And Loss"
         '
         'BalancedSheetToolStripMenuItem
         '
         Me.BalancedSheetToolStripMenuItem.Name = "BalancedSheetToolStripMenuItem"
-        Me.BalancedSheetToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BalancedSheetToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.BalancedSheetToolStripMenuItem.Text = "Balanced Sheet"
         '
         'ConfigurationToolStripMenuItem
@@ -521,27 +571,140 @@ Partial Class _006_03_Main_Form_Version2
         Me.DefineServiceAccountToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.DefineServiceAccountToolStripMenuItem.Text = "Define Service Account"
         '
+        'SplitContainer1
+        '
+        Me.SplitContainer1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(116, Byte), Integer))
+        Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.SplitContainer1.Location = New System.Drawing.Point(0, 75)
+        Me.SplitContainer1.Name = "SplitContainer1"
+        Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'SplitContainer1.Panel1
+        '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.PnlMenu)
+        '
+        'SplitContainer1.Panel2
+        '
+        Me.SplitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(116, Byte), Integer))
+        Me.SplitContainer1.Panel2.Controls.Add(Me.TableLayoutPanel1)
+        Me.SplitContainer1.Size = New System.Drawing.Size(219, 493)
+        Me.SplitContainer1.SplitterDistance = 298
+        Me.SplitContainer1.TabIndex = 6
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        '
+        'add
+        '
+        Me.add.AutoSize = True
+        Me.add.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.add.Location = New System.Drawing.Point(3, 0)
+        Me.add.Name = "add"
+        Me.add.Size = New System.Drawing.Size(163, 46)
+        Me.add.TabIndex = 0
+        Me.add.Text = "address"
+        '
+        'strt
+        '
+        Me.strt.AutoSize = True
+        Me.strt.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.strt.Location = New System.Drawing.Point(3, 46)
+        Me.strt.Name = "strt"
+        Me.strt.Size = New System.Drawing.Size(163, 35)
+        Me.strt.TabIndex = 1
+        Me.strt.Text = "street"
+        '
+        'phone
+        '
+        Me.phone.AutoSize = True
+        Me.phone.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.phone.Location = New System.Drawing.Point(3, 98)
+        Me.phone.Name = "phone"
+        Me.phone.Size = New System.Drawing.Size(163, 19)
+        Me.phone.TabIndex = 2
+        Me.phone.Text = "Phone1"
+        '
+        'phone2
+        '
+        Me.phone2.AutoSize = True
+        Me.phone2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.phone2.Location = New System.Drawing.Point(3, 117)
+        Me.phone2.Name = "phone2"
+        Me.phone2.Size = New System.Drawing.Size(163, 19)
+        Me.phone2.TabIndex = 3
+        Me.phone2.Text = "Phone2"
+        '
+        'web
+        '
+        Me.web.AutoSize = True
+        Me.web.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.web.Location = New System.Drawing.Point(3, 136)
+        Me.web.Name = "web"
+        Me.web.Size = New System.Drawing.Size(163, 25)
+        Me.web.TabIndex = 4
+        Me.web.Text = "Website"
+        '
+        'city
+        '
+        Me.city.AutoSize = True
+        Me.city.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.city.Location = New System.Drawing.Point(3, 81)
+        Me.city.Name = "city"
+        Me.city.Size = New System.Drawing.Size(163, 17)
+        Me.city.TabIndex = 5
+        Me.city.Text = "City"
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 1
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.web, 0, 5)
+        Me.TableLayoutPanel1.Controls.Add(Me.strt, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.phone2, 0, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.city, 0, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.phone, 0, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.add, 0, 0)
+        Me.TableLayoutPanel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(25, 18)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 6
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.45161!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.54839!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(169, 161)
+        Me.TableLayoutPanel1.TabIndex = 6
+        '
         '_006_03_Main_Form_Version2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(976, 568)
-        Me.Controls.Add(Me.PnlMenu)
+        Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.PnlLogo)
         Me.IsMdiContainer = True
         Me.Name = "_006_03_Main_Form_Version2"
         Me.Text = "MACSAUTO || Main Form"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.PnlLogo.ResumeLayout(False)
+        Me.PnlLogo.PerformLayout()
         CType(Me.PBoxMaskot, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PnlMenu.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.CtxTransaction.ResumeLayout(False)
         Me.CtxMasterData.ResumeLayout(False)
         Me.CtxConfiguration.ResumeLayout(False)
         Me.CtxReporting.ResumeLayout(False)
         Me.CtxFinance.ResumeLayout(False)
+        Me.SplitContainer1.Panel1.ResumeLayout(False)
+        Me.SplitContainer1.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer1.ResumeLayout(False)
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -581,7 +744,6 @@ Partial Class _006_03_Main_Form_Version2
     Friend WithEvents PettyCashToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BtnExit As System.Windows.Forms.Button
     Friend WithEvents PointRedemptionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents BrutoReportToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents UserToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SetPrinterToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -604,4 +766,17 @@ Partial Class _006_03_Main_Form_Version2
     Friend WithEvents PettyCashAccountToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DefineAccountingPeriodToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DefineServiceAccountToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents empTxt As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
+    Friend WithEvents currentDate As System.Windows.Forms.Label
+    Friend WithEvents Time As System.Windows.Forms.Label
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents city As System.Windows.Forms.Label
+    Friend WithEvents web As System.Windows.Forms.Label
+    Friend WithEvents phone2 As System.Windows.Forms.Label
+    Friend WithEvents phone As System.Windows.Forms.Label
+    Friend WithEvents strt As System.Windows.Forms.Label
+    Friend WithEvents add As System.Windows.Forms.Label
+    Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
 End Class

@@ -2,7 +2,16 @@
     Private ReadOnly _loginForm As _006_02_LoginForm
     Private _isDatabaseConfigured As Boolean = True
     Private _isLoggedIn As Boolean = True
-
+    Private Sub loadOutlet()
+        reader = ExecQueryReader("SELECT * FROM company")
+        reader.read()
+        add.Text = reader("cmadd").ToString
+        strt.Text = reader("strta").ToString
+        city.Text = reader("ccity").ToString
+        phone.Text = reader("phon1").ToString
+        phone2.Text = reader("phon2").ToString
+        web.Text = reader("webst").ToString
+    End Sub
     Public Sub New()
         If String.IsNullOrEmpty(My.Settings.Password) Then
             Dim databaseConfiguration = New _001_18_Define_Database()
@@ -295,6 +304,10 @@
     Private Sub _006_03_Main_Form_Version2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Not _isDatabaseConfigured Or Not _isLoggedIn Then
             Application.Exit()
+        Else
+            empTxt.Text = LoggedInEmployee.Name
+            currentDate.Text = Date.Today.ToLongDateString
+            loadOutlet()
         End If
     End Sub
 
@@ -327,4 +340,7 @@
         LoadForm(Of _009_09_Set_Service_Account)()
     End Sub
 
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+        Time.Text = System.DateTime.Now.ToString("HH:mm:ss")
+    End Sub
 End Class

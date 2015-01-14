@@ -146,18 +146,19 @@ Partial Class _003_01_TrList
         Me.Panel1.Controls.Add(Me.RadioButton1)
         Me.Panel1.Controls.Add(Me.RadioButton3)
         Me.Panel1.Controls.Add(Me.RadioButton2)
-        Me.Panel1.Location = New System.Drawing.Point(1004, 13)
+        Me.Panel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Panel1.Location = New System.Drawing.Point(455, 9)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(295, 35)
+        Me.Panel1.Size = New System.Drawing.Size(352, 39)
         Me.Panel1.TabIndex = 31
         '
         'RadioButton1
         '
         Me.RadioButton1.AutoSize = True
         Me.RadioButton1.BackColor = System.Drawing.Color.Transparent
-        Me.RadioButton1.Location = New System.Drawing.Point(243, 6)
+        Me.RadioButton1.Location = New System.Drawing.Point(282, 8)
         Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(47, 17)
+        Me.RadioButton1.Size = New System.Drawing.Size(52, 20)
         Me.RadioButton1.TabIndex = 28
         Me.RadioButton1.Text = "ALL"
         Me.RadioButton1.UseVisualStyleBackColor = False
@@ -166,9 +167,9 @@ Partial Class _003_01_TrList
         '
         Me.RadioButton3.AutoSize = True
         Me.RadioButton3.BackColor = System.Drawing.Color.Transparent
-        Me.RadioButton3.Location = New System.Drawing.Point(124, 6)
+        Me.RadioButton3.Location = New System.Drawing.Point(158, 8)
         Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(100, 17)
+        Me.RadioButton3.Size = New System.Drawing.Size(118, 20)
         Me.RadioButton3.TabIndex = 30
         Me.RadioButton3.Text = "COMPLETED"
         Me.RadioButton3.UseVisualStyleBackColor = False
@@ -178,9 +179,9 @@ Partial Class _003_01_TrList
         Me.RadioButton2.AutoSize = True
         Me.RadioButton2.BackColor = System.Drawing.Color.Transparent
         Me.RadioButton2.Checked = True
-        Me.RadioButton2.Location = New System.Drawing.Point(3, 6)
+        Me.RadioButton2.Location = New System.Drawing.Point(16, 8)
         Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(115, 17)
+        Me.RadioButton2.Size = New System.Drawing.Size(136, 20)
         Me.RadioButton2.TabIndex = 29
         Me.RadioButton2.TabStop = True
         Me.RadioButton2.Text = "OUTSTANDING"

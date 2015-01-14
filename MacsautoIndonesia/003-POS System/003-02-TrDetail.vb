@@ -8,6 +8,7 @@ Public Class _003_02_TrDetail2
     Public SizeNumber, TrNumber As String
     Public remainAR As Integer = 0
     Dim smartCardReader As SmartCardReader
+ 
     Private Sub updateStock()
         Dim i As Integer
         If ProductGrid.Rows.Count <> 0 Then
@@ -573,10 +574,18 @@ Public Class _003_02_TrDetail2
 
         transactionPage.Logo = My.Resources.Logo_MACSAUTO_only__background_putih__1_
 
-        transactionPage.AppendTitle("JL. HOS. COKROAMINOTO (KOMP. SPBU PERTAMINA)")
-        transactionPage.AppendTitle("SAMPING UBUD VILLAGE, CILEDUG RAYA")
-        transactionPage.AppendTitle("021-7314783")
-        transactionPage.AppendTitle("WWW.MACSAUTO-INDONESIA.COM")
+        reader = ExecQueryReader("SELECT cmnam, strta,ccity,phon1,phon2,webst FROM company")
+        reader.read()
+        transactionPage.AppendTitle(reader("cmnam").ToString)
+        transactionPage.AppendTitle(reader("strta").ToString)
+        transactionPage.AppendTitle(reader("ccity").ToString)
+        transactionPage.AppendTitle("Phone : " & reader("phon1").ToString)
+        transactionPage.AppendTitle("Hotline : " & reader("phon2").ToString)
+        transactionPage.AppendTitle(reader("webst").ToString)
+        'transactionPage.AppendTitle("JL. HOS. COKROAMINOTO (KOMP. SPBU PERTAMINA)")
+        'transactionPage.AppendTitle("SAMPING UBUD VILLAGE, CILEDUG RAYA")
+        'transactionPage.AppendTitle("021-7314783")
+        'transactionPage.AppendTitle("WWW.MACSAUTO-INDONESIA.COM")
 
         transactionPage.SetTransactionInformation(transactionNumber, vNumber.Text, vBrand.Text, vModel.Text, TrDATE.Value.ToString("dd/MM/yyyy"), DateTime.Now.ToShortTimeString())
 

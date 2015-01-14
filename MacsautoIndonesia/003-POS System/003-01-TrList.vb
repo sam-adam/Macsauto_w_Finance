@@ -222,7 +222,5 @@
         Label2.Text = System.DateTime.Now.ToString("HH:mm:ss")
     End Sub
 
-    Private Sub _003_01_TrList_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
-    End Sub
+ 
 End Class
