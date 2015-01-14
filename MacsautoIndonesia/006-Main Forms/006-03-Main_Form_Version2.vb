@@ -94,7 +94,7 @@
     End Sub
 
     Private Sub ServiceToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ServiceToolStripMenuItem.Click
-        LoadForm(Of _002_02_Service)()
+        LoadForm(Of _002_08_Service_List)()
     End Sub
 
     Private Sub CustomerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomerToolStripMenuItem.Click

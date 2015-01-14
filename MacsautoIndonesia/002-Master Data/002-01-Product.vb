@@ -5,9 +5,9 @@
     Public Sub New()
         InitializeComponent()
 
-        Add.Visible = (LoggedInEmployee.Position = Position.Manager)
-        Edit.Visible = (LoggedInEmployee.Position = Position.Manager)
-        Remove.Visible = (LoggedInEmployee.Position = Position.Manager)
+        Add.Visible = (Not LoggedInEmployee Is Nothing AndAlso LoggedInEmployee.Position = Position.Manager)
+        Edit.Visible = (Not LoggedInEmployee Is Nothing AndAlso LoggedInEmployee.Position = Position.Manager)
+        Remove.Visible = (Not LoggedInEmployee Is Nothing AndAlso LoggedInEmployee.Position = Position.Manager)
     End Sub
 
     Private Function checkToTransaction(ByVal pcode As String)
@@ -57,7 +57,7 @@
     Private Sub loadProductTable()
         ProductGridView.Rows.Clear()
         ' reader = ExecQueryReader("select a.idpdt,a.idptp,d.ptpdc, a.pdtds,a.ppamt,a.psamt,sum(slqty),c.uodsc  from hproduct a , dproduct b ,uom c,producttype d where a.idpdt = b.idpdt and a.iduom = c.iduom and a.idptp = d.idptp and d.ismrch = 0 group by idpdt")
-        reader = ExecQueryReader("select a.idpdt,a.idptp,d.ptpdc, a.pdtds,a.ppamt,a.psamt,sum(slqty),c.uodsc,a.glnum, d.iscnsm  from hproduct a , dproduct b ,uom c,producttype d where a.idpdt = b.idpdt and a.iduom = c.iduom and a.idptp = d.idptp group by idpdt")
+        reader = ExecQueryReader("select a.idpdt,a.idptp,d.ptpdc, a.pdtds,a.ppamt,a.psamt,sum(slqty),c.uodsc,a.glnum, d.iscnsm  from hproduct a , dproduct b ,uom c,producttype d where a.idpdt = b.idpdt and a.iduom = c.iduom and a.idptp = d.idptp and a.is_active = 1 group by idpdt")
 
         While reader.read
             ProductGridView.Rows.Add(reader(0).ToString, reader(1).ToString, reader(2).ToString, reader(3).ToString, reader(4), reader(5), reader(6).ToString, reader(7).ToString, reader(8).ToString, reader(9))
@@ -324,7 +324,7 @@
             MsgBox("Please select product to be deleted")
         Else
             If MsgBox("Delete product?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
-                ExecQueryNonReader("UPDATE hproduct SET is_active = 0")
+                ExecQueryNonReader("UPDATE hproduct SET is_active = 0 WHERE idpdt = '" & ProductID.Text & "'")
                 MsgBox("Product data removed")
                 loadProductTable()
                 ProductID.Text = "xxxxxx"

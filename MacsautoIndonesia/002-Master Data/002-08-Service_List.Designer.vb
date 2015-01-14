@@ -23,7 +23,7 @@ Partial Class _002_08_Service_List
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_002_08_Service_List))
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.SplitContainer = New System.Windows.Forms.SplitContainer()
@@ -310,10 +310,10 @@ Partial Class _002_08_Service_List
         '
         'ServicePriceCol
         '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle2.Format = "N0"
-        DataGridViewCellStyle2.NullValue = "0"
-        Me.ServicePriceCol.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle3.Format = "N0"
+        DataGridViewCellStyle3.NullValue = "0"
+        Me.ServicePriceCol.DefaultCellStyle = DataGridViewCellStyle3
         Me.ServicePriceCol.HeaderText = "Price"
         Me.ServicePriceCol.Name = "ServicePriceCol"
         Me.ServicePriceCol.ReadOnly = True
@@ -382,6 +382,7 @@ Partial Class _002_08_Service_List
         Me.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.Name = "_002_08_Service_List"
         Me.Text = "Service - List And Detail"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel8.ResumeLayout(False)
         Me.SplitContainer.Panel1.ResumeLayout(False)
         Me.SplitContainer.Panel2.ResumeLayout(False)
