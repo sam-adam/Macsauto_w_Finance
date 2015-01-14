@@ -28,7 +28,6 @@
             cogs = 0
             For i = 0 To ProdMoveGrid.Rows.Count - 2
                 If ProdMoveGrid.Rows(i).Cells(9).Value = "False" Then
-                    'MsgBox(getGLAccount("SELECT ppamt FROM hproduct WHERE idpdt LIKE '" + ProdMoveGrid.Rows(i).Cells(2).Value + "'"))
                     Subtotal = 0
                     Subtotal = (getGLAccount("SELECT ppamt FROM hproduct WHERE idpdt LIKE '" + ProdMoveGrid.Rows(i).Cells(0).Value + "'") * ProdMoveGrid.Rows(i).Cells(2).Value)
                     ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + ProdMoveGrid.Rows(i).Cells(8).Value.ToString + "','20','" + Subtotal.ToString + "','" + ProdMoveGrid.Rows(i).Cells(1).Value.ToString + "')")
@@ -59,7 +58,6 @@
         Dim i As Integer
         Dim newMAP As String
         For i = 0 To ProdMoveGrid.Rows.Count - 1
-            '            reader = ExecQueryReader("select round(sum(mvqty*mpric)/sum(mvqty)) from hpmovement a, dpmovement b where a.pmvid = b.pmvid and  idpdt like '" + ProdMoveGrid.Rows(i).Cells(0).Value.ToString + "'")
             reader = ExecQueryReader("SELECT ROUND((SUM(CASE WHEN pstky = '10' THEN b.psamt ELSE '0' END)- SUM(CASE WHEN pstky = '20' THEN b.psamt ELSE '0' END))/pdqty) AS 'amount' FROM hproduct a, jourdt b where a.glnum = b.glnum AND idpdt = '" + ProdMoveGrid.Rows(i).Cells(0).Value.ToString + "' GROUP BY idpdt")
             reader.read()
             newMAP = reader(0).ToString

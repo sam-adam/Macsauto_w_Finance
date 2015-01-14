@@ -1,6 +1,6 @@
 ﻿Public Class _005_10_POS_Merchandise
     Private Sub _005_10_POS_Merchandise_Load( sender As System.Object,  e As System.EventArgs) Handles MyBase.Load
-        loadTable("select A.idpdt as 'PRODUCT #',pdtds AS 'PRODUCT DESCRIPTION',b.slqty AS 'QTY',uodsc AS 'UNIT',mpoin as 'POINT' from HProduct a, DProduct b, uom c, hmerchandise d where a.idpdt = d.idpdt AND a.idpdt = b.idpdt AND a.iduom = c.iduom AND defsl = 'True'", SProductGrid)
+        loadTable("select A.idpdt as 'PRODUCT #',pdtds AS 'PRODUCT DESCRIPTION',b.slqty AS 'QTY',uodsc AS 'UNIT',mpoin as 'POINT' from HProduct a, DProduct b, uom c, hmerchandise d where a.idpdt = d.idpdt AND a.idpdt = b.idpdt AND a.iduom = c.iduom AND defsl = 'True' AND a.is_active = 1", SProductGrid)
         Marking(SProductGrid)
     End Sub
 

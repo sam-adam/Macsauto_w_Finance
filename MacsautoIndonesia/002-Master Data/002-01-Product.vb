@@ -56,7 +56,6 @@
     End Sub
     Private Sub loadProductTable()
         ProductGridView.Rows.Clear()
-        ' reader = ExecQueryReader("select a.idpdt,a.idptp,d.ptpdc, a.pdtds,a.ppamt,a.psamt,sum(slqty),c.uodsc  from hproduct a , dproduct b ,uom c,producttype d where a.idpdt = b.idpdt and a.iduom = c.iduom and a.idptp = d.idptp and d.ismrch = 0 group by idpdt")
         reader = ExecQueryReader("select a.idpdt,a.idptp,d.ptpdc, a.pdtds,a.ppamt,a.psamt,sum(slqty),c.uodsc,a.glnum, d.iscnsm  from hproduct a , dproduct b ,uom c,producttype d where a.idpdt = b.idpdt and a.iduom = c.iduom and a.idptp = d.idptp and a.is_active = 1 group by idpdt")
 
         While reader.read

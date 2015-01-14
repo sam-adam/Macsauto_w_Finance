@@ -226,8 +226,7 @@ Public Class _003_02_TrDetail2
             ServiceGrid.Rows.Add()
             Me.ServiceGrid.CurrentCell = ServiceGrid.Item(1, ServiceGrid.Rows.Count - 1)
             addSeqNumber(ServiceGrid)
-            'loadTable("SELECT a.idsvc as 'SERVICE #',svcdc AS 'SERVICE DESCRIPTION',svprc AS 'SERVICE PRICE' FROM HService A, DSERVICE B WHERE A.IDSVC=B.IDSVC AND B.idsiz LIKE '" + SizeNumber + "'", _005_08_POS_Service.servSearchGrid)
-            loadTable("SELECT a.idsvc as 'SERVICE#', svcdc as 'DESCRIPTION', svprc as 'PRICE',pmdcp AS 'PROMOTION',pdamt AS 'Disc Amount',pdpct as 'Disc %' FROM (HService as A JOIN DService as b on A.idsvc = B.idsvc and b.idsiz = '" + SizeNumber + "') left join promoAssignment as C on A.idsvc = C.iditm and C.atype = 'S' and C.begda <= curdate() and C.endda >= curdate() and C.astat = 'True'left join promotion as D on C.idpmt = D.idpmt WHERE A.is_active = 1 order by a.idsvc asc", _005_08_POS_Service.servSearchGrid)
+            loadTable("SELECT a.idsvc as 'SERVICE#', svcdc as 'DESCRIPTION', svprc as 'PRICE',pmdcp AS 'PROMOTION',pdamt AS 'Disc Amount',pdpct as 'Disc %' FROM (HService as A JOIN DService as b on A.idsvc = B.idsvc and b.idsiz = '" + SizeNumber + "') left join promoAssignment as C on A.idsvc = C.iditm and C.atype = 'S' and C.begda <= curdate() and C.endda >= curdate() and C.astat = 'True' left join promotion as D on C.idpmt = D.idpmt WHERE A.is_active = 1 order by a.idsvc asc", _005_08_POS_Service.servSearchGrid)
             Marking(_005_08_POS_Service.servSearchGrid)
             _005_08_POS_Service.servSearchGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
             _005_08_POS_Service.ShowDialog()

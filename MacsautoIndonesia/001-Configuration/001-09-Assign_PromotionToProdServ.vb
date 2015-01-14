@@ -3,9 +3,9 @@
     Private Sub loadItem()
         pdtsvcbo.Items.Clear()
         If ProductRbtn.Checked = True Then
-            reader = ExecQueryReader("SELECT * FROM HProduct")
+            reader = ExecQueryReader("SELECT * FROM hproduct WHERE hproduct.is_active = 1")
         Else
-            reader = ExecQueryReader("SELECT * FROM HService")
+            reader = ExecQueryReader("SELECT * FROM hservice WHERE hservice.is_active = 1")
         End If
         While reader.Read()
             pdtsvcbo.Items.Add(reader(0).ToString & " - " & reader(2).ToString)
