@@ -483,7 +483,7 @@ Partial Class _003_02_TrDetail2
         Me.Panel3.BackColor = System.Drawing.Color.Gold
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel3.Controls.Add(Me.Label27)
-        Me.Panel3.Location = New System.Drawing.Point(416, 38)
+        Me.Panel3.Location = New System.Drawing.Point(424, 38)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(354, 25)
         Me.Panel3.TabIndex = 23
@@ -492,7 +492,7 @@ Partial Class _003_02_TrDetail2
         '
         Me.Label27.AutoSize = True
         Me.Label27.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.Location = New System.Drawing.Point(3, 5)
+        Me.Label27.Location = New System.Drawing.Point(6, 5)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(119, 14)
         Me.Label27.TabIndex = 0
