@@ -308,6 +308,8 @@
             empTxt.Text = LoggedInEmployee.Name
             currentDate.Text = Date.Today.ToLongDateString
             loadOutlet()
+
+            UserToolStripMenuItem.Visible = (LoggedInEmployee.Position = Position.Manager)
         End If
     End Sub
 

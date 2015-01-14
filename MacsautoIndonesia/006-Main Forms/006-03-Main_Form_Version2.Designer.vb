@@ -87,14 +87,14 @@ Partial Class _006_03_Main_Form_Version2
         Me.DefineAccountingPeriodToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DefineServiceAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.add = New System.Windows.Forms.Label()
-        Me.strt = New System.Windows.Forms.Label()
-        Me.phone = New System.Windows.Forms.Label()
-        Me.phone2 = New System.Windows.Forms.Label()
-        Me.web = New System.Windows.Forms.Label()
-        Me.city = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.web = New System.Windows.Forms.Label()
+        Me.strt = New System.Windows.Forms.Label()
+        Me.phone2 = New System.Windows.Forms.Label()
+        Me.city = New System.Windows.Forms.Label()
+        Me.phone = New System.Windows.Forms.Label()
+        Me.add = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.PnlLogo.SuspendLayout()
         CType(Me.PBoxMaskot, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -207,11 +207,12 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.BtnFinance.BackgroundImage = CType(resources.GetObject("BtnFinance.BackgroundImage"), System.Drawing.Image)
         Me.BtnFinance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnFinance.Dock = System.Windows.Forms.DockStyle.Top
         Me.BtnFinance.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnFinance.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnFinance.Location = New System.Drawing.Point(3, 187)
+        Me.BtnFinance.Location = New System.Drawing.Point(0, 200)
         Me.BtnFinance.Name = "BtnFinance"
-        Me.BtnFinance.Size = New System.Drawing.Size(205, 40)
+        Me.BtnFinance.Size = New System.Drawing.Size(219, 40)
         Me.BtnFinance.TabIndex = 6
         Me.BtnFinance.Text = "Finance"
         Me.BtnFinance.UseVisualStyleBackColor = True
@@ -220,11 +221,12 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.BtnExit.BackgroundImage = CType(resources.GetObject("BtnExit.BackgroundImage"), System.Drawing.Image)
         Me.BtnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnExit.Dock = System.Windows.Forms.DockStyle.Top
         Me.BtnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnExit.Location = New System.Drawing.Point(3, 232)
+        Me.BtnExit.Location = New System.Drawing.Point(0, 160)
         Me.BtnExit.Name = "BtnExit"
-        Me.BtnExit.Size = New System.Drawing.Size(205, 40)
+        Me.BtnExit.Size = New System.Drawing.Size(219, 40)
         Me.BtnExit.TabIndex = 4
         Me.BtnExit.Text = "Log Out"
         Me.BtnExit.UseVisualStyleBackColor = True
@@ -233,11 +235,12 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.BtnReporting.BackgroundImage = CType(resources.GetObject("BtnReporting.BackgroundImage"), System.Drawing.Image)
         Me.BtnReporting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnReporting.Dock = System.Windows.Forms.DockStyle.Top
         Me.BtnReporting.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnReporting.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnReporting.Location = New System.Drawing.Point(3, 141)
+        Me.BtnReporting.Location = New System.Drawing.Point(0, 120)
         Me.BtnReporting.Name = "BtnReporting"
-        Me.BtnReporting.Size = New System.Drawing.Size(205, 40)
+        Me.BtnReporting.Size = New System.Drawing.Size(219, 40)
         Me.BtnReporting.TabIndex = 3
         Me.BtnReporting.Text = "Reporting"
         Me.BtnReporting.UseVisualStyleBackColor = True
@@ -246,11 +249,12 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.BtnConfiguration.BackgroundImage = CType(resources.GetObject("BtnConfiguration.BackgroundImage"), System.Drawing.Image)
         Me.BtnConfiguration.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnConfiguration.Dock = System.Windows.Forms.DockStyle.Top
         Me.BtnConfiguration.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnConfiguration.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnConfiguration.Location = New System.Drawing.Point(3, 95)
+        Me.BtnConfiguration.Location = New System.Drawing.Point(0, 80)
         Me.BtnConfiguration.Name = "BtnConfiguration"
-        Me.BtnConfiguration.Size = New System.Drawing.Size(205, 40)
+        Me.BtnConfiguration.Size = New System.Drawing.Size(219, 40)
         Me.BtnConfiguration.TabIndex = 2
         Me.BtnConfiguration.Text = "Configuration"
         Me.BtnConfiguration.UseVisualStyleBackColor = True
@@ -259,11 +263,12 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.BtnMasterData.BackgroundImage = CType(resources.GetObject("BtnMasterData.BackgroundImage"), System.Drawing.Image)
         Me.BtnMasterData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnMasterData.Dock = System.Windows.Forms.DockStyle.Top
         Me.BtnMasterData.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnMasterData.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnMasterData.Location = New System.Drawing.Point(3, 49)
+        Me.BtnMasterData.Location = New System.Drawing.Point(0, 40)
         Me.BtnMasterData.Name = "BtnMasterData"
-        Me.BtnMasterData.Size = New System.Drawing.Size(205, 40)
+        Me.BtnMasterData.Size = New System.Drawing.Size(219, 40)
         Me.BtnMasterData.TabIndex = 1
         Me.BtnMasterData.Text = "Master Data"
         Me.BtnMasterData.UseVisualStyleBackColor = True
@@ -272,11 +277,12 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.BtnTransaction.BackgroundImage = CType(resources.GetObject("BtnTransaction.BackgroundImage"), System.Drawing.Image)
         Me.BtnTransaction.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnTransaction.Dock = System.Windows.Forms.DockStyle.Top
         Me.BtnTransaction.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnTransaction.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnTransaction.Location = New System.Drawing.Point(3, 3)
+        Me.BtnTransaction.Location = New System.Drawing.Point(0, 0)
         Me.BtnTransaction.Name = "BtnTransaction"
-        Me.BtnTransaction.Size = New System.Drawing.Size(205, 40)
+        Me.BtnTransaction.Size = New System.Drawing.Size(219, 40)
         Me.BtnTransaction.TabIndex = 0
         Me.BtnTransaction.Text = "Transaction"
         Me.BtnTransaction.UseVisualStyleBackColor = True
@@ -285,290 +291,290 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.CtxTransaction.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PointOfSalesToolStripMenuItem, Me.ProductMovementToolStripMenuItem, Me.PettyCashToolStripMenuItem, Me.PointRedemptionToolStripMenuItem})
         Me.CtxTransaction.Name = "CtxTransaction"
-        Me.CtxTransaction.Size = New System.Drawing.Size(165, 92)
+        Me.CtxTransaction.Size = New System.Drawing.Size(178, 92)
         '
         'PointOfSalesToolStripMenuItem
         '
         Me.PointOfSalesToolStripMenuItem.Name = "PointOfSalesToolStripMenuItem"
-        Me.PointOfSalesToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.PointOfSalesToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.PointOfSalesToolStripMenuItem.Text = "Point Of Sales"
         '
         'ProductMovementToolStripMenuItem
         '
         Me.ProductMovementToolStripMenuItem.Name = "ProductMovementToolStripMenuItem"
-        Me.ProductMovementToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.ProductMovementToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.ProductMovementToolStripMenuItem.Text = "Product Movement"
         '
         'PettyCashToolStripMenuItem
         '
         Me.PettyCashToolStripMenuItem.Name = "PettyCashToolStripMenuItem"
-        Me.PettyCashToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.PettyCashToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.PettyCashToolStripMenuItem.Text = "Petty Cash"
         '
         'PointRedemptionToolStripMenuItem
         '
         Me.PointRedemptionToolStripMenuItem.Name = "PointRedemptionToolStripMenuItem"
-        Me.PointRedemptionToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.PointRedemptionToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.PointRedemptionToolStripMenuItem.Text = "Point Redemption"
         '
         'CtxMasterData
         '
         Me.CtxMasterData.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductToolStripMenuItem, Me.ServiceToolStripMenuItem, Me.CustomerToolStripMenuItem, Me.PromotionToolStripMenuItem, Me.MerchandiseToolStripMenuItem, Me.UserToolStripMenuItem})
         Me.CtxMasterData.Name = "CtxMasterData"
-        Me.CtxMasterData.Size = New System.Drawing.Size(135, 136)
+        Me.CtxMasterData.Size = New System.Drawing.Size(143, 136)
         '
         'ProductToolStripMenuItem
         '
         Me.ProductToolStripMenuItem.Name = "ProductToolStripMenuItem"
-        Me.ProductToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.ProductToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
         Me.ProductToolStripMenuItem.Text = "Product"
         '
         'ServiceToolStripMenuItem
         '
         Me.ServiceToolStripMenuItem.Name = "ServiceToolStripMenuItem"
-        Me.ServiceToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.ServiceToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
         Me.ServiceToolStripMenuItem.Text = "Service"
         '
         'CustomerToolStripMenuItem
         '
         Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
-        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
         Me.CustomerToolStripMenuItem.Text = "Customer"
         '
         'PromotionToolStripMenuItem
         '
         Me.PromotionToolStripMenuItem.Name = "PromotionToolStripMenuItem"
-        Me.PromotionToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.PromotionToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
         Me.PromotionToolStripMenuItem.Text = "Promotion"
         '
         'MerchandiseToolStripMenuItem
         '
         Me.MerchandiseToolStripMenuItem.Name = "MerchandiseToolStripMenuItem"
-        Me.MerchandiseToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.MerchandiseToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
         Me.MerchandiseToolStripMenuItem.Text = "Merchandise"
         '
         'UserToolStripMenuItem
         '
         Me.UserToolStripMenuItem.Name = "UserToolStripMenuItem"
-        Me.UserToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.UserToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
         Me.UserToolStripMenuItem.Text = "User"
         '
         'CtxConfiguration
         '
         Me.CtxConfiguration.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DefineCompanyToolStripMenuItem, Me.DefineStorageLocationToolStripMenuItem, Me.DefineUnitOfMeasureToolStripMenuItem, Me.DefineVehicleBrandAndModelToolStripMenuItem, Me.DefineVehicleSizeToolStripMenuItem, Me.DefineVehicleColorToolStripMenuItem, Me.DefineProductTypeToolStripMenuItem, Me.DefineServiceTypeToolStripMenuItem, Me.DefineBasePointForCustomerPointToolStripMenuItem, Me.SetPrinterToolStripMenuItem, Me.SetMySQLDumperToolStripMenuItem, Me.DefineGLAccountForProductToolStripMenuItem})
         Me.CtxConfiguration.Name = "CtxMasterData"
-        Me.CtxConfiguration.Size = New System.Drawing.Size(250, 268)
+        Me.CtxConfiguration.Size = New System.Drawing.Size(269, 268)
         '
         'DefineCompanyToolStripMenuItem
         '
         Me.DefineCompanyToolStripMenuItem.Name = "DefineCompanyToolStripMenuItem"
-        Me.DefineCompanyToolStripMenuItem.Size = New System.Drawing.Size(249, 22)
+        Me.DefineCompanyToolStripMenuItem.Size = New System.Drawing.Size(268, 22)
         Me.DefineCompanyToolStripMenuItem.Text = "Define Company"
         '
         'DefineStorageLocationToolStripMenuItem
         '
         Me.DefineStorageLocationToolStripMenuItem.Name = "DefineStorageLocationToolStripMenuItem"
-        Me.DefineStorageLocationToolStripMenuItem.Size = New System.Drawing.Size(249, 22)
+        Me.DefineStorageLocationToolStripMenuItem.Size = New System.Drawing.Size(268, 22)
         Me.DefineStorageLocationToolStripMenuItem.Text = "Define Storage Location"
         '
         'DefineUnitOfMeasureToolStripMenuItem
         '
         Me.DefineUnitOfMeasureToolStripMenuItem.Name = "DefineUnitOfMeasureToolStripMenuItem"
-        Me.DefineUnitOfMeasureToolStripMenuItem.Size = New System.Drawing.Size(249, 22)
+        Me.DefineUnitOfMeasureToolStripMenuItem.Size = New System.Drawing.Size(268, 22)
         Me.DefineUnitOfMeasureToolStripMenuItem.Text = "Define Unit of Measure"
         '
         'DefineVehicleBrandAndModelToolStripMenuItem
         '
         Me.DefineVehicleBrandAndModelToolStripMenuItem.Name = "DefineVehicleBrandAndModelToolStripMenuItem"
-        Me.DefineVehicleBrandAndModelToolStripMenuItem.Size = New System.Drawing.Size(249, 22)
+        Me.DefineVehicleBrandAndModelToolStripMenuItem.Size = New System.Drawing.Size(268, 22)
         Me.DefineVehicleBrandAndModelToolStripMenuItem.Text = "Define Vehicle Brand and Model"
         '
         'DefineVehicleSizeToolStripMenuItem
         '
         Me.DefineVehicleSizeToolStripMenuItem.Name = "DefineVehicleSizeToolStripMenuItem"
-        Me.DefineVehicleSizeToolStripMenuItem.Size = New System.Drawing.Size(249, 22)
+        Me.DefineVehicleSizeToolStripMenuItem.Size = New System.Drawing.Size(268, 22)
         Me.DefineVehicleSizeToolStripMenuItem.Text = "Define Vehicle Size"
         '
         'DefineVehicleColorToolStripMenuItem
         '
         Me.DefineVehicleColorToolStripMenuItem.Name = "DefineVehicleColorToolStripMenuItem"
-        Me.DefineVehicleColorToolStripMenuItem.Size = New System.Drawing.Size(249, 22)
+        Me.DefineVehicleColorToolStripMenuItem.Size = New System.Drawing.Size(268, 22)
         Me.DefineVehicleColorToolStripMenuItem.Text = "Define Vehicle Color"
         '
         'DefineProductTypeToolStripMenuItem
         '
         Me.DefineProductTypeToolStripMenuItem.Name = "DefineProductTypeToolStripMenuItem"
-        Me.DefineProductTypeToolStripMenuItem.Size = New System.Drawing.Size(249, 22)
+        Me.DefineProductTypeToolStripMenuItem.Size = New System.Drawing.Size(268, 22)
         Me.DefineProductTypeToolStripMenuItem.Text = "Define Product Type"
         '
         'DefineServiceTypeToolStripMenuItem
         '
         Me.DefineServiceTypeToolStripMenuItem.Name = "DefineServiceTypeToolStripMenuItem"
-        Me.DefineServiceTypeToolStripMenuItem.Size = New System.Drawing.Size(249, 22)
+        Me.DefineServiceTypeToolStripMenuItem.Size = New System.Drawing.Size(268, 22)
         Me.DefineServiceTypeToolStripMenuItem.Text = "Define Service Type"
         '
         'DefineBasePointForCustomerPointToolStripMenuItem
         '
         Me.DefineBasePointForCustomerPointToolStripMenuItem.Name = "DefineBasePointForCustomerPointToolStripMenuItem"
-        Me.DefineBasePointForCustomerPointToolStripMenuItem.Size = New System.Drawing.Size(249, 22)
+        Me.DefineBasePointForCustomerPointToolStripMenuItem.Size = New System.Drawing.Size(268, 22)
         Me.DefineBasePointForCustomerPointToolStripMenuItem.Text = "Define base point for customer point"
         '
         'SetPrinterToolStripMenuItem
         '
         Me.SetPrinterToolStripMenuItem.Name = "SetPrinterToolStripMenuItem"
-        Me.SetPrinterToolStripMenuItem.Size = New System.Drawing.Size(249, 22)
+        Me.SetPrinterToolStripMenuItem.Size = New System.Drawing.Size(268, 22)
         Me.SetPrinterToolStripMenuItem.Text = "Set Printer"
         '
         'SetMySQLDumperToolStripMenuItem
         '
         Me.SetMySQLDumperToolStripMenuItem.Name = "SetMySQLDumperToolStripMenuItem"
-        Me.SetMySQLDumperToolStripMenuItem.Size = New System.Drawing.Size(249, 22)
+        Me.SetMySQLDumperToolStripMenuItem.Size = New System.Drawing.Size(268, 22)
         Me.SetMySQLDumperToolStripMenuItem.Text = "Set MySQL Dumper"
         '
         'DefineGLAccountForProductToolStripMenuItem
         '
         Me.DefineGLAccountForProductToolStripMenuItem.Name = "DefineGLAccountForProductToolStripMenuItem"
-        Me.DefineGLAccountForProductToolStripMenuItem.Size = New System.Drawing.Size(249, 22)
+        Me.DefineGLAccountForProductToolStripMenuItem.Size = New System.Drawing.Size(268, 22)
         Me.DefineGLAccountForProductToolStripMenuItem.Text = "Define GL Account for Product"
         '
         'CtxReporting
         '
         Me.CtxReporting.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StockTransferToolStripMenuItem, Me.GoodIssueToolStripMenuItem, Me.GoodReceiptToolStripMenuItem, Me.InitialStockToolStripMenuItem, Me.PettyCashToolStripMenuItem1, Me.BrutoReportToolStripMenuItem, Me.ProductMovementToolStripMenuItem1})
         Me.CtxReporting.Name = "CtxMasterData"
-        Me.CtxReporting.Size = New System.Drawing.Size(165, 158)
+        Me.CtxReporting.Size = New System.Drawing.Size(178, 158)
         '
         'StockTransferToolStripMenuItem
         '
         Me.StockTransferToolStripMenuItem.Name = "StockTransferToolStripMenuItem"
-        Me.StockTransferToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.StockTransferToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.StockTransferToolStripMenuItem.Text = "Stock Transfer"
         '
         'GoodIssueToolStripMenuItem
         '
         Me.GoodIssueToolStripMenuItem.Name = "GoodIssueToolStripMenuItem"
-        Me.GoodIssueToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.GoodIssueToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.GoodIssueToolStripMenuItem.Text = "Good Issue"
         '
         'GoodReceiptToolStripMenuItem
         '
         Me.GoodReceiptToolStripMenuItem.Name = "GoodReceiptToolStripMenuItem"
-        Me.GoodReceiptToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.GoodReceiptToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.GoodReceiptToolStripMenuItem.Text = "Good Receipt"
         '
         'InitialStockToolStripMenuItem
         '
         Me.InitialStockToolStripMenuItem.Name = "InitialStockToolStripMenuItem"
-        Me.InitialStockToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.InitialStockToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.InitialStockToolStripMenuItem.Text = "Initial Stock"
         '
         'PettyCashToolStripMenuItem1
         '
         Me.PettyCashToolStripMenuItem1.Name = "PettyCashToolStripMenuItem1"
-        Me.PettyCashToolStripMenuItem1.Size = New System.Drawing.Size(164, 22)
+        Me.PettyCashToolStripMenuItem1.Size = New System.Drawing.Size(177, 22)
         Me.PettyCashToolStripMenuItem1.Text = "Petty Cash"
         '
         'BrutoReportToolStripMenuItem
         '
         Me.BrutoReportToolStripMenuItem.Name = "BrutoReportToolStripMenuItem"
-        Me.BrutoReportToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.BrutoReportToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.BrutoReportToolStripMenuItem.Text = "Bruto Report"
         '
         'ProductMovementToolStripMenuItem1
         '
         Me.ProductMovementToolStripMenuItem1.Name = "ProductMovementToolStripMenuItem1"
-        Me.ProductMovementToolStripMenuItem1.Size = New System.Drawing.Size(164, 22)
+        Me.ProductMovementToolStripMenuItem1.Size = New System.Drawing.Size(177, 22)
         Me.ProductMovementToolStripMenuItem1.Text = "Product Movement"
         '
         'CtxFinance
         '
         Me.CtxFinance.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GeneralLedgerAccountToolStripMenuItem, Me.JournalTransactionEntryToolStripMenuItem, Me.JournalTransactionListToolStripMenuItem, Me.GeneralLedgerReportToolStripMenuItem, Me.ConfigurationToolStripMenuItem})
         Me.CtxFinance.Name = "CtxFinance"
-        Me.CtxFinance.Size = New System.Drawing.Size(198, 114)
+        Me.CtxFinance.Size = New System.Drawing.Size(208, 114)
         '
         'GeneralLedgerAccountToolStripMenuItem
         '
         Me.GeneralLedgerAccountToolStripMenuItem.Name = "GeneralLedgerAccountToolStripMenuItem"
-        Me.GeneralLedgerAccountToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
+        Me.GeneralLedgerAccountToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
         Me.GeneralLedgerAccountToolStripMenuItem.Text = "General Ledger Account"
         '
         'JournalTransactionEntryToolStripMenuItem
         '
         Me.JournalTransactionEntryToolStripMenuItem.Name = "JournalTransactionEntryToolStripMenuItem"
-        Me.JournalTransactionEntryToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
+        Me.JournalTransactionEntryToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
         Me.JournalTransactionEntryToolStripMenuItem.Text = "Journal Transaction Entry"
         '
         'JournalTransactionListToolStripMenuItem
         '
         Me.JournalTransactionListToolStripMenuItem.Name = "JournalTransactionListToolStripMenuItem"
-        Me.JournalTransactionListToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
+        Me.JournalTransactionListToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
         Me.JournalTransactionListToolStripMenuItem.Text = "Journal Transaction List"
         '
         'GeneralLedgerReportToolStripMenuItem
         '
         Me.GeneralLedgerReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GeneralLedgeToolStripMenuItem, Me.TrialBalanceToolStripMenuItem, Me.ProfitAndLossToolStripMenuItem, Me.BalancedSheetToolStripMenuItem})
         Me.GeneralLedgerReportToolStripMenuItem.Name = "GeneralLedgerReportToolStripMenuItem"
-        Me.GeneralLedgerReportToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
+        Me.GeneralLedgerReportToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
         Me.GeneralLedgerReportToolStripMenuItem.Text = "Reports"
         '
         'GeneralLedgeToolStripMenuItem
         '
         Me.GeneralLedgeToolStripMenuItem.Name = "GeneralLedgeToolStripMenuItem"
-        Me.GeneralLedgeToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.GeneralLedgeToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.GeneralLedgeToolStripMenuItem.Text = "General Ledger"
         '
         'TrialBalanceToolStripMenuItem
         '
         Me.TrialBalanceToolStripMenuItem.Name = "TrialBalanceToolStripMenuItem"
-        Me.TrialBalanceToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.TrialBalanceToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.TrialBalanceToolStripMenuItem.Text = "Trial Balance"
         '
         'ProfitAndLossToolStripMenuItem
         '
         Me.ProfitAndLossToolStripMenuItem.Name = "ProfitAndLossToolStripMenuItem"
-        Me.ProfitAndLossToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.ProfitAndLossToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.ProfitAndLossToolStripMenuItem.Text = "Profit And Loss"
         '
         'BalancedSheetToolStripMenuItem
         '
         Me.BalancedSheetToolStripMenuItem.Name = "BalancedSheetToolStripMenuItem"
-        Me.BalancedSheetToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.BalancedSheetToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.BalancedSheetToolStripMenuItem.Text = "Balanced Sheet"
         '
         'ConfigurationToolStripMenuItem
         '
         Me.ConfigurationToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GLAccountTypeToolStripMenuItem, Me.AccountingDocumentTypeToolStripMenuItem, Me.PettyCashAccountToolStripMenuItem, Me.DefineAccountingPeriodToolStripMenuItem, Me.DefineServiceAccountToolStripMenuItem})
         Me.ConfigurationToolStripMenuItem.Name = "ConfigurationToolStripMenuItem"
-        Me.ConfigurationToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
+        Me.ConfigurationToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
         Me.ConfigurationToolStripMenuItem.Text = "Configuration"
         '
         'GLAccountTypeToolStripMenuItem
         '
         Me.GLAccountTypeToolStripMenuItem.Name = "GLAccountTypeToolStripMenuItem"
-        Me.GLAccountTypeToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.GLAccountTypeToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.GLAccountTypeToolStripMenuItem.Text = "GL Account Type"
         '
         'AccountingDocumentTypeToolStripMenuItem
         '
         Me.AccountingDocumentTypeToolStripMenuItem.Name = "AccountingDocumentTypeToolStripMenuItem"
-        Me.AccountingDocumentTypeToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.AccountingDocumentTypeToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.AccountingDocumentTypeToolStripMenuItem.Text = "Accounting Document Type"
         '
         'PettyCashAccountToolStripMenuItem
         '
         Me.PettyCashAccountToolStripMenuItem.Name = "PettyCashAccountToolStripMenuItem"
-        Me.PettyCashAccountToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.PettyCashAccountToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.PettyCashAccountToolStripMenuItem.Text = "Petty Cash Account"
         '
         'DefineAccountingPeriodToolStripMenuItem
         '
         Me.DefineAccountingPeriodToolStripMenuItem.Name = "DefineAccountingPeriodToolStripMenuItem"
-        Me.DefineAccountingPeriodToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.DefineAccountingPeriodToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.DefineAccountingPeriodToolStripMenuItem.Text = "Define Accounting Period"
         '
         'DefineServiceAccountToolStripMenuItem
         '
         Me.DefineServiceAccountToolStripMenuItem.Name = "DefineServiceAccountToolStripMenuItem"
-        Me.DefineServiceAccountToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.DefineServiceAccountToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.DefineServiceAccountToolStripMenuItem.Text = "Define Service Account"
         '
         'SplitContainer1
@@ -590,70 +596,6 @@ Partial Class _006_03_Main_Form_Version2
         Me.SplitContainer1.Size = New System.Drawing.Size(219, 493)
         Me.SplitContainer1.SplitterDistance = 298
         Me.SplitContainer1.TabIndex = 6
-        '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
-        '
-        'add
-        '
-        Me.add.AutoSize = True
-        Me.add.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.add.Location = New System.Drawing.Point(3, 0)
-        Me.add.Name = "add"
-        Me.add.Size = New System.Drawing.Size(163, 46)
-        Me.add.TabIndex = 0
-        Me.add.Text = "address"
-        '
-        'strt
-        '
-        Me.strt.AutoSize = True
-        Me.strt.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.strt.Location = New System.Drawing.Point(3, 46)
-        Me.strt.Name = "strt"
-        Me.strt.Size = New System.Drawing.Size(163, 35)
-        Me.strt.TabIndex = 1
-        Me.strt.Text = "street"
-        '
-        'phone
-        '
-        Me.phone.AutoSize = True
-        Me.phone.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.phone.Location = New System.Drawing.Point(3, 98)
-        Me.phone.Name = "phone"
-        Me.phone.Size = New System.Drawing.Size(163, 19)
-        Me.phone.TabIndex = 2
-        Me.phone.Text = "Phone1"
-        '
-        'phone2
-        '
-        Me.phone2.AutoSize = True
-        Me.phone2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.phone2.Location = New System.Drawing.Point(3, 117)
-        Me.phone2.Name = "phone2"
-        Me.phone2.Size = New System.Drawing.Size(163, 19)
-        Me.phone2.TabIndex = 3
-        Me.phone2.Text = "Phone2"
-        '
-        'web
-        '
-        Me.web.AutoSize = True
-        Me.web.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.web.Location = New System.Drawing.Point(3, 136)
-        Me.web.Name = "web"
-        Me.web.Size = New System.Drawing.Size(163, 25)
-        Me.web.TabIndex = 4
-        Me.web.Text = "Website"
-        '
-        'city
-        '
-        Me.city.AutoSize = True
-        Me.city.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.city.Location = New System.Drawing.Point(3, 81)
-        Me.city.Name = "city"
-        Me.city.Size = New System.Drawing.Size(163, 17)
-        Me.city.TabIndex = 5
-        Me.city.Text = "City"
         '
         'TableLayoutPanel1
         '
@@ -677,6 +619,70 @@ Partial Class _006_03_Main_Form_Version2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(169, 161)
         Me.TableLayoutPanel1.TabIndex = 6
+        '
+        'web
+        '
+        Me.web.AutoSize = True
+        Me.web.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.web.Location = New System.Drawing.Point(3, 136)
+        Me.web.Name = "web"
+        Me.web.Size = New System.Drawing.Size(163, 25)
+        Me.web.TabIndex = 4
+        Me.web.Text = "Website"
+        '
+        'strt
+        '
+        Me.strt.AutoSize = True
+        Me.strt.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.strt.Location = New System.Drawing.Point(3, 46)
+        Me.strt.Name = "strt"
+        Me.strt.Size = New System.Drawing.Size(163, 35)
+        Me.strt.TabIndex = 1
+        Me.strt.Text = "street"
+        '
+        'phone2
+        '
+        Me.phone2.AutoSize = True
+        Me.phone2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.phone2.Location = New System.Drawing.Point(3, 117)
+        Me.phone2.Name = "phone2"
+        Me.phone2.Size = New System.Drawing.Size(163, 19)
+        Me.phone2.TabIndex = 3
+        Me.phone2.Text = "Phone2"
+        '
+        'city
+        '
+        Me.city.AutoSize = True
+        Me.city.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.city.Location = New System.Drawing.Point(3, 81)
+        Me.city.Name = "city"
+        Me.city.Size = New System.Drawing.Size(163, 17)
+        Me.city.TabIndex = 5
+        Me.city.Text = "City"
+        '
+        'phone
+        '
+        Me.phone.AutoSize = True
+        Me.phone.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.phone.Location = New System.Drawing.Point(3, 98)
+        Me.phone.Name = "phone"
+        Me.phone.Size = New System.Drawing.Size(163, 19)
+        Me.phone.TabIndex = 2
+        Me.phone.Text = "Phone1"
+        '
+        'add
+        '
+        Me.add.AutoSize = True
+        Me.add.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.add.Location = New System.Drawing.Point(3, 0)
+        Me.add.Name = "add"
+        Me.add.Size = New System.Drawing.Size(163, 46)
+        Me.add.TabIndex = 0
+        Me.add.Text = "address"
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
         '
         '_006_03_Main_Form_Version2
         '
