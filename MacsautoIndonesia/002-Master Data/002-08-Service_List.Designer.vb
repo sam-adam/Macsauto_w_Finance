@@ -28,11 +28,6 @@ Partial Class _002_08_Service_List
         Me.Label17 = New System.Windows.Forms.Label()
         Me.SplitContainer = New System.Windows.Forms.SplitContainer()
         Me.ServiceGridView = New System.Windows.Forms.DataGridView()
-        Me.ServiceIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServiceDescCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServiceTypeCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServiceGLAccountIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServiceGLAccountDescCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CancelBtn = New System.Windows.Forms.Button()
         Me.SaveBtn = New System.Windows.Forms.Button()
         Me.RemoveBtn = New System.Windows.Forms.Button()
@@ -50,6 +45,12 @@ Partial Class _002_08_Service_List
         Me.VehicleSizeDescCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ServicePriceCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NewPriceCol = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.ServiceIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServiceDescCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServiceTypeCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServiceTypeIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServiceGLAccountIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServiceGLAccountDescCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel8.SuspendLayout()
         CType(Me.SplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer.Panel1.SuspendLayout()
@@ -123,7 +124,7 @@ Partial Class _002_08_Service_List
         Me.ServiceGridView.AllowUserToResizeRows = False
         Me.ServiceGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.ServiceGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ServiceGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ServiceIdCol, Me.ServiceDescCol, Me.ServiceTypeCol, Me.ServiceGLAccountIdCol, Me.ServiceGLAccountDescCol})
+        Me.ServiceGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ServiceIdCol, Me.ServiceDescCol, Me.ServiceTypeCol, Me.ServiceTypeIdCol, Me.ServiceGLAccountIdCol, Me.ServiceGLAccountDescCol})
         Me.ServiceGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ServiceGridView.Location = New System.Drawing.Point(0, 0)
         Me.ServiceGridView.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
@@ -133,41 +134,6 @@ Partial Class _002_08_Service_List
         Me.ServiceGridView.Size = New System.Drawing.Size(563, 648)
         Me.ServiceGridView.TabIndex = 0
         '
-        'ServiceIdCol
-        '
-        Me.ServiceIdCol.HeaderText = "Service Id"
-        Me.ServiceIdCol.Name = "ServiceIdCol"
-        Me.ServiceIdCol.ReadOnly = True
-        Me.ServiceIdCol.Width = 87
-        '
-        'ServiceDescCol
-        '
-        Me.ServiceDescCol.HeaderText = "Description"
-        Me.ServiceDescCol.Name = "ServiceDescCol"
-        Me.ServiceDescCol.ReadOnly = True
-        Me.ServiceDescCol.Width = 104
-        '
-        'ServiceTypeCol
-        '
-        Me.ServiceTypeCol.HeaderText = "Type"
-        Me.ServiceTypeCol.Name = "ServiceTypeCol"
-        Me.ServiceTypeCol.ReadOnly = True
-        Me.ServiceTypeCol.Width = 65
-        '
-        'ServiceGLAccountIdCol
-        '
-        Me.ServiceGLAccountIdCol.HeaderText = "GL Account"
-        Me.ServiceGLAccountIdCol.Name = "ServiceGLAccountIdCol"
-        Me.ServiceGLAccountIdCol.ReadOnly = True
-        Me.ServiceGLAccountIdCol.Width = 98
-        '
-        'ServiceGLAccountDescCol
-        '
-        Me.ServiceGLAccountDescCol.HeaderText = "GL Account Desc"
-        Me.ServiceGLAccountDescCol.Name = "ServiceGLAccountDescCol"
-        Me.ServiceGLAccountDescCol.ReadOnly = True
-        Me.ServiceGLAccountDescCol.Width = 131
-        '
         'CancelBtn
         '
         Me.CancelBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -175,7 +141,7 @@ Partial Class _002_08_Service_List
         Me.CancelBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CancelBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.CancelBtn.Location = New System.Drawing.Point(191, 349)
+        Me.CancelBtn.Location = New System.Drawing.Point(189, 349)
         Me.CancelBtn.Name = "CancelBtn"
         Me.CancelBtn.Size = New System.Drawing.Size(100, 50)
         Me.CancelBtn.TabIndex = 25
@@ -190,7 +156,7 @@ Partial Class _002_08_Service_List
         Me.SaveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.SaveBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SaveBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.SaveBtn.Location = New System.Drawing.Point(297, 349)
+        Me.SaveBtn.Location = New System.Drawing.Point(295, 349)
         Me.SaveBtn.Name = "SaveBtn"
         Me.SaveBtn.Size = New System.Drawing.Size(100, 50)
         Me.SaveBtn.TabIndex = 24
@@ -205,7 +171,7 @@ Partial Class _002_08_Service_List
         Me.RemoveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.RemoveBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RemoveBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.RemoveBtn.Location = New System.Drawing.Point(7, 349)
+        Me.RemoveBtn.Location = New System.Drawing.Point(5, 349)
         Me.RemoveBtn.Name = "RemoveBtn"
         Me.RemoveBtn.Size = New System.Drawing.Size(100, 50)
         Me.RemoveBtn.TabIndex = 23
@@ -219,7 +185,7 @@ Partial Class _002_08_Service_List
         Me.EditBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.EditBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EditBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.EditBtn.Location = New System.Drawing.Point(191, 349)
+        Me.EditBtn.Location = New System.Drawing.Point(189, 349)
         Me.EditBtn.Name = "EditBtn"
         Me.EditBtn.Size = New System.Drawing.Size(100, 50)
         Me.EditBtn.TabIndex = 22
@@ -234,7 +200,7 @@ Partial Class _002_08_Service_List
         Me.AddBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AddBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.AddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.AddBtn.Location = New System.Drawing.Point(297, 349)
+        Me.AddBtn.Location = New System.Drawing.Point(295, 349)
         Me.AddBtn.Name = "AddBtn"
         Me.AddBtn.Size = New System.Drawing.Size(100, 50)
         Me.AddBtn.TabIndex = 21
@@ -245,12 +211,12 @@ Partial Class _002_08_Service_List
         '
         Me.ServicePricesDataGrid.AllowUserToAddRows = False
         Me.ServicePricesDataGrid.AllowUserToDeleteRows = False
+        Me.ServicePricesDataGrid.AllowUserToResizeRows = False
         Me.ServicePricesDataGrid.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ServicePricesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ServicePricesDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.VehicleSizeIdCol, Me.VehicleSizeDescCol, Me.ServicePriceCol, Me.NewPriceCol})
-        Me.ServicePricesDataGrid.Location = New System.Drawing.Point(6, 156)
+        Me.ServicePricesDataGrid.Location = New System.Drawing.Point(4, 156)
         Me.ServicePricesDataGrid.Name = "ServicePricesDataGrid"
-        Me.ServicePricesDataGrid.ReadOnly = True
         Me.ServicePricesDataGrid.RowHeadersVisible = False
         Me.ServicePricesDataGrid.Size = New System.Drawing.Size(390, 187)
         Me.ServicePricesDataGrid.TabIndex = 13
@@ -259,7 +225,7 @@ Partial Class _002_08_Service_List
         '
         Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(12, 129)
+        Me.Label5.Location = New System.Drawing.Point(10, 129)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(82, 17)
         Me.Label5.TabIndex = 12
@@ -269,8 +235,9 @@ Partial Class _002_08_Service_List
         '
         Me.AccountCbo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.AccountCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.AccountCbo.Enabled = False
         Me.AccountCbo.FormattingEnabled = True
-        Me.AccountCbo.Location = New System.Drawing.Point(100, 126)
+        Me.AccountCbo.Location = New System.Drawing.Point(98, 126)
         Me.AccountCbo.Name = "AccountCbo"
         Me.AccountCbo.Size = New System.Drawing.Size(296, 24)
         Me.AccountCbo.TabIndex = 11
@@ -279,8 +246,9 @@ Partial Class _002_08_Service_List
         '
         Me.ServiceTypeCbo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ServiceTypeCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ServiceTypeCbo.Enabled = False
         Me.ServiceTypeCbo.FormattingEnabled = True
-        Me.ServiceTypeCbo.Location = New System.Drawing.Point(100, 96)
+        Me.ServiceTypeCbo.Location = New System.Drawing.Point(98, 96)
         Me.ServiceTypeCbo.Name = "ServiceTypeCbo"
         Me.ServiceTypeCbo.Size = New System.Drawing.Size(296, 24)
         Me.ServiceTypeCbo.TabIndex = 10
@@ -289,7 +257,7 @@ Partial Class _002_08_Service_List
         '
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(54, 99)
+        Me.Label2.Location = New System.Drawing.Point(52, 99)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(40, 17)
         Me.Label2.TabIndex = 9
@@ -299,7 +267,7 @@ Partial Class _002_08_Service_List
         '
         Me.ServiceNameTxt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ServiceNameTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.ServiceNameTxt.Location = New System.Drawing.Point(100, 44)
+        Me.ServiceNameTxt.Location = New System.Drawing.Point(98, 44)
         Me.ServiceNameTxt.Multiline = True
         Me.ServiceNameTxt.Name = "ServiceNameTxt"
         Me.ServiceNameTxt.ReadOnly = True
@@ -310,7 +278,7 @@ Partial Class _002_08_Service_List
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(15, 47)
+        Me.Label1.Location = New System.Drawing.Point(13, 47)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(79, 17)
         Me.Label1.TabIndex = 7
@@ -321,7 +289,7 @@ Partial Class _002_08_Service_List
         Me.ServiceIdLbl.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ServiceIdLbl.AutoSize = True
         Me.ServiceIdLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.ServiceIdLbl.Location = New System.Drawing.Point(2, 4)
+        Me.ServiceIdLbl.Location = New System.Drawing.Point(0, 4)
         Me.ServiceIdLbl.Name = "ServiceIdLbl"
         Me.ServiceIdLbl.Size = New System.Drawing.Size(103, 24)
         Me.ServiceIdLbl.TabIndex = 0
@@ -352,10 +320,56 @@ Partial Class _002_08_Service_List
         '
         'NewPriceCol
         '
+        Me.NewPriceCol.FalseValue = "0"
         Me.NewPriceCol.HeaderText = "NewPrice"
+        Me.NewPriceCol.IndeterminateValue = "0"
         Me.NewPriceCol.Name = "NewPriceCol"
         Me.NewPriceCol.ReadOnly = True
+        Me.NewPriceCol.TrueValue = "1"
         Me.NewPriceCol.Visible = False
+        '
+        'ServiceIdCol
+        '
+        Me.ServiceIdCol.HeaderText = "Service Id"
+        Me.ServiceIdCol.Name = "ServiceIdCol"
+        Me.ServiceIdCol.ReadOnly = True
+        Me.ServiceIdCol.Width = 95
+        '
+        'ServiceDescCol
+        '
+        Me.ServiceDescCol.HeaderText = "Description"
+        Me.ServiceDescCol.Name = "ServiceDescCol"
+        Me.ServiceDescCol.ReadOnly = True
+        Me.ServiceDescCol.Width = 104
+        '
+        'ServiceTypeCol
+        '
+        Me.ServiceTypeCol.HeaderText = "Type"
+        Me.ServiceTypeCol.Name = "ServiceTypeCol"
+        Me.ServiceTypeCol.ReadOnly = True
+        Me.ServiceTypeCol.Width = 65
+        '
+        'ServiceTypeIdCol
+        '
+        Me.ServiceTypeIdCol.HeaderText = "Service Type Id"
+        Me.ServiceTypeIdCol.Name = "ServiceTypeIdCol"
+        Me.ServiceTypeIdCol.ReadOnly = True
+        Me.ServiceTypeIdCol.Visible = False
+        Me.ServiceTypeIdCol.Width = 131
+        '
+        'ServiceGLAccountIdCol
+        '
+        Me.ServiceGLAccountIdCol.HeaderText = "GL Account"
+        Me.ServiceGLAccountIdCol.Name = "ServiceGLAccountIdCol"
+        Me.ServiceGLAccountIdCol.ReadOnly = True
+        Me.ServiceGLAccountIdCol.Width = 107
+        '
+        'ServiceGLAccountDescCol
+        '
+        Me.ServiceGLAccountDescCol.HeaderText = "GL Account Desc"
+        Me.ServiceGLAccountDescCol.Name = "ServiceGLAccountDescCol"
+        Me.ServiceGLAccountDescCol.ReadOnly = True
+        Me.ServiceGLAccountDescCol.Width = 131
         '
         '_002_08_Service_List
         '
@@ -383,11 +397,6 @@ Partial Class _002_08_Service_List
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents SplitContainer As System.Windows.Forms.SplitContainer
     Friend WithEvents ServiceGridView As System.Windows.Forms.DataGridView
-    Friend WithEvents ServiceIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ServiceDescCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ServiceTypeCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ServiceGLAccountIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ServiceGLAccountDescCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ServiceIdLbl As System.Windows.Forms.Label
     Friend WithEvents ServiceNameTxt As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
@@ -405,4 +414,10 @@ Partial Class _002_08_Service_List
     Friend WithEvents VehicleSizeDescCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ServicePriceCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents NewPriceCol As System.Windows.Forms.DataGridViewCheckBoxColumn
+    Friend WithEvents ServiceIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ServiceDescCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ServiceTypeCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ServiceTypeIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ServiceGLAccountIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ServiceGLAccountDescCol As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
