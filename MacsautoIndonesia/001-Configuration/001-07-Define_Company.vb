@@ -6,6 +6,10 @@
             CompName.Text = reader(1).ToString
             CompAddress.Text = reader(2).ToString
             CompCity.Text = reader(3).ToString
+            street.Text = reader(5).ToString
+            phone1.Text = reader(6).ToString
+            phone2.Text = reader(7).ToString
+            website.Text = reader(8).ToString
         End While
 
     End Sub
@@ -19,13 +23,13 @@
         End If
     End Sub
     Private Sub Add_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Add.Click
-        ExecQueryNonReader("INSERT into company values('" + CompCode.Text + "','" + CompName.Text + "','" + CompAddress.Text + "','" + CompCity.Text + "')")
+        ExecQueryNonReader("INSERT into company values('" + CompCode.Text + "','" + CompName.Text + "','" + CompAddress.Text + "','" + CompCity.Text + ",'','" + street.Text + "','" + phone1.Text + "','" + phone2.Text + "','" + website.Text + "')")
         MsgBox("Company Defined")
         Me.Close()
     End Sub
 
     Private Sub Edit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Edit.Click
-        ExecQueryNonReader("UPDATE company set cmnam = '" + CompName.Text + "', cmadd = '" + CompAddress.Text + "',ccity='" + CompCity.Text + "' WHERE idcmp LIKE '" + CompCode.Text + "'")
+        ExecQueryNonReader("UPDATE company set strta = '" + street.Text + "',phon1 = '" + phone1.Text + "',phon2 = '" + phone2.Text + "', webst = '" + website.Text + "', cmnam = '" + CompName.Text + "', cmadd = '" + CompAddress.Text + "',ccity='" + CompCity.Text + "' WHERE idcmp LIKE '" + CompCode.Text + "'")
         MsgBox("Company Data modified")
         Me.Close()
     End Sub
@@ -34,4 +38,6 @@
         Me.Close()
 
     End Sub
+
+  
 End Class
