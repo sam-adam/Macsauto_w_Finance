@@ -191,8 +191,8 @@ Partial Class _006_03_Main_Form_Version2
         'PnlMenu
         '
         Me.PnlMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(116, Byte), Integer))
-        Me.PnlMenu.Controls.Add(Me.BtnFinance)
         Me.PnlMenu.Controls.Add(Me.BtnExit)
+        Me.PnlMenu.Controls.Add(Me.BtnFinance)
         Me.PnlMenu.Controls.Add(Me.BtnReporting)
         Me.PnlMenu.Controls.Add(Me.BtnConfiguration)
         Me.PnlMenu.Controls.Add(Me.BtnMasterData)
@@ -210,7 +210,7 @@ Partial Class _006_03_Main_Form_Version2
         Me.BtnFinance.Dock = System.Windows.Forms.DockStyle.Top
         Me.BtnFinance.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnFinance.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnFinance.Location = New System.Drawing.Point(0, 200)
+        Me.BtnFinance.Location = New System.Drawing.Point(0, 160)
         Me.BtnFinance.Name = "BtnFinance"
         Me.BtnFinance.Size = New System.Drawing.Size(219, 40)
         Me.BtnFinance.TabIndex = 6
@@ -224,7 +224,7 @@ Partial Class _006_03_Main_Form_Version2
         Me.BtnExit.Dock = System.Windows.Forms.DockStyle.Top
         Me.BtnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnExit.Location = New System.Drawing.Point(0, 160)
+        Me.BtnExit.Location = New System.Drawing.Point(0, 200)
         Me.BtnExit.Name = "BtnExit"
         Me.BtnExit.Size = New System.Drawing.Size(219, 40)
         Me.BtnExit.TabIndex = 4

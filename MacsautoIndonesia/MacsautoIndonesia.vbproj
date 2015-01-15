@@ -334,6 +334,12 @@
     <Compile Include="003-POS System\003_05_Cancel_Transaction.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="003-POS System\003_06_Print_Transaction.Designer.vb">
+      <DependentUpon>003_06_Print_Transaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="003-POS System\003_06_Print_Transaction.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="004-Material Management\004-02-Stock_Transfers.Designer.vb">
       <DependentUpon>004-02-Stock_Transfers.vb</DependentUpon>
     </Compile>
@@ -652,6 +658,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="001-Configuration\001-08-Define_Vehicle-Color.resx">
       <DependentUpon>001-08-Define_Vehicle-Color.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="001-Configuration\001-11-Set_Printer.resx">
       <DependentUpon>001-11-Set_Printer.vb</DependentUpon>
@@ -700,6 +707,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="002-Master Data\002-08-Service_List.resx">
       <DependentUpon>002-08-Service_List.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="002-Master Data\002-07-Service_Add.resx">
       <DependentUpon>002-07-Service_Add.vb</DependentUpon>
@@ -721,6 +729,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="003-POS System\003_05_Cancel_Transaction.resx">
       <DependentUpon>003_05_Cancel_Transaction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="003-POS System\003_06_Print_Transaction.resx">
+      <DependentUpon>003_06_Print_Transaction.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="004-Material Management\004-02-Stock_Transfers.resx">
       <DependentUpon>004-02-Stock_Transfers.vb</DependentUpon>

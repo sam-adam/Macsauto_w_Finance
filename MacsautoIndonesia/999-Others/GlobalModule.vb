@@ -5,6 +5,10 @@ Imports System.Globalization
 
 Module GlobalModule
     Public LoggedInEmployee As Employee
+    Public MySqlDateFormat As String = "yyyy-MM-dd"
+    Public MySqlDateTimeFormat As String = "yyyy-MM-dd HH:ii:ss"
+    Public CurrentDateTimeFormat As String = (DateTimeFormatInfo.CurrentInfo.ShortDatePattern & " " & DateTimeFormatInfo.CurrentInfo.LongTimePattern)
+    Public RollPageWidth As Integer = 250
 
     <Extension()>
     Public Function IsIn(ByVal anObject As DockStyle, ByVal listToCompare As DockStyle()) As Boolean

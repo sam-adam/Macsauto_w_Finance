@@ -569,7 +569,7 @@ Public Class _003_02_TrDetail2
 
     Private Sub PrintForm(ByVal transactionNumber As String)
         Dim printer As New Printer(My.Settings.DefaultPrinter)
-        Dim transactionPage As New TransactionPage(250, New Font(SystemFonts.DialogFont.FontFamily, 6, FontStyle.Regular))
+        Dim transactionPage As New TransactionPage(RollPageWidth, New Font(SystemFonts.DialogFont.FontFamily, 6, FontStyle.Regular))
 
         transactionPage.Logo = My.Resources.Logo_MACSAUTO_only__background_putih__1_
 
