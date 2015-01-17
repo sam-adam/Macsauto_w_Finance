@@ -99,6 +99,8 @@
   <ItemGroup>
     <Compile Include="CommandLine.vb" />
     <Compile Include="GLAccountImporter.vb" />
+    <Compile Include="Migrations\_020_HRedemptionTableAlterAddCPoin.vb" />
+    <Compile Include="Migrations\_019_HTransactionTableAlterAddCPoin.vb" />
     <Compile Include="Migrations\_017_HServiceTableAlterAddIsActive.vb" />
     <Compile Include="Migrations\_016_HProductTableAlterAddIsActive.vb" />
     <Compile Include="Migrations\_001_AccountTypeTableCreate.vb" />

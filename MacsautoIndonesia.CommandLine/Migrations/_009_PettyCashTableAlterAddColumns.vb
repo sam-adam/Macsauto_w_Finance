@@ -16,8 +16,6 @@ Namespace Migrations
                 .AddColumn("canre").AsString(100) _
                 .AddColumn("crtdt").AsDate() _
                 .AddColumn("uname").AsString(100)
-
-
         End Sub
 
         Public Overrides Sub Down()
