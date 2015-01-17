@@ -297,6 +297,7 @@
     <Compile Include="002-Master Data\002-07-Service_Add.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="999-Others\EventsModule\Events\Service\ServiceAddedEvent.vb" />
     <Compile Include="002-Master Data\_002_06_User.Designer.vb">
       <DependentUpon>_002_06_User.vb</DependentUpon>
     </Compile>
@@ -569,6 +570,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="999-Others\AccountingModule.vb" />
+    <Compile Include="999-Others\EventsModule\BaseEvent.vb" />
+    <Compile Include="999-Others\EventsModule\EventBus.vb" />
+    <Compile Include="999-Others\EventsModule\EventSubscriber.vb" />
+    <Compile Include="999-Others\EventsModule\Events\Service\ServiceAddedEventArgs.vb" />
     <Compile Include="999-Others\FormValidator.vb" />
     <Compile Include="999-Others\GlobalModule.vb" />
     <Compile Include="999-Others\HashModule.vb" />

@@ -1,8 +1,10 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Windows.Input
+Imports System.Web.Services.Description
+Imports MySql.Data.MySqlClient
+Imports MacsautoIndonesia.EventsModule
+Imports MacsautoIndonesia.EventsModule.Events.Service
 
 Public Class _002_07_Service_Add
-    Public Event ServiceAdded As EventHandler(Of ServiceAddedEventArgs)
-
     Private ReadOnly _serviceTypesDataTable As DataTable
     Private ReadOnly _vehicleSizesDataTable As DataTable
     Private ReadOnly _revenueAccountsDataTable As DataTable
@@ -54,6 +56,8 @@ Public Class _002_07_Service_Add
         For Each row As DataRow In _revenueAccountsDataTable.Rows
             AccountCbo.Items.Add(New KeyValuePair(Of String, String)(row("glnum").ToString(), row("gldes").ToString()))
         Next
+
+        ServicePriceGridView.ValidateIntegerInput(ServicePriceCol.Index)
     End Sub
 
     Private Sub AddServiceTabControl_SelectedIndexChanged(sender As Object, e As EventArgs) Handles AddServiceTabControl.SelectedIndexChanged
@@ -103,26 +107,21 @@ Public Class _002_07_Service_Add
     End Sub
 
     Private Function ValidatePricingTab() As Boolean
-        Dim result As Boolean = True
+        Dim result As Boolean = False
 
-        Return result
+        For Each row As DataGridViewRow In ServicePriceGridView.Rows
+            Dim servicePrice As Integer = row.Cells(ServicePriceCol.Index).Value
+
+            If Not String.IsNullOrEmpty(servicePrice) And servicePrice > 0 Then
+                result = True
+            End If
+        Next
+
+        Return If(result, result, MsgBox("You have not input any price. Continue?", MsgBoxStyle.Question Or MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes)
     End Function
 
-    Private Sub ServicePriceGridView_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles ServicePriceGridView.EditingControlShowing
-        If ServicePriceGridView.CurrentCell.ColumnIndex = ServicePriceCol.Index Then
-            Dim servicePriceTxt As TextBox = CType(e.Control, TextBox)
-
-            If Not servicePriceTxt Is Nothing Then
-                AddHandler servicePriceTxt.KeyPress,
-                    Sub(txtSender As Object, txtEvt As KeyPressEventArgs)
-                        txtEvt.Handled = Not (Char.IsControl(txtEvt.KeyChar) Or Char.IsNumber(txtEvt.KeyChar))
-                    End Sub
-            End If
-        End If
-    End Sub
-
     Private Sub ServicePriceGridView_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles ServicePriceGridView.CellEndEdit
-        If e.ColumnIndex = ServicePriceCol.Index Then
+        If e.ColumnIndex = ServicePriceCol.Index AndAlso Not String.IsNullOrEmpty(ServicePriceGridView(e.ColumnIndex, e.RowIndex).Value) Then
             ServicePriceGridView(e.ColumnIndex, e.RowIndex).Value = String.Format("{0:n0}", Double.Parse(ServicePriceGridView(e.ColumnIndex, e.RowIndex).Value))
         End If
     End Sub
@@ -186,7 +185,9 @@ Public Class _002_07_Service_Add
 
                 MsgBox("New service added", MsgBoxStyle.Exclamation, "Success")
 
-                RaiseEvent ServiceAdded(Me, New ServiceAddedEventArgs(newServiceId))
+                EventBus.Publish(Of ServiceAddedEvent, ServiceAddedEventArgs)(Me, New ServiceAddedEvent(Me, New ServiceAddedEventArgs(newServiceId)))
+
+                Close()
             End If
         Catch ex As Exception
             Throw
@@ -198,9 +199,9 @@ Public Class _002_07_Service_Add
     End Sub
 
     Private Sub AddServiceTabControl_Deselecting(sender As Object, e As TabControlCancelEventArgs) Handles AddServiceTabControl.Deselecting
-        If e.TabPageIndex = GeneralTabPage.TabIndex And Not ValidateGeneralTab() Then
+        If e.TabPageIndex = GeneralTabPage.TabIndex AndAlso Not ValidateGeneralTab() Then
             e.Cancel = True
-        ElseIf e.TabPageIndex = PricingTabPage.TabIndex And Not ValidatePricingTab() Then
+        ElseIf e.TabPageIndex = PricingTabPage.TabIndex AndAlso Not ValidatePricingTab() Then
             e.Cancel = True
         End If
     End Sub
@@ -208,20 +209,4 @@ Public Class _002_07_Service_Add
     Private Sub AccountCbo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles AccountCbo.SelectedIndexChanged
         IsPnLChk.Checked = (Not AccountCbo.SelectedIndex = -1) OrElse (_revenueAccountsDataTable.Select("idsvc = '" & CType(AccountCbo.SelectedItem, KeyValuePair(Of String, String)).Key & "'").First()("ispnl"))
     End Sub
-End Class
-
-Public Class ServiceAddedEventArgs
-    Inherits EventArgs
-
-    Private ReadOnly _serviceId As String
-
-    Public Sub New(ByVal serviceId As String)
-        _serviceId = serviceId
-    End Sub
-
-    ReadOnly Property ServiceId() As String
-        Get
-            Return _serviceId
-        End Get
-    End Property
 End Class

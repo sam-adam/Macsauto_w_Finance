@@ -22,7 +22,7 @@ Partial Class _002_07_Service_Add
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.AddServiceTabControl = New System.Windows.Forms.TabControl()
         Me.GeneralTabPage = New System.Windows.Forms.TabPage()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -193,10 +193,10 @@ Partial Class _002_07_Service_Add
         '
         'ServicePriceCol
         '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle3.Format = "N0"
-        DataGridViewCellStyle3.NullValue = "0"
-        Me.ServicePriceCol.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle2.Format = "N0"
+        DataGridViewCellStyle2.NullValue = "0"
+        Me.ServicePriceCol.DefaultCellStyle = DataGridViewCellStyle2
         Me.ServicePriceCol.HeaderText = "Price"
         Me.ServicePriceCol.Name = "ServicePriceCol"
         Me.ServicePriceCol.Width = 65

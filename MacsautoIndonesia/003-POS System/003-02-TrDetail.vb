@@ -2,7 +2,6 @@
 Imports MacsautoIndonesia.Printing.Page
 Imports MacsautoIndonesia.Printing
 Imports MySql.Data.MySqlClient
-Imports System.Collections.ObjectModel
 
 Public Class _003_02_TrDetail2
     Public SizeNumber, TrNumber As String

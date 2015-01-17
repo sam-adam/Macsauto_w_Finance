@@ -42,6 +42,29 @@ Module GlobalModule
         Return value.ToString(LongFriendlyDateTimeFormat)
     End Function
 
+    <Extension>
+    Public Sub ValidateIntegerInput(ByVal dataGridView As DataGridView, ByVal colIndex As Integer)
+        Dim handler =
+            Sub(sender As Object, e As DataGridViewEditingControlShowingEventArgs)
+                If dataGridView.CurrentCell.ColumnIndex = colIndex Then
+                    Dim servicePriceTxt As TextBox = CType(e.Control, TextBox)
+
+                    If Not servicePriceTxt Is Nothing Then
+                        AddHandler servicePriceTxt.KeyPress,
+                            Sub(txtSender As Object, txtEvt As KeyPressEventArgs)
+                                If Not (Char.IsControl(txtEvt.KeyChar) Or Char.IsNumber(txtEvt.KeyChar)) Then
+                                    txtEvt.Handled = True
+                                ElseIf (AscW(txtEvt.KeyChar) = Keys.Back) And (servicePriceTxt.Text.Length = 1) Then
+                                    txtEvt.Handled = True
+                                End If
+                            End Sub
+                    End If
+                End If
+            End Sub
+
+        AddHandler dataGridView.EditingControlShowing, handler
+    End Sub
+
     Public Sub BackupDatabase(ByVal mysqlDumper As String, ByVal database As String, ByVal outputPath As String, ByVal user As String, ByVal password As String)
         Dim ignoredWarnings As String() = {
             "Warning: Using a password on the command line interface can be insecure."

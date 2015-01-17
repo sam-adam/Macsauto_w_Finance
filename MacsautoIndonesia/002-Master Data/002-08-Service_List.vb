@@ -1,5 +1,6 @@
-Imports System.ComponentModel
 Imports MySql.Data.MySqlClient
+Imports MacsautoIndonesia.EventsModule
+Imports MacsautoIndonesia.EventsModule.Events.Service
 
 Public Class _002_08_Service_List
     Private ReadOnly _serviceDataTable As DataTable
@@ -55,6 +56,14 @@ Public Class _002_08_Service_List
             .Columns(ServiceGLAccountIdCol.Index).DataPropertyName = "glnum"
             .Columns(ServiceGLAccountDescCol.Index).DataPropertyName = "gldes"
         End With
+
+        ServicePricesDataGrid.ValidateIntegerInput(ServicePriceCol.Index)
+
+        EventBus.Subscribe(Of ServiceAddedEvent, ServiceAddedEventArgs)(Me,
+            Sub(s As Object, e As ServiceAddedEventArgs)
+                FillService()
+                FillServicePrice()
+            End Sub)
     End Sub
 
     Private Sub _002_08_Service_List_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -128,14 +137,6 @@ Public Class _002_08_Service_List
 
     Private Sub AddBtn_Click(sender As Object, e As EventArgs) Handles AddBtn.Click
         _addNewForm = New _002_07_Service_Add()
-
-        AddHandler _addNewForm.ServiceAdded,
-            Sub(s As Object, args As ServiceAddedEventArgs)
-                FillService()
-                FillServicePrice()
-
-                _addNewForm.Dispose()
-            End Sub
 
         _addNewForm.ShowDialog(Me)
     End Sub
@@ -282,19 +283,6 @@ Public Class _002_08_Service_List
     Private Sub ServicePricesDataGrid_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles ServicePricesDataGrid.CellEndEdit
         If e.ColumnIndex = ServicePriceCol.Index And Not String.IsNullOrEmpty(ServicePricesDataGrid(e.ColumnIndex, e.RowIndex).Value) Then
             ServicePricesDataGrid(e.ColumnIndex, e.RowIndex).Value = String.Format("{0:n0}", Double.Parse(ServicePricesDataGrid(e.ColumnIndex, e.RowIndex).Value))
-        End If
-    End Sub
-
-    Private Sub ServicePricesDataGrid_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles ServicePricesDataGrid.EditingControlShowing
-        If ServicePricesDataGrid.CurrentCell.ColumnIndex = ServicePriceCol.Index Then
-            Dim servicePriceTxt As System.Windows.Forms.TextBox = CType(e.Control, System.Windows.Forms.TextBox)
-
-            If Not servicePriceTxt Is Nothing Then
-                AddHandler servicePriceTxt.KeyPress,
-                    Sub(s As Object, args As KeyPressEventArgs)
-                        args.Handled = Not (Char.IsControl(args.KeyChar) Or Char.IsNumber(args.KeyChar))
-                    End Sub
-            End If
         End If
     End Sub
 End Class
