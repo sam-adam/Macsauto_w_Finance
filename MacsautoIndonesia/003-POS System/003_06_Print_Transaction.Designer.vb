@@ -22,9 +22,9 @@ Partial Class _003_06_Print_Transaction
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TransactionIdTxt = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -74,6 +74,8 @@ Partial Class _003_06_Print_Transaction
         Me.ItemSubTotalCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ItemRemarkcol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.CurrentPointLbl = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.SplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer.Panel1.SuspendLayout()
@@ -144,6 +146,8 @@ Partial Class _003_06_Print_Transaction
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Label14)
+        Me.GroupBox2.Controls.Add(Me.CurrentPointLbl)
         Me.GroupBox2.Controls.Add(Me.Label13)
         Me.GroupBox2.Controls.Add(Me.PointLbl)
         Me.GroupBox2.Controls.Add(Me.Label12)
@@ -552,10 +556,10 @@ Partial Class _003_06_Print_Transaction
         '
         'ItemPriceCol
         '
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle13.Format = "N0"
-        DataGridViewCellStyle13.NullValue = Nothing
-        Me.ItemPriceCol.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle4.Format = "N0"
+        DataGridViewCellStyle4.NullValue = Nothing
+        Me.ItemPriceCol.DefaultCellStyle = DataGridViewCellStyle4
         Me.ItemPriceCol.HeaderText = "Price"
         Me.ItemPriceCol.Name = "ItemPriceCol"
         Me.ItemPriceCol.ReadOnly = True
@@ -570,10 +574,10 @@ Partial Class _003_06_Print_Transaction
         '
         'ItemDiscountCol
         '
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle14.Format = "N0"
-        DataGridViewCellStyle14.NullValue = "0"
-        Me.ItemDiscountCol.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle5.Format = "N0"
+        DataGridViewCellStyle5.NullValue = "0"
+        Me.ItemDiscountCol.DefaultCellStyle = DataGridViewCellStyle5
         Me.ItemDiscountCol.HeaderText = "Discount"
         Me.ItemDiscountCol.Name = "ItemDiscountCol"
         Me.ItemDiscountCol.ReadOnly = True
@@ -581,10 +585,10 @@ Partial Class _003_06_Print_Transaction
         '
         'ItemSubTotalCol
         '
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle15.Format = "N0"
-        DataGridViewCellStyle15.NullValue = Nothing
-        Me.ItemSubTotalCol.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle6.Format = "N0"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.ItemSubTotalCol.DefaultCellStyle = DataGridViewCellStyle6
         Me.ItemSubTotalCol.HeaderText = "SubTotal"
         Me.ItemSubTotalCol.Name = "ItemSubTotalCol"
         Me.ItemSubTotalCol.ReadOnly = True
@@ -606,6 +610,24 @@ Partial Class _003_06_Print_Transaction
         Me.Label13.Size = New System.Drawing.Size(109, 17)
         Me.Label13.TabIndex = 21
         Me.Label13.Text = "Points Eearned:"
+        '
+        'Label14
+        '
+        Me.Label14.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(237, 91)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(81, 17)
+        Me.Label14.TabIndex = 23
+        Me.Label14.Text = "Points Had:"
+        '
+        'CurrentPointLbl
+        '
+        Me.CurrentPointLbl.AutoSize = True
+        Me.CurrentPointLbl.Location = New System.Drawing.Point(346, 91)
+        Me.CurrentPointLbl.Name = "CurrentPointLbl"
+        Me.CurrentPointLbl.Size = New System.Drawing.Size(0, 17)
+        Me.CurrentPointLbl.TabIndex = 22
         '
         '_003_06_Print_Transaction
         '
@@ -685,4 +707,6 @@ Partial Class _003_06_Print_Transaction
     Friend WithEvents ItemSubTotalCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ItemRemarkcol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents CurrentPointLbl As System.Windows.Forms.Label
 End Class

@@ -58,6 +58,7 @@ Public Class _003_06_Print_Transaction
         VehicleSizeTxt.DataBindings.Add("Text", _transactionHeaderDataTable, "vsize", False, DataSourceUpdateMode.Never)
         VehicleColorTxt.DataBindings.Add("Text", _transactionHeaderDataTable, "vcolr", False, DataSourceUpdateMode.Never)
         PointLbl.DataBindings.Add("Text", _transactionHeaderDataTable, "tpoin", False, DataSourceUpdateMode.Never)
+        CurrentPointLbl.DataBindings.Add("Text", _transactionHeaderDataTable, "cpoin", False, DataSourceUpdateMode.Never)
 
         Dim dateBinding As New Binding("Text", _transactionHeaderDataTable, "trdat")
         AddHandler dateBinding.Format,
@@ -93,6 +94,7 @@ Public Class _003_06_Print_Transaction
             "   htransaction.toamt," & _
             "   htransaction.topay," & _
             "   htransaction.chnce," & _
+            "   htransaction.cpoin," & _
             "   htransaction.tpoin," & _
             "   hcustomer.cname," & _
             "   hcustomer.cphon," & _
@@ -206,7 +208,11 @@ Public Class _003_06_Print_Transaction
                     Integer.Parse(row.Cells(ItemDiscountCol.Index).Value))
             Next
 
-            transactionPage.SetPayment(Double.Parse(PaymentTxt.Text), PaymentType, PointLbl.Text, 0, transactionTime.AddYears(1).ToString("dd-MM-yyyy"))
+            If IsMemberChk.Checked Then
+                transactionPage.SetPayment(Double.Parse(PaymentTxt.Text), PaymentType, PointLbl.Text, CurrentPointLbl.Text, transactionTime.AddYears(1).ToString("dd-MM-yyyy"))
+            Else
+                transactionPage.SetPayment(Double.Parse(PaymentTxt.Text), PaymentType)
+            End If
 
             transactionPage.AppendFooter("PERIKSA KEMBALI KONDISI")
             transactionPage.AppendFooter("KENDARAAN DAN BARANG BAWAAN ANDA.")
