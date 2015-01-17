@@ -236,10 +236,6 @@
         LoadForm(Of _009_08_Balanced_Sheet)()
     End Sub
 
-    Private Sub ServiceAccountToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
-        LoadForm(Of _009_09_Set_Service_Account)()
-    End Sub
-
     Private Sub _006_03_Main_Form_Version2_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
         Dim mysqlDumpPath As String = My.MySettings.Default.MySQLDumpPath
 
@@ -279,11 +275,9 @@
             CurrentTimer.Start()
 
             UserToolStripMenuItem.Visible = (LoggedInEmployee.Position = Position.Manager)
+            ProductMovementToolStripMenuItem.Visible = (LoggedInEmployee.Position = Position.Manager)
+            ProductToolStripMenuItem.Visible = (LoggedInEmployee.Position = Position.Manager)
         End If
-    End Sub
-
-    Private Sub AccountingPeriodToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As EventArgs)
-        LoadForm(Of _001_17_Define_Accounting_Period)()
     End Sub
 
     Private Sub DefineGLAccountForProductToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles DefineGLAccountForProductToolStripMenuItem.Click

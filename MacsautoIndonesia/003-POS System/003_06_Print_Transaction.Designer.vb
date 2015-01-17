@@ -22,9 +22,9 @@ Partial Class _003_06_Print_Transaction
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle31 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle32 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle33 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TransactionIdTxt = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -90,7 +90,6 @@ Partial Class _003_06_Print_Transaction
         '
         'Panel1
         '
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.Label15)
         Me.Panel1.Controls.Add(Me.TransactionIdTxt)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -558,10 +557,10 @@ Partial Class _003_06_Print_Transaction
         '
         'ItemPriceCol
         '
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle7.Format = "N0"
-        DataGridViewCellStyle7.NullValue = Nothing
-        Me.ItemPriceCol.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle31.Format = "N0"
+        DataGridViewCellStyle31.NullValue = Nothing
+        Me.ItemPriceCol.DefaultCellStyle = DataGridViewCellStyle31
         Me.ItemPriceCol.HeaderText = "Price"
         Me.ItemPriceCol.Name = "ItemPriceCol"
         Me.ItemPriceCol.ReadOnly = True
@@ -576,10 +575,10 @@ Partial Class _003_06_Print_Transaction
         '
         'ItemDiscountCol
         '
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle8.Format = "N0"
-        DataGridViewCellStyle8.NullValue = "0"
-        Me.ItemDiscountCol.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle32.Format = "N0"
+        DataGridViewCellStyle32.NullValue = "0"
+        Me.ItemDiscountCol.DefaultCellStyle = DataGridViewCellStyle32
         Me.ItemDiscountCol.HeaderText = "Discount"
         Me.ItemDiscountCol.Name = "ItemDiscountCol"
         Me.ItemDiscountCol.ReadOnly = True
@@ -587,10 +586,10 @@ Partial Class _003_06_Print_Transaction
         '
         'ItemSubTotalCol
         '
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle9.Format = "N0"
-        DataGridViewCellStyle9.NullValue = Nothing
-        Me.ItemSubTotalCol.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle33.Format = "N0"
+        DataGridViewCellStyle33.NullValue = Nothing
+        Me.ItemSubTotalCol.DefaultCellStyle = DataGridViewCellStyle33
         Me.ItemSubTotalCol.HeaderText = "SubTotal"
         Me.ItemSubTotalCol.Name = "ItemSubTotalCol"
         Me.ItemSubTotalCol.ReadOnly = True
@@ -654,6 +653,7 @@ Partial Class _003_06_Print_Transaction
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "_003_06_Print_Transaction"
         Me.Text = "Transaction - Print"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.SplitContainer.Panel1.ResumeLayout(False)

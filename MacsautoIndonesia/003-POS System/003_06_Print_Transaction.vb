@@ -172,10 +172,6 @@ Public Class _003_06_Print_Transaction
         PrintBtn.Enabled = (_transactionHeaderDataTable.Rows.Count > 0)
     End Sub
 
-    Private Sub _003_06_Print_Transaction_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
-        SplitContainer.SplitterDistance = SplitContainer.Panel1MinSize
-    End Sub
-
     Private Sub CancelBtn_Click(sender As Object, e As EventArgs) Handles CancelBtn.Click
         Dispose()
     End Sub
@@ -231,5 +227,25 @@ Public Class _003_06_Print_Transaction
 
             End Try
         End If
+    End Sub
+
+    Private Sub _003_06_Print_Transaction_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        SplitContainer.SplitterDistance = SplitContainer.Panel1MinSize
+    End Sub
+
+    Private Sub _003_06_Print_Transaction_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        SplitContainer.SplitterDistance = SplitContainer.Panel1MinSize
+    End Sub
+
+    Private Sub _003_06_Print_Transaction_ParentChanged(sender As Object, e As EventArgs) Handles MyBase.ParentChanged
+        SplitContainer.SplitterDistance = SplitContainer.Panel1MinSize
+    End Sub
+
+    Private Sub _003_06_Print_Transaction_DockChanged(sender As Object, e As EventArgs) Handles MyBase.DockChanged
+        SplitContainer.SplitterDistance = SplitContainer.Panel1MinSize
+    End Sub
+
+    Private Sub _003_06_Print_Transaction_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        SplitContainer.SplitterDistance = SplitContainer.Panel1MinSize
     End Sub
 End Class
