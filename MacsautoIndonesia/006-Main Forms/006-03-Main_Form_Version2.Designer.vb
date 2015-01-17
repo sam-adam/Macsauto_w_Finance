@@ -32,8 +32,8 @@ Partial Class _006_03_Main_Form_Version2
         Me.PBoxMaskot = New System.Windows.Forms.PictureBox()
         Me.PBoxLogo = New System.Windows.Forms.PictureBox()
         Me.PnlMenu = New System.Windows.Forms.Panel()
-        Me.BtnFinance = New System.Windows.Forms.Button()
         Me.BtnExit = New System.Windows.Forms.Button()
+        Me.BtnFinance = New System.Windows.Forms.Button()
         Me.BtnReporting = New System.Windows.Forms.Button()
         Me.BtnConfiguration = New System.Windows.Forms.Button()
         Me.BtnMasterData = New System.Windows.Forms.Button()
@@ -95,6 +95,7 @@ Partial Class _006_03_Main_Form_Version2
         Me.phone = New System.Windows.Forms.Label()
         Me.add = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.PrintPreviousTransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PnlLogo.SuspendLayout()
         CType(Me.PBoxMaskot, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -203,20 +204,6 @@ Partial Class _006_03_Main_Form_Version2
         Me.PnlMenu.Size = New System.Drawing.Size(219, 298)
         Me.PnlMenu.TabIndex = 2
         '
-        'BtnFinance
-        '
-        Me.BtnFinance.BackgroundImage = CType(resources.GetObject("BtnFinance.BackgroundImage"), System.Drawing.Image)
-        Me.BtnFinance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnFinance.Dock = System.Windows.Forms.DockStyle.Top
-        Me.BtnFinance.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnFinance.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnFinance.Location = New System.Drawing.Point(0, 160)
-        Me.BtnFinance.Name = "BtnFinance"
-        Me.BtnFinance.Size = New System.Drawing.Size(219, 40)
-        Me.BtnFinance.TabIndex = 6
-        Me.BtnFinance.Text = "Finance"
-        Me.BtnFinance.UseVisualStyleBackColor = True
-        '
         'BtnExit
         '
         Me.BtnExit.BackgroundImage = CType(resources.GetObject("BtnExit.BackgroundImage"), System.Drawing.Image)
@@ -230,6 +217,20 @@ Partial Class _006_03_Main_Form_Version2
         Me.BtnExit.TabIndex = 4
         Me.BtnExit.Text = "Log Out"
         Me.BtnExit.UseVisualStyleBackColor = True
+        '
+        'BtnFinance
+        '
+        Me.BtnFinance.BackgroundImage = CType(resources.GetObject("BtnFinance.BackgroundImage"), System.Drawing.Image)
+        Me.BtnFinance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnFinance.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BtnFinance.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnFinance.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.BtnFinance.Location = New System.Drawing.Point(0, 160)
+        Me.BtnFinance.Name = "BtnFinance"
+        Me.BtnFinance.Size = New System.Drawing.Size(219, 40)
+        Me.BtnFinance.TabIndex = 6
+        Me.BtnFinance.Text = "Finance"
+        Me.BtnFinance.UseVisualStyleBackColor = True
         '
         'BtnReporting
         '
@@ -289,32 +290,32 @@ Partial Class _006_03_Main_Form_Version2
         '
         'CtxTransaction
         '
-        Me.CtxTransaction.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PointOfSalesToolStripMenuItem, Me.ProductMovementToolStripMenuItem, Me.PettyCashToolStripMenuItem, Me.PointRedemptionToolStripMenuItem})
+        Me.CtxTransaction.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PointOfSalesToolStripMenuItem, Me.ProductMovementToolStripMenuItem, Me.PettyCashToolStripMenuItem, Me.PointRedemptionToolStripMenuItem, Me.PrintPreviousTransactionToolStripMenuItem})
         Me.CtxTransaction.Name = "CtxTransaction"
-        Me.CtxTransaction.Size = New System.Drawing.Size(178, 92)
+        Me.CtxTransaction.Size = New System.Drawing.Size(213, 136)
         '
         'PointOfSalesToolStripMenuItem
         '
         Me.PointOfSalesToolStripMenuItem.Name = "PointOfSalesToolStripMenuItem"
-        Me.PointOfSalesToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.PointOfSalesToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
         Me.PointOfSalesToolStripMenuItem.Text = "Point Of Sales"
         '
         'ProductMovementToolStripMenuItem
         '
         Me.ProductMovementToolStripMenuItem.Name = "ProductMovementToolStripMenuItem"
-        Me.ProductMovementToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.ProductMovementToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
         Me.ProductMovementToolStripMenuItem.Text = "Product Movement"
         '
         'PettyCashToolStripMenuItem
         '
         Me.PettyCashToolStripMenuItem.Name = "PettyCashToolStripMenuItem"
-        Me.PettyCashToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.PettyCashToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
         Me.PettyCashToolStripMenuItem.Text = "Petty Cash"
         '
         'PointRedemptionToolStripMenuItem
         '
         Me.PointRedemptionToolStripMenuItem.Name = "PointRedemptionToolStripMenuItem"
-        Me.PointRedemptionToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.PointRedemptionToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
         Me.PointRedemptionToolStripMenuItem.Text = "Point Redemption"
         '
         'CtxMasterData
@@ -684,6 +685,12 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.Timer1.Enabled = True
         '
+        'PrintPreviousTransactionToolStripMenuItem
+        '
+        Me.PrintPreviousTransactionToolStripMenuItem.Name = "PrintPreviousTransactionToolStripMenuItem"
+        Me.PrintPreviousTransactionToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.PrintPreviousTransactionToolStripMenuItem.Text = "Print Previous Transaction"
+        '
         '_006_03_Main_Form_Version2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -785,4 +792,5 @@ Partial Class _006_03_Main_Form_Version2
     Friend WithEvents strt As System.Windows.Forms.Label
     Friend WithEvents add As System.Windows.Forms.Label
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents PrintPreviousTransactionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

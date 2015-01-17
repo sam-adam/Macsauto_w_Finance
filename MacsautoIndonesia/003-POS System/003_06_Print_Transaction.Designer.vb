@@ -22,9 +22,9 @@ Partial Class _003_06_Print_Transaction
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TransactionIdTxt = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -76,6 +76,7 @@ Partial Class _003_06_Print_Transaction
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.CurrentPointLbl = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.SplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer.Panel1.SuspendLayout()
@@ -90,6 +91,7 @@ Partial Class _003_06_Print_Transaction
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.Label15)
         Me.Panel1.Controls.Add(Me.TransactionIdTxt)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
@@ -556,10 +558,10 @@ Partial Class _003_06_Print_Transaction
         '
         'ItemPriceCol
         '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle4.Format = "N0"
-        DataGridViewCellStyle4.NullValue = Nothing
-        Me.ItemPriceCol.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle7.Format = "N0"
+        DataGridViewCellStyle7.NullValue = Nothing
+        Me.ItemPriceCol.DefaultCellStyle = DataGridViewCellStyle7
         Me.ItemPriceCol.HeaderText = "Price"
         Me.ItemPriceCol.Name = "ItemPriceCol"
         Me.ItemPriceCol.ReadOnly = True
@@ -574,10 +576,10 @@ Partial Class _003_06_Print_Transaction
         '
         'ItemDiscountCol
         '
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle5.Format = "N0"
-        DataGridViewCellStyle5.NullValue = "0"
-        Me.ItemDiscountCol.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle8.Format = "N0"
+        DataGridViewCellStyle8.NullValue = "0"
+        Me.ItemDiscountCol.DefaultCellStyle = DataGridViewCellStyle8
         Me.ItemDiscountCol.HeaderText = "Discount"
         Me.ItemDiscountCol.Name = "ItemDiscountCol"
         Me.ItemDiscountCol.ReadOnly = True
@@ -585,10 +587,10 @@ Partial Class _003_06_Print_Transaction
         '
         'ItemSubTotalCol
         '
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle6.Format = "N0"
-        DataGridViewCellStyle6.NullValue = Nothing
-        Me.ItemSubTotalCol.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle9.Format = "N0"
+        DataGridViewCellStyle9.NullValue = Nothing
+        Me.ItemSubTotalCol.DefaultCellStyle = DataGridViewCellStyle9
         Me.ItemSubTotalCol.HeaderText = "SubTotal"
         Me.ItemSubTotalCol.Name = "ItemSubTotalCol"
         Me.ItemSubTotalCol.ReadOnly = True
@@ -628,6 +630,16 @@ Partial Class _003_06_Print_Transaction
         Me.CurrentPointLbl.Name = "CurrentPointLbl"
         Me.CurrentPointLbl.Size = New System.Drawing.Size(0, 17)
         Me.CurrentPointLbl.TabIndex = 22
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.ForeColor = System.Drawing.Color.Red
+        Me.Label15.Location = New System.Drawing.Point(381, 15)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(255, 17)
+        Me.Label15.TabIndex = 2
+        Me.Label15.Text = "*Only paid transaction can be reprinted"
         '
         '_003_06_Print_Transaction
         '
@@ -709,4 +721,5 @@ Partial Class _003_06_Print_Transaction
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents CurrentPointLbl As System.Windows.Forms.Label
+    Friend WithEvents Label15 As System.Windows.Forms.Label
 End Class

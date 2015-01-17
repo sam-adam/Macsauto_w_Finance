@@ -347,4 +347,8 @@
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         Time.Text = DateTime.Now.ToString("HH:mm:ss")
     End Sub
+
+    Private Sub PrintPreviousTransactionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrintPreviousTransactionToolStripMenuItem.Click
+        LoadForm(Of _003_06_Print_Transaction)()
+    End Sub
 End Class
