@@ -13,6 +13,8 @@
         web.Text = reader("webst").ToString
     End Sub
     Public Sub New()
+        My.Settings.Reset()
+
         If String.IsNullOrEmpty(My.Settings.Password) Then
             Dim databaseConfiguration = New _001_18_Define_Database()
 
@@ -343,6 +345,6 @@
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
-        Time.Text = System.DateTime.Now.ToString("HH:mm:ss")
+        Time.Text = DateTime.Now.ToString("HH:mm:ss")
     End Sub
 End Class

@@ -41,8 +41,6 @@ Public Class _006_02_LoginForm
     Private Sub Cancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel.Click
         OnLoginCanceled(Nothing)
     End Sub
-
-
 End Class
 
 Public Class Employee

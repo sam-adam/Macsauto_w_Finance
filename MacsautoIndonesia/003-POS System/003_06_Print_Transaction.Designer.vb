@@ -22,17 +22,26 @@ Partial Class _003_06_Print_Transaction
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PrintBtn = New System.Windows.Forms.Button()
         Me.TransactionIdTxt = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.CustomerNameTxt = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.IsMemberChk = New System.Windows.Forms.CheckBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.CustomerPhoneTxt = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.CustomerCellphoneTxt = New System.Windows.Forms.TextBox()
+        Me.SplitContainer = New System.Windows.Forms.SplitContainer()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.PointLbl = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.ChangeTxt = New System.Windows.Forms.TextBox()
+        Me.CreditRadio = New System.Windows.Forms.RadioButton()
+        Me.DebitRadio = New System.Windows.Forms.RadioButton()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.CashRadio = New System.Windows.Forms.RadioButton()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.GrandTotalLbl = New System.Windows.Forms.Label()
+        Me.PaymentTxt = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.DateTxt = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.VehicleRegLbl = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -45,16 +54,40 @@ Partial Class _003_06_Print_Transaction
         Me.CarRadio = New System.Windows.Forms.RadioButton()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.VehicleBrandTxt = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.DateTxt = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.CustomerCellphoneTxt = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.CustomerPhoneTxt = New System.Windows.Forms.TextBox()
+        Me.IsMemberChk = New System.Windows.Forms.CheckBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.CustomerNameTxt = New System.Windows.Forms.TextBox()
+        Me.TransactionDetailDataGrid = New System.Windows.Forms.DataGridView()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.CancelBtn = New System.Windows.Forms.Button()
+        Me.PrintBtn = New System.Windows.Forms.Button()
+        Me.ItemTypeCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ItemNameCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ItemUoMCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ItemPriceCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ItemQuantityCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ItemDiscountCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ItemSubTotalCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ItemRemarkcol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
+        CType(Me.SplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer.Panel1.SuspendLayout()
+        Me.SplitContainer.Panel2.SuspendLayout()
+        Me.SplitContainer.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.TransactionDetailDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.PrintBtn)
         Me.Panel1.Controls.Add(Me.TransactionIdTxt)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
@@ -62,17 +95,6 @@ Partial Class _003_06_Print_Transaction
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(837, 50)
         Me.Panel1.TabIndex = 0
-        '
-        'PrintBtn
-        '
-        Me.PrintBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PrintBtn.Enabled = False
-        Me.PrintBtn.Location = New System.Drawing.Point(748, 8)
-        Me.PrintBtn.Name = "PrintBtn"
-        Me.PrintBtn.Size = New System.Drawing.Size(75, 30)
-        Me.PrintBtn.TabIndex = 2
-        Me.PrintBtn.Text = "Print"
-        Me.PrintBtn.UseVisualStyleBackColor = True
         '
         'TransactionIdTxt
         '
@@ -90,69 +112,180 @@ Partial Class _003_06_Print_Transaction
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Transaction #"
         '
-        'CustomerNameTxt
+        'SplitContainer
         '
-        Me.CustomerNameTxt.Location = New System.Drawing.Point(126, 56)
-        Me.CustomerNameTxt.Name = "CustomerNameTxt"
-        Me.CustomerNameTxt.ReadOnly = True
-        Me.CustomerNameTxt.Size = New System.Drawing.Size(250, 23)
-        Me.CustomerNameTxt.TabIndex = 1
+        Me.SplitContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.SplitContainer.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer.Location = New System.Drawing.Point(0, 50)
+        Me.SplitContainer.Name = "SplitContainer"
+        Me.SplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
-        'Label2
+        'SplitContainer.Panel1
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(52, 59)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(68, 17)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Customer"
+        Me.SplitContainer.Panel1.Controls.Add(Me.GroupBox2)
+        Me.SplitContainer.Panel1.Controls.Add(Me.Label9)
+        Me.SplitContainer.Panel1.Controls.Add(Me.DateTxt)
+        Me.SplitContainer.Panel1.Controls.Add(Me.GroupBox1)
+        Me.SplitContainer.Panel1.Controls.Add(Me.Label4)
+        Me.SplitContainer.Panel1.Controls.Add(Me.CustomerCellphoneTxt)
+        Me.SplitContainer.Panel1.Controls.Add(Me.Label3)
+        Me.SplitContainer.Panel1.Controls.Add(Me.CustomerPhoneTxt)
+        Me.SplitContainer.Panel1.Controls.Add(Me.IsMemberChk)
+        Me.SplitContainer.Panel1.Controls.Add(Me.Label2)
+        Me.SplitContainer.Panel1.Controls.Add(Me.CustomerNameTxt)
+        Me.SplitContainer.Panel1MinSize = 250
         '
-        'IsMemberChk
+        'SplitContainer.Panel2
         '
-        Me.IsMemberChk.AutoSize = True
-        Me.IsMemberChk.Enabled = False
-        Me.IsMemberChk.Location = New System.Drawing.Point(126, 143)
-        Me.IsMemberChk.Name = "IsMemberChk"
-        Me.IsMemberChk.Size = New System.Drawing.Size(78, 21)
-        Me.IsMemberChk.TabIndex = 3
-        Me.IsMemberChk.Text = "Member"
-        Me.IsMemberChk.UseVisualStyleBackColor = True
+        Me.SplitContainer.Panel2.Controls.Add(Me.TransactionDetailDataGrid)
+        Me.SplitContainer.Size = New System.Drawing.Size(837, 437)
+        Me.SplitContainer.SplitterDistance = 250
+        Me.SplitContainer.TabIndex = 12
         '
-        'Label3
+        'GroupBox2
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(71, 117)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(49, 17)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Phone"
+        Me.GroupBox2.Controls.Add(Me.Label13)
+        Me.GroupBox2.Controls.Add(Me.PointLbl)
+        Me.GroupBox2.Controls.Add(Me.Label12)
+        Me.GroupBox2.Controls.Add(Me.ChangeTxt)
+        Me.GroupBox2.Controls.Add(Me.CreditRadio)
+        Me.GroupBox2.Controls.Add(Me.DebitRadio)
+        Me.GroupBox2.Controls.Add(Me.Label11)
+        Me.GroupBox2.Controls.Add(Me.CashRadio)
+        Me.GroupBox2.Controls.Add(Me.Label10)
+        Me.GroupBox2.Controls.Add(Me.GrandTotalLbl)
+        Me.GroupBox2.Controls.Add(Me.PaymentTxt)
+        Me.GroupBox2.Location = New System.Drawing.Point(447, 90)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(377, 153)
+        Me.GroupBox2.TabIndex = 22
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Payment Data"
         '
-        'CustomerPhoneTxt
+        'PointLbl
         '
-        Me.CustomerPhoneTxt.Location = New System.Drawing.Point(126, 114)
-        Me.CustomerPhoneTxt.Name = "CustomerPhoneTxt"
-        Me.CustomerPhoneTxt.ReadOnly = True
-        Me.CustomerPhoneTxt.Size = New System.Drawing.Size(160, 23)
-        Me.CustomerPhoneTxt.TabIndex = 4
-        Me.CustomerPhoneTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.PointLbl.AutoSize = True
+        Me.PointLbl.Location = New System.Drawing.Point(346, 120)
+        Me.PointLbl.Name = "PointLbl"
+        Me.PointLbl.Size = New System.Drawing.Size(0, 17)
+        Me.PointLbl.TabIndex = 20
         '
-        'Label4
+        'Label12
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(292, 117)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(71, 17)
-        Me.Label4.TabIndex = 7
-        Me.Label4.Text = "Cellphone"
+        Me.Label12.AutoSize = True
+        Me.Label12.ForeColor = System.Drawing.Color.Black
+        Me.Label12.Location = New System.Drawing.Point(20, 120)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(57, 17)
+        Me.Label12.TabIndex = 19
+        Me.Label12.Text = "Change"
         '
-        'CustomerCellphoneTxt
+        'ChangeTxt
         '
-        Me.CustomerCellphoneTxt.Location = New System.Drawing.Point(369, 114)
-        Me.CustomerCellphoneTxt.Name = "CustomerCellphoneTxt"
-        Me.CustomerCellphoneTxt.ReadOnly = True
-        Me.CustomerCellphoneTxt.Size = New System.Drawing.Size(160, 23)
-        Me.CustomerCellphoneTxt.TabIndex = 6
-        Me.CustomerCellphoneTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ChangeTxt.ForeColor = System.Drawing.Color.Black
+        Me.ChangeTxt.Location = New System.Drawing.Point(83, 117)
+        Me.ChangeTxt.Name = "ChangeTxt"
+        Me.ChangeTxt.ReadOnly = True
+        Me.ChangeTxt.Size = New System.Drawing.Size(148, 23)
+        Me.ChangeTxt.TabIndex = 18
+        Me.ChangeTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'CreditRadio
+        '
+        Me.CreditRadio.AutoCheck = False
+        Me.CreditRadio.AutoSize = True
+        Me.CreditRadio.ForeColor = System.Drawing.Color.Black
+        Me.CreditRadio.Location = New System.Drawing.Point(244, 60)
+        Me.CreditRadio.Name = "CreditRadio"
+        Me.CreditRadio.Size = New System.Drawing.Size(97, 21)
+        Me.CreditRadio.TabIndex = 17
+        Me.CreditRadio.TabStop = True
+        Me.CreditRadio.Text = "Credit Card"
+        Me.CreditRadio.UseVisualStyleBackColor = True
+        '
+        'DebitRadio
+        '
+        Me.DebitRadio.AutoCheck = False
+        Me.DebitRadio.AutoSize = True
+        Me.DebitRadio.ForeColor = System.Drawing.Color.Black
+        Me.DebitRadio.Location = New System.Drawing.Point(147, 60)
+        Me.DebitRadio.Name = "DebitRadio"
+        Me.DebitRadio.Size = New System.Drawing.Size(91, 21)
+        Me.DebitRadio.TabIndex = 15
+        Me.DebitRadio.TabStop = True
+        Me.DebitRadio.Text = "Debit card"
+        Me.DebitRadio.UseVisualStyleBackColor = True
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
+        Me.Label11.ForeColor = System.Drawing.Color.Black
+        Me.Label11.Location = New System.Drawing.Point(13, 32)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(113, 24)
+        Me.Label11.TabIndex = 16
+        Me.Label11.Text = "Grand Total:"
+        '
+        'CashRadio
+        '
+        Me.CashRadio.AutoCheck = False
+        Me.CashRadio.AutoSize = True
+        Me.CashRadio.ForeColor = System.Drawing.Color.Black
+        Me.CashRadio.Location = New System.Drawing.Point(83, 60)
+        Me.CashRadio.Name = "CashRadio"
+        Me.CashRadio.Size = New System.Drawing.Size(58, 21)
+        Me.CashRadio.TabIndex = 14
+        Me.CashRadio.TabStop = True
+        Me.CashRadio.Text = "Cash"
+        Me.CashRadio.UseVisualStyleBackColor = True
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.ForeColor = System.Drawing.Color.Black
+        Me.Label10.Location = New System.Drawing.Point(14, 91)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(63, 17)
+        Me.Label10.TabIndex = 15
+        Me.Label10.Text = "Payment"
+        '
+        'GrandTotalLbl
+        '
+        Me.GrandTotalLbl.AutoSize = True
+        Me.GrandTotalLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
+        Me.GrandTotalLbl.ForeColor = System.Drawing.Color.Black
+        Me.GrandTotalLbl.Location = New System.Drawing.Point(132, 32)
+        Me.GrandTotalLbl.Name = "GrandTotalLbl"
+        Me.GrandTotalLbl.Size = New System.Drawing.Size(0, 24)
+        Me.GrandTotalLbl.TabIndex = 14
+        '
+        'PaymentTxt
+        '
+        Me.PaymentTxt.ForeColor = System.Drawing.Color.Black
+        Me.PaymentTxt.Location = New System.Drawing.Point(83, 88)
+        Me.PaymentTxt.Name = "PaymentTxt"
+        Me.PaymentTxt.ReadOnly = True
+        Me.PaymentTxt.Size = New System.Drawing.Size(148, 23)
+        Me.PaymentTxt.TabIndex = 14
+        Me.PaymentTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(82, 37)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(38, 17)
+        Me.Label9.TabIndex = 21
+        Me.Label9.Text = "Date"
+        '
+        'DateTxt
+        '
+        Me.DateTxt.Location = New System.Drawing.Point(126, 34)
+        Me.DateTxt.Name = "DateTxt"
+        Me.DateTxt.ReadOnly = True
+        Me.DateTxt.Size = New System.Drawing.Size(250, 23)
+        Me.DateTxt.TabIndex = 20
         '
         'GroupBox1
         '
@@ -167,10 +300,10 @@ Partial Class _003_06_Print_Transaction
         Me.GroupBox1.Controls.Add(Me.CarRadio)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.VehicleBrandTxt)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 170)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 90)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(443, 153)
-        Me.GroupBox1.TabIndex = 8
+        Me.GroupBox1.Size = New System.Drawing.Size(429, 153)
+        Me.GroupBox1.TabIndex = 19
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Vehicle Data"
         '
@@ -243,8 +376,8 @@ Partial Class _003_06_Print_Transaction
         '
         'MotorRadio
         '
+        Me.MotorRadio.AutoCheck = False
         Me.MotorRadio.AutoSize = True
-        Me.MotorRadio.Enabled = False
         Me.MotorRadio.ForeColor = System.Drawing.Color.Black
         Me.MotorRadio.Location = New System.Drawing.Point(117, 60)
         Me.MotorRadio.Name = "MotorRadio"
@@ -256,8 +389,8 @@ Partial Class _003_06_Print_Transaction
         '
         'CarRadio
         '
+        Me.CarRadio.AutoCheck = False
         Me.CarRadio.AutoSize = True
-        Me.CarRadio.Enabled = False
         Me.CarRadio.ForeColor = System.Drawing.Color.Black
         Me.CarRadio.Location = New System.Drawing.Point(63, 60)
         Me.CarRadio.Name = "CarRadio"
@@ -286,38 +419,202 @@ Partial Class _003_06_Print_Transaction
         Me.VehicleBrandTxt.Size = New System.Drawing.Size(148, 23)
         Me.VehicleBrandTxt.TabIndex = 3
         '
-        'Label9
+        'Label4
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(82, 88)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(38, 17)
-        Me.Label9.TabIndex = 10
-        Me.Label9.Text = "Date"
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(510, 37)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(71, 17)
+        Me.Label4.TabIndex = 18
+        Me.Label4.Text = "Cellphone"
         '
-        'DateTxt
+        'CustomerCellphoneTxt
         '
-        Me.DateTxt.Location = New System.Drawing.Point(126, 85)
-        Me.DateTxt.Name = "DateTxt"
-        Me.DateTxt.ReadOnly = True
-        Me.DateTxt.Size = New System.Drawing.Size(250, 23)
-        Me.DateTxt.TabIndex = 9
+        Me.CustomerCellphoneTxt.Location = New System.Drawing.Point(587, 34)
+        Me.CustomerCellphoneTxt.Name = "CustomerCellphoneTxt"
+        Me.CustomerCellphoneTxt.ReadOnly = True
+        Me.CustomerCellphoneTxt.Size = New System.Drawing.Size(160, 23)
+        Me.CustomerCellphoneTxt.TabIndex = 17
+        Me.CustomerCellphoneTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(532, 8)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(49, 17)
+        Me.Label3.TabIndex = 16
+        Me.Label3.Text = "Phone"
+        '
+        'CustomerPhoneTxt
+        '
+        Me.CustomerPhoneTxt.Location = New System.Drawing.Point(587, 5)
+        Me.CustomerPhoneTxt.Name = "CustomerPhoneTxt"
+        Me.CustomerPhoneTxt.ReadOnly = True
+        Me.CustomerPhoneTxt.Size = New System.Drawing.Size(160, 23)
+        Me.CustomerPhoneTxt.TabIndex = 15
+        Me.CustomerPhoneTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'IsMemberChk
+        '
+        Me.IsMemberChk.AutoSize = True
+        Me.IsMemberChk.Enabled = False
+        Me.IsMemberChk.Location = New System.Drawing.Point(126, 63)
+        Me.IsMemberChk.Name = "IsMemberChk"
+        Me.IsMemberChk.Size = New System.Drawing.Size(78, 21)
+        Me.IsMemberChk.TabIndex = 14
+        Me.IsMemberChk.Text = "Member"
+        Me.IsMemberChk.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(52, 8)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(68, 17)
+        Me.Label2.TabIndex = 13
+        Me.Label2.Text = "Customer"
+        '
+        'CustomerNameTxt
+        '
+        Me.CustomerNameTxt.Location = New System.Drawing.Point(126, 5)
+        Me.CustomerNameTxt.Name = "CustomerNameTxt"
+        Me.CustomerNameTxt.ReadOnly = True
+        Me.CustomerNameTxt.Size = New System.Drawing.Size(250, 23)
+        Me.CustomerNameTxt.TabIndex = 12
+        '
+        'TransactionDetailDataGrid
+        '
+        Me.TransactionDetailDataGrid.AllowUserToAddRows = False
+        Me.TransactionDetailDataGrid.AllowUserToDeleteRows = False
+        Me.TransactionDetailDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.TransactionDetailDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.TransactionDetailDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemTypeCol, Me.ItemNameCol, Me.ItemUoMCol, Me.ItemPriceCol, Me.ItemQuantityCol, Me.ItemDiscountCol, Me.ItemSubTotalCol, Me.ItemRemarkcol})
+        Me.TransactionDetailDataGrid.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TransactionDetailDataGrid.Location = New System.Drawing.Point(0, 0)
+        Me.TransactionDetailDataGrid.Name = "TransactionDetailDataGrid"
+        Me.TransactionDetailDataGrid.ReadOnly = True
+        Me.TransactionDetailDataGrid.RowHeadersVisible = False
+        Me.TransactionDetailDataGrid.Size = New System.Drawing.Size(833, 179)
+        Me.TransactionDetailDataGrid.TabIndex = 1
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.CancelBtn)
+        Me.Panel2.Controls.Add(Me.PrintBtn)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel2.Location = New System.Drawing.Point(0, 487)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(837, 35)
+        Me.Panel2.TabIndex = 2
+        '
+        'CancelBtn
+        '
+        Me.CancelBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CancelBtn.Location = New System.Drawing.Point(678, 2)
+        Me.CancelBtn.Name = "CancelBtn"
+        Me.CancelBtn.Size = New System.Drawing.Size(75, 30)
+        Me.CancelBtn.TabIndex = 4
+        Me.CancelBtn.Text = "Cancel"
+        Me.CancelBtn.UseVisualStyleBackColor = True
+        '
+        'PrintBtn
+        '
+        Me.PrintBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PrintBtn.Enabled = False
+        Me.PrintBtn.Location = New System.Drawing.Point(759, 2)
+        Me.PrintBtn.Name = "PrintBtn"
+        Me.PrintBtn.Size = New System.Drawing.Size(75, 30)
+        Me.PrintBtn.TabIndex = 3
+        Me.PrintBtn.Text = "Print"
+        Me.PrintBtn.UseVisualStyleBackColor = True
+        '
+        'ItemTypeCol
+        '
+        Me.ItemTypeCol.HeaderText = "Item Type"
+        Me.ItemTypeCol.Name = "ItemTypeCol"
+        Me.ItemTypeCol.ReadOnly = True
+        Me.ItemTypeCol.Width = 95
+        '
+        'ItemNameCol
+        '
+        Me.ItemNameCol.HeaderText = "Name"
+        Me.ItemNameCol.Name = "ItemNameCol"
+        Me.ItemNameCol.ReadOnly = True
+        Me.ItemNameCol.Width = 70
+        '
+        'ItemUoMCol
+        '
+        Me.ItemUoMCol.HeaderText = "Measurement"
+        Me.ItemUoMCol.Name = "ItemUoMCol"
+        Me.ItemUoMCol.ReadOnly = True
+        Me.ItemUoMCol.Width = 119
+        '
+        'ItemPriceCol
+        '
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle13.Format = "N0"
+        DataGridViewCellStyle13.NullValue = Nothing
+        Me.ItemPriceCol.DefaultCellStyle = DataGridViewCellStyle13
+        Me.ItemPriceCol.HeaderText = "Price"
+        Me.ItemPriceCol.Name = "ItemPriceCol"
+        Me.ItemPriceCol.ReadOnly = True
+        Me.ItemPriceCol.Width = 65
+        '
+        'ItemQuantityCol
+        '
+        Me.ItemQuantityCol.HeaderText = "Quantity"
+        Me.ItemQuantityCol.Name = "ItemQuantityCol"
+        Me.ItemQuantityCol.ReadOnly = True
+        Me.ItemQuantityCol.Width = 86
+        '
+        'ItemDiscountCol
+        '
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle14.Format = "N0"
+        DataGridViewCellStyle14.NullValue = "0"
+        Me.ItemDiscountCol.DefaultCellStyle = DataGridViewCellStyle14
+        Me.ItemDiscountCol.HeaderText = "Discount"
+        Me.ItemDiscountCol.Name = "ItemDiscountCol"
+        Me.ItemDiscountCol.ReadOnly = True
+        Me.ItemDiscountCol.Width = 88
+        '
+        'ItemSubTotalCol
+        '
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle15.Format = "N0"
+        DataGridViewCellStyle15.NullValue = Nothing
+        Me.ItemSubTotalCol.DefaultCellStyle = DataGridViewCellStyle15
+        Me.ItemSubTotalCol.HeaderText = "SubTotal"
+        Me.ItemSubTotalCol.Name = "ItemSubTotalCol"
+        Me.ItemSubTotalCol.ReadOnly = True
+        Me.ItemSubTotalCol.Width = 90
+        '
+        'ItemRemarkcol
+        '
+        Me.ItemRemarkcol.HeaderText = "Remark"
+        Me.ItemRemarkcol.Name = "ItemRemarkcol"
+        Me.ItemRemarkcol.ReadOnly = True
+        Me.ItemRemarkcol.Width = 82
+        '
+        'Label13
+        '
+        Me.Label13.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(237, 120)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(109, 17)
+        Me.Label13.TabIndex = 21
+        Me.Label13.Text = "Points Eearned:"
         '
         '_003_06_Print_Transaction
         '
+        Me.AcceptButton = Me.PrintBtn
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(837, 522)
-        Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.DateTxt)
-        Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.CustomerCellphoneTxt)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.CustomerPhoneTxt)
-        Me.Controls.Add(Me.IsMemberChk)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.CustomerNameTxt)
+        Me.Controls.Add(Me.SplitContainer)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
@@ -325,35 +622,67 @@ Partial Class _003_06_Print_Transaction
         Me.Text = "Transaction - Print"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.SplitContainer.Panel1.ResumeLayout(False)
+        Me.SplitContainer.Panel1.PerformLayout()
+        Me.SplitContainer.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.TransactionDetailDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents TransactionIdTxt As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents PrintBtn As System.Windows.Forms.Button
-    Friend WithEvents CustomerNameTxt As System.Windows.Forms.TextBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents IsMemberChk As System.Windows.Forms.CheckBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents CustomerPhoneTxt As System.Windows.Forms.TextBox
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents CustomerCellphoneTxt As System.Windows.Forms.TextBox
+    Friend WithEvents SplitContainer As System.Windows.Forms.SplitContainer
+    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents PointLbl As System.Windows.Forms.Label
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents ChangeTxt As System.Windows.Forms.TextBox
+    Friend WithEvents CreditRadio As System.Windows.Forms.RadioButton
+    Friend WithEvents DebitRadio As System.Windows.Forms.RadioButton
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents CashRadio As System.Windows.Forms.RadioButton
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents GrandTotalLbl As System.Windows.Forms.Label
+    Friend WithEvents PaymentTxt As System.Windows.Forms.TextBox
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents DateTxt As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents VehicleRegLbl As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents VehicleSizeTxt As System.Windows.Forms.TextBox
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents VehicleColorTxt As System.Windows.Forms.TextBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents VehicleModelTxt As System.Windows.Forms.TextBox
     Friend WithEvents MotorRadio As System.Windows.Forms.RadioButton
     Friend WithEvents CarRadio As System.Windows.Forms.RadioButton
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents VehicleBrandTxt As System.Windows.Forms.TextBox
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents VehicleModelTxt As System.Windows.Forms.TextBox
-    Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents VehicleColorTxt As System.Windows.Forms.TextBox
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents VehicleSizeTxt As System.Windows.Forms.TextBox
-    Friend WithEvents VehicleRegLbl As System.Windows.Forms.Label
-    Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents DateTxt As System.Windows.Forms.TextBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents CustomerCellphoneTxt As System.Windows.Forms.TextBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents CustomerPhoneTxt As System.Windows.Forms.TextBox
+    Friend WithEvents IsMemberChk As System.Windows.Forms.CheckBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents CustomerNameTxt As System.Windows.Forms.TextBox
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents TransactionDetailDataGrid As System.Windows.Forms.DataGridView
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents PrintBtn As System.Windows.Forms.Button
+    Friend WithEvents CancelBtn As System.Windows.Forms.Button
+    Friend WithEvents ItemTypeCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ItemNameCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ItemUoMCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ItemPriceCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ItemQuantityCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ItemDiscountCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ItemSubTotalCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ItemRemarkcol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Label13 As System.Windows.Forms.Label
 End Class

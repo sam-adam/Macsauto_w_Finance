@@ -2,11 +2,17 @@
 Imports System.IO
 Imports System.Text
 Imports System.Globalization
+Imports System.ComponentModel
 
 Module GlobalModule
+#If DEBUG Then
+    Public LoggedInEmployee As Employee = New DummyEmployee()
+#Else
     Public LoggedInEmployee As Employee
+#End If
     Public MySqlDateFormat As String = "yyyy-MM-dd"
     Public MySqlDateTimeFormat As String = "yyyy-MM-dd HH:ii:ss"
+    Public LongFriendlyDateTimeFormat As String = "dd MMMM yyyy HH:mm tt"
     Public CurrentDateTimeFormat As String = (DateTimeFormatInfo.CurrentInfo.ShortDatePattern & " " & DateTimeFormatInfo.CurrentInfo.LongTimePattern)
     Public RollPageWidth As Integer = 250
 
@@ -143,4 +149,17 @@ Module GlobalModule
 
         input.Focus()
     End Sub
+
+    Public Function GetMoneyBinding(ByRef bindingSource As IListSource, ByVal field As String) As Binding
+        Dim moneyBinding As Binding = New Binding("Text", bindingSource, field)
+
+        AddHandler moneyBinding.Format,
+            Sub(sender As Object, e As ConvertEventArgs)
+                If e.DesiredType Is GetType(String) Then
+                    e.Value = FormatNumber(e.Value.ToString(), 0, TriState.False, TriState.UseDefault)
+                End If
+            End Sub
+
+        Return moneyBinding
+    End Function
 End Module

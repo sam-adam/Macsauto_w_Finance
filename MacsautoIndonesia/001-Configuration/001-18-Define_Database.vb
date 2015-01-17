@@ -24,8 +24,8 @@ Public Class _001_18_Define_Database
         connection.ConnectionString = "Server=" & My.Settings.Host & ";Uid=" & DbUsernameTxt.Text & ";Pwd=" & DbPasswordTxt.Text & ";Database=" & DbNameTxt.Text & ";Convert Zero Datetime=True"
 
         Try
-            CreateDatabase(mysqlPath, DbNameTxt.Text, DbUsernameTxt.Text, DbPasswordTxt.Text)
-            ImportDatabase(mysqlPath, DbNameTxt.Text, DbUsernameTxt.Text, DbPasswordTxt.Text)
+            'CreateDatabase(mysqlPath, DbNameTxt.Text, DbUsernameTxt.Text, DbPasswordTxt.Text)
+            'ImportDatabase(mysqlPath, DbNameTxt.Text, DbUsernameTxt.Text, DbPasswordTxt.Text)
 
             connection.Open()
 
