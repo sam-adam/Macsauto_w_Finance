@@ -37,6 +37,11 @@ Module GlobalModule
         Return value.ToString("yyyy-MM-dd HH:mm:ss")
     End Function
 
+    <Extension()>
+    Public Function ToLongFriendlyDateTimeFormat(ByVal value As DateTime) As String
+        Return value.ToString(LongFriendlyDateTimeFormat)
+    End Function
+
     Public Sub BackupDatabase(ByVal mysqlDumper As String, ByVal database As String, ByVal outputPath As String, ByVal user As String, ByVal password As String)
         Dim ignoredWarnings As String() = {
             "Warning: Using a password on the command line interface can be insecure."

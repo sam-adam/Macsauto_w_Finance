@@ -25,10 +25,6 @@ Partial Class _006_03_Main_Form_Version2
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_006_03_Main_Form_Version2))
         Me.PnlLogo = New System.Windows.Forms.Panel()
-        Me.Time = New System.Windows.Forms.Label()
-        Me.currentDate = New System.Windows.Forms.Label()
-        Me.empTxt = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.PBoxMaskot = New System.Windows.Forms.PictureBox()
         Me.PBoxLogo = New System.Windows.Forms.PictureBox()
         Me.PnlMenu = New System.Windows.Forms.Panel()
@@ -94,8 +90,8 @@ Partial Class _006_03_Main_Form_Version2
         Me.city = New System.Windows.Forms.Label()
         Me.phone = New System.Windows.Forms.Label()
         Me.add = New System.Windows.Forms.Label()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.PrintPreviousTransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CurrentTimer = New System.Windows.Forms.Timer(Me.components)
         Me.PnlLogo.SuspendLayout()
         CType(Me.PBoxMaskot, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -115,10 +111,6 @@ Partial Class _006_03_Main_Form_Version2
         'PnlLogo
         '
         Me.PnlLogo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(116, Byte), Integer))
-        Me.PnlLogo.Controls.Add(Me.Time)
-        Me.PnlLogo.Controls.Add(Me.currentDate)
-        Me.PnlLogo.Controls.Add(Me.empTxt)
-        Me.PnlLogo.Controls.Add(Me.Label1)
         Me.PnlLogo.Controls.Add(Me.PBoxMaskot)
         Me.PnlLogo.Controls.Add(Me.PBoxLogo)
         Me.PnlLogo.Dock = System.Windows.Forms.DockStyle.Top
@@ -126,46 +118,6 @@ Partial Class _006_03_Main_Form_Version2
         Me.PnlLogo.Name = "PnlLogo"
         Me.PnlLogo.Size = New System.Drawing.Size(976, 75)
         Me.PnlLogo.TabIndex = 1
-        '
-        'Time
-        '
-        Me.Time.AutoSize = True
-        Me.Time.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Time.Location = New System.Drawing.Point(226, 6)
-        Me.Time.Name = "Time"
-        Me.Time.Size = New System.Drawing.Size(43, 16)
-        Me.Time.TabIndex = 5
-        Me.Time.Text = "Time"
-        '
-        'currentDate
-        '
-        Me.currentDate.AutoSize = True
-        Me.currentDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.currentDate.Location = New System.Drawing.Point(12, 6)
-        Me.currentDate.Name = "currentDate"
-        Me.currentDate.Size = New System.Drawing.Size(41, 16)
-        Me.currentDate.TabIndex = 4
-        Me.currentDate.Text = "Date"
-        '
-        'empTxt
-        '
-        Me.empTxt.AutoSize = True
-        Me.empTxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.empTxt.Location = New System.Drawing.Point(95, 32)
-        Me.empTxt.Name = "empTxt"
-        Me.empTxt.Size = New System.Drawing.Size(85, 20)
-        Me.empTxt.TabIndex = 3
-        Me.empTxt.Text = "employee"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(11, 32)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(87, 20)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Welcome,"
         '
         'PBoxMaskot
         '
@@ -292,7 +244,7 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.CtxTransaction.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PointOfSalesToolStripMenuItem, Me.ProductMovementToolStripMenuItem, Me.PettyCashToolStripMenuItem, Me.PointRedemptionToolStripMenuItem, Me.PrintPreviousTransactionToolStripMenuItem})
         Me.CtxTransaction.Name = "CtxTransaction"
-        Me.CtxTransaction.Size = New System.Drawing.Size(213, 136)
+        Me.CtxTransaction.Size = New System.Drawing.Size(213, 114)
         '
         'PointOfSalesToolStripMenuItem
         '
@@ -681,15 +633,15 @@ Partial Class _006_03_Main_Form_Version2
         Me.add.TabIndex = 0
         Me.add.Text = "address"
         '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
-        '
         'PrintPreviousTransactionToolStripMenuItem
         '
         Me.PrintPreviousTransactionToolStripMenuItem.Name = "PrintPreviousTransactionToolStripMenuItem"
         Me.PrintPreviousTransactionToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
         Me.PrintPreviousTransactionToolStripMenuItem.Text = "Print Previous Transaction"
+        '
+        'CurrentTimer
+        '
+        Me.CurrentTimer.Interval = 1000
         '
         '_006_03_Main_Form_Version2
         '
@@ -700,10 +652,9 @@ Partial Class _006_03_Main_Form_Version2
         Me.Controls.Add(Me.PnlLogo)
         Me.IsMdiContainer = True
         Me.Name = "_006_03_Main_Form_Version2"
-        Me.Text = "MACSAUTO || Main Form"
+        Me.Text = "Macsauto"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.PnlLogo.ResumeLayout(False)
-        Me.PnlLogo.PerformLayout()
         CType(Me.PBoxMaskot, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PnlMenu.ResumeLayout(False)
@@ -779,12 +730,7 @@ Partial Class _006_03_Main_Form_Version2
     Friend WithEvents PettyCashAccountToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DefineAccountingPeriodToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DefineServiceAccountToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents empTxt As System.Windows.Forms.Label
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
-    Friend WithEvents currentDate As System.Windows.Forms.Label
-    Friend WithEvents Time As System.Windows.Forms.Label
-    Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents city As System.Windows.Forms.Label
     Friend WithEvents web As System.Windows.Forms.Label
     Friend WithEvents phone2 As System.Windows.Forms.Label
@@ -793,4 +739,5 @@ Partial Class _006_03_Main_Form_Version2
     Friend WithEvents add As System.Windows.Forms.Label
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents PrintPreviousTransactionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents CurrentTimer As System.Windows.Forms.Timer
 End Class

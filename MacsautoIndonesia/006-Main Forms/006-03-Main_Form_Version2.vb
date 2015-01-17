@@ -1,20 +1,11 @@
 ﻿Public Class _006_03_Main_Form_Version2
+    Const TitleFormat As String = "Macsauto | [User: {0} - {1}] - [Login: {2}] - [Branch: {3}] | {4}"
+
     Private ReadOnly _loginForm As _006_02_LoginForm
     Private _isDatabaseConfigured As Boolean = True
     Private _isLoggedIn As Boolean = True
-    Private Sub loadOutlet()
-        reader = ExecQueryReader("SELECT * FROM company")
-        reader.read()
-        add.Text = reader("cmadd").ToString
-        strt.Text = reader("strta").ToString
-        city.Text = reader("ccity").ToString
-        phone.Text = reader("phon1").ToString
-        phone2.Text = reader("phon2").ToString
-        web.Text = reader("webst").ToString
-    End Sub
-    Public Sub New()
-        My.Settings.Reset()
 
+    Public Sub New()
         If String.IsNullOrEmpty(My.Settings.Password) Then
             Dim databaseConfiguration = New _001_18_Define_Database()
 
@@ -60,8 +51,8 @@
     Private Sub _loginForm_LoginSucceded(ByVal sender As Object, ByVal e As EventArgs)
         _loginForm.Hide()
 
-        Show()
-        Focus()
+        Me.Show()
+        Me.Focus()
     End Sub
 
     Private Sub BtnTransaction_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnTransaction.Click
@@ -81,6 +72,7 @@
     End Sub
 
     Private Sub BtnExit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnExit.Click
+        CurrentTimer.Stop()
         LoggedInEmployee = Nothing
 
         Hide()
@@ -212,31 +204,6 @@
         LoadForm(Of _001_15_Petty_Cash_Config)()
     End Sub
 
-    Private Sub LoadForm(Of T As Form)()
-        Dim formType As Type = GetType(T)
-        Dim form As Form
-        Dim openForms As FormCollection = Application.OpenForms()
-
-        For Each openForm As Form In openForms
-            If openForm.GetType() = formType Then
-                form = openForm
-            End If
-        Next
-
-        Try
-            If form Is Nothing Then
-                form = Activator.CreateInstance(formType)
-            End If
-
-            form.MdiParent = Me
-            form.Dock = DockStyle.None
-            form.Show()
-            form.Focus()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-    End Sub
-
     Private Sub bntFin_Click(sender As Object, e As EventArgs) Handles BtnFinance.Click
         CtxFinance.Show(BtnFinance, BtnFinance.Size.Width, 0)
     End Sub
@@ -307,48 +274,70 @@
         If Not _isDatabaseConfigured Or Not _isLoggedIn Then
             Application.Exit()
         Else
-            empTxt.Text = LoggedInEmployee.Name
-            currentDate.Text = Date.Today.ToLongDateString
-            loadOutlet()
+            Text = String.Format("Macsauto | [USER: {0} - {1}] - [LOGIN: {2}] - [BRANCH: {3}] | {4}", If(LoggedInEmployee.Position = Position.Manager, "Manager", "Staff"), LoggedInEmployee.Name, DateTime.Now.ToLongFriendlyDateTimeFormat(), LoggedInEmployee.Company.Name, DateTime.Now.ToString("HH:mm:ss tt"))
+
+            CurrentTimer.Start()
 
             UserToolStripMenuItem.Visible = (LoggedInEmployee.Position = Position.Manager)
         End If
     End Sub
 
-    Private Sub AccountingPeriodToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub AccountingPeriodToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As EventArgs)
         LoadForm(Of _001_17_Define_Accounting_Period)()
     End Sub
 
-    Private Sub DefineGLAccountForProductToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DefineGLAccountForProductToolStripMenuItem.Click
+    Private Sub DefineGLAccountForProductToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles DefineGLAccountForProductToolStripMenuItem.Click
         LoadForm(Of _001_16_Material_Account)()
     End Sub
 
 
-    Private Sub GLAccountTypeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GLAccountTypeToolStripMenuItem.Click
+    Private Sub GLAccountTypeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles GLAccountTypeToolStripMenuItem.Click
         LoadForm(Of _001_13_Define_Account_Type)()
     End Sub
 
-    Private Sub AccountingDocumentTypeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AccountingDocumentTypeToolStripMenuItem.Click
+    Private Sub AccountingDocumentTypeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles AccountingDocumentTypeToolStripMenuItem.Click
         LoadForm(Of _001_14_Acct_Doc_Type)()
     End Sub
 
-    Private Sub PettyCashAccountToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PettyCashAccountToolStripMenuItem.Click
+    Private Sub PettyCashAccountToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles PettyCashAccountToolStripMenuItem.Click
         LoadForm(Of _001_15_Petty_Cash_Config)()
     End Sub
 
-    Private Sub DefineAccountingPeriodToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DefineAccountingPeriodToolStripMenuItem.Click
+    Private Sub DefineAccountingPeriodToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles DefineAccountingPeriodToolStripMenuItem.Click
         LoadForm(Of _001_17_Define_Accounting_Period)()
     End Sub
 
-    Private Sub DefineServiceAccountToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DefineServiceAccountToolStripMenuItem.Click
+    Private Sub DefineServiceAccountToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles DefineServiceAccountToolStripMenuItem.Click
         LoadForm(Of _009_09_Set_Service_Account)()
-    End Sub
-
-    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
-        Time.Text = DateTime.Now.ToString("HH:mm:ss")
     End Sub
 
     Private Sub PrintPreviousTransactionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrintPreviousTransactionToolStripMenuItem.Click
         LoadForm(Of _003_06_Print_Transaction)()
+    End Sub
+
+    Private Sub CurrentTimer_Tick(sender As Object, e As EventArgs) Handles CurrentTimer.Tick
+        Text = String.Format("Macsauto | [USER: {0} - {1}] - [LOGIN: {2}] - [BRANCH: {3}] | {4}", If(LoggedInEmployee.Position = Position.Manager, "Manager", "Staff"), LoggedInEmployee.Name, DateTime.Now.ToLongFriendlyDateTimeFormat(), LoggedInEmployee.Company.Name, DateTime.Now.ToString("HH:mm:ss tt"))
+    End Sub
+
+    Private Sub LoadForm(Of T As Form)()
+        Dim formType As Type = GetType(T)
+        Dim form As Form
+
+        For Each openForm As Form In From openForms As Form In Application.OpenForms() Where openForms.GetType() = formType
+            form = openForm
+        Next
+
+        Try
+            If form Is Nothing Then
+                form = Activator.CreateInstance(formType)
+            End If
+
+            form.MdiParent = Me
+            form.Dock = DockStyle.None
+            form.Show()
+            form.Focus()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 End Class
