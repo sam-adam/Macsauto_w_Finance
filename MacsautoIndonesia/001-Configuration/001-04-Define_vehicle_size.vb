@@ -1,42 +1,44 @@
-﻿Public Class _001_04_Define_vehicle_size
+﻿Imports MySql.Data.MySqlClient
+
+Public Class _001_04_Define_vehicle_size
     Private Sub loadSizeTable()
         SizeView.Rows.Clear()
         reader = ExecQueryReader("select * from vehicleSize")
         While reader.Read()
-            SizeView.Rows.Add(reader(0).ToString, reader(1).ToString)
+            SizeView.Rows.Add(reader(0).ToString, reader(1).ToString, False)
         End While
         Marking(SizeView)
-    End Sub
-    Private Sub getNumbers()
-        Dim i As Integer
-        For i = 0 To SizeView.Rows.Count - 2
-            If SizeView.Rows.Count <= 9 Then
-                SizeView.Rows(i).Cells(0).Value = "S0" & i + 1
-            Else
-                SizeView.Rows(i).Cells(0).Value = "S" & i + 1
-            End If
-        Next i
-    End Sub
-    Private Sub saveSizeModel()
-        Dim i As Integer
-        ExecQueryNonReader("Truncate table vehicleSize")
-        For i = 0 To SizeView.Rows.Count - 2
-            ExecQueryNonReader("INSERT INTO vehicleSize VALUES('" + SizeView.Rows(i).Cells(0).Value.ToString + "','" + SizeView.Rows(i).Cells(1).Value.ToString + "')")
-        Next i
     End Sub
     Private Sub _001_04_Define_vehicle_size_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         loadSizeTable()
     End Sub
 
-    Private Sub SizeView_CellEndEdit(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles SizeView.CellEndEdit
-        getNumbers()
-    End Sub
-
     Private Sub savebtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles savebtn.Click
         If MsgBox("Save Vehicle Size Data?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
-            saveSizeModel()
+            For Each row As DataGridViewRow In SizeView.Rows
+                If Not row.Cells(1).Value Is Nothing Then
+                    If row.Cells(NewSizeCol.Index).Value = True Then
+                        Dim newId As String = "S01"
+                        Dim newIdQuery As String = "SELECT idsiz FROM vehiclesize ORDER BY idsiz DESC LIMIT 1"
+                        Dim newIdReader As MySqlDataReader = ExecQueryReader(newIdQuery)
+
+                        While newIdReader.Read()
+                            newId = String.Format("S{0:00}", Integer.Parse(newIdReader(0).ToString().Replace("S", "")) + 1)
+                        End While
+
+                        ExecQueryNonReader("INSERT INTO vehiclesize VALUES('" & newId & "','" + row.Cells(1).Value.ToString + "')")
+                    Else
+                        ExecQueryNonReader("UPDATE vehiclesize SET sizdc = '" & row.Cells(1).Value.ToString() & "' WHERE idsiz = '" & row.Cells(0).Value.ToString() & "'")
+                    End If
+                End If
+            Next
+
             MsgBox("Vehicle Size successfully defined")
             loadSizeTable()
         End If
+    End Sub
+
+    Private Sub SizeView_UserAddedRow(sender As Object, e As DataGridViewRowEventArgs) Handles SizeView.UserAddedRow
+        SizeView.Rows(SizeView.NewRowIndex - 1).Cells(NewSizeCol.Index).Value = True
     End Sub
 End Class

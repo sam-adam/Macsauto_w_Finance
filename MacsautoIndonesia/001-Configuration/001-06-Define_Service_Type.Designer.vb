@@ -30,6 +30,7 @@ Partial Class _001_06_Define_Service_Type
         Me.BtnSave = New System.Windows.Forms.Button()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NewServiceTypeCol = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -57,6 +58,7 @@ Partial Class _001_06_Define_Service_Type
         '
         'STypeGridView
         '
+        Me.STypeGridView.AllowUserToDeleteRows = False
         Me.STypeGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
@@ -67,7 +69,7 @@ Partial Class _001_06_Define_Service_Type
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.STypeGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.STypeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.STypeGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
+        Me.STypeGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.NewServiceTypeCol})
         Me.STypeGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.STypeGridView.Location = New System.Drawing.Point(0, 0)
         Me.STypeGridView.Name = "STypeGridView"
@@ -104,6 +106,15 @@ Partial Class _001_06_Define_Service_Type
         Me.Column2.Name = "Column2"
         Me.Column2.Width = 200
         '
+        'NewServiceTypeCol
+        '
+        Me.NewServiceTypeCol.HeaderText = "NewServiceType"
+        Me.NewServiceTypeCol.Name = "NewServiceTypeCol"
+        Me.NewServiceTypeCol.ReadOnly = True
+        Me.NewServiceTypeCol.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.NewServiceTypeCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.NewServiceTypeCol.Visible = False
+        '
         '_001_06_Define_Service_Type
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -126,4 +137,5 @@ Partial Class _001_06_Define_Service_Type
     Friend WithEvents BtnSave As System.Windows.Forms.Button
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents NewServiceTypeCol As System.Windows.Forms.DataGridViewCheckBoxColumn
 End Class

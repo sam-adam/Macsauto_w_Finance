@@ -31,7 +31,7 @@ Partial Class _001_05_Define_Product_type
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.isConsumable = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.NewProductTypeCol = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -59,6 +59,7 @@ Partial Class _001_05_Define_Product_type
         '
         'PTypeGridView
         '
+        Me.PTypeGridView.AllowUserToDeleteRows = False
         Me.PTypeGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
@@ -69,7 +70,7 @@ Partial Class _001_05_Define_Product_type
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.PTypeGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.PTypeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.PTypeGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.isConsumable})
+        Me.PTypeGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.NewProductTypeCol})
         Me.PTypeGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PTypeGridView.Location = New System.Drawing.Point(0, 0)
         Me.PTypeGridView.Name = "PTypeGridView"
@@ -111,12 +112,12 @@ Partial Class _001_05_Define_Product_type
         Me.Column3.HeaderText = "isMerchandise"
         Me.Column3.Name = "Column3"
         '
-        'isConsumable
+        'NewProductTypeCol
         '
-        Me.isConsumable.HeaderText = "isConsumable"
-        Me.isConsumable.Name = "isConsumable"
-        Me.isConsumable.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.isConsumable.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.NewProductTypeCol.HeaderText = "NewProductType"
+        Me.NewProductTypeCol.Name = "NewProductTypeCol"
+        Me.NewProductTypeCol.ReadOnly = True
+        Me.NewProductTypeCol.Visible = False
         '
         '_001_05_Define_Product_type
         '
@@ -143,5 +144,5 @@ Partial Class _001_05_Define_Product_type
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column3 As System.Windows.Forms.DataGridViewCheckBoxColumn
-    Friend WithEvents isConsumable As System.Windows.Forms.DataGridViewCheckBoxColumn
+    Friend WithEvents NewProductTypeCol As System.Windows.Forms.DataGridViewCheckBoxColumn
 End Class

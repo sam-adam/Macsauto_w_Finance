@@ -58,6 +58,7 @@ Partial Class _001_02_Define_Storage_Location
         '
         'SlocGridView
         '
+        Me.SlocGridView.AllowUserToDeleteRows = False
         Me.SlocGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control

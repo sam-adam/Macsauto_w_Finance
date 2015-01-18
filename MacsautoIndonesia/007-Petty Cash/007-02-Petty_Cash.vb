@@ -2,6 +2,11 @@
     Dim reader
     Dim word() As String
     Dim pcact, btrans, Jcode, code As String
+
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+
     Private Function getCurrentPeriod()
         reader = ExecQueryReader("SELECT acyer,acmon FROM PRACT WHERE activ ='1'")
         reader.read()
@@ -132,7 +137,7 @@
             MsgBox("Petty Cash transaction cannot be created,Accounting Period need to be configured")
             Me.Close()
         End Try
-        
+
     End Sub
 
 
@@ -144,7 +149,7 @@
         End If
     End Sub
 
-    Private Sub PettyCashType_SelectedIndexChanged( sender As System.Object,  e As System.EventArgs) Handles PettyCashType.SelectedIndexChanged
+    Private Sub PettyCashType_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles PettyCashType.SelectedIndexChanged
         ' If PettyCashType.SelectedItem.ToString() = "CASH IN" Then
         loadCboUsage()
         'Else
@@ -163,7 +168,7 @@
         End If
     End Sub
 
-    
+
     Private Sub DateTimePicker2_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateTimePicker2.ValueChanged
         If DateTimePicker1.Value > DateTimePicker2.Value Then
             MsgBox("Start date cannot be bigger than end date")
@@ -204,5 +209,5 @@
         loadHistory(" ")
     End Sub
 
-   
+
 End Class

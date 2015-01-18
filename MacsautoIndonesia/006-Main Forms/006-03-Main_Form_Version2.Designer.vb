@@ -39,6 +39,7 @@ Partial Class _006_03_Main_Form_Version2
         Me.ProductMovementToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PettyCashToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PointRedemptionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PrintPreviousTransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CtxMasterData = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ProductToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ServiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -90,8 +91,8 @@ Partial Class _006_03_Main_Form_Version2
         Me.city = New System.Windows.Forms.Label()
         Me.phone = New System.Windows.Forms.Label()
         Me.add = New System.Windows.Forms.Label()
-        Me.PrintPreviousTransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CurrentTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.SidebarPictureBox = New System.Windows.Forms.PictureBox()
         Me.PnlLogo.SuspendLayout()
         CType(Me.PBoxMaskot, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -106,6 +107,7 @@ Partial Class _006_03_Main_Form_Version2
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.SidebarPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PnlLogo
@@ -153,7 +155,7 @@ Partial Class _006_03_Main_Form_Version2
         Me.PnlMenu.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PnlMenu.Location = New System.Drawing.Point(0, 0)
         Me.PnlMenu.Name = "PnlMenu"
-        Me.PnlMenu.Size = New System.Drawing.Size(219, 298)
+        Me.PnlMenu.Size = New System.Drawing.Size(219, 270)
         Me.PnlMenu.TabIndex = 2
         '
         'BtnExit
@@ -269,6 +271,12 @@ Partial Class _006_03_Main_Form_Version2
         Me.PointRedemptionToolStripMenuItem.Name = "PointRedemptionToolStripMenuItem"
         Me.PointRedemptionToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
         Me.PointRedemptionToolStripMenuItem.Text = "Point Redemption"
+        '
+        'PrintPreviousTransactionToolStripMenuItem
+        '
+        Me.PrintPreviousTransactionToolStripMenuItem.Name = "PrintPreviousTransactionToolStripMenuItem"
+        Me.PrintPreviousTransactionToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.PrintPreviousTransactionToolStripMenuItem.Text = "Print Previous Transaction"
         '
         'CtxMasterData
         '
@@ -546,8 +554,9 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.SplitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(116, Byte), Integer))
         Me.SplitContainer1.Panel2.Controls.Add(Me.TableLayoutPanel1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(219, 493)
-        Me.SplitContainer1.SplitterDistance = 298
+        Me.SplitContainer1.Panel2.Controls.Add(Me.SidebarPictureBox)
+        Me.SplitContainer1.Size = New System.Drawing.Size(219, 674)
+        Me.SplitContainer1.SplitterDistance = 270
         Me.SplitContainer1.TabIndex = 6
         '
         'TableLayoutPanel1
@@ -560,9 +569,11 @@ Partial Class _006_03_Main_Form_Version2
         Me.TableLayoutPanel1.Controls.Add(Me.city, 0, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.phone, 0, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.add, 0, 0)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(25, 18)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 102)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.Padding = New System.Windows.Forms.Padding(10, 0, 10, 0)
         Me.TableLayoutPanel1.RowCount = 6
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.45161!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.54839!))
@@ -570,16 +581,16 @@ Partial Class _006_03_Main_Form_Version2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(169, 161)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(219, 161)
         Me.TableLayoutPanel1.TabIndex = 6
         '
         'web
         '
         Me.web.AutoSize = True
         Me.web.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.web.Location = New System.Drawing.Point(3, 136)
+        Me.web.Location = New System.Drawing.Point(13, 136)
         Me.web.Name = "web"
-        Me.web.Size = New System.Drawing.Size(163, 25)
+        Me.web.Size = New System.Drawing.Size(193, 25)
         Me.web.TabIndex = 4
         Me.web.Text = "Website"
         '
@@ -587,9 +598,9 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.strt.AutoSize = True
         Me.strt.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.strt.Location = New System.Drawing.Point(3, 46)
+        Me.strt.Location = New System.Drawing.Point(13, 46)
         Me.strt.Name = "strt"
-        Me.strt.Size = New System.Drawing.Size(163, 35)
+        Me.strt.Size = New System.Drawing.Size(193, 35)
         Me.strt.TabIndex = 1
         Me.strt.Text = "street"
         '
@@ -597,9 +608,9 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.phone2.AutoSize = True
         Me.phone2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.phone2.Location = New System.Drawing.Point(3, 117)
+        Me.phone2.Location = New System.Drawing.Point(13, 117)
         Me.phone2.Name = "phone2"
-        Me.phone2.Size = New System.Drawing.Size(163, 19)
+        Me.phone2.Size = New System.Drawing.Size(193, 19)
         Me.phone2.TabIndex = 3
         Me.phone2.Text = "Phone2"
         '
@@ -607,9 +618,9 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.city.AutoSize = True
         Me.city.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.city.Location = New System.Drawing.Point(3, 81)
+        Me.city.Location = New System.Drawing.Point(13, 81)
         Me.city.Name = "city"
-        Me.city.Size = New System.Drawing.Size(163, 17)
+        Me.city.Size = New System.Drawing.Size(193, 17)
         Me.city.TabIndex = 5
         Me.city.Text = "City"
         '
@@ -617,9 +628,9 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.phone.AutoSize = True
         Me.phone.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.phone.Location = New System.Drawing.Point(3, 98)
+        Me.phone.Location = New System.Drawing.Point(13, 98)
         Me.phone.Name = "phone"
-        Me.phone.Size = New System.Drawing.Size(163, 19)
+        Me.phone.Size = New System.Drawing.Size(193, 19)
         Me.phone.TabIndex = 2
         Me.phone.Text = "Phone1"
         '
@@ -627,27 +638,32 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.add.AutoSize = True
         Me.add.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.add.Location = New System.Drawing.Point(3, 0)
+        Me.add.Location = New System.Drawing.Point(13, 0)
         Me.add.Name = "add"
-        Me.add.Size = New System.Drawing.Size(163, 46)
+        Me.add.Size = New System.Drawing.Size(193, 46)
         Me.add.TabIndex = 0
         Me.add.Text = "address"
-        '
-        'PrintPreviousTransactionToolStripMenuItem
-        '
-        Me.PrintPreviousTransactionToolStripMenuItem.Name = "PrintPreviousTransactionToolStripMenuItem"
-        Me.PrintPreviousTransactionToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
-        Me.PrintPreviousTransactionToolStripMenuItem.Text = "Print Previous Transaction"
         '
         'CurrentTimer
         '
         Me.CurrentTimer.Interval = 1000
         '
+        'SidebarPictureBox
+        '
+        Me.SidebarPictureBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.SidebarPictureBox.Image = Global.MacsautoIndonesia.My.Resources.Resources.rainbowsnowwash
+        Me.SidebarPictureBox.Location = New System.Drawing.Point(0, 0)
+        Me.SidebarPictureBox.Name = "SidebarPictureBox"
+        Me.SidebarPictureBox.Size = New System.Drawing.Size(219, 102)
+        Me.SidebarPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.SidebarPictureBox.TabIndex = 7
+        Me.SidebarPictureBox.TabStop = False
+        '
         '_006_03_Main_Form_Version2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(976, 568)
+        Me.ClientSize = New System.Drawing.Size(976, 749)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.PnlLogo)
         Me.IsMdiContainer = True
@@ -669,6 +685,7 @@ Partial Class _006_03_Main_Form_Version2
         Me.SplitContainer1.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        CType(Me.SidebarPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -740,4 +757,5 @@ Partial Class _006_03_Main_Form_Version2
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents PrintPreviousTransactionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CurrentTimer As System.Windows.Forms.Timer
+    Friend WithEvents SidebarPictureBox As System.Windows.Forms.PictureBox
 End Class

@@ -28,14 +28,16 @@ Partial Class _001_04_Define_vehicle_size
         Me.savebtn = New System.Windows.Forms.Button()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NewSizeCol = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.SizeView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SizeView
         '
+        Me.SizeView.AllowUserToDeleteRows = False
         Me.SizeView.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.SizeView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.SizeView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
+        Me.SizeView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.NewSizeCol})
         Me.SizeView.Location = New System.Drawing.Point(2, 4)
         Me.SizeView.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.SizeView.Name = "SizeView"
@@ -70,6 +72,13 @@ Partial Class _001_04_Define_vehicle_size
         Me.Column2.Name = "Column2"
         Me.Column2.Width = 200
         '
+        'NewSizeCol
+        '
+        Me.NewSizeCol.HeaderText = "NewSize"
+        Me.NewSizeCol.Name = "NewSizeCol"
+        Me.NewSizeCol.ReadOnly = True
+        Me.NewSizeCol.Visible = False
+        '
         '_001_04_Define_vehicle_size
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
@@ -92,4 +101,5 @@ Partial Class _001_04_Define_vehicle_size
     Friend WithEvents savebtn As System.Windows.Forms.Button
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents NewSizeCol As System.Windows.Forms.DataGridViewCheckBoxColumn
 End Class

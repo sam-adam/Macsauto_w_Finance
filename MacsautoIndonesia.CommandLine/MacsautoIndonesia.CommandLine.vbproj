@@ -99,6 +99,7 @@
   <ItemGroup>
     <Compile Include="CommandLine.vb" />
     <Compile Include="GLAccountImporter.vb" />
+    <Compile Include="Migrations\_021_PettyCashTableAlterAddNullables.vb" />
     <Compile Include="Migrations\_020_HRedemptionTableAlterAddCPoin.vb" />
     <Compile Include="Migrations\_019_HTransactionTableAlterAddCPoin.vb" />
     <Compile Include="Migrations\_017_HServiceTableAlterAddIsActive.vb" />

@@ -30,6 +30,7 @@ Partial Class _001_01_Define_UOM
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NewUoMCol = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.UOMGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -39,6 +40,7 @@ Partial Class _001_01_Define_UOM
         '
         'UOMGridView
         '
+        Me.UOMGridView.AllowUserToDeleteRows = False
         Me.UOMGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
@@ -49,7 +51,7 @@ Partial Class _001_01_Define_UOM
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.UOMGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.UOMGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.UOMGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
+        Me.UOMGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.NewUoMCol})
         Me.UOMGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.UOMGridView.Location = New System.Drawing.Point(0, 0)
         Me.UOMGridView.Name = "UOMGridView"
@@ -104,6 +106,15 @@ Partial Class _001_01_Define_UOM
         Me.Column2.Name = "Column2"
         Me.Column2.Width = 160
         '
+        'NewUoMCol
+        '
+        Me.NewUoMCol.HeaderText = "NewUoM"
+        Me.NewUoMCol.Name = "NewUoMCol"
+        Me.NewUoMCol.ReadOnly = True
+        Me.NewUoMCol.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.NewUoMCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.NewUoMCol.Visible = False
+        '
         '_001_01_Define_UOM
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -128,4 +139,5 @@ Partial Class _001_01_Define_UOM
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents NewUoMCol As System.Windows.Forms.DataGridViewCheckBoxColumn
 End Class

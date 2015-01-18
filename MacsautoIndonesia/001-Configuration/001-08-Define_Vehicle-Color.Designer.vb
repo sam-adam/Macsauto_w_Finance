@@ -58,6 +58,7 @@ Partial Class _001_08_Define_Vehicle_Color
         '
         'ColorGridView
         '
+        Me.ColorGridView.AllowUserToDeleteRows = False
         Me.ColorGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
@@ -95,6 +96,7 @@ Partial Class _001_08_Define_Vehicle_Color
         Me.Column1.HeaderText = "Color #"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
+        Me.Column1.Visible = False
         Me.Column1.Width = 120
         '
         'Column2

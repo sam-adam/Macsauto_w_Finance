@@ -1,4 +1,7 @@
-﻿Public Class _006_03_Main_Form_Version2
+﻿Imports MacsautoIndonesia.EventsModule
+Imports MacsautoIndonesia.EventsModule.Events.Accounting.Period
+
+Public Class _006_03_Main_Form_Version2
     Const TitleFormat As String = "Macsauto | [User: {0} - {1}] - [Login: {2}] - [Branch: {3}] | {4}"
 
     Private ReadOnly _loginForm As _006_02_LoginForm
@@ -89,7 +92,16 @@
     End Sub
 
     Private Sub PettyCashToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PettyCashToolStripMenuItem.Click
-        LoadForm(Of _007_02_Petty_Cash)()
+        If AccountingService.GetActivePeriod() Is Nothing Then
+            If MsgBox("No active accounting period found. Please define a new accounting period.", MsgBoxStyle.Critical Or MsgBoxStyle.OkCancel, "Error") = MsgBoxResult.Ok Then
+                EventBus.Subscribe(Of NewPeriodDefinedEvent, NewPeriodDefinedEventArgs)(Me,
+                    Sub()
+                        LoadForm(Of _007_02_Petty_Cash)()
+                    End Sub)
+            End If
+        Else
+            LoadForm(Of _007_02_Petty_Cash)()
+        End If
     End Sub
 
     Private Sub ProductToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ProductToolStripMenuItem.Click

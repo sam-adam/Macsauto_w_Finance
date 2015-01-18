@@ -297,6 +297,9 @@
     <Compile Include="002-Master Data\002-07-Service_Add.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="009-Finance\AccountingService.vb" />
+    <Compile Include="999-Others\EventsModule\Events\Accounting\Period\NewPeriodDefinedEvent.vb" />
+    <Compile Include="999-Others\EventsModule\Events\Accounting\Period\NewPeriodDefinedEventArgs.vb" />
     <Compile Include="999-Others\EventsModule\Events\Service\ServiceAddedEvent.vb" />
     <Compile Include="002-Master Data\_002_06_User.Designer.vb">
       <DependentUpon>_002_06_User.vb</DependentUpon>
@@ -910,6 +913,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="cabrioletred.ico" />
+    <None Include="Resources\rainbowsnowwash.png" />
     <None Include="Resources\Maskot-I-Love-Wash-%28final%29%281%29.png" />
     <None Include="Resources\Logo-MACSAUTO-only-%28background-putih%29%281%29.png" />
   </ItemGroup>
