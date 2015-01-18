@@ -571,20 +571,6 @@ Public Class _003_02_TrDetail2
         Dim transactionPage As New TransactionPage(RollPageWidth, New Font(SystemFonts.DialogFont.FontFamily, 6, FontStyle.Regular))
 
         transactionPage.Logo = My.Resources.Logo_MACSAUTO_only__background_putih__1_
-
-        reader = ExecQueryReader("SELECT cmnam, strta,ccity,phon1,phon2,webst FROM company")
-        reader.read()
-        transactionPage.AppendTitle(reader("cmnam").ToString)
-        transactionPage.AppendTitle(reader("strta").ToString)
-        transactionPage.AppendTitle(reader("ccity").ToString)
-        transactionPage.AppendTitle("Phone : " & reader("phon1").ToString)
-        transactionPage.AppendTitle("Hotline : " & reader("phon2").ToString)
-        transactionPage.AppendTitle(reader("webst").ToString)
-        'transactionPage.AppendTitle("JL. HOS. COKROAMINOTO (KOMP. SPBU PERTAMINA)")
-        'transactionPage.AppendTitle("SAMPING UBUD VILLAGE, CILEDUG RAYA")
-        'transactionPage.AppendTitle("021-7314783")
-        'transactionPage.AppendTitle("WWW.MACSAUTO-INDONESIA.COM")
-
         transactionPage.SetTransactionInformation(transactionNumber, vNumber.Text, vBrand.Text, vModel.Text, TrDATE.Value.ToString("dd/MM/yyyy"), DateTime.Now.ToShortTimeString())
 
         For i = 0 To ServiceGrid.Rows.Count - 1

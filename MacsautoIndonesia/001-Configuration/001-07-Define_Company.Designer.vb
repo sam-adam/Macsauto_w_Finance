@@ -23,96 +23,26 @@ Partial Class _001_07_Define_Company
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_001_07_Define_Company))
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.CompCode = New System.Windows.Forms.TextBox()
-        Me.CompName = New System.Windows.Forms.TextBox()
-        Me.CompAddress = New System.Windows.Forms.TextBox()
         Me.Cancel = New System.Windows.Forms.Button()
         Me.Add = New System.Windows.Forms.Button()
         Me.Edit = New System.Windows.Forms.Button()
-        Me.CompCity = New System.Windows.Forms.TextBox()
-        Me.phone1 = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.phone2 = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.website = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.CompanyStreetTxt = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.street = New System.Windows.Forms.TextBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox1.SuspendLayout()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.CompanyWebsiteTxt = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.CompanyCodeTxt = New System.Windows.Forms.TextBox()
+        Me.CompanyPhone2Txt = New System.Windows.Forms.TextBox()
+        Me.CompanyNameTxt = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.CompanyAddressTxt = New System.Windows.Forms.TextBox()
+        Me.CompanyPhone1Txt = New System.Windows.Forms.TextBox()
+        Me.CompanyCityTxt = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(14, 27)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(114, 16)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Company Code"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(14, 55)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(118, 16)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Company Name"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(14, 83)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(66, 16)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Address"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(14, 195)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(34, 16)
-        Me.Label4.TabIndex = 3
-        Me.Label4.Text = "City"
-        '
-        'CompCode
-        '
-        Me.CompCode.Location = New System.Drawing.Point(170, 27)
-        Me.CompCode.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.CompCode.MaxLength = 3
-        Me.CompCode.Name = "CompCode"
-        Me.CompCode.Size = New System.Drawing.Size(127, 22)
-        Me.CompCode.TabIndex = 1
-        '
-        'CompName
-        '
-        Me.CompName.Location = New System.Drawing.Point(170, 55)
-        Me.CompName.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.CompName.MaxLength = 50
-        Me.CompName.Name = "CompName"
-        Me.CompName.Size = New System.Drawing.Size(321, 22)
-        Me.CompName.TabIndex = 2
-        '
-        'CompAddress
-        '
-        Me.CompAddress.Location = New System.Drawing.Point(170, 83)
-        Me.CompAddress.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.CompAddress.MaxLength = 200
-        Me.CompAddress.Multiline = True
-        Me.CompAddress.Name = "CompAddress"
-        Me.CompAddress.Size = New System.Drawing.Size(321, 51)
-        Me.CompAddress.TabIndex = 3
         '
         'Cancel
         '
@@ -120,10 +50,10 @@ Partial Class _001_07_Define_Company
         Me.Cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Cancel.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Cancel.Location = New System.Drawing.Point(426, 339)
+        Me.Cancel.Location = New System.Drawing.Point(237, 296)
         Me.Cancel.Margin = New System.Windows.Forms.Padding(4)
         Me.Cancel.Name = "Cancel"
-        Me.Cancel.Size = New System.Drawing.Size(93, 42)
+        Me.Cancel.Size = New System.Drawing.Size(83, 42)
         Me.Cancel.TabIndex = 10
         Me.Cancel.Text = "CANCEL"
         Me.Cancel.UseVisualStyleBackColor = True
@@ -135,12 +65,12 @@ Partial Class _001_07_Define_Company
         Me.Add.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Add.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Add.Location = New System.Drawing.Point(325, 339)
+        Me.Add.Location = New System.Drawing.Point(328, 296)
         Me.Add.Margin = New System.Windows.Forms.Padding(4)
         Me.Add.Name = "Add"
-        Me.Add.Size = New System.Drawing.Size(93, 42)
+        Me.Add.Size = New System.Drawing.Size(83, 42)
         Me.Add.TabIndex = 9
-        Me.Add.Text = "ADD"
+        Me.Add.Text = "SAVE"
         Me.Add.UseVisualStyleBackColor = True
         Me.Add.Visible = False
         '
@@ -150,165 +80,221 @@ Partial Class _001_07_Define_Company
         Me.Edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Edit.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Edit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Edit.Location = New System.Drawing.Point(325, 339)
+        Me.Edit.Location = New System.Drawing.Point(328, 296)
         Me.Edit.Margin = New System.Windows.Forms.Padding(4)
         Me.Edit.Name = "Edit"
-        Me.Edit.Size = New System.Drawing.Size(93, 42)
+        Me.Edit.Size = New System.Drawing.Size(83, 42)
         Me.Edit.TabIndex = 29
         Me.Edit.Text = "EDIT"
         Me.Edit.UseVisualStyleBackColor = True
         Me.Edit.Visible = False
         '
-        'CompCity
+        'Label1
         '
-        Me.CompCity.Location = New System.Drawing.Point(170, 192)
-        Me.CompCity.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.CompCity.MaxLength = 50
-        Me.CompCity.Name = "CompCity"
-        Me.CompCity.Size = New System.Drawing.Size(252, 22)
-        Me.CompCity.TabIndex = 5
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(13, 15)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(104, 17)
+        Me.Label1.TabIndex = 37
+        Me.Label1.Text = "Company Code"
         '
-        'phone1
+        'CompanyStreetTxt
         '
-        Me.phone1.Location = New System.Drawing.Point(170, 220)
-        Me.phone1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.phone1.MaxLength = 50
-        Me.phone1.Name = "phone1"
-        Me.phone1.Size = New System.Drawing.Size(252, 22)
-        Me.phone1.TabIndex = 6
+        Me.CompanyStreetTxt.Location = New System.Drawing.Point(125, 127)
+        Me.CompanyStreetTxt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.CompanyStreetTxt.MaxLength = 200
+        Me.CompanyStreetTxt.Multiline = True
+        Me.CompanyStreetTxt.Name = "CompanyStreetTxt"
+        Me.CompanyStreetTxt.Size = New System.Drawing.Size(286, 46)
+        Me.CompanyStreetTxt.TabIndex = 44
         '
-        'Label5
+        'Label2
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(14, 220)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(64, 16)
-        Me.Label5.TabIndex = 30
-        Me.Label5.Text = "Phone 1"
-        '
-        'phone2
-        '
-        Me.phone2.Location = New System.Drawing.Point(170, 247)
-        Me.phone2.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.phone2.MaxLength = 50
-        Me.phone2.Name = "phone2"
-        Me.phone2.Size = New System.Drawing.Size(252, 22)
-        Me.phone2.TabIndex = 7
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(14, 247)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(64, 16)
-        Me.Label6.TabIndex = 32
-        Me.Label6.Text = "Phone 2"
-        '
-        'website
-        '
-        Me.website.Location = New System.Drawing.Point(171, 275)
-        Me.website.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.website.MaxLength = 50
-        Me.website.Name = "website"
-        Me.website.Size = New System.Drawing.Size(252, 22)
-        Me.website.TabIndex = 8
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(15, 275)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(65, 16)
-        Me.Label7.TabIndex = 34
-        Me.Label7.Text = "Website"
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(9, 44)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(108, 17)
+        Me.Label2.TabIndex = 38
+        Me.Label2.Text = "Company Name"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(14, 140)
+        Me.Label8.Location = New System.Drawing.Point(71, 130)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(49, 16)
-        Me.Label8.TabIndex = 36
+        Me.Label8.Size = New System.Drawing.Size(46, 17)
+        Me.Label8.TabIndex = 52
         Me.Label8.Text = "Street"
         '
-        'street
+        'Label3
         '
-        Me.street.Location = New System.Drawing.Point(170, 140)
-        Me.street.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
-        Me.street.MaxLength = 200
-        Me.street.Multiline = True
-        Me.street.Name = "street"
-        Me.street.Size = New System.Drawing.Size(321, 46)
-        Me.street.TabIndex = 4
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(57, 73)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(60, 17)
+        Me.Label3.TabIndex = 40
+        Me.Label3.Text = "Address"
         '
-        'GroupBox1
+        'CompanyWebsiteTxt
         '
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.street)
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.website)
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.CompCode)
-        Me.GroupBox1.Controls.Add(Me.phone2)
-        Me.GroupBox1.Controls.Add(Me.CompName)
-        Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.CompAddress)
-        Me.GroupBox1.Controls.Add(Me.phone1)
-        Me.GroupBox1.Controls.Add(Me.CompCity)
-        Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(507, 320)
-        Me.GroupBox1.TabIndex = 38
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Company Data"
+        Me.CompanyWebsiteTxt.Location = New System.Drawing.Point(125, 266)
+        Me.CompanyWebsiteTxt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.CompanyWebsiteTxt.MaxLength = 50
+        Me.CompanyWebsiteTxt.Name = "CompanyWebsiteTxt"
+        Me.CompanyWebsiteTxt.Size = New System.Drawing.Size(224, 23)
+        Me.CompanyWebsiteTxt.TabIndex = 48
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(86, 182)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(31, 17)
+        Me.Label4.TabIndex = 42
+        Me.Label4.Text = "City"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(58, 269)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(59, 17)
+        Me.Label7.TabIndex = 51
+        Me.Label7.Text = "Website"
+        '
+        'CompanyCodeTxt
+        '
+        Me.CompanyCodeTxt.Location = New System.Drawing.Point(125, 12)
+        Me.CompanyCodeTxt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.CompanyCodeTxt.MaxLength = 3
+        Me.CompanyCodeTxt.Name = "CompanyCodeTxt"
+        Me.CompanyCodeTxt.Size = New System.Drawing.Size(113, 23)
+        Me.CompanyCodeTxt.TabIndex = 39
+        '
+        'CompanyPhone2Txt
+        '
+        Me.CompanyPhone2Txt.Location = New System.Drawing.Point(125, 237)
+        Me.CompanyPhone2Txt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.CompanyPhone2Txt.MaxLength = 50
+        Me.CompanyPhone2Txt.Name = "CompanyPhone2Txt"
+        Me.CompanyPhone2Txt.Size = New System.Drawing.Size(224, 23)
+        Me.CompanyPhone2Txt.TabIndex = 47
+        '
+        'CompanyNameTxt
+        '
+        Me.CompanyNameTxt.Location = New System.Drawing.Point(125, 41)
+        Me.CompanyNameTxt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.CompanyNameTxt.MaxLength = 50
+        Me.CompanyNameTxt.Name = "CompanyNameTxt"
+        Me.CompanyNameTxt.Size = New System.Drawing.Size(286, 23)
+        Me.CompanyNameTxt.TabIndex = 41
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(65, 240)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(52, 17)
+        Me.Label6.TabIndex = 50
+        Me.Label6.Text = "Hotline"
+        '
+        'CompanyAddressTxt
+        '
+        Me.CompanyAddressTxt.Location = New System.Drawing.Point(125, 70)
+        Me.CompanyAddressTxt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.CompanyAddressTxt.MaxLength = 200
+        Me.CompanyAddressTxt.Multiline = True
+        Me.CompanyAddressTxt.Name = "CompanyAddressTxt"
+        Me.CompanyAddressTxt.Size = New System.Drawing.Size(286, 51)
+        Me.CompanyAddressTxt.TabIndex = 43
+        '
+        'CompanyPhone1Txt
+        '
+        Me.CompanyPhone1Txt.Location = New System.Drawing.Point(125, 208)
+        Me.CompanyPhone1Txt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.CompanyPhone1Txt.MaxLength = 50
+        Me.CompanyPhone1Txt.Name = "CompanyPhone1Txt"
+        Me.CompanyPhone1Txt.Size = New System.Drawing.Size(224, 23)
+        Me.CompanyPhone1Txt.TabIndex = 46
+        '
+        'CompanyCityTxt
+        '
+        Me.CompanyCityTxt.Location = New System.Drawing.Point(125, 179)
+        Me.CompanyCityTxt.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
+        Me.CompanyCityTxt.MaxLength = 50
+        Me.CompanyCityTxt.Name = "CompanyCityTxt"
+        Me.CompanyCityTxt.Size = New System.Drawing.Size(224, 23)
+        Me.CompanyCityTxt.TabIndex = 45
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(68, 211)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(49, 17)
+        Me.Label5.TabIndex = 49
+        Me.Label5.Text = "Phone"
         '
         '_001_07_Define_Company
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Info
-        Me.ClientSize = New System.Drawing.Size(531, 401)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.ClientSize = New System.Drawing.Size(424, 350)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.CompanyStreetTxt)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.CompanyWebsiteTxt)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.CompanyCodeTxt)
+        Me.Controls.Add(Me.CompanyPhone2Txt)
+        Me.Controls.Add(Me.CompanyNameTxt)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.CompanyAddressTxt)
+        Me.Controls.Add(Me.CompanyPhone1Txt)
+        Me.Controls.Add(Me.CompanyCityTxt)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Cancel)
         Me.Controls.Add(Me.Add)
         Me.Controls.Add(Me.Edit)
-        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "_001_07_Define_Company"
-        Me.Text = "Define Company"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.Text = "Company - Define"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents CompCode As System.Windows.Forms.TextBox
-    Friend WithEvents CompName As System.Windows.Forms.TextBox
-    Friend WithEvents CompAddress As System.Windows.Forms.TextBox
     Friend WithEvents Cancel As System.Windows.Forms.Button
     Friend WithEvents Add As System.Windows.Forms.Button
     Friend WithEvents Edit As System.Windows.Forms.Button
-    Friend WithEvents CompCity As System.Windows.Forms.TextBox
-    Friend WithEvents phone1 As System.Windows.Forms.TextBox
-    Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents phone2 As System.Windows.Forms.TextBox
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents website As System.Windows.Forms.TextBox
-    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents CompanyStreetTxt As System.Windows.Forms.TextBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents street As System.Windows.Forms.TextBox
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents CompanyWebsiteTxt As System.Windows.Forms.TextBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents CompanyCodeTxt As System.Windows.Forms.TextBox
+    Friend WithEvents CompanyPhone2Txt As System.Windows.Forms.TextBox
+    Friend WithEvents CompanyNameTxt As System.Windows.Forms.TextBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents CompanyAddressTxt As System.Windows.Forms.TextBox
+    Friend WithEvents CompanyPhone1Txt As System.Windows.Forms.TextBox
+    Friend WithEvents CompanyCityTxt As System.Windows.Forms.TextBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
 End Class

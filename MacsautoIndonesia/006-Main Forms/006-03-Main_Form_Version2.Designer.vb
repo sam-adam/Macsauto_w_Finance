@@ -84,15 +84,20 @@ Partial Class _006_03_Main_Form_Version2
         Me.DefineAccountingPeriodToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DefineServiceAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.web = New System.Windows.Forms.Label()
-        Me.strt = New System.Windows.Forms.Label()
-        Me.phone2 = New System.Windows.Forms.Label()
-        Me.city = New System.Windows.Forms.Label()
-        Me.phone = New System.Windows.Forms.Label()
-        Me.add = New System.Windows.Forms.Label()
+        Me.CompanyWebsiteLbl = New System.Windows.Forms.Label()
+        Me.CompanyStreetLbl = New System.Windows.Forms.Label()
+        Me.CompanyCityLbl = New System.Windows.Forms.Label()
+        Me.CompanyAddressLbl = New System.Windows.Forms.Label()
         Me.CurrentTimer = New System.Windows.Forms.Timer(Me.components)
         Me.SidebarPictureBox = New System.Windows.Forms.PictureBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.CompanyPhone1Lbl = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.CompanyPhone2Lbl = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.PnlLogo.SuspendLayout()
         CType(Me.PBoxMaskot, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -106,8 +111,10 @@ Partial Class _006_03_Main_Form_Version2
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
-        Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.SidebarPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'PnlLogo
@@ -553,96 +560,61 @@ Partial Class _006_03_Main_Form_Version2
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(116, Byte), Integer))
-        Me.SplitContainer1.Panel2.Controls.Add(Me.TableLayoutPanel1)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.CompanyWebsiteLbl)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.Panel3)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.Panel2)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.CompanyCityLbl)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.CompanyStreetLbl)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.CompanyAddressLbl)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.Panel1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.SidebarPictureBox)
         Me.SplitContainer1.Size = New System.Drawing.Size(219, 674)
         Me.SplitContainer1.SplitterDistance = 270
         Me.SplitContainer1.TabIndex = 6
         '
-        'TableLayoutPanel1
+        'CompanyWebsiteLbl
         '
-        Me.TableLayoutPanel1.ColumnCount = 1
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.web, 0, 5)
-        Me.TableLayoutPanel1.Controls.Add(Me.strt, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.phone2, 0, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.city, 0, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.phone, 0, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.add, 0, 0)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TableLayoutPanel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 102)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.Padding = New System.Windows.Forms.Padding(10, 0, 10, 0)
-        Me.TableLayoutPanel1.RowCount = 6
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.45161!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.54839!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(219, 161)
-        Me.TableLayoutPanel1.TabIndex = 6
+        Me.CompanyWebsiteLbl.Dock = System.Windows.Forms.DockStyle.Top
+        Me.CompanyWebsiteLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.CompanyWebsiteLbl.Location = New System.Drawing.Point(0, 270)
+        Me.CompanyWebsiteLbl.Name = "CompanyWebsiteLbl"
+        Me.CompanyWebsiteLbl.Size = New System.Drawing.Size(219, 27)
+        Me.CompanyWebsiteLbl.TabIndex = 4
+        Me.CompanyWebsiteLbl.Text = "[Company Website]"
+        Me.CompanyWebsiteLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'web
+        'CompanyStreetLbl
         '
-        Me.web.AutoSize = True
-        Me.web.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.web.Location = New System.Drawing.Point(13, 136)
-        Me.web.Name = "web"
-        Me.web.Size = New System.Drawing.Size(193, 25)
-        Me.web.TabIndex = 4
-        Me.web.Text = "Website"
+        Me.CompanyStreetLbl.Dock = System.Windows.Forms.DockStyle.Top
+        Me.CompanyStreetLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.CompanyStreetLbl.Location = New System.Drawing.Point(0, 160)
+        Me.CompanyStreetLbl.Name = "CompanyStreetLbl"
+        Me.CompanyStreetLbl.Size = New System.Drawing.Size(219, 26)
+        Me.CompanyStreetLbl.TabIndex = 1
+        Me.CompanyStreetLbl.Text = "[Company Street]"
+        Me.CompanyStreetLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'strt
+        'CompanyCityLbl
         '
-        Me.strt.AutoSize = True
-        Me.strt.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.strt.Location = New System.Drawing.Point(13, 46)
-        Me.strt.Name = "strt"
-        Me.strt.Size = New System.Drawing.Size(193, 35)
-        Me.strt.TabIndex = 1
-        Me.strt.Text = "street"
+        Me.CompanyCityLbl.Dock = System.Windows.Forms.DockStyle.Top
+        Me.CompanyCityLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.CompanyCityLbl.Location = New System.Drawing.Point(0, 186)
+        Me.CompanyCityLbl.Name = "CompanyCityLbl"
+        Me.CompanyCityLbl.Size = New System.Drawing.Size(219, 30)
+        Me.CompanyCityLbl.TabIndex = 5
+        Me.CompanyCityLbl.Text = "[Company City]"
+        Me.CompanyCityLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'phone2
+        'CompanyAddressLbl
         '
-        Me.phone2.AutoSize = True
-        Me.phone2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.phone2.Location = New System.Drawing.Point(13, 117)
-        Me.phone2.Name = "phone2"
-        Me.phone2.Size = New System.Drawing.Size(193, 19)
-        Me.phone2.TabIndex = 3
-        Me.phone2.Text = "Phone2"
-        '
-        'city
-        '
-        Me.city.AutoSize = True
-        Me.city.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.city.Location = New System.Drawing.Point(13, 81)
-        Me.city.Name = "city"
-        Me.city.Size = New System.Drawing.Size(193, 17)
-        Me.city.TabIndex = 5
-        Me.city.Text = "City"
-        '
-        'phone
-        '
-        Me.phone.AutoSize = True
-        Me.phone.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.phone.Location = New System.Drawing.Point(13, 98)
-        Me.phone.Name = "phone"
-        Me.phone.Size = New System.Drawing.Size(193, 19)
-        Me.phone.TabIndex = 2
-        Me.phone.Text = "Phone1"
-        '
-        'add
-        '
-        Me.add.AutoSize = True
-        Me.add.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.add.Location = New System.Drawing.Point(13, 0)
-        Me.add.Name = "add"
-        Me.add.Size = New System.Drawing.Size(193, 46)
-        Me.add.TabIndex = 0
-        Me.add.Text = "address"
+        Me.CompanyAddressLbl.Dock = System.Windows.Forms.DockStyle.Top
+        Me.CompanyAddressLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.CompanyAddressLbl.Location = New System.Drawing.Point(0, 130)
+        Me.CompanyAddressLbl.Name = "CompanyAddressLbl"
+        Me.CompanyAddressLbl.Size = New System.Drawing.Size(219, 30)
+        Me.CompanyAddressLbl.TabIndex = 0
+        Me.CompanyAddressLbl.Text = "[Company Address]"
+        Me.CompanyAddressLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'CurrentTimer
         '
@@ -658,6 +630,87 @@ Partial Class _006_03_Main_Form_Version2
         Me.SidebarPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.SidebarPictureBox.TabIndex = 7
         Me.SidebarPictureBox.TabStop = False
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.Panel1.Location = New System.Drawing.Point(0, 102)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(219, 28)
+        Me.Panel1.TabIndex = 8
+        '
+        'Label1
+        '
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(0, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(219, 28)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Outlet"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.CompanyPhone1Lbl)
+        Me.Panel2.Controls.Add(Me.Label2)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.Panel2.Location = New System.Drawing.Point(0, 216)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(219, 25)
+        Me.Panel2.TabIndex = 10
+        '
+        'CompanyPhone1Lbl
+        '
+        Me.CompanyPhone1Lbl.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CompanyPhone1Lbl.Location = New System.Drawing.Point(87, 0)
+        Me.CompanyPhone1Lbl.Name = "CompanyPhone1Lbl"
+        Me.CompanyPhone1Lbl.Size = New System.Drawing.Size(132, 25)
+        Me.CompanyPhone1Lbl.TabIndex = 3
+        Me.CompanyPhone1Lbl.Text = "[Company Phone]"
+        '
+        'Label2
+        '
+        Me.Label2.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Label2.Location = New System.Drawing.Point(0, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(87, 25)
+        Me.Label2.TabIndex = 4
+        Me.Label2.Text = "Phone:"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.CompanyPhone2Lbl)
+        Me.Panel3.Controls.Add(Me.Label3)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.Panel3.Location = New System.Drawing.Point(0, 241)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(219, 29)
+        Me.Panel3.TabIndex = 11
+        '
+        'CompanyPhone2Lbl
+        '
+        Me.CompanyPhone2Lbl.Dock = System.Windows.Forms.DockStyle.Top
+        Me.CompanyPhone2Lbl.Location = New System.Drawing.Point(87, 0)
+        Me.CompanyPhone2Lbl.Name = "CompanyPhone2Lbl"
+        Me.CompanyPhone2Lbl.Size = New System.Drawing.Size(132, 29)
+        Me.CompanyPhone2Lbl.TabIndex = 4
+        Me.CompanyPhone2Lbl.Text = "[Company Hotline]"
+        '
+        'Label3
+        '
+        Me.Label3.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Label3.Location = New System.Drawing.Point(0, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(87, 29)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "Hotline:"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         '_006_03_Main_Form_Version2
         '
@@ -683,9 +736,10 @@ Partial Class _006_03_Main_Form_Version2
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
-        Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
         CType(Me.SidebarPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -748,14 +802,19 @@ Partial Class _006_03_Main_Form_Version2
     Friend WithEvents DefineAccountingPeriodToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DefineServiceAccountToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
-    Friend WithEvents city As System.Windows.Forms.Label
-    Friend WithEvents web As System.Windows.Forms.Label
-    Friend WithEvents phone2 As System.Windows.Forms.Label
-    Friend WithEvents phone As System.Windows.Forms.Label
-    Friend WithEvents strt As System.Windows.Forms.Label
-    Friend WithEvents add As System.Windows.Forms.Label
-    Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents CompanyCityLbl As System.Windows.Forms.Label
+    Friend WithEvents CompanyWebsiteLbl As System.Windows.Forms.Label
+    Friend WithEvents CompanyStreetLbl As System.Windows.Forms.Label
+    Friend WithEvents CompanyAddressLbl As System.Windows.Forms.Label
     Friend WithEvents PrintPreviousTransactionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CurrentTimer As System.Windows.Forms.Timer
     Friend WithEvents SidebarPictureBox As System.Windows.Forms.PictureBox
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents CompanyPhone1Lbl As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents CompanyPhone2Lbl As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 End Class

@@ -1,8 +1,21 @@
-﻿Imports MacsautoIndonesia.EventsModule
+﻿Imports MacsautoIndonesia.EventsModule.Events.Company
+Imports MacsautoIndonesia.EventsModule
 Imports MacsautoIndonesia.EventsModule.Events.Accounting.Period
+Imports MacsautoIndonesia.Services
 
 Public Class _006_03_Main_Form_Version2
-    Const TitleFormat As String = "Macsauto | [User: {0} - {1}] - [Login: {2}] - [Branch: {3}] | {4}"
+    Const TitleFormat As String = "Macsauto | [USER: {0} - {1}] - [LOGIN: {2}] - [BRANCH: {3}] | {4}"
+
+    WriteOnly Property Company() As Company
+        Set(ByVal value As Company)
+            CompanyAddressLbl.Text = value.Address
+            CompanyStreetLbl.Text = value.Street
+            CompanyCityLbl.Text = value.City
+            CompanyPhone1Lbl.Text = value.Phone1
+            CompanyPhone2Lbl.Text = value.Phone2
+            CompanyWebsiteLbl.Text = value.Website
+        End Set
+    End Property
 
     Private ReadOnly _loginForm As _006_02_LoginForm
     Private _isDatabaseConfigured As Boolean = True
@@ -35,6 +48,11 @@ Public Class _006_03_Main_Form_Version2
                 _loginForm.ShowDialog()
             End If
         End If
+
+        EventBus.Subscribe(Of CompanyDataChangedEvent, CompanyDataChangedEventArgs)(Me,
+            Sub(s As Object, args As CompanyDataChangedEventArgs)
+                Company = args.Company
+            End Sub)
     End Sub
 
     Private Sub _loginForm_Closed(ByVal sender As Object, ByVal e As EventArgs)
@@ -52,6 +70,9 @@ Public Class _006_03_Main_Form_Version2
     End Sub
 
     Private Sub _loginForm_LoginSucceded(ByVal sender As Object, ByVal e As EventArgs)
+        Company = CompanyService.GetCurrentCompany()
+
+
         _loginForm.Hide()
 
         Me.Show()
@@ -98,6 +119,8 @@ Public Class _006_03_Main_Form_Version2
                     Sub()
                         LoadForm(Of _007_02_Petty_Cash)()
                     End Sub)
+
+                LoadForm(Of _001_17_Define_Accounting_Period)()
             End If
         Else
             LoadForm(Of _007_02_Petty_Cash)()
@@ -282,7 +305,7 @@ Public Class _006_03_Main_Form_Version2
         If Not _isDatabaseConfigured Or Not _isLoggedIn Then
             Application.Exit()
         Else
-            Text = String.Format("Macsauto | [USER: {0} - {1}] - [LOGIN: {2}] - [BRANCH: {3}] | {4}", If(LoggedInEmployee.Position = Position.Manager, "Manager", "Staff"), LoggedInEmployee.Name, DateTime.Now.ToLongFriendlyDateTimeFormat(), LoggedInEmployee.Company.Name, DateTime.Now.ToString("HH:mm:ss tt"))
+            Text = String.Format(TitleFormat, If(LoggedInEmployee.Position = Position.Manager, "Manager", "Staff"), LoggedInEmployee.Name, DateTime.Now.ToLongFriendlyDateTimeFormat(), LoggedInEmployee.Company.Name, DateTime.Now.ToString("HH:mm:ss tt"))
 
             CurrentTimer.Start()
 

@@ -1,5 +1,4 @@
-﻿Imports System.ComponentModel
-Imports MySql.Data.MySqlClient
+﻿Imports MacsautoIndonesia.Services
 
 Public Class _006_02_LoginForm
     Public Event LoginSucceded As EventHandler
@@ -14,32 +13,39 @@ Public Class _006_02_LoginForm
     End Sub
 
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK.Click
-        Dim query = "SELECT emp.id, emp.name, emp.post, comp.idcmp, comp.cmnam, comp.cmadd, comp.ccity" & _
-                    " FROM user user" & _
-                    " LEFT JOIN employee emp ON emp.id = user.employee_id" & _
-                    " LEFT JOIN company comp ON emp.idcmp = comp.idcmp" & _
+        Dim employeeDataTable As DataTable = New DataTable()
+        Dim query As String = "SELECT employee.id," & _
+                    "   employee.name," & _
+                    "   employee.post," & _
+                    "   company.idcmp," & _
+                    "   company.cmnam," & _
+                    "   company.cmadd," & _
+                    "   company.ccity," & _
+                    "   company.strta," & _
+                    "   company.phon1," & _
+                    "   company.phon2," & _
+                    "   company.webst" & _
+                    " FROM user" & _
+                    " LEFT JOIN employee ON employee.id = user.employee_id" & _
+                    " LEFT JOIN company ON employee.idcmp = company.idcmp" & _
                     " WHERE user.username = '" & UsernameTextBox.Text & "'" & _
                     " AND user.password = '" & HashModule.GetMD5(PasswordTextBox.Text) & "'"
-        Dim reader As MySqlDataReader = ExecQueryReader(query)
+        employeeDataTable.Load(ExecQueryReader(query))
 
-        reader.Read()
+        If employeeDataTable.Rows.Count > 0 Then
+            Dim company As Company = CompanyService.GetCurrentCompany()
 
-        If reader.HasRows Then
-            LoggedInEmployee = New Employee(reader(0).ToString(), _
-                                            reader(1).ToString(), _
-                                            [Enum].Parse(GetType(Position), reader(2).ToString()), _
-                                            New Company(reader(3).ToString(), _
-                                                        reader(4).ToString(), _
-                                                        reader(5).ToString(), _
-                                                        reader(6).ToString()))
-            OnLoginSucceded(Nothing)
+            LoggedInEmployee = New Employee(employeeDataTable.Rows(0)("id").ToString(), _
+                                            employeeDataTable.Rows(0)("name").ToString(), _
+                                            [Enum].Parse(GetType(Position), employeeDataTable.Rows(0)("post").ToString()), company)
+            OnLoginSucceded(New EventArgs())
         Else
             MsgBox("Login failed")
         End If
     End Sub
 
     Private Sub Cancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel.Click
-        OnLoginCanceled(Nothing)
+        OnLoginCanceled(New EventArgs())
     End Sub
 End Class
 
@@ -69,6 +75,10 @@ Public Class Company
     Property Name() As String
     Property Address() As String
     Property City() As String
+    Property Street() As String
+    Property Phone1() As String
+    Property Phone2() As String
+    Property Website() As String
 End Class
 
 Public Enum Position

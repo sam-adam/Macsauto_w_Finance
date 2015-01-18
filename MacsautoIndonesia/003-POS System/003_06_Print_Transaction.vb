@@ -6,7 +6,6 @@ Imports System.Drawing.Printing
 Public Class _003_06_Print_Transaction
     Private ReadOnly _transactionHeaderDataTable As DataTable
     Private ReadOnly _transactionDetailDataTable As DataTable
-    Private ReadOnly _printer As Printer
 
     Property VehicleType() As String
         Set(ByVal value As String)
@@ -44,7 +43,6 @@ Public Class _003_06_Print_Transaction
 
         _transactionHeaderDataTable = New DataTable()
         _transactionDetailDataTable = New DataTable()
-        _printer = New Printer(My.Settings.DefaultPrinter)
 
         FindCustomer()
 
@@ -185,15 +183,6 @@ Public Class _003_06_Print_Transaction
 
             transactionPage.Logo = My.Resources.Logo_MACSAUTO_only__background_putih__1_
 
-            reader = ExecQueryReader("SELECT cmnam, strta, ccity, phon1, phon2, webst FROM company")
-            reader.read()
-            transactionPage.AppendTitle(reader("cmnam").ToString)
-            transactionPage.AppendTitle(reader("strta").ToString)
-            transactionPage.AppendTitle(reader("ccity").ToString)
-            transactionPage.AppendTitle("Phone : " & reader("phon1").ToString)
-            transactionPage.AppendTitle("Hotline : " & reader("phon2").ToString)
-            transactionPage.AppendTitle(reader("webst").ToString)
-
             transactionPage.SetTransactionInformation(TransactionIdTxt.Text, VehicleRegLbl.Text, VehicleBrandTxt.Text, VehicleModelTxt.Text, transactionTime.ToString("dd/MM/yyyy"), transactionTime.ToShortTimeString(), LoggedInEmployee.Name)
 
             For Each row As DataGridViewRow In TransactionDetailDataGrid.Rows
@@ -218,7 +207,8 @@ Public Class _003_06_Print_Transaction
             transactionPage.AppendFooter("© MACSAUTO INDONESIA")
 
             Try
-                _printer.Print(transactionPage)
+                Dim printer = New Printer(My.Settings.DefaultPrinter)
+                printer.Print(transactionPage)
 
                 If MsgBox("Transaction printed", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Success") = MsgBoxResult.Ok Then
                     Close()

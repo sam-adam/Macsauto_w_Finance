@@ -300,6 +300,8 @@
     <Compile Include="009-Finance\AccountingService.vb" />
     <Compile Include="999-Others\EventsModule\Events\Accounting\Period\NewPeriodDefinedEvent.vb" />
     <Compile Include="999-Others\EventsModule\Events\Accounting\Period\NewPeriodDefinedEventArgs.vb" />
+    <Compile Include="999-Others\EventsModule\Events\Company\CompanyDataChangedEvent.vb" />
+    <Compile Include="999-Others\EventsModule\Events\Company\CompanyDataChangedEventArgs.vb" />
     <Compile Include="999-Others\EventsModule\Events\Service\ServiceAddedEvent.vb" />
     <Compile Include="002-Master Data\_002_06_User.Designer.vb">
       <DependentUpon>_002_06_User.vb</DependentUpon>
@@ -583,6 +585,7 @@
     <Compile Include="999-Others\ListBoxExtensions.vb" />
     <Compile Include="999-Others\Module1.vb" />
     <Compile Include="999-Others\PrintModule.vb" />
+    <Compile Include="999-Others\Services\CompanyService.vb" />
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Form1.designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
