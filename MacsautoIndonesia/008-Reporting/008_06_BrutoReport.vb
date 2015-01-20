@@ -1,52 +1,74 @@
 ﻿Imports System.Text
 
 Public Class _008_06_BrutoReport
+    Private ReadOnly _allTransactionsDataTable As DataTable
+    Private ReadOnly _brutoReportQuery As String =
+        "SELECT htransaction.trsid," & _
+        "   htransaction.trdat," & _
+        "   htransaction.toamt," & _
+        "   htransaction.topay," & _
+        "   htransaction.chnce," & _
+        "   htransaction.linum," & _
+        "   htransaction.vtype," & _
+        "   htransaction.vbrnd," & _
+        "   htransaction.vmodl," & _
+        "   htransaction.vsize," & _
+        "   htransaction.vcolr," & _
+        "   htransaction.svamt," & _
+        "   htransaction.pdamt," & _
+        "   htransaction.trstat," & _
+        "   htransaction.remrk," & _
+        "   employee.name" & _
+        " FROM htransaction" & _
+        " LEFT JOIN employee ON htransaction.createdBy = employee.id" & _
+        " WHERE htransaction.trdat BETWEEN '{0}' AND '{1}'"
+
+    Public Sub New()
+        InitializeComponent()
+
+        _allTransactionsDataTable = New DataTable()
+
+        LoadReport(DateTimePicker1.Value, DateTimePicker2.Value)
+
+        With DataGridView
+            .AutoGenerateColumns = False
+            .DataSource = _allTransactionsDataTable
+
+            .Columns(IdCol.Index).DataPropertyName = "trsid"
+            .Columns(DateCol.Index).DataPropertyName = "trdat"
+            .Columns(StatusCol.Index).DataPropertyName = "trstat"
+            .Columns(RegistrationNumberCol.Index).DataPropertyName = "linum"
+            .Columns(TotalServiceCol.Index).DataPropertyName = "svamt"
+            .Columns(TotalProductCol.Index).DataPropertyName = "pdamt"
+            .Columns(TotalCostCol.Index).DataPropertyName = "toamt"
+            .Columns(TotalPaymentCol.Index).DataPropertyName = "topay"
+            .Columns(TotalChangeCol.Index).DataPropertyName = "chnce"
+            .Columns(EmployeeCol.Index).DataPropertyName = "name"
+            .Columns(VehicleTypeCol.Index).DataPropertyName = "vtype"
+            .Columns(VehicleBrandCol.Index).DataPropertyName = "vbrnd"
+            .Columns(VehicleModelCol.Index).DataPropertyName = "vmodl"
+            .Columns(VehicleSizeCol.Index).DataPropertyName = "vsize"
+            .Columns(VehicleColorCol.Index).DataPropertyName = "vcolr"
+            .Columns(RemarkCol.Index).DataPropertyName = "remrk"
+        End With
+    End Sub
+
     Private Sub LoadReport(ByVal from As DateTime, ByVal until As DateTime)
-        DataGridView.Rows.Clear()
+        _allTransactionsDataTable.Rows.Clear()
+        _allTransactionsDataTable.Load(ExecQueryReader(String.Format(_brutoReportQuery, from.ToString("yyyy-MM-dd 00:00:00"), until.ToString("yyyy-MM-dd 23:59:59"))))
 
-        Dim query As StringBuilder = New StringBuilder()
-        Dim totalCar As Integer = 0
-        Dim totalMotorcycle As Integer = 0
-        Dim totalPayment As Long = 0
-
-        query.Append("SELECT ht.trsid, ht.trdat, ht.linum, ht.toAmt, ht.topay, ht.chnce, emp.name, ht.vtype, ht.vbrnd, ht.vmodl, ht.vsize, ht.vcolr ")
-        query.Append("FROM htransaction ht ")
-        query.Append("JOIN employee emp ON ht.createdBy = emp.id ")
-        query.Append("WHERE ht.trdat BETWEEN '" & from.ToString("yyyy-MM-dd 00:00:00") & "' AND '" & until.ToString("yyyy-MM-dd 23:59:59") & "'")
-
-        reader = ExecQueryReader(query.ToString())
-
-        If reader.HasRows Then
-            While reader.Read()
-                DataGridView.Rows.Add(reader(0).ToString(), DateTime.Parse(reader(1).ToString()).ToString("dd/MM/yyyy HH:mm:ss"), reader(2).ToString(), String.Format("Rp {0:N}", Integer.Parse(reader(3))), String.Format("Rp {0:N}", Integer.Parse(reader(4))), String.Format("Rp {0:N}", Integer.Parse(reader(5))), reader(6).ToString(), reader(7).ToString(), reader(8).ToString(), reader(9).ToString(), reader(10).ToString(), reader(11).ToString())
-
-                If reader(7).ToString().ToUpper() = "CAR" Then
-                    totalCar += 1
-                Else
-                    totalMotorcycle += 1
-                End If
-
-                totalPayment += Long.Parse(reader(3).ToString())
-            End While
-        End If
-
-        TotalCarLabel.Text = totalCar.ToString()
-        TotalMotorcycleLabel.Text = totalMotorcycle.ToString()
-        TotalPaymentLabel.Text = String.Format("Total payment: Rp{0:N}", totalPayment)
+        TotalCarLabel.Text = (_allTransactionsDataTable.Select("vtype = 'Car'").Count())
+        TotalMotorcycleLabel.Text = (_allTransactionsDataTable.Select("vtype = 'Motorcycle'").Count())
+        TotalPaymentLabel.Text = "Total payment: Rp. " & FormatNumber(_allTransactionsDataTable.Compute("SUM(toamt)", ""), 0)
 
         Marking(DataGridView)
     End Sub
 
-
-    Private Sub _008_06_BrutoReport_Load( sender As System.Object,  e As System.EventArgs) Handles MyBase.Load
+    Private Sub DateTimePicker1_ValueChanged(sender As System.Object, e As System.EventArgs) Handles DateTimePicker1.ValueChanged
         LoadReport(DateTimePicker1.Value, DateTimePicker2.Value)
     End Sub
 
-    Private Sub DateTimePicker1_ValueChanged( sender As System.Object,  e As System.EventArgs) Handles DateTimePicker1.ValueChanged
-        LoadReport(DateTimePicker1.Value, DateTimePicker2.Value)
-    End Sub
-
-    Private Sub DateTimePicker2_ValueChanged( sender As System.Object,  e As System.EventArgs) Handles DateTimePicker2.ValueChanged
+    Private Sub DateTimePicker2_ValueChanged(sender As System.Object, e As System.EventArgs) Handles DateTimePicker2.ValueChanged
         LoadReport(DateTimePicker1.Value, DateTimePicker2.Value)
     End Sub
 
