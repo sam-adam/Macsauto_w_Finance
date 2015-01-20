@@ -67,7 +67,7 @@ Partial Class _006_04_Authorization_Form
         '
         'AuthorizeBtn
         '
-        Me.AuthorizeBtn.Location = New System.Drawing.Point(206, 70)
+        Me.AuthorizeBtn.Location = New System.Drawing.Point(302, 70)
         Me.AuthorizeBtn.Name = "AuthorizeBtn"
         Me.AuthorizeBtn.Size = New System.Drawing.Size(90, 27)
         Me.AuthorizeBtn.TabIndex = 4
@@ -77,7 +77,7 @@ Partial Class _006_04_Authorization_Form
         'CancelButton
         '
         Me.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.CancelButton.Location = New System.Drawing.Point(302, 70)
+        Me.CancelButton.Location = New System.Drawing.Point(206, 70)
         Me.CancelButton.Name = "CancelButton"
         Me.CancelButton.Size = New System.Drawing.Size(90, 27)
         Me.CancelButton.TabIndex = 5
@@ -104,6 +104,7 @@ Partial Class _006_04_Authorization_Form
         '
         '_006_04_Authorization_Form
         '
+        Me.AcceptButton = Me.AuthorizeBtn
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(404, 144)

@@ -332,13 +332,14 @@ Module Module1
         If con.State = ConnectionState.Open Then
             con.Close()
             con.Open()
+        Else
+            con.Open()
         End If
 
         Dim command As MySqlCommand = New MySqlCommand()
         Dim transaction As MySqlTransaction = con.BeginTransaction(IsolationLevel.ReadCommitted)
 
         command.Connection = con
-        command.Transaction = transaction
 
         Try
             func.Invoke(command)

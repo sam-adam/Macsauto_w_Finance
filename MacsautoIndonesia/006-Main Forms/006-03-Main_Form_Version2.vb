@@ -312,6 +312,7 @@ Public Class _006_03_Main_Form_Version2
             UserToolStripMenuItem.Visible = (LoggedInEmployee.Position = Position.Manager)
             ProductMovementToolStripMenuItem.Visible = (LoggedInEmployee.Position = Position.Manager)
             ProductToolStripMenuItem.Visible = (LoggedInEmployee.Position = Position.Manager)
+            CancelTransactionToolStripMenuItem.Visible = (LoggedInEmployee.Position = Position.Manager)
         End If
     End Sub
 
@@ -342,6 +343,10 @@ Public Class _006_03_Main_Form_Version2
 
     Private Sub PrintPreviousTransactionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrintPreviousTransactionToolStripMenuItem.Click
         LoadForm(Of _003_06_Print_Transaction)()
+    End Sub
+
+    Private Sub CancelTransactionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CancelTransactionToolStripMenuItem.Click
+        LoadForm(Of _003_05_Cancel_Transaction)()
     End Sub
 
     Private Sub CurrentTimer_Tick(sender As Object, e As EventArgs) Handles CurrentTimer.Tick

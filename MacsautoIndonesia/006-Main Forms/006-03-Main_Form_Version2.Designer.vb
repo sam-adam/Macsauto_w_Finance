@@ -85,19 +85,20 @@ Partial Class _006_03_Main_Form_Version2
         Me.DefineServiceAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.CompanyWebsiteLbl = New System.Windows.Forms.Label()
-        Me.CompanyStreetLbl = New System.Windows.Forms.Label()
-        Me.CompanyCityLbl = New System.Windows.Forms.Label()
-        Me.CompanyAddressLbl = New System.Windows.Forms.Label()
-        Me.CurrentTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.SidebarPictureBox = New System.Windows.Forms.PictureBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.CompanyPhone1Lbl = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.CompanyPhone2Lbl = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.CompanyPhone1Lbl = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.CompanyCityLbl = New System.Windows.Forms.Label()
+        Me.CompanyStreetLbl = New System.Windows.Forms.Label()
+        Me.CompanyAddressLbl = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.SidebarPictureBox = New System.Windows.Forms.PictureBox()
+        Me.CurrentTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.CancelTransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PnlLogo.SuspendLayout()
         CType(Me.PBoxMaskot, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -111,10 +112,10 @@ Partial Class _006_03_Main_Form_Version2
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
-        CType(Me.SidebarPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        CType(Me.SidebarPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PnlLogo
@@ -251,9 +252,9 @@ Partial Class _006_03_Main_Form_Version2
         '
         'CtxTransaction
         '
-        Me.CtxTransaction.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PointOfSalesToolStripMenuItem, Me.ProductMovementToolStripMenuItem, Me.PettyCashToolStripMenuItem, Me.PointRedemptionToolStripMenuItem, Me.PrintPreviousTransactionToolStripMenuItem})
+        Me.CtxTransaction.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PointOfSalesToolStripMenuItem, Me.ProductMovementToolStripMenuItem, Me.PettyCashToolStripMenuItem, Me.PointRedemptionToolStripMenuItem, Me.PrintPreviousTransactionToolStripMenuItem, Me.CancelTransactionToolStripMenuItem})
         Me.CtxTransaction.Name = "CtxTransaction"
-        Me.CtxTransaction.Size = New System.Drawing.Size(213, 114)
+        Me.CtxTransaction.Size = New System.Drawing.Size(213, 158)
         '
         'PointOfSalesToolStripMenuItem
         '
@@ -583,74 +584,35 @@ Partial Class _006_03_Main_Form_Version2
         Me.CompanyWebsiteLbl.Text = "[Company Website]"
         Me.CompanyWebsiteLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'CompanyStreetLbl
+        'Panel3
         '
-        Me.CompanyStreetLbl.Dock = System.Windows.Forms.DockStyle.Top
-        Me.CompanyStreetLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.CompanyStreetLbl.Location = New System.Drawing.Point(0, 160)
-        Me.CompanyStreetLbl.Name = "CompanyStreetLbl"
-        Me.CompanyStreetLbl.Size = New System.Drawing.Size(219, 26)
-        Me.CompanyStreetLbl.TabIndex = 1
-        Me.CompanyStreetLbl.Text = "[Company Street]"
-        Me.CompanyStreetLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Panel3.Controls.Add(Me.CompanyPhone2Lbl)
+        Me.Panel3.Controls.Add(Me.Label3)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.Panel3.Location = New System.Drawing.Point(0, 241)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(219, 29)
+        Me.Panel3.TabIndex = 11
         '
-        'CompanyCityLbl
+        'CompanyPhone2Lbl
         '
-        Me.CompanyCityLbl.Dock = System.Windows.Forms.DockStyle.Top
-        Me.CompanyCityLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.CompanyCityLbl.Location = New System.Drawing.Point(0, 186)
-        Me.CompanyCityLbl.Name = "CompanyCityLbl"
-        Me.CompanyCityLbl.Size = New System.Drawing.Size(219, 30)
-        Me.CompanyCityLbl.TabIndex = 5
-        Me.CompanyCityLbl.Text = "[Company City]"
-        Me.CompanyCityLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.CompanyPhone2Lbl.Dock = System.Windows.Forms.DockStyle.Top
+        Me.CompanyPhone2Lbl.Location = New System.Drawing.Point(87, 0)
+        Me.CompanyPhone2Lbl.Name = "CompanyPhone2Lbl"
+        Me.CompanyPhone2Lbl.Size = New System.Drawing.Size(132, 29)
+        Me.CompanyPhone2Lbl.TabIndex = 4
+        Me.CompanyPhone2Lbl.Text = "[Company Hotline]"
         '
-        'CompanyAddressLbl
+        'Label3
         '
-        Me.CompanyAddressLbl.Dock = System.Windows.Forms.DockStyle.Top
-        Me.CompanyAddressLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.CompanyAddressLbl.Location = New System.Drawing.Point(0, 130)
-        Me.CompanyAddressLbl.Name = "CompanyAddressLbl"
-        Me.CompanyAddressLbl.Size = New System.Drawing.Size(219, 30)
-        Me.CompanyAddressLbl.TabIndex = 0
-        Me.CompanyAddressLbl.Text = "[Company Address]"
-        Me.CompanyAddressLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'CurrentTimer
-        '
-        Me.CurrentTimer.Interval = 1000
-        '
-        'SidebarPictureBox
-        '
-        Me.SidebarPictureBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.SidebarPictureBox.Image = Global.MacsautoIndonesia.My.Resources.Resources.rainbowsnowwash
-        Me.SidebarPictureBox.Location = New System.Drawing.Point(0, 0)
-        Me.SidebarPictureBox.Name = "SidebarPictureBox"
-        Me.SidebarPictureBox.Size = New System.Drawing.Size(219, 102)
-        Me.SidebarPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.SidebarPictureBox.TabIndex = 7
-        Me.SidebarPictureBox.TabStop = False
-        '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Panel1.Location = New System.Drawing.Point(0, 102)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(219, 28)
-        Me.Panel1.TabIndex = 8
-        '
-        'Label1
-        '
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(0, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(219, 28)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Outlet"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Label3.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Label3.Location = New System.Drawing.Point(0, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(87, 29)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "Hotline:"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'Panel2
         '
@@ -682,35 +644,80 @@ Partial Class _006_03_Main_Form_Version2
         Me.Label2.Text = "Phone:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'Panel3
+        'CompanyCityLbl
         '
-        Me.Panel3.Controls.Add(Me.CompanyPhone2Lbl)
-        Me.Panel3.Controls.Add(Me.Label3)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Panel3.Location = New System.Drawing.Point(0, 241)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(219, 29)
-        Me.Panel3.TabIndex = 11
+        Me.CompanyCityLbl.Dock = System.Windows.Forms.DockStyle.Top
+        Me.CompanyCityLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.CompanyCityLbl.Location = New System.Drawing.Point(0, 186)
+        Me.CompanyCityLbl.Name = "CompanyCityLbl"
+        Me.CompanyCityLbl.Size = New System.Drawing.Size(219, 30)
+        Me.CompanyCityLbl.TabIndex = 5
+        Me.CompanyCityLbl.Text = "[Company City]"
+        Me.CompanyCityLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'CompanyPhone2Lbl
+        'CompanyStreetLbl
         '
-        Me.CompanyPhone2Lbl.Dock = System.Windows.Forms.DockStyle.Top
-        Me.CompanyPhone2Lbl.Location = New System.Drawing.Point(87, 0)
-        Me.CompanyPhone2Lbl.Name = "CompanyPhone2Lbl"
-        Me.CompanyPhone2Lbl.Size = New System.Drawing.Size(132, 29)
-        Me.CompanyPhone2Lbl.TabIndex = 4
-        Me.CompanyPhone2Lbl.Text = "[Company Hotline]"
+        Me.CompanyStreetLbl.Dock = System.Windows.Forms.DockStyle.Top
+        Me.CompanyStreetLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.CompanyStreetLbl.Location = New System.Drawing.Point(0, 160)
+        Me.CompanyStreetLbl.Name = "CompanyStreetLbl"
+        Me.CompanyStreetLbl.Size = New System.Drawing.Size(219, 26)
+        Me.CompanyStreetLbl.TabIndex = 1
+        Me.CompanyStreetLbl.Text = "[Company Street]"
+        Me.CompanyStreetLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'Label3
+        'CompanyAddressLbl
         '
-        Me.Label3.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Label3.Location = New System.Drawing.Point(0, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(87, 29)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Hotline:"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.CompanyAddressLbl.Dock = System.Windows.Forms.DockStyle.Top
+        Me.CompanyAddressLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.CompanyAddressLbl.Location = New System.Drawing.Point(0, 130)
+        Me.CompanyAddressLbl.Name = "CompanyAddressLbl"
+        Me.CompanyAddressLbl.Size = New System.Drawing.Size(219, 30)
+        Me.CompanyAddressLbl.TabIndex = 0
+        Me.CompanyAddressLbl.Text = "[Company Address]"
+        Me.CompanyAddressLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.Panel1.Location = New System.Drawing.Point(0, 102)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(219, 28)
+        Me.Panel1.TabIndex = 8
+        '
+        'Label1
+        '
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(0, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(219, 28)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Outlet"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'SidebarPictureBox
+        '
+        Me.SidebarPictureBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.SidebarPictureBox.Image = Global.MacsautoIndonesia.My.Resources.Resources.rainbowsnowwash
+        Me.SidebarPictureBox.Location = New System.Drawing.Point(0, 0)
+        Me.SidebarPictureBox.Name = "SidebarPictureBox"
+        Me.SidebarPictureBox.Size = New System.Drawing.Size(219, 102)
+        Me.SidebarPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.SidebarPictureBox.TabIndex = 7
+        Me.SidebarPictureBox.TabStop = False
+        '
+        'CurrentTimer
+        '
+        Me.CurrentTimer.Interval = 1000
+        '
+        'CancelTransactionToolStripMenuItem
+        '
+        Me.CancelTransactionToolStripMenuItem.Name = "CancelTransactionToolStripMenuItem"
+        Me.CancelTransactionToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.CancelTransactionToolStripMenuItem.Text = "Cancel Transaction"
         '
         '_006_03_Main_Form_Version2
         '
@@ -736,10 +743,10 @@ Partial Class _006_03_Main_Form_Version2
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
-        CType(Me.SidebarPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
+        CType(Me.SidebarPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -817,4 +824,5 @@ Partial Class _006_03_Main_Form_Version2
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents CompanyPhone2Lbl As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents CancelTransactionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

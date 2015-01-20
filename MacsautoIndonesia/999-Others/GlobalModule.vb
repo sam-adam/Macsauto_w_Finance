@@ -5,7 +5,11 @@ Imports System.Globalization
 Imports System.ComponentModel
 
 Module GlobalModule
+#If DEBUG Then
+    Public LoggedInEmployee As Employee = New DummyEmployee()
+#Else
     Public LoggedInEmployee As Employee
+#End If
     Public MySqlDateFormat As String = "yyyy-MM-dd"
     Public MySqlDateTimeFormat As String = "yyyy-MM-dd HH:ii:ss"
     Public LongFriendlyDateTimeFormat As String = "dd MMMM yyyy HH:mm tt"

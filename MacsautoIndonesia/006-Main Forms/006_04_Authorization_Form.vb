@@ -12,17 +12,11 @@ Public Class _006_04_Authorization_Form
         _authorizationLevel = authorizationLevel
 
         Select Case _authorizationLevel
-            Case authorizationLevel.Admin
-                AuthorizationLevelLabel.Text = "Admin"
-            Case authorizationLevel.User
-                AuthorizationLevelLabel.Text = "User"
+            Case authorizationLevel.Supervisor
+                AuthorizationLevelLabel.Text = "Supervisor"
+            Case authorizationLevel.Cashier
+                AuthorizationLevelLabel.Text = "Cashier"
         End Select
-    End Sub
-
-    Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
-        RaiseEvent AuthorizationFailed(Me, New EventArgs())
-
-        Dispose()
     End Sub
 
     Private Sub AuthorizeBtn_Click(sender As Object, e As EventArgs) Handles AuthorizeBtn.Click
@@ -57,8 +51,8 @@ Public Class _006_04_Authorization_Form
 End Class
 
 Public Enum AuthorizationLevel
-    User = 0
-    Admin = 1
+    Cashier = 0
+    Supervisor = 1
 End Enum
 
 Public Class AuthorizationSuccessEventArgs

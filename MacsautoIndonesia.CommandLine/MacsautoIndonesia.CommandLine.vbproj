@@ -99,6 +99,9 @@
   <ItemGroup>
     <Compile Include="CommandLine.vb" />
     <Compile Include="GLAccountImporter.vb" />
+    <Compile Include="Migrations\_024_JourDTTableAddCompositePrimaryKey.vb" />
+    <Compile Include="Migrations\_023_HTransactionTableAlterAddUpdatedBy.vb" />
+    <Compile Include="Migrations\_022_JourHDTableAlterDocIdAutoIncrement.vb" />
     <Compile Include="Migrations\_021_PettyCashTableAlterAddNullables.vb" />
     <Compile Include="Migrations\_020_HRedemptionTableAlterAddCPoin.vb" />
     <Compile Include="Migrations\_019_HTransactionTableAlterAddCPoin.vb" />
