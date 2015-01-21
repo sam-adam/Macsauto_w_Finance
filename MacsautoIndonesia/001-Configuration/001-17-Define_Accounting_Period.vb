@@ -39,11 +39,13 @@
         If checkActPeriod() <> 0 Then
             getAccountingPeriod()
             Month.Enabled = False
-            Year.Enabled = False
+            year.Enabled = False
+            Button2.Text = "Close Accounting Period"
+            message.Text = "By Closing current accounting period, GL Account with balance, will be carry forward to the next accounting period"
         End If
     End Sub
     Private Sub transferActPrd(ByVal vmonth As String, ByVal vyear As String)
-        fetchData
+
         Dim i As Integer
         Dim code As String
         code = NewJournalCode()
@@ -65,33 +67,52 @@
   
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         Dim code As String
-        Dim nmonth, nyear As String
         code = CreateNewCode()
-        If checkActPeriod() = 0 Then
-            If MsgBox("Enter Initial accounting period?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
-                ExecQueryNonReader("INSERT INTO pract VALUES('" + code + "','" + Month.SelectedItem.ToString + "','" + Year.Text + "','1')")
-                MsgBox("Accounting Period Defined")
-            End If
+        If Month.SelectedIndex = -1 Or year.SelectedIndex = -1 Then
+            MsgBox("Please enter Accounting period data (Year) & (Month)")
         Else
-            If MsgBox("Are you sure to close this accounting Period?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
-                If MsgBox("Current Account balance will be carry over to the next period (Check Trial Balance)", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
-                    ExecQueryNonReader("UPDATE pract SET activ = 0 WHERE acpid = '" + getLastCode() + "'")
-                    If (Integer.Parse(Month.SelectedItem.ToString) + 1) > 12 Then
-                        nmonth = "01"
-                        nyear = (Integer.Parse(Year.Text) + 1).ToString
-                    Else
-                        nmonth = (Integer.Parse(Month.SelectedItem.ToString) + 1).ToString("00")
-                        nyear = Year.Text
-                    End If
-                    transferActPrd(nmonth, nyear)
-                    ExecQueryNonReader("INSERT INTO pract VALUES('" + code + "','" + nmonth + "','" + nyear + "','1')")
-                    MsgBox("Accounting Period Closed")
+            If checkActPeriod() = 0 Then
+                If MsgBox("Enter Initial accounting period?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
+                    ExecQueryNonReader("INSERT INTO pract VALUES('" + code + "','" + Month.SelectedItem.ToString + "','" + year.Text + "','1')")
+                    MsgBox("Accounting Period Defined")
                 End If
-                
-            End If
-        End If
-        getAccountingPeriod()
-        Me.Close()
+            Else
+                If MsgBox("Are you sure to close this accounting Period?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
+                    fetchData()
+                    Button2.Visible = False
+                    Button1.Visible = True
 
+                End If
+
+            End If
+
+
+        End If
+    End Sub
+
+    Private Sub DataFlag_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataFlag.CellContentClick
+
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Dim code As String
+        code = CreateNewCode()
+        Dim nmonth, nyear As String
+        If MsgBox("Current Account balance will be carry over to the next period", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
+            ExecQueryNonReader("UPDATE pract SET activ = 0 WHERE acpid = '" + getLastCode() + "'")
+            If (Integer.Parse(Month.SelectedItem.ToString) + 1) > 12 Then
+                nmonth = "01"
+                nyear = (Integer.Parse(year.Text) + 1).ToString
+            Else
+                nmonth = (Integer.Parse(Month.SelectedItem.ToString) + 1).ToString("00")
+                nyear = year.Text
+            End If
+            transferActPrd(nmonth, nyear)
+            ExecQueryNonReader("INSERT INTO pract VALUES('" + code + "','" + nmonth + "','" + nyear + "','1')")
+            MsgBox("Accounting Period Closed")
+            Button2.Visible = True
+            Button1.Visible = False
+        End If
+        Me.Close()
     End Sub
 End Class
