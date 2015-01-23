@@ -27,10 +27,11 @@ Partial Class _005_11_GLAccount
         '
         'TreeView1
         '
-        Me.TreeView1.Font = New System.Drawing.Font("Microsoft YaHei", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TreeView1.Location = New System.Drawing.Point(12, 12)
+        Me.TreeView1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TreeView1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TreeView1.Location = New System.Drawing.Point(0, 0)
         Me.TreeView1.Name = "TreeView1"
-        Me.TreeView1.Size = New System.Drawing.Size(324, 304)
+        Me.TreeView1.Size = New System.Drawing.Size(348, 328)
         Me.TreeView1.TabIndex = 0
         '
         '_005_11_GLAccount
@@ -41,7 +42,7 @@ Partial Class _005_11_GLAccount
         Me.ClientSize = New System.Drawing.Size(348, 328)
         Me.Controls.Add(Me.TreeView1)
         Me.Name = "_005_11_GLAccount"
-        Me.Text = "_005_11_GLAccount"
+        Me.Text = "GL Account - Search"
         Me.ResumeLayout(False)
 
     End Sub
