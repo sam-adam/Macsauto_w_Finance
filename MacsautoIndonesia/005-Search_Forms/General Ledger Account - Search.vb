@@ -39,10 +39,10 @@ Public Class _005_11_GLAccount
     Private Sub TrySetSelectedAccount()
         Dim selectedNode As TreeNode = TreeView1.SelectedNode
 
-        If selectedNode.Level > 0 Then
+        If selectedNode.Level = 0 Then
             MsgBox("You cannot select Account Type, please select a GL Account")
         Else
-            Dim selectedAccount As DataRow = _dataTable.Select("glnum = " & selectedNode.Name).First()
+            Dim selectedAccount As DataRow = _dataTable.Select("glnum = '" & selectedNode.Name & "'").First()
 
             RaiseEvent AccountSelected(Me, New SelectedAccountEventArgs(selectedAccount("glnum").ToString(), selectedAccount("gldes").ToString(), selectedAccount("ispnl").ToString() = "X"))
         End If
