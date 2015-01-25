@@ -103,6 +103,8 @@ Public Class _009_01_GL_Account
                 MsgBox("Please Complete the GL Account data")
             ElseIf GLNum.Text = "" Or GLNum.Text.Length <> 4 Then
                 MsgBox("GL Account Number should be entered with the format 0-00-000-0000")
+            ElseIf GLDesc.Text = "" Then
+                MsgBox("GL Account description should be entered")
             Else
                 If MsgBox("Add new GL Account?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
                     Try
@@ -117,8 +119,12 @@ Public Class _009_01_GL_Account
 
             End If
         Else
-            If actTypeCbo.SelectedIndex = -1 And GLDesc.Text = "" And GLNum.Text = "" Then
+            If actTypeCbo.SelectedIndex = -1 And GLDesc.Text = "" Then
                 MsgBox("Please Complete the GL Account data")
+            ElseIf GLNum.Text = "" Or GLNum.Text.Length <> 4 Then
+                MsgBox("GL Account Number should be entered with the format 0-00-000-0000")
+            ElseIf GLDesc.Text = "" Then
+                MsgBox("GL Account description should be entered")
             Else
                 If MsgBox("Modify the GL Account?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
                     modifyGLAccount()
