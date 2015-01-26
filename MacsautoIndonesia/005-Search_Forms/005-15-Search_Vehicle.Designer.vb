@@ -22,13 +22,13 @@ Partial Class _005_15_Search_Vehicle
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.RefreshBtn = New System.Windows.Forms.Button()
-        Me.SelectBtn = New System.Windows.Forms.Button()
         Me.SearchTxt = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.SelectBtn = New System.Windows.Forms.Button()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.CustomerDataGrid = New System.Windows.Forms.DataGridView()
         Me.CustomerIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -47,6 +47,8 @@ Partial Class _005_15_Search_Vehicle
         Me.VehicleBrandCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VehicleColorCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VehicleTypeCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.CancelBtn = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -54,12 +56,12 @@ Partial Class _005_15_Search_Vehicle
         Me.SplitContainer1.SuspendLayout()
         CType(Me.CustomerDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VehicleDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.RefreshBtn)
-        Me.Panel1.Controls.Add(Me.SelectBtn)
         Me.Panel1.Controls.Add(Me.SearchTxt)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
@@ -71,21 +73,12 @@ Partial Class _005_15_Search_Vehicle
         '
         'RefreshBtn
         '
-        Me.RefreshBtn.Location = New System.Drawing.Point(537, 9)
+        Me.RefreshBtn.Location = New System.Drawing.Point(456, 9)
         Me.RefreshBtn.Name = "RefreshBtn"
         Me.RefreshBtn.Size = New System.Drawing.Size(75, 30)
         Me.RefreshBtn.TabIndex = 3
         Me.RefreshBtn.Text = "Refresh"
         Me.RefreshBtn.UseVisualStyleBackColor = True
-        '
-        'SelectBtn
-        '
-        Me.SelectBtn.Location = New System.Drawing.Point(456, 9)
-        Me.SelectBtn.Name = "SelectBtn"
-        Me.SelectBtn.Size = New System.Drawing.Size(75, 30)
-        Me.SelectBtn.TabIndex = 2
-        Me.SelectBtn.Text = "Select"
-        Me.SelectBtn.UseVisualStyleBackColor = True
         '
         'SearchTxt
         '
@@ -103,6 +96,16 @@ Partial Class _005_15_Search_Vehicle
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Customer Name Or Vehicle Number"
         '
+        'SelectBtn
+        '
+        Me.SelectBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SelectBtn.Location = New System.Drawing.Point(837, 4)
+        Me.SelectBtn.Name = "SelectBtn"
+        Me.SelectBtn.Size = New System.Drawing.Size(75, 30)
+        Me.SelectBtn.TabIndex = 2
+        Me.SelectBtn.Text = "Select"
+        Me.SelectBtn.UseVisualStyleBackColor = True
+        '
         'SplitContainer1
         '
         Me.SplitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
@@ -119,8 +122,8 @@ Partial Class _005_15_Search_Vehicle
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.VehicleDataGrid)
-        Me.SplitContainer1.Size = New System.Drawing.Size(924, 421)
-        Me.SplitContainer1.SplitterDistance = 234
+        Me.SplitContainer1.Size = New System.Drawing.Size(924, 381)
+        Me.SplitContainer1.SplitterDistance = 211
         Me.SplitContainer1.SplitterWidth = 5
         Me.SplitContainer1.TabIndex = 1
         '
@@ -137,7 +140,7 @@ Partial Class _005_15_Search_Vehicle
         Me.CustomerDataGrid.Name = "CustomerDataGrid"
         Me.CustomerDataGrid.ReadOnly = True
         Me.CustomerDataGrid.RowHeadersVisible = False
-        Me.CustomerDataGrid.Size = New System.Drawing.Size(920, 230)
+        Me.CustomerDataGrid.Size = New System.Drawing.Size(920, 207)
         Me.CustomerDataGrid.TabIndex = 0
         '
         'CustomerIdCol
@@ -162,9 +165,9 @@ Partial Class _005_15_Search_Vehicle
         '
         'CustomerDoBCol
         '
-        DataGridViewCellStyle1.Format = "d"
-        DataGridViewCellStyle1.NullValue = Nothing
-        Me.CustomerDoBCol.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Format = "d"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.CustomerDoBCol.DefaultCellStyle = DataGridViewCellStyle3
         Me.CustomerDoBCol.HeaderText = "Birthdate"
         Me.CustomerDoBCol.Name = "CustomerDoBCol"
         Me.CustomerDoBCol.ReadOnly = True
@@ -196,9 +199,9 @@ Partial Class _005_15_Search_Vehicle
         '
         'CustomerPointCol
         '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle2.Format = "N0"
-        Me.CustomerPointCol.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle4.Format = "N0"
+        Me.CustomerPointCol.DefaultCellStyle = DataGridViewCellStyle4
         Me.CustomerPointCol.HeaderText = "Point"
         Me.CustomerPointCol.Name = "CustomerPointCol"
         Me.CustomerPointCol.ReadOnly = True
@@ -223,7 +226,7 @@ Partial Class _005_15_Search_Vehicle
         Me.VehicleDataGrid.Name = "VehicleDataGrid"
         Me.VehicleDataGrid.ReadOnly = True
         Me.VehicleDataGrid.RowHeadersVisible = False
-        Me.VehicleDataGrid.Size = New System.Drawing.Size(920, 178)
+        Me.VehicleDataGrid.Size = New System.Drawing.Size(920, 161)
         Me.VehicleDataGrid.TabIndex = 0
         '
         'VehicleRegColumn
@@ -261,6 +264,26 @@ Partial Class _005_15_Search_Vehicle
         Me.VehicleTypeCol.ReadOnly = True
         Me.VehicleTypeCol.Width = 65
         '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.CancelBtn)
+        Me.Panel2.Controls.Add(Me.SelectBtn)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel2.Location = New System.Drawing.Point(0, 431)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(924, 40)
+        Me.Panel2.TabIndex = 1
+        '
+        'CancelBtn
+        '
+        Me.CancelBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CancelBtn.Location = New System.Drawing.Point(756, 4)
+        Me.CancelBtn.Name = "CancelBtn"
+        Me.CancelBtn.Size = New System.Drawing.Size(75, 30)
+        Me.CancelBtn.TabIndex = 3
+        Me.CancelBtn.Text = "Cancel"
+        Me.CancelBtn.UseVisualStyleBackColor = True
+        '
         '_005_15_Search_Vehicle
         '
         Me.AcceptButton = Me.SelectBtn
@@ -268,8 +291,10 @@ Partial Class _005_15_Search_Vehicle
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(924, 471)
         Me.Controls.Add(Me.SplitContainer1)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MaximumSize = New System.Drawing.Size(940, 510)
@@ -286,6 +311,7 @@ Partial Class _005_15_Search_Vehicle
         Me.SplitContainer1.ResumeLayout(False)
         CType(Me.CustomerDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VehicleDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -312,4 +338,6 @@ Partial Class _005_15_Search_Vehicle
     Friend WithEvents CustomerAddressCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CustomerPointCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CustomerIsMember As System.Windows.Forms.DataGridViewCheckBoxColumn
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents CancelBtn As System.Windows.Forms.Button
 End Class

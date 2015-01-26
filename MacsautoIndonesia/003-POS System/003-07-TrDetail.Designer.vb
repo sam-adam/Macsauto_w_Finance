@@ -22,20 +22,19 @@ Partial Class _003_07_TrDetail2
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle109 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle110 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle111 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle112 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle113 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle114 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle115 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_003_07_TrDetail2))
+        Dim DataGridViewCellStyle116 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle117 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle118 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle119 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle120 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -52,6 +51,7 @@ Partial Class _003_07_TrDetail2
         Me.CustomerNameTxt = New System.Windows.Forms.TextBox()
         Me.CustomerIdTxt = New System.Windows.Forms.TextBox()
         Me.VehiclePanel = New System.Windows.Forms.Panel()
+        Me.VehicleRegCbo = New System.Windows.Forms.ComboBox()
         Me.MotorcycleRadio = New System.Windows.Forms.RadioButton()
         Me.CarRadio = New System.Windows.Forms.RadioButton()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -71,12 +71,6 @@ Partial Class _003_07_TrDetail2
         Me.AddServiceBtn = New System.Windows.Forms.Button()
         Me.RemoveServiceBtn = New System.Windows.Forms.Button()
         Me.TransactionServiceDataGrid = New System.Windows.Forms.DataGridView()
-        Me.ServiceIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServiceDescriptionCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServiceQuantityCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServicePriceCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServiceDiscountCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServiceRemarksCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.ProductPanel = New System.Windows.Forms.Panel()
@@ -132,7 +126,14 @@ Partial Class _003_07_TrDetail2
         Me.voidBtn = New System.Windows.Forms.Button()
         Me.CancelBtn = New System.Windows.Forms.Button()
         Me.SaveBtn = New System.Windows.Forms.Button()
-        Me.VehicleRegCbo = New System.Windows.Forms.ComboBox()
+        Me.ServiceIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServiceDescriptionCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServicePriceCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServiceDiscountCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServiceRemarksCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.CustomerPanel.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.VehiclePanel.SuspendLayout()
@@ -347,6 +348,16 @@ Partial Class _003_07_TrDetail2
         Me.VehiclePanel.Size = New System.Drawing.Size(499, 227)
         Me.VehiclePanel.TabIndex = 5
         '
+        'VehicleRegCbo
+        '
+        Me.VehicleRegCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.VehicleRegCbo.Font = New System.Drawing.Font("Segoe UI", 15.75!)
+        Me.VehicleRegCbo.FormattingEnabled = True
+        Me.VehicleRegCbo.Location = New System.Drawing.Point(90, 12)
+        Me.VehicleRegCbo.Name = "VehicleRegCbo"
+        Me.VehicleRegCbo.Size = New System.Drawing.Size(143, 38)
+        Me.VehicleRegCbo.TabIndex = 27
+        '
         'MotorcycleRadio
         '
         Me.MotorcycleRadio.AutoCheck = False
@@ -409,7 +420,7 @@ Partial Class _003_07_TrDetail2
         '
         Me.VehicleExpiryDate.Enabled = False
         Me.VehicleExpiryDate.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.VehicleExpiryDate.Location = New System.Drawing.Point(90, 153)
+        Me.VehicleExpiryDate.Location = New System.Drawing.Point(90, 186)
         Me.VehicleExpiryDate.Margin = New System.Windows.Forms.Padding(4)
         Me.VehicleExpiryDate.Name = "VehicleExpiryDate"
         Me.VehicleExpiryDate.Size = New System.Drawing.Size(276, 25)
@@ -418,7 +429,7 @@ Partial Class _003_07_TrDetail2
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(4, 157)
+        Me.Label13.Location = New System.Drawing.Point(4, 190)
         Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(78, 17)
@@ -428,7 +439,7 @@ Partial Class _003_07_TrDetail2
         'VehicleSizeTxt
         '
         Me.VehicleSizeTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.VehicleSizeTxt.Location = New System.Drawing.Point(316, 120)
+        Me.VehicleSizeTxt.Location = New System.Drawing.Point(318, 87)
         Me.VehicleSizeTxt.Margin = New System.Windows.Forms.Padding(4)
         Me.VehicleSizeTxt.Name = "VehicleSizeTxt"
         Me.VehicleSizeTxt.ReadOnly = True
@@ -438,7 +449,7 @@ Partial Class _003_07_TrDetail2
         'VehicleColorTxt
         '
         Me.VehicleColorTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.VehicleColorTxt.Location = New System.Drawing.Point(316, 87)
+        Me.VehicleColorTxt.Location = New System.Drawing.Point(90, 153)
         Me.VehicleColorTxt.Margin = New System.Windows.Forms.Padding(4)
         Me.VehicleColorTxt.Name = "VehicleColorTxt"
         Me.VehicleColorTxt.ReadOnly = True
@@ -452,13 +463,13 @@ Partial Class _003_07_TrDetail2
         Me.VehicleModelTxt.Margin = New System.Windows.Forms.Padding(4)
         Me.VehicleModelTxt.Name = "VehicleModelTxt"
         Me.VehicleModelTxt.ReadOnly = True
-        Me.VehicleModelTxt.Size = New System.Drawing.Size(170, 25)
+        Me.VehicleModelTxt.Size = New System.Drawing.Size(398, 25)
         Me.VehicleModelTxt.TabIndex = 9
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(277, 122)
+        Me.Label9.Location = New System.Drawing.Point(283, 89)
         Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(31, 17)
@@ -468,7 +479,7 @@ Partial Class _003_07_TrDetail2
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(268, 89)
+        Me.Label8.Location = New System.Drawing.Point(42, 155)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(40, 17)
@@ -513,7 +524,6 @@ Partial Class _003_07_TrDetail2
         Me.ServicePanel.Controls.Add(Me.RemoveServiceBtn)
         Me.ServicePanel.Controls.Add(Me.TransactionServiceDataGrid)
         Me.ServicePanel.Controls.Add(Me.Panel4)
-        Me.ServicePanel.Enabled = False
         Me.ServicePanel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
         Me.ServicePanel.Location = New System.Drawing.Point(10, 302)
         Me.ServicePanel.Margin = New System.Windows.Forms.Padding(4)
@@ -537,6 +547,7 @@ Partial Class _003_07_TrDetail2
         '
         Me.RemoveServiceBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RemoveServiceBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.RemoveServiceBtn.Enabled = False
         Me.RemoveServiceBtn.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.RemoveServiceBtn.Location = New System.Drawing.Point(564, 118)
         Me.RemoveServiceBtn.Margin = New System.Windows.Forms.Padding(4)
@@ -552,7 +563,7 @@ Partial Class _003_07_TrDetail2
         Me.TransactionServiceDataGrid.AllowUserToDeleteRows = False
         Me.TransactionServiceDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.TransactionServiceDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.TransactionServiceDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ServiceIdCol, Me.ServiceDescriptionCol, Me.ServiceQuantityCol, Me.ServicePriceCol, Me.ServiceDiscountCol, Me.ServiceRemarksCol})
+        Me.TransactionServiceDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ServiceIdCol, Me.ServiceDescriptionCol, Me.ServicePriceCol, Me.ServiceDiscountCol, Me.ServiceRemarksCol})
         Me.TransactionServiceDataGrid.Dock = System.Windows.Forms.DockStyle.Top
         Me.TransactionServiceDataGrid.Location = New System.Drawing.Point(0, 0)
         Me.TransactionServiceDataGrid.Margin = New System.Windows.Forms.Padding(4)
@@ -560,65 +571,6 @@ Partial Class _003_07_TrDetail2
         Me.TransactionServiceDataGrid.RowHeadersVisible = False
         Me.TransactionServiceDataGrid.Size = New System.Drawing.Size(700, 110)
         Me.TransactionServiceDataGrid.TabIndex = 0
-        '
-        'ServiceIdCol
-        '
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.ServiceIdCol.DefaultCellStyle = DataGridViewCellStyle1
-        Me.ServiceIdCol.HeaderText = "Service ID"
-        Me.ServiceIdCol.Name = "ServiceIdCol"
-        Me.ServiceIdCol.ReadOnly = True
-        Me.ServiceIdCol.Visible = False
-        Me.ServiceIdCol.Width = 63
-        '
-        'ServiceDescriptionCol
-        '
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.ServiceDescriptionCol.DefaultCellStyle = DataGridViewCellStyle2
-        Me.ServiceDescriptionCol.HeaderText = "Service Item"
-        Me.ServiceDescriptionCol.Name = "ServiceDescriptionCol"
-        Me.ServiceDescriptionCol.ReadOnly = True
-        Me.ServiceDescriptionCol.Width = 107
-        '
-        'ServiceQuantityCol
-        '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter
-        DataGridViewCellStyle3.Format = "N0"
-        DataGridViewCellStyle3.NullValue = "0"
-        Me.ServiceQuantityCol.DefaultCellStyle = DataGridViewCellStyle3
-        Me.ServiceQuantityCol.HeaderText = "Quantity"
-        Me.ServiceQuantityCol.Name = "ServiceQuantityCol"
-        Me.ServiceQuantityCol.Width = 81
-        '
-        'ServicePriceCol
-        '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle4.Format = "N0"
-        DataGridViewCellStyle4.NullValue = "0"
-        Me.ServicePriceCol.DefaultCellStyle = DataGridViewCellStyle4
-        Me.ServicePriceCol.HeaderText = "Price"
-        Me.ServicePriceCol.Name = "ServicePriceCol"
-        Me.ServicePriceCol.ReadOnly = True
-        Me.ServicePriceCol.Width = 64
-        '
-        'ServiceDiscountCol
-        '
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle5.Format = "N0"
-        Me.ServiceDiscountCol.DefaultCellStyle = DataGridViewCellStyle5
-        Me.ServiceDiscountCol.HeaderText = "Discount (%)"
-        Me.ServiceDiscountCol.Name = "ServiceDiscountCol"
-        Me.ServiceDiscountCol.Width = 108
-        '
-        'ServiceRemarksCol
-        '
-        DataGridViewCellStyle6.NullValue = "-"
-        Me.ServiceRemarksCol.DefaultCellStyle = DataGridViewCellStyle6
-        Me.ServiceRemarksCol.HeaderText = "Remarks"
-        Me.ServiceRemarksCol.Name = "ServiceRemarksCol"
-        Me.ServiceRemarksCol.ReadOnly = True
-        Me.ServiceRemarksCol.Width = 88
         '
         'Panel4
         '
@@ -651,7 +603,6 @@ Partial Class _003_07_TrDetail2
         Me.ProductPanel.Controls.Add(Me.Panel11)
         Me.ProductPanel.Controls.Add(Me.RemoveProductBtn)
         Me.ProductPanel.Controls.Add(Me.TransactionProductDataGrid)
-        Me.ProductPanel.Enabled = False
         Me.ProductPanel.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.ProductPanel.Location = New System.Drawing.Point(10, 467)
         Me.ProductPanel.Margin = New System.Windows.Forms.Padding(4)
@@ -699,6 +650,7 @@ Partial Class _003_07_TrDetail2
         '
         Me.RemoveProductBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RemoveProductBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.RemoveProductBtn.Enabled = False
         Me.RemoveProductBtn.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.RemoveProductBtn.Location = New System.Drawing.Point(564, 118)
         Me.RemoveProductBtn.Margin = New System.Windows.Forms.Padding(4)
@@ -725,8 +677,8 @@ Partial Class _003_07_TrDetail2
         '
         'ProductIdCol
         '
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.ProductIdCol.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle109.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.ProductIdCol.DefaultCellStyle = DataGridViewCellStyle109
         Me.ProductIdCol.HeaderText = "Product ID"
         Me.ProductIdCol.Name = "ProductIdCol"
         Me.ProductIdCol.ReadOnly = True
@@ -735,8 +687,8 @@ Partial Class _003_07_TrDetail2
         '
         'ProductDescCol
         '
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.ProductDescCol.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle110.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.ProductDescCol.DefaultCellStyle = DataGridViewCellStyle110
         Me.ProductDescCol.HeaderText = "Product Item"
         Me.ProductDescCol.Name = "ProductDescCol"
         Me.ProductDescCol.ReadOnly = True
@@ -744,20 +696,20 @@ Partial Class _003_07_TrDetail2
         '
         'ProductQuantityCol
         '
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter
-        DataGridViewCellStyle9.Format = "N0"
-        DataGridViewCellStyle9.NullValue = "0"
-        Me.ProductQuantityCol.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle111.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter
+        DataGridViewCellStyle111.Format = "N0"
+        DataGridViewCellStyle111.NullValue = "0"
+        Me.ProductQuantityCol.DefaultCellStyle = DataGridViewCellStyle111
         Me.ProductQuantityCol.HeaderText = "Quantity"
         Me.ProductQuantityCol.Name = "ProductQuantityCol"
         Me.ProductQuantityCol.Width = 81
         '
         'ProductRemainingQtyCol
         '
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle10.Format = "N0"
-        Me.ProductRemainingQtyCol.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle112.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle112.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle112.Format = "N0"
+        Me.ProductRemainingQtyCol.DefaultCellStyle = DataGridViewCellStyle112
         Me.ProductRemainingQtyCol.HeaderText = "Stock"
         Me.ProductRemainingQtyCol.Name = "ProductRemainingQtyCol"
         Me.ProductRemainingQtyCol.ReadOnly = True
@@ -765,8 +717,8 @@ Partial Class _003_07_TrDetail2
         '
         'ProductMeasurementCol
         '
-        DataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.ProductMeasurementCol.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle113.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.ProductMeasurementCol.DefaultCellStyle = DataGridViewCellStyle113
         Me.ProductMeasurementCol.HeaderText = "Measurement"
         Me.ProductMeasurementCol.Name = "ProductMeasurementCol"
         Me.ProductMeasurementCol.ReadOnly = True
@@ -774,11 +726,11 @@ Partial Class _003_07_TrDetail2
         '
         'ProductPriceCol
         '
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle12.Format = "N0"
-        DataGridViewCellStyle12.NullValue = "0"
-        Me.ProductPriceCol.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle114.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle114.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle114.Format = "N0"
+        DataGridViewCellStyle114.NullValue = "0"
+        Me.ProductPriceCol.DefaultCellStyle = DataGridViewCellStyle114
         Me.ProductPriceCol.HeaderText = "Price"
         Me.ProductPriceCol.Name = "ProductPriceCol"
         Me.ProductPriceCol.ReadOnly = True
@@ -786,10 +738,10 @@ Partial Class _003_07_TrDetail2
         '
         'ProductDiscountCol
         '
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter
-        DataGridViewCellStyle13.Format = "N0"
-        DataGridViewCellStyle13.NullValue = "0"
-        Me.ProductDiscountCol.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle115.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter
+        DataGridViewCellStyle115.Format = "N0"
+        DataGridViewCellStyle115.NullValue = "0"
+        Me.ProductDiscountCol.DefaultCellStyle = DataGridViewCellStyle115
         Me.ProductDiscountCol.HeaderText = "Discount (%)"
         Me.ProductDiscountCol.Name = "ProductDiscountCol"
         Me.ProductDiscountCol.Width = 106
@@ -878,7 +830,7 @@ Partial Class _003_07_TrDetail2
         'TransactionDate
         '
         Me.TransactionDate.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.TransactionDate.Location = New System.Drawing.Point(1114, 12)
+        Me.TransactionDate.Location = New System.Drawing.Point(996, 12)
         Me.TransactionDate.Margin = New System.Windows.Forms.Padding(4)
         Me.TransactionDate.Name = "TransactionDate"
         Me.TransactionDate.Size = New System.Drawing.Size(242, 25)
@@ -1174,6 +1126,9 @@ Partial Class _003_07_TrDetail2
         '
         Me.Panel7.BackColor = System.Drawing.Color.Gold
         Me.Panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel7.Controls.Add(Me.Label18)
+        Me.Panel7.Controls.Add(Me.Label17)
+        Me.Panel7.Controls.Add(Me.Label10)
         Me.Panel7.Controls.Add(Me.Label32)
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel7.Location = New System.Drawing.Point(0, 689)
@@ -1271,15 +1226,87 @@ Partial Class _003_07_TrDetail2
         Me.SaveBtn.TabIndex = 19
         Me.SaveBtn.UseVisualStyleBackColor = True
         '
-        'VehicleRegCbo
+        'ServiceIdCol
         '
-        Me.VehicleRegCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.VehicleRegCbo.Font = New System.Drawing.Font("Segoe UI", 15.75!)
-        Me.VehicleRegCbo.FormattingEnabled = True
-        Me.VehicleRegCbo.Location = New System.Drawing.Point(90, 12)
-        Me.VehicleRegCbo.Name = "VehicleRegCbo"
-        Me.VehicleRegCbo.Size = New System.Drawing.Size(143, 38)
-        Me.VehicleRegCbo.TabIndex = 27
+        DataGridViewCellStyle116.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.ServiceIdCol.DefaultCellStyle = DataGridViewCellStyle116
+        Me.ServiceIdCol.HeaderText = "Service ID"
+        Me.ServiceIdCol.Name = "ServiceIdCol"
+        Me.ServiceIdCol.ReadOnly = True
+        Me.ServiceIdCol.Visible = False
+        Me.ServiceIdCol.Width = 76
+        '
+        'ServiceDescriptionCol
+        '
+        DataGridViewCellStyle117.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.ServiceDescriptionCol.DefaultCellStyle = DataGridViewCellStyle117
+        Me.ServiceDescriptionCol.HeaderText = "Service Item"
+        Me.ServiceDescriptionCol.Name = "ServiceDescriptionCol"
+        Me.ServiceDescriptionCol.ReadOnly = True
+        Me.ServiceDescriptionCol.Width = 107
+        '
+        'ServicePriceCol
+        '
+        DataGridViewCellStyle118.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle118.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle118.Format = "N0"
+        DataGridViewCellStyle118.NullValue = "0"
+        Me.ServicePriceCol.DefaultCellStyle = DataGridViewCellStyle118
+        Me.ServicePriceCol.HeaderText = "Price"
+        Me.ServicePriceCol.Name = "ServicePriceCol"
+        Me.ServicePriceCol.ReadOnly = True
+        Me.ServicePriceCol.Width = 64
+        '
+        'ServiceDiscountCol
+        '
+        DataGridViewCellStyle119.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle119.Format = "N0"
+        Me.ServiceDiscountCol.DefaultCellStyle = DataGridViewCellStyle119
+        Me.ServiceDiscountCol.HeaderText = "Discount (%)"
+        Me.ServiceDiscountCol.Name = "ServiceDiscountCol"
+        Me.ServiceDiscountCol.Width = 108
+        '
+        'ServiceRemarksCol
+        '
+        DataGridViewCellStyle120.NullValue = "-"
+        Me.ServiceRemarksCol.DefaultCellStyle = DataGridViewCellStyle120
+        Me.ServiceRemarksCol.HeaderText = "Remarks"
+        Me.ServiceRemarksCol.Name = "ServiceRemarksCol"
+        Me.ServiceRemarksCol.ReadOnly = True
+        Me.ServiceRemarksCol.Width = 88
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.Label10.ForeColor = System.Drawing.Color.Red
+        Me.Label10.Location = New System.Drawing.Point(10, 7)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(133, 17)
+        Me.Label10.TabIndex = 1
+        Me.Label10.Text = "F1 - Search Customer"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.Label17.ForeColor = System.Drawing.Color.Red
+        Me.Label17.Location = New System.Drawing.Point(159, 7)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(118, 17)
+        Me.Label17.TabIndex = 2
+        Me.Label17.Text = "F2 - Search Service"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.Label18.ForeColor = System.Drawing.Color.Red
+        Me.Label18.Location = New System.Drawing.Point(293, 7)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(122, 17)
+        Me.Label18.TabIndex = 3
+        Me.Label18.Text = "F3 - Search Product"
         '
         '_003_07_TrDetail2
         '
@@ -1305,6 +1332,7 @@ Partial Class _003_07_TrDetail2
         Me.Controls.Add(Me.Panel8)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -1422,12 +1450,6 @@ Partial Class _003_07_TrDetail2
     Friend WithEvents Panel10 As System.Windows.Forms.Panel
     Friend WithEvents MotorcycleRadio As System.Windows.Forms.RadioButton
     Friend WithEvents CarRadio As System.Windows.Forms.RadioButton
-    Friend WithEvents ServiceIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ServiceDescriptionCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ServiceQuantityCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ServicePriceCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ServiceDiscountCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ServiceRemarksCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents AddServiceBtn As System.Windows.Forms.Button
     Friend WithEvents Panel11 As System.Windows.Forms.Panel
     Friend WithEvents Label5 As System.Windows.Forms.Label
@@ -1441,5 +1463,13 @@ Partial Class _003_07_TrDetail2
     Friend WithEvents ProductPriceCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ProductDiscountCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents VehicleRegCbo As System.Windows.Forms.ComboBox
+    Friend WithEvents ServiceIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ServiceDescriptionCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ServicePriceCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ServiceDiscountCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ServiceRemarksCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents Label18 As System.Windows.Forms.Label
 
 End Class

@@ -7,8 +7,6 @@
     Private _customersDataView As DataView
 
     Public Sub New()
-        My.Settings.Database = "macsauto_clean"
-
         InitializeComponent()
 
         _customersDataTable = New DataTable()
@@ -182,6 +180,18 @@
 
     Private Sub _005_15_Search_Vehicle_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         SearchTxt.Focus()
+    End Sub
+
+    Private Sub CancelBtn_Click(sender As Object, e As EventArgs) Handles CancelBtn.Click
+        Close()
+    End Sub
+
+    Private Sub _005_15_Search_Vehicle_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyData = Keys.F5 Then
+            SearchTxt.Text = ""
+
+            ReloadData()
+        End If
     End Sub
 End Class
 

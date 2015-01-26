@@ -4,11 +4,12 @@ Imports MacsautoIndonesia.Printing
 Imports MySql.Data.MySqlClient
 
 Public Class _003_07_TrDetail2
-    Private ReadOnly _searchCustomerForm As _005_15_Search_Vehicle
     Private ReadOnly _selectedMode As PointOfSalesMode
     Private ReadOnly _customerDataTable As DataTable
     Private ReadOnly _vehiclesDataTable As DataTable
     Private ReadOnly _selectedVehicleBinding As BindingSource
+    Private _searchCustomerForm As _005_15_Search_Vehicle
+    Private _searchServiceForm As _005_16_Search_Service
 
     Property SelectedVehicleType As String
         Set(ByVal value As String)
@@ -19,6 +20,8 @@ Public Class _003_07_TrDetail2
             Return If(CarRadio.Checked, "Car", "Motorcycle")
         End Get
     End Property
+
+    Property SelectedVehicleSize As String
 
     Public Sub New(ByVal mode As PointOfSalesMode, Optional ByVal transactionId As String = "")
         InitializeComponent()
@@ -32,8 +35,7 @@ Public Class _003_07_TrDetail2
 
         Select Case _selectedMode
             Case PointOfSalesMode.NewTransaction
-                _searchCustomerForm = New _005_15_Search_Vehicle()
-                AddHandler _searchCustomerForm.CustomerVehicleSelected, AddressOf _searchCustomer_CustomerVehicleSelected
+                
             Case PointOfSalesMode.ExistingTransaction
 
         End Select
@@ -62,6 +64,7 @@ Public Class _003_07_TrDetail2
             VehicleSizeTxt.DataBindings.Add("Text", _selectedVehicleBinding, "sizdc")
             VehicleExpiryDate.DataBindings.Add("Text", _selectedVehicleBinding, "vexpd")
             DataBindings.Add("SelectedVehicleType", _selectedVehicleBinding, "vtype")
+            DataBindings.Add("SelectedVehicleSize", _selectedVehicleBinding, "idsiz")
         End If
     End Sub
 
@@ -115,13 +118,85 @@ Public Class _003_07_TrDetail2
         _searchCustomerForm.Close()
     End Sub
 
+    Private Sub _searchService_ServiceSelected(ByVal sender As Object, ByVal e As ServiceSelectedEventArgs)
+        Dim selectedServiceRow As DataRow = e.ServiceRow
+        Dim alreadyExisted As Boolean = TransactionServiceDataGrid.Rows.OfType(Of DataGridViewRow).Any(
+            Function(row As DataGridViewRow)
+                Return row.Cells(ServiceIdCol.Index).Value = selectedServiceRow("idsvc")
+            End Function)
+
+        If alreadyExisted Then
+            MsgBox("This service is already added", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Warning")
+        Else
+            TransactionServiceDataGrid.Rows.Add(selectedServiceRow("idsvc"), selectedServiceRow("svcdc"), selectedServiceRow("svprc"), 0, "-")
+
+            _searchServiceForm.Close()
+        End If
+    End Sub
+
     Private Sub SwitchMode()
         CustomerPanel.Enabled = (_selectedMode = PointOfSalesMode.NewTransaction)
         VehiclePanel.Enabled = (_selectedMode = PointOfSalesMode.NewTransaction)
     End Sub
 
-    Private Sub FindCustomerBtn_Click(sender As Object, e As EventArgs) Handles FindCustomerBtn.Click
+    Private Sub ShowCustomerForm()
+        If _searchCustomerForm Is Nothing Then
+            _searchCustomerForm = New _005_15_Search_Vehicle()
+            AddHandler _searchCustomerForm.CustomerVehicleSelected, AddressOf _searchCustomer_CustomerVehicleSelected
+        End If
+
         _searchCustomerForm.ShowDialog(Me)
+    End Sub
+
+    Private Sub ShowServiceForm()
+        If _searchServiceForm Is Nothing Then
+            _searchServiceForm = New _005_16_Search_Service(SelectedVehicleSize)
+            AddHandler _searchServiceForm.ServiceSelected, AddressOf _searchService_ServiceSelected
+        Else
+            _searchServiceForm.VehicleSize = SelectedVehicleSize
+        End If
+
+        _searchServiceForm.ShowDialog(Me)
+    End Sub
+
+    Private Sub FindCustomerBtn_Click(sender As Object, e As EventArgs) Handles FindCustomerBtn.Click
+        ShowCustomerForm()
+    End Sub
+
+    Private Sub _003_07_TrDetail2_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyData = Keys.F1 Then
+            ShowCustomerForm()
+        ElseIf e.KeyData = Keys.F2 Then
+            ShowServiceForm()
+        End If
+    End Sub
+
+    Private Sub AddServiceBtn_Click(sender As Object, e As EventArgs) Handles AddServiceBtn.Click
+        If _selectedVehicleBinding.Count = 0 Then
+            ErrorInput(FindCustomerBtn, "Customer and vehicle is required")
+        Else
+            ShowServiceForm()
+        End If
+    End Sub
+
+    Private Sub VehicleRegCbo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles VehicleRegCbo.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub TransactionServiceDataGrid_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles TransactionServiceDataGrid.RowsAdded
+        RemoveServiceBtn.Enabled = (TransactionServiceDataGrid.Rows.Count > 0)
+    End Sub
+
+    Private Sub TransactionServiceDataGrid_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles TransactionServiceDataGrid.RowsRemoved
+        RemoveServiceBtn.Enabled = (TransactionServiceDataGrid.Rows.Count > 0)
+    End Sub
+
+    Private Sub RemoveServiceBtn_Click(sender As Object, e As EventArgs) Handles RemoveServiceBtn.Click
+        If TransactionServiceDataGrid.SelectedCells.Count = 0 Then
+            MsgBox("Nothing to remove", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Warning")
+        Else
+            TransactionServiceDataGrid.Rows.RemoveAt(TransactionServiceDataGrid.CurrentRow.Index)
+        End If
     End Sub
 End Class
 
