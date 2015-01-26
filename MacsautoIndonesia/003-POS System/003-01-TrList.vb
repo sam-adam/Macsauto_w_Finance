@@ -223,4 +223,9 @@
     End Sub
 
  
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim trDetail As _003_07_TrDetail2 = New _003_07_TrDetail2(PointOfSalesMode.NewTransaction)
+
+        trDetail.ShowDialog()
+    End Sub
 End Class

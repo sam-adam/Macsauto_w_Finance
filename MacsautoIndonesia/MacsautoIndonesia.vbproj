@@ -303,11 +303,23 @@
     <Compile Include="003-POS System\003-07-TrDetail.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="005-Search_Forms\005-11-GLAccount.designer.vb">
+      <DependentUpon>005-11-GLAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="005-Search_Forms\005-11-GLAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="005-Search_Forms\005-14-TransactionDetail.Designer.vb">
       <DependentUpon>005-14-TransactionDetail.vb</DependentUpon>
     </Compile>
     <Compile Include="005-Search_Forms\005-14-TransactionDetail.vb">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="005-Search_Forms\005-15-Search_Vehicle.Designer.vb">
+      <DependentUpon>005-15-Search_Vehicle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="005-Search_Forms\005-15-Search_Vehicle.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="999-Others\Services\AccountingService.vb" />
     <Compile Include="999-Others\EventsModule\Events\Accounting\Period\NewPeriodDefinedEvent.vb" />
@@ -428,12 +440,6 @@
       <DependentUpon>005-10-POS_Merchandise.vb</DependentUpon>
     </Compile>
     <Compile Include="005-Search_Forms\005-10-POS_Merchandise.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="005-Search_Forms\005-11-GLAccount.Designer.vb">
-      <DependentUpon>005-11-GLAccount.vb</DependentUpon>
-    </Compile>
-    <Compile Include="005-Search_Forms\005-11-GLAccount.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="005-Search_Forms\005-12-Petty_Cash_Account.Designer.vb">
@@ -635,6 +641,7 @@
     <Compile Include="Printing\Printer.vb" />
     <Compile Include="Printing\Renderer\PanelRenderer.vb" />
     <Compile Include="Printing\Page\RollPage.vb" />
+    <Compile Include="Release\ReleaseVersionChecker.vb" />
     <Compile Include="Settings.vb" />
     <Compile Include="SmartCard\Card\SmartCard.vb" />
     <Compile Include="SmartCard\ModWinsCard.vb" />
@@ -806,6 +813,9 @@
     <EmbeddedResource Include="005-Search_Forms\005-14-TransactionDetail.resx">
       <DependentUpon>005-14-TransactionDetail.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="005-Search_Forms\005-15-Search_Vehicle.resx">
+      <DependentUpon>005-15-Search_Vehicle.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="006-Main Forms\006-02-LoginForm.resx">
       <DependentUpon>006-02-LoginForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -896,10 +906,6 @@
     <None Include="App.config" />
     <None Include="MacsautoIndonesia_TemporaryKey.pfx" />
     <None Include="My Project\app.manifest" />
-    <None Include="My Project\Application.myapp">
-      <Generator>MyApplicationCodeGenerator</Generator>
-      <LastGenOutput>Application.Designer.vb</LastGenOutput>
-    </None>
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
@@ -933,6 +939,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="cabrioletred.ico" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
     <None Include="Resources\rainbowsnowwash.png" />
     <None Include="Resources\Maskot-I-Love-Wash-%28final%29%281%29.png" />
     <None Include="Resources\Logo-MACSAUTO-only-%28background-putih%29%281%29.png" />

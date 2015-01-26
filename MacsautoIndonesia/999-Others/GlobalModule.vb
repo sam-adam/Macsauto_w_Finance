@@ -42,6 +42,12 @@ Module GlobalModule
         Return value.ToString(LongFriendlyDateTimeFormat)
     End Function
 
+    <Extension()>
+    <DebuggerStepThrough()>
+    Public Function SameAsKey(ByVal character As Char, ByVal control As Keys) As Boolean
+        Return AscW(character) = control
+    End Function
+
     <Extension>
     Public Sub ValidateIntegerInput(ByVal dataGridView As DataGridView, ByVal colIndex As Integer)
         Dim handler =

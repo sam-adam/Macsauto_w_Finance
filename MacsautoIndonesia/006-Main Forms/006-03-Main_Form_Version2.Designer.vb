@@ -40,6 +40,7 @@ Partial Class _006_03_Main_Form_Version2
         Me.PettyCashToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PointRedemptionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrintPreviousTransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CancelTransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CtxMasterData = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ProductToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ServiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -98,7 +99,6 @@ Partial Class _006_03_Main_Form_Version2
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SidebarPictureBox = New System.Windows.Forms.PictureBox()
         Me.CurrentTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.CancelTransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PnlLogo.SuspendLayout()
         CType(Me.PBoxMaskot, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -163,7 +163,7 @@ Partial Class _006_03_Main_Form_Version2
         Me.PnlMenu.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PnlMenu.Location = New System.Drawing.Point(0, 0)
         Me.PnlMenu.Name = "PnlMenu"
-        Me.PnlMenu.Size = New System.Drawing.Size(219, 270)
+        Me.PnlMenu.Size = New System.Drawing.Size(219, 266)
         Me.PnlMenu.TabIndex = 2
         '
         'BtnExit
@@ -254,7 +254,7 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.CtxTransaction.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PointOfSalesToolStripMenuItem, Me.ProductMovementToolStripMenuItem, Me.PettyCashToolStripMenuItem, Me.PointRedemptionToolStripMenuItem, Me.PrintPreviousTransactionToolStripMenuItem, Me.CancelTransactionToolStripMenuItem})
         Me.CtxTransaction.Name = "CtxTransaction"
-        Me.CtxTransaction.Size = New System.Drawing.Size(213, 158)
+        Me.CtxTransaction.Size = New System.Drawing.Size(213, 136)
         '
         'PointOfSalesToolStripMenuItem
         '
@@ -285,6 +285,12 @@ Partial Class _006_03_Main_Form_Version2
         Me.PrintPreviousTransactionToolStripMenuItem.Name = "PrintPreviousTransactionToolStripMenuItem"
         Me.PrintPreviousTransactionToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
         Me.PrintPreviousTransactionToolStripMenuItem.Text = "Print Previous Transaction"
+        '
+        'CancelTransactionToolStripMenuItem
+        '
+        Me.CancelTransactionToolStripMenuItem.Name = "CancelTransactionToolStripMenuItem"
+        Me.CancelTransactionToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.CancelTransactionToolStripMenuItem.Text = "Cancel Transaction"
         '
         'CtxMasterData
         '
@@ -569,8 +575,8 @@ Partial Class _006_03_Main_Form_Version2
         Me.SplitContainer1.Panel2.Controls.Add(Me.CompanyAddressLbl)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Panel1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.SidebarPictureBox)
-        Me.SplitContainer1.Size = New System.Drawing.Size(219, 674)
-        Me.SplitContainer1.SplitterDistance = 270
+        Me.SplitContainer1.Size = New System.Drawing.Size(219, 666)
+        Me.SplitContainer1.SplitterDistance = 266
         Me.SplitContainer1.TabIndex = 6
         '
         'CompanyWebsiteLbl
@@ -713,17 +719,11 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.CurrentTimer.Interval = 1000
         '
-        'CancelTransactionToolStripMenuItem
-        '
-        Me.CancelTransactionToolStripMenuItem.Name = "CancelTransactionToolStripMenuItem"
-        Me.CancelTransactionToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
-        Me.CancelTransactionToolStripMenuItem.Text = "Cancel Transaction"
-        '
         '_006_03_Main_Form_Version2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(976, 749)
+        Me.ClientSize = New System.Drawing.Size(976, 741)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.PnlLogo)
         Me.IsMdiContainer = True

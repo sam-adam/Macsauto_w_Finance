@@ -22,7 +22,6 @@ Partial Class _003_02_TrDetail2
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_003_02_TrDetail2))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -40,6 +39,7 @@ Partial Class _003_02_TrDetail2
         Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_003_02_TrDetail2))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -77,8 +77,6 @@ Partial Class _003_02_TrDetail2
         Me.vKilo = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.ServicePanel = New System.Windows.Forms.Panel()
-        Me.RemoveServBtn = New System.Windows.Forms.Button()
-        Me.AddServiceBtn = New System.Windows.Forms.Button()
         Me.ServiceGrid = New System.Windows.Forms.DataGridView()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -92,8 +90,6 @@ Partial Class _003_02_TrDetail2
         Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductPanel = New System.Windows.Forms.Panel()
         Me.Button4 = New System.Windows.Forms.Button()
-        Me.RemoveProductBtn = New System.Windows.Forms.Button()
-        Me.addProductBtn = New System.Windows.Forms.Button()
         Me.ProductGrid = New System.Windows.Forms.DataGridView()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -143,11 +139,15 @@ Partial Class _003_02_TrDetail2
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.QUEUE = New System.Windows.Forms.Button()
+        Me.voidBtn = New System.Windows.Forms.Button()
         Me.CancelBtn = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.voidBtn = New System.Windows.Forms.Button()
-        Me.QUEUE = New System.Windows.Forms.Button()
         Me.SaveBtn = New System.Windows.Forms.Button()
+        Me.RemoveProductBtn = New System.Windows.Forms.Button()
+        Me.addProductBtn = New System.Windows.Forms.Button()
+        Me.RemoveServBtn = New System.Windows.Forms.Button()
+        Me.AddServiceBtn = New System.Windows.Forms.Button()
         Me.CustomerPanel.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -541,30 +541,6 @@ Partial Class _003_02_TrDetail2
         Me.ServicePanel.Size = New System.Drawing.Size(759, 211)
         Me.ServicePanel.TabIndex = 6
         '
-        'RemoveServBtn
-        '
-        Me.RemoveServBtn.BackgroundImage = CType(resources.GetObject("RemoveServBtn.BackgroundImage"), System.Drawing.Image)
-        Me.RemoveServBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.RemoveServBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.RemoveServBtn.Location = New System.Drawing.Point(618, 174)
-        Me.RemoveServBtn.Name = "RemoveServBtn"
-        Me.RemoveServBtn.Size = New System.Drawing.Size(136, 29)
-        Me.RemoveServBtn.TabIndex = 2
-        Me.RemoveServBtn.Text = "REMOVE SERVICE"
-        Me.RemoveServBtn.UseVisualStyleBackColor = True
-        '
-        'AddServiceBtn
-        '
-        Me.AddServiceBtn.BackgroundImage = CType(resources.GetObject("AddServiceBtn.BackgroundImage"), System.Drawing.Image)
-        Me.AddServiceBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.AddServiceBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.AddServiceBtn.Location = New System.Drawing.Point(476, 174)
-        Me.AddServiceBtn.Name = "AddServiceBtn"
-        Me.AddServiceBtn.Size = New System.Drawing.Size(136, 29)
-        Me.AddServiceBtn.TabIndex = 1
-        Me.AddServiceBtn.Text = "ADD SERVICE"
-        Me.AddServiceBtn.UseVisualStyleBackColor = True
-        '
         'ServiceGrid
         '
         Me.ServiceGrid.AllowUserToAddRows = False
@@ -691,30 +667,6 @@ Partial Class _003_02_TrDetail2
         Me.Button4.Text = "Button4"
         Me.Button4.UseVisualStyleBackColor = True
         Me.Button4.Visible = False
-        '
-        'RemoveProductBtn
-        '
-        Me.RemoveProductBtn.BackgroundImage = CType(resources.GetObject("RemoveProductBtn.BackgroundImage"), System.Drawing.Image)
-        Me.RemoveProductBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.RemoveProductBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.RemoveProductBtn.Location = New System.Drawing.Point(618, 169)
-        Me.RemoveProductBtn.Name = "RemoveProductBtn"
-        Me.RemoveProductBtn.Size = New System.Drawing.Size(136, 29)
-        Me.RemoveProductBtn.TabIndex = 3
-        Me.RemoveProductBtn.Text = "REMOVE PRODUCT"
-        Me.RemoveProductBtn.UseVisualStyleBackColor = True
-        '
-        'addProductBtn
-        '
-        Me.addProductBtn.BackgroundImage = CType(resources.GetObject("addProductBtn.BackgroundImage"), System.Drawing.Image)
-        Me.addProductBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.addProductBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.addProductBtn.Location = New System.Drawing.Point(476, 169)
-        Me.addProductBtn.Name = "addProductBtn"
-        Me.addProductBtn.Size = New System.Drawing.Size(136, 29)
-        Me.addProductBtn.TabIndex = 2
-        Me.addProductBtn.Text = "ADD PRODUCT"
-        Me.addProductBtn.UseVisualStyleBackColor = True
         '
         'ProductGrid
         '
@@ -1221,6 +1173,30 @@ Partial Class _003_02_TrDetail2
         Me.Panel8.Size = New System.Drawing.Size(760, 42)
         Me.Panel8.TabIndex = 29
         '
+        'QUEUE
+        '
+        Me.QUEUE.BackgroundImage = CType(resources.GetObject("QUEUE.BackgroundImage"), System.Drawing.Image)
+        Me.QUEUE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.QUEUE.Enabled = False
+        Me.QUEUE.Location = New System.Drawing.Point(1029, 599)
+        Me.QUEUE.Name = "QUEUE"
+        Me.QUEUE.Size = New System.Drawing.Size(60, 55)
+        Me.QUEUE.TabIndex = 32
+        Me.QUEUE.UseVisualStyleBackColor = True
+        '
+        'voidBtn
+        '
+        Me.voidBtn.BackgroundImage = CType(resources.GetObject("voidBtn.BackgroundImage"), System.Drawing.Image)
+        Me.voidBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.voidBtn.Enabled = False
+        Me.voidBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.voidBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.voidBtn.Location = New System.Drawing.Point(1095, 599)
+        Me.voidBtn.Name = "voidBtn"
+        Me.voidBtn.Size = New System.Drawing.Size(60, 55)
+        Me.voidBtn.TabIndex = 31
+        Me.voidBtn.UseVisualStyleBackColor = True
+        '
         'CancelBtn
         '
         Me.CancelBtn.BackgroundImage = CType(resources.GetObject("CancelBtn.BackgroundImage"), System.Drawing.Image)
@@ -1244,30 +1220,6 @@ Partial Class _003_02_TrDetail2
         Me.PictureBox1.TabIndex = 26
         Me.PictureBox1.TabStop = False
         '
-        'voidBtn
-        '
-        Me.voidBtn.BackgroundImage = CType(resources.GetObject("voidBtn.BackgroundImage"), System.Drawing.Image)
-        Me.voidBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.voidBtn.Enabled = False
-        Me.voidBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.voidBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.voidBtn.Location = New System.Drawing.Point(1095, 599)
-        Me.voidBtn.Name = "voidBtn"
-        Me.voidBtn.Size = New System.Drawing.Size(60, 55)
-        Me.voidBtn.TabIndex = 31
-        Me.voidBtn.UseVisualStyleBackColor = True
-        '
-        'QUEUE
-        '
-        Me.QUEUE.BackgroundImage = CType(resources.GetObject("QUEUE.BackgroundImage"), System.Drawing.Image)
-        Me.QUEUE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.QUEUE.Enabled = False
-        Me.QUEUE.Location = New System.Drawing.Point(1029, 599)
-        Me.QUEUE.Name = "QUEUE"
-        Me.QUEUE.Size = New System.Drawing.Size(60, 55)
-        Me.QUEUE.TabIndex = 32
-        Me.QUEUE.UseVisualStyleBackColor = True
-        '
         'SaveBtn
         '
         Me.SaveBtn.BackgroundImage = CType(resources.GetObject("SaveBtn.BackgroundImage"), System.Drawing.Image)
@@ -1280,6 +1232,54 @@ Partial Class _003_02_TrDetail2
         Me.SaveBtn.Size = New System.Drawing.Size(60, 55)
         Me.SaveBtn.TabIndex = 19
         Me.SaveBtn.UseVisualStyleBackColor = True
+        '
+        'RemoveProductBtn
+        '
+        Me.RemoveProductBtn.BackgroundImage = CType(resources.GetObject("RemoveProductBtn.BackgroundImage"), System.Drawing.Image)
+        Me.RemoveProductBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.RemoveProductBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.RemoveProductBtn.Location = New System.Drawing.Point(618, 169)
+        Me.RemoveProductBtn.Name = "RemoveProductBtn"
+        Me.RemoveProductBtn.Size = New System.Drawing.Size(136, 29)
+        Me.RemoveProductBtn.TabIndex = 3
+        Me.RemoveProductBtn.Text = "REMOVE PRODUCT"
+        Me.RemoveProductBtn.UseVisualStyleBackColor = True
+        '
+        'addProductBtn
+        '
+        Me.addProductBtn.BackgroundImage = CType(resources.GetObject("addProductBtn.BackgroundImage"), System.Drawing.Image)
+        Me.addProductBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.addProductBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.addProductBtn.Location = New System.Drawing.Point(476, 169)
+        Me.addProductBtn.Name = "addProductBtn"
+        Me.addProductBtn.Size = New System.Drawing.Size(136, 29)
+        Me.addProductBtn.TabIndex = 2
+        Me.addProductBtn.Text = "ADD PRODUCT"
+        Me.addProductBtn.UseVisualStyleBackColor = True
+        '
+        'RemoveServBtn
+        '
+        Me.RemoveServBtn.BackgroundImage = CType(resources.GetObject("RemoveServBtn.BackgroundImage"), System.Drawing.Image)
+        Me.RemoveServBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.RemoveServBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.RemoveServBtn.Location = New System.Drawing.Point(618, 174)
+        Me.RemoveServBtn.Name = "RemoveServBtn"
+        Me.RemoveServBtn.Size = New System.Drawing.Size(136, 29)
+        Me.RemoveServBtn.TabIndex = 2
+        Me.RemoveServBtn.Text = "REMOVE SERVICE"
+        Me.RemoveServBtn.UseVisualStyleBackColor = True
+        '
+        'AddServiceBtn
+        '
+        Me.AddServiceBtn.BackgroundImage = CType(resources.GetObject("AddServiceBtn.BackgroundImage"), System.Drawing.Image)
+        Me.AddServiceBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.AddServiceBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.AddServiceBtn.Location = New System.Drawing.Point(476, 174)
+        Me.AddServiceBtn.Name = "AddServiceBtn"
+        Me.AddServiceBtn.Size = New System.Drawing.Size(136, 29)
+        Me.AddServiceBtn.TabIndex = 1
+        Me.AddServiceBtn.Text = "ADD SERVICE"
+        Me.AddServiceBtn.UseVisualStyleBackColor = True
         '
         '_003_02_TrDetail2
         '
