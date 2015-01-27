@@ -10,6 +10,7 @@ Public Class _003_07_TrDetail2
     Private ReadOnly _selectedVehicleBinding As BindingSource
     Private _searchCustomerForm As _005_15_Search_Vehicle
     Private _searchServiceForm As _005_16_Search_Service
+    Private _searchProductForm As _005_17_Search_Product
 
     Property SelectedVehicleType As String
         Set(ByVal value As String)
@@ -20,6 +21,10 @@ Public Class _003_07_TrDetail2
             Return If(CarRadio.Checked, "Car", "Motorcycle")
         End Get
     End Property
+
+    Property CurrentVehicleSize As String
+
+    Property CurrentVehicleRegistration As String
 
     Property SelectedVehicleSize As String
 
@@ -32,6 +37,10 @@ Public Class _003_07_TrDetail2
         _selectedVehicleBinding = New BindingSource()
 
         _selectedVehicleBinding.DataSource = _vehiclesDataTable
+
+        TransactionServiceDataGrid.ValidateIntegerInput(ServiceDiscountCol.Index, 100)
+        TransactionProductDataGrid.ValidateIntegerInput(ProductDiscountCol.Index, 100)
+        TransactionProductDataGrid.ValidateIntegerInput(ProductQuantityCol.Index)
 
         Select Case _selectedMode
             Case PointOfSalesMode.NewTransaction
@@ -134,6 +143,22 @@ Public Class _003_07_TrDetail2
         End If
     End Sub
 
+    Private Sub _searchProduct_ProductSelected(ByVal sender As Object, ByVal e As ProductSelectedEventArgs)
+        Dim selectedProductRow As DataRow = e.ProductRow
+        Dim alreadyExisted As DataGridViewRow = TransactionProductDataGrid.Rows.OfType(Of DataGridViewRow).FirstOrDefault(
+            Function(row As DataGridViewRow)
+                Return row.Cells(ProductIdCol.Index).Value = selectedProductRow("idpdt")
+            End Function)
+
+        If Not alreadyExisted Is Nothing Then
+            TransactionProductDataGrid(ProductQuantityCol.Index, alreadyExisted.Index).Value += 1
+        Else
+            TransactionProductDataGrid.Rows.Add(selectedProductRow("idpdt"), selectedProductRow("pdtds"), 1, selectedProductRow("pdqty"), selectedProductRow("uodsc"), selectedProductRow("psamt"), 0)
+        End If
+
+        _searchProductForm.Close()
+    End Sub
+
     Private Sub SwitchMode()
         CustomerPanel.Enabled = (_selectedMode = PointOfSalesMode.NewTransaction)
         VehiclePanel.Enabled = (_selectedMode = PointOfSalesMode.NewTransaction)
@@ -145,18 +170,41 @@ Public Class _003_07_TrDetail2
             AddHandler _searchCustomerForm.CustomerVehicleSelected, AddressOf _searchCustomer_CustomerVehicleSelected
         End If
 
-        _searchCustomerForm.ShowDialog(Me)
+        If _selectedVehicleBinding.Count = 0 OrElse (TransactionServiceDataGrid.Rows.Count = 0 OrElse MsgBox("Changing customer will remove all existing services. Continue?", MsgBoxStyle.Exclamation Or MsgBoxStyle.YesNo, "Warning") = MsgBoxResult.Yes) Then
+            If _selectedVehicleBinding.Count > 0 Then
+                TransactionServiceDataGrid.Rows.Clear()
+            End If
+
+            _searchCustomerForm.ShowDialog(Me)
+        End If
     End Sub
 
     Private Sub ShowServiceForm()
-        If _searchServiceForm Is Nothing Then
-            _searchServiceForm = New _005_16_Search_Service(SelectedVehicleSize)
-            AddHandler _searchServiceForm.ServiceSelected, AddressOf _searchService_ServiceSelected
+        If _selectedVehicleBinding.Count = 0 Then
+            ErrorInput(FindCustomerBtn, "Customer and vehicle is required")
         Else
-            _searchServiceForm.VehicleSize = SelectedVehicleSize
-        End If
+            If _searchServiceForm Is Nothing Then
+                _searchServiceForm = New _005_16_Search_Service(SelectedVehicleSize)
+                AddHandler _searchServiceForm.ServiceSelected, AddressOf _searchService_ServiceSelected
+            Else
+                _searchServiceForm.VehicleSize = SelectedVehicleSize
+            End If
 
-        _searchServiceForm.ShowDialog(Me)
+            _searchServiceForm.ShowDialog(Me)
+        End If
+    End Sub
+
+    Private Sub ShowProductForm()
+        If _selectedVehicleBinding.Count = 0 Then
+            ErrorInput(FindCustomerBtn, "Customer and vehicle is required")
+        Else
+            If _searchProductForm Is Nothing Then
+                _searchProductForm = New _005_17_Search_Product()
+                AddHandler _searchProductForm.ProductSelected, AddressOf _searchProduct_ProductSelected
+            End If
+
+            _searchProductForm.ShowDialog(Me)
+        End If
     End Sub
 
     Private Sub FindCustomerBtn_Click(sender As Object, e As EventArgs) Handles FindCustomerBtn.Click
@@ -168,19 +216,28 @@ Public Class _003_07_TrDetail2
             ShowCustomerForm()
         ElseIf e.KeyData = Keys.F2 Then
             ShowServiceForm()
+        ElseIf e.KeyData = Keys.F3 Then
+            ShowProductForm()
         End If
     End Sub
 
     Private Sub AddServiceBtn_Click(sender As Object, e As EventArgs) Handles AddServiceBtn.Click
-        If _selectedVehicleBinding.Count = 0 Then
-            ErrorInput(FindCustomerBtn, "Customer and vehicle is required")
-        Else
-            ShowServiceForm()
-        End If
+        ShowServiceForm()
     End Sub
 
     Private Sub VehicleRegCbo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles VehicleRegCbo.SelectedIndexChanged
+        If VehicleRegCbo.SelectedIndex > -1 Then
+            If VehicleSizeTxt.Text <> CurrentVehicleSize AndAlso TransactionServiceDataGrid.Rows.Count > 0 Then
+                If MsgBox("The selected vehicle is different from previous, all existing services will be removed. Continue?", MsgBoxStyle.Exclamation Or MsgBoxStyle.YesNo, "Warning") = MsgBoxResult.Yes Then
+                    TransactionServiceDataGrid.Rows.Clear()
+                Else
+                    VehicleRegCbo.SelectedValue = CurrentVehicleRegistration
+                End If
+            End If
 
+            CurrentVehicleSize = VehicleSizeTxt.Text
+            CurrentVehicleRegistration = VehicleRegCbo.SelectedText
+        End If
     End Sub
 
     Private Sub TransactionServiceDataGrid_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles TransactionServiceDataGrid.RowsAdded
@@ -196,6 +253,35 @@ Public Class _003_07_TrDetail2
             MsgBox("Nothing to remove", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Warning")
         Else
             TransactionServiceDataGrid.Rows.RemoveAt(TransactionServiceDataGrid.CurrentRow.Index)
+        End If
+    End Sub
+
+    Private Sub VehicleRegCbo_Enter(sender As Object, e As EventArgs) Handles VehicleRegCbo.Enter
+        If Not VehicleRegCbo.SelectedItem Is Nothing Then
+            
+        Else
+            CurrentVehicleSize = String.Empty
+            CurrentVehicleRegistration = String.Empty
+        End If
+    End Sub
+
+    Private Sub AddProductBtn_Click(sender As Object, e As EventArgs) Handles AddProductBtn.Click
+        ShowProductForm()
+    End Sub
+
+    Private Sub TransactionProductDataGrid_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles TransactionProductDataGrid.RowsAdded
+        RemoveProductBtn.Enabled = (TransactionProductDataGrid.Rows.Count > 0)
+    End Sub
+
+    Private Sub TransactionProductDataGrid_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles TransactionProductDataGrid.RowsRemoved
+        RemoveProductBtn.Enabled = (TransactionProductDataGrid.Rows.Count > 0)
+    End Sub
+
+    Private Sub RemoveProductBtn_Click(sender As Object, e As EventArgs) Handles RemoveProductBtn.Click
+        If TransactionProductDataGrid.SelectedCells.Count = 0 Then
+            MsgBox("Nothing to remove", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Warning")
+        Else
+            TransactionProductDataGrid.Rows.RemoveAt(TransactionProductDataGrid.CurrentRow.Index)
         End If
     End Sub
 End Class

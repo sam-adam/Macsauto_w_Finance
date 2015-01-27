@@ -49,7 +49,7 @@ Module GlobalModule
     End Function
 
     <Extension>
-    Public Sub ValidateIntegerInput(ByVal dataGridView As DataGridView, ByVal colIndex As Integer)
+    Public Sub ValidateIntegerInput(ByVal dataGridView As DataGridView, ByVal colIndex As Integer, Optional ByVal maxValue As Integer = 0)
         Dim handler =
             Sub(sender As Object, e As DataGridViewEditingControlShowingEventArgs)
                 If dataGridView.CurrentCell.ColumnIndex = colIndex Then
@@ -60,8 +60,21 @@ Module GlobalModule
                             Sub(txtSender As Object, txtEvt As KeyPressEventArgs)
                                 If Not (Char.IsControl(txtEvt.KeyChar) Or Char.IsNumber(txtEvt.KeyChar)) Then
                                     txtEvt.Handled = True
-                                ElseIf (AscW(txtEvt.KeyChar) = Keys.Back) And (servicePriceTxt.Text.Length = 1) Then
+                                ElseIf (txtEvt.KeyChar.SameAsKey(Keys.Back)) And (servicePriceTxt.Text.Length = 1) Then
                                     txtEvt.Handled = True
+                                ElseIf Not maxValue = 0 And Not Char.IsControl(txtEvt.KeyChar) Then
+                                    Dim inputtedValue As Integer
+
+                                    Integer.TryParse(txtEvt.KeyChar, inputtedValue)
+
+                                    Dim nextValue As Integer = Integer.Parse(
+                                        servicePriceTxt.Text.Substring(0, servicePriceTxt.SelectionStart) &
+                                        inputtedValue.ToString() &
+                                        servicePriceTxt.Text.Substring(servicePriceTxt.SelectionStart))
+
+                                    If nextValue > maxValue Then
+                                        txtEvt.Handled = True
+                                    End If
                                 End If
                             End Sub
                     End If

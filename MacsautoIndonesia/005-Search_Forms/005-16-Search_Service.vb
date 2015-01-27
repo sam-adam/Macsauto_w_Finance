@@ -101,6 +101,12 @@
     Private Sub ServiceDataGrid_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles ServiceDataGrid.CellDoubleClick
         SelectService()
     End Sub
+
+    Private Sub ServiceDataGrid_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ServiceDataGrid.KeyPress
+        If e.KeyChar.SameAsKey(Keys.Enter) Then
+            SelectService()
+        End If
+    End Sub
 End Class
 
 Public Class ServiceSelectedEventArgs

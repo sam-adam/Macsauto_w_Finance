@@ -327,6 +327,12 @@
     <Compile Include="005-Search_Forms\005-16-Search_Service.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="005-Search_Forms\005-17-Search_Product.Designer.vb">
+      <DependentUpon>005-17-Search_Product.vb</DependentUpon>
+    </Compile>
+    <Compile Include="005-Search_Forms\005-17-Search_Product.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="999-Others\Services\AccountingService.vb" />
     <Compile Include="999-Others\EventsModule\Events\Accounting\Period\NewPeriodDefinedEvent.vb" />
     <Compile Include="999-Others\EventsModule\Events\Accounting\Period\NewPeriodDefinedEventArgs.vb" />
@@ -824,6 +830,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="005-Search_Forms\005-16-Search_Service.resx">
       <DependentUpon>005-16-Search_Service.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="005-Search_Forms\005-17-Search_Product.resx">
+      <DependentUpon>005-17-Search_Product.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="006-Main Forms\006-02-LoginForm.resx">
       <DependentUpon>006-02-LoginForm.vb</DependentUpon>
