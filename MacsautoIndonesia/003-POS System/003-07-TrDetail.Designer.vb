@@ -22,19 +22,19 @@ Partial Class _003_07_TrDetail2
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_003_07_TrDetail2))
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -84,36 +84,15 @@ Partial Class _003_07_TrDetail2
         Me.Label5 = New System.Windows.Forms.Label()
         Me.RemoveProductBtn = New System.Windows.Forms.Button()
         Me.TransactionProductDataGrid = New System.Windows.Forms.DataGridView()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.totalProduct = New System.Windows.Forms.TextBox()
-        Me.totalService = New System.Windows.Forms.TextBox()
-        Me.GrandTotal = New System.Windows.Forms.TextBox()
+        Me.ProductIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductDescCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductQuantityCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductRemainingQtyCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductMeasurementCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductPriceCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductDiscountCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TransactionIdLbl = New System.Windows.Forms.Label()
         Me.TransactionDate = New System.Windows.Forms.DateTimePicker()
-        Me.PricePanel = New System.Windows.Forms.Panel()
-        Me.PaymentPanel = New System.Windows.Forms.Panel()
-        Me.ServStatus = New System.Windows.Forms.TextBox()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.Label30 = New System.Windows.Forms.Label()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.TrRemark = New System.Windows.Forms.TextBox()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.PayMethod = New System.Windows.Forms.ComboBox()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.RemainingAR = New System.Windows.Forms.Panel()
-        Me.Panel9 = New System.Windows.Forms.Panel()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.TotalPayment = New System.Windows.Forms.TextBox()
-        Me.DEBT = New System.Windows.Forms.TextBox()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.totalChange = New System.Windows.Forms.TextBox()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.Panel7 = New System.Windows.Forms.Panel()
@@ -123,17 +102,20 @@ Partial Class _003_07_TrDetail2
         Me.Label32 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Panel10 = New System.Windows.Forms.Panel()
-        Me.QUEUE = New System.Windows.Forms.Button()
-        Me.voidBtn = New System.Windows.Forms.Button()
+        Me.QueueBtn = New System.Windows.Forms.Button()
+        Me.VoidBtn = New System.Windows.Forms.Button()
         Me.CancelBtn = New System.Windows.Forms.Button()
         Me.SaveBtn = New System.Windows.Forms.Button()
-        Me.ProductIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProductDescCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProductQuantityCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProductRemainingQtyCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProductMeasurementCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProductPriceCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProductDiscountCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PricePanel = New System.Windows.Forms.Panel()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.GrandTotalLbl = New System.Windows.Forms.Label()
+        Me.ServiceSubtotalLbl = New System.Windows.Forms.Label()
+        Me.ProductSubtotalLbl = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.CustomerPanel.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.VehiclePanel.SuspendLayout()
@@ -144,15 +126,12 @@ Partial Class _003_07_TrDetail2
         Me.ProductPanel.SuspendLayout()
         Me.Panel11.SuspendLayout()
         CType(Me.TransactionProductDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PricePanel.SuspendLayout()
-        Me.PaymentPanel.SuspendLayout()
-        Me.Panel6.SuspendLayout()
-        Me.RemainingAR.SuspendLayout()
-        Me.Panel9.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel8.SuspendLayout()
         Me.Panel10.SuspendLayout()
+        Me.PricePanel.SuspendLayout()
+        Me.Panel6.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -528,14 +507,14 @@ Partial Class _003_07_TrDetail2
         Me.ServicePanel.Location = New System.Drawing.Point(10, 302)
         Me.ServicePanel.Margin = New System.Windows.Forms.Padding(4)
         Me.ServicePanel.Name = "ServicePanel"
-        Me.ServicePanel.Size = New System.Drawing.Size(702, 157)
+        Me.ServicePanel.Size = New System.Drawing.Size(661, 157)
         Me.ServicePanel.TabIndex = 6
         '
         'AddServiceBtn
         '
         Me.AddServiceBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.AddServiceBtn.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.AddServiceBtn.Location = New System.Drawing.Point(443, 118)
+        Me.AddServiceBtn.Location = New System.Drawing.Point(402, 118)
         Me.AddServiceBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.AddServiceBtn.Name = "AddServiceBtn"
         Me.AddServiceBtn.Size = New System.Drawing.Size(113, 30)
@@ -549,7 +528,7 @@ Partial Class _003_07_TrDetail2
         Me.RemoveServiceBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.RemoveServiceBtn.Enabled = False
         Me.RemoveServiceBtn.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.RemoveServiceBtn.Location = New System.Drawing.Point(564, 118)
+        Me.RemoveServiceBtn.Location = New System.Drawing.Point(523, 118)
         Me.RemoveServiceBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.RemoveServiceBtn.Name = "RemoveServiceBtn"
         Me.RemoveServiceBtn.Size = New System.Drawing.Size(132, 30)
@@ -569,13 +548,13 @@ Partial Class _003_07_TrDetail2
         Me.TransactionServiceDataGrid.Margin = New System.Windows.Forms.Padding(4)
         Me.TransactionServiceDataGrid.Name = "TransactionServiceDataGrid"
         Me.TransactionServiceDataGrid.RowHeadersVisible = False
-        Me.TransactionServiceDataGrid.Size = New System.Drawing.Size(700, 110)
+        Me.TransactionServiceDataGrid.Size = New System.Drawing.Size(659, 110)
         Me.TransactionServiceDataGrid.TabIndex = 0
         '
         'ServiceIdCol
         '
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.ServiceIdCol.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.ServiceIdCol.DefaultCellStyle = DataGridViewCellStyle13
         Me.ServiceIdCol.HeaderText = "Service ID"
         Me.ServiceIdCol.Name = "ServiceIdCol"
         Me.ServiceIdCol.ReadOnly = True
@@ -584,8 +563,8 @@ Partial Class _003_07_TrDetail2
         '
         'ServiceDescriptionCol
         '
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.ServiceDescriptionCol.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.ServiceDescriptionCol.DefaultCellStyle = DataGridViewCellStyle14
         Me.ServiceDescriptionCol.HeaderText = "Service Item"
         Me.ServiceDescriptionCol.Name = "ServiceDescriptionCol"
         Me.ServiceDescriptionCol.ReadOnly = True
@@ -593,11 +572,11 @@ Partial Class _003_07_TrDetail2
         '
         'ServicePriceCol
         '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle3.Format = "N0"
-        DataGridViewCellStyle3.NullValue = "0"
-        Me.ServicePriceCol.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle15.Format = "N0"
+        DataGridViewCellStyle15.NullValue = "0"
+        Me.ServicePriceCol.DefaultCellStyle = DataGridViewCellStyle15
         Me.ServicePriceCol.HeaderText = "Price"
         Me.ServicePriceCol.Name = "ServicePriceCol"
         Me.ServicePriceCol.ReadOnly = True
@@ -605,17 +584,17 @@ Partial Class _003_07_TrDetail2
         '
         'ServiceDiscountCol
         '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle4.Format = "N0"
-        Me.ServiceDiscountCol.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle16.Format = "N0"
+        Me.ServiceDiscountCol.DefaultCellStyle = DataGridViewCellStyle16
         Me.ServiceDiscountCol.HeaderText = "Discount (%)"
         Me.ServiceDiscountCol.Name = "ServiceDiscountCol"
         Me.ServiceDiscountCol.Width = 108
         '
         'ServiceRemarksCol
         '
-        DataGridViewCellStyle5.NullValue = "-"
-        Me.ServiceRemarksCol.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle17.NullValue = "-"
+        Me.ServiceRemarksCol.DefaultCellStyle = DataGridViewCellStyle17
         Me.ServiceRemarksCol.HeaderText = "Remarks"
         Me.ServiceRemarksCol.Name = "ServiceRemarksCol"
         Me.ServiceRemarksCol.ReadOnly = True
@@ -656,14 +635,14 @@ Partial Class _003_07_TrDetail2
         Me.ProductPanel.Location = New System.Drawing.Point(10, 467)
         Me.ProductPanel.Margin = New System.Windows.Forms.Padding(4)
         Me.ProductPanel.Name = "ProductPanel"
-        Me.ProductPanel.Size = New System.Drawing.Size(702, 157)
+        Me.ProductPanel.Size = New System.Drawing.Size(661, 157)
         Me.ProductPanel.TabIndex = 7
         '
         'AddProductBtn
         '
         Me.AddProductBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.AddProductBtn.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.AddProductBtn.Location = New System.Drawing.Point(443, 118)
+        Me.AddProductBtn.Location = New System.Drawing.Point(402, 118)
         Me.AddProductBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.AddProductBtn.Name = "AddProductBtn"
         Me.AddProductBtn.Size = New System.Drawing.Size(113, 30)
@@ -701,7 +680,7 @@ Partial Class _003_07_TrDetail2
         Me.RemoveProductBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.RemoveProductBtn.Enabled = False
         Me.RemoveProductBtn.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.RemoveProductBtn.Location = New System.Drawing.Point(564, 118)
+        Me.RemoveProductBtn.Location = New System.Drawing.Point(523, 118)
         Me.RemoveProductBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.RemoveProductBtn.Name = "RemoveProductBtn"
         Me.RemoveProductBtn.Size = New System.Drawing.Size(132, 30)
@@ -721,78 +700,79 @@ Partial Class _003_07_TrDetail2
         Me.TransactionProductDataGrid.Margin = New System.Windows.Forms.Padding(4)
         Me.TransactionProductDataGrid.Name = "TransactionProductDataGrid"
         Me.TransactionProductDataGrid.RowHeadersVisible = False
-        Me.TransactionProductDataGrid.Size = New System.Drawing.Size(700, 110)
+        Me.TransactionProductDataGrid.Size = New System.Drawing.Size(659, 110)
         Me.TransactionProductDataGrid.TabIndex = 0
         '
-        'Label14
+        'ProductIdCol
         '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Microsoft YaHei", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(17, 18)
-        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(142, 26)
-        Me.Label14.TabIndex = 8
-        Me.Label14.Text = "Total Product"
+        DataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.ProductIdCol.DefaultCellStyle = DataGridViewCellStyle18
+        Me.ProductIdCol.HeaderText = "Product ID"
+        Me.ProductIdCol.Name = "ProductIdCol"
+        Me.ProductIdCol.ReadOnly = True
+        Me.ProductIdCol.Visible = False
+        Me.ProductIdCol.Width = 75
         '
-        'Label15
+        'ProductDescCol
         '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Microsoft YaHei", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(17, 64)
-        Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(135, 26)
-        Me.Label15.TabIndex = 9
-        Me.Label15.Text = "Total Service"
+        DataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.ProductDescCol.DefaultCellStyle = DataGridViewCellStyle19
+        Me.ProductDescCol.HeaderText = "Product Item"
+        Me.ProductDescCol.Name = "ProductDescCol"
+        Me.ProductDescCol.ReadOnly = True
+        Me.ProductDescCol.Width = 107
         '
-        'Label16
+        'ProductQuantityCol
         '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Microsoft YaHei", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(17, 106)
-        Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(126, 26)
-        Me.Label16.TabIndex = 10
-        Me.Label16.Text = "Grand Total"
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter
+        DataGridViewCellStyle20.Format = "N0"
+        DataGridViewCellStyle20.NullValue = "0"
+        Me.ProductQuantityCol.DefaultCellStyle = DataGridViewCellStyle20
+        Me.ProductQuantityCol.HeaderText = "Quantity"
+        Me.ProductQuantityCol.Name = "ProductQuantityCol"
+        Me.ProductQuantityCol.Width = 81
         '
-        'totalProduct
+        'ProductRemainingQtyCol
         '
-        Me.totalProduct.Enabled = False
-        Me.totalProduct.Font = New System.Drawing.Font("Microsoft YaHei", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.totalProduct.Location = New System.Drawing.Point(221, 15)
-        Me.totalProduct.Margin = New System.Windows.Forms.Padding(4)
-        Me.totalProduct.Name = "totalProduct"
-        Me.totalProduct.Size = New System.Drawing.Size(340, 33)
-        Me.totalProduct.TabIndex = 11
-        Me.totalProduct.Text = "0"
-        Me.totalProduct.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle21.Format = "N0"
+        Me.ProductRemainingQtyCol.DefaultCellStyle = DataGridViewCellStyle21
+        Me.ProductRemainingQtyCol.HeaderText = "Stock"
+        Me.ProductRemainingQtyCol.Name = "ProductRemainingQtyCol"
+        Me.ProductRemainingQtyCol.ReadOnly = True
+        Me.ProductRemainingQtyCol.Width = 64
         '
-        'totalService
+        'ProductMeasurementCol
         '
-        Me.totalService.Enabled = False
-        Me.totalService.Font = New System.Drawing.Font("Microsoft YaHei", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.totalService.Location = New System.Drawing.Point(221, 60)
-        Me.totalService.Margin = New System.Windows.Forms.Padding(4)
-        Me.totalService.Name = "totalService"
-        Me.totalService.Size = New System.Drawing.Size(340, 33)
-        Me.totalService.TabIndex = 12
-        Me.totalService.Text = "0"
-        Me.totalService.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        DataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.ProductMeasurementCol.DefaultCellStyle = DataGridViewCellStyle22
+        Me.ProductMeasurementCol.HeaderText = "Measurement"
+        Me.ProductMeasurementCol.Name = "ProductMeasurementCol"
+        Me.ProductMeasurementCol.ReadOnly = True
+        Me.ProductMeasurementCol.Width = 113
         '
-        'GrandTotal
+        'ProductPriceCol
         '
-        Me.GrandTotal.BackColor = System.Drawing.Color.SeaShell
-        Me.GrandTotal.Enabled = False
-        Me.GrandTotal.Font = New System.Drawing.Font("Microsoft YaHei", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GrandTotal.Location = New System.Drawing.Point(221, 106)
-        Me.GrandTotal.Margin = New System.Windows.Forms.Padding(4)
-        Me.GrandTotal.Name = "GrandTotal"
-        Me.GrandTotal.Size = New System.Drawing.Size(340, 33)
-        Me.GrandTotal.TabIndex = 13
-        Me.GrandTotal.Text = "0"
-        Me.GrandTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle23.Format = "N0"
+        DataGridViewCellStyle23.NullValue = "0"
+        Me.ProductPriceCol.DefaultCellStyle = DataGridViewCellStyle23
+        Me.ProductPriceCol.HeaderText = "Price"
+        Me.ProductPriceCol.Name = "ProductPriceCol"
+        Me.ProductPriceCol.ReadOnly = True
+        Me.ProductPriceCol.Width = 61
+        '
+        'ProductDiscountCol
+        '
+        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle24.Format = "N0"
+        DataGridViewCellStyle24.NullValue = "0"
+        Me.ProductDiscountCol.DefaultCellStyle = DataGridViewCellStyle24
+        Me.ProductDiscountCol.HeaderText = "Discount (%)"
+        Me.ProductDiscountCol.Name = "ProductDiscountCol"
+        Me.ProductDiscountCol.Width = 106
         '
         'TransactionIdLbl
         '
@@ -807,276 +787,13 @@ Partial Class _003_07_TrDetail2
         '
         'TransactionDate
         '
+        Me.TransactionDate.Enabled = False
         Me.TransactionDate.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.TransactionDate.Location = New System.Drawing.Point(996, 12)
+        Me.TransactionDate.Location = New System.Drawing.Point(792, 12)
         Me.TransactionDate.Margin = New System.Windows.Forms.Padding(4)
         Me.TransactionDate.Name = "TransactionDate"
         Me.TransactionDate.Size = New System.Drawing.Size(242, 25)
         Me.TransactionDate.TabIndex = 15
-        '
-        'PricePanel
-        '
-        Me.PricePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PricePanel.Controls.Add(Me.totalService)
-        Me.PricePanel.Controls.Add(Me.Label14)
-        Me.PricePanel.Controls.Add(Me.Label15)
-        Me.PricePanel.Controls.Add(Me.Label16)
-        Me.PricePanel.Controls.Add(Me.totalProduct)
-        Me.PricePanel.Controls.Add(Me.GrandTotal)
-        Me.PricePanel.Location = New System.Drawing.Point(1041, 119)
-        Me.PricePanel.Margin = New System.Windows.Forms.Padding(4)
-        Me.PricePanel.Name = "PricePanel"
-        Me.PricePanel.Size = New System.Drawing.Size(587, 167)
-        Me.PricePanel.TabIndex = 17
-        '
-        'PaymentPanel
-        '
-        Me.PaymentPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PaymentPanel.Controls.Add(Me.ServStatus)
-        Me.PaymentPanel.Controls.Add(Me.Label31)
-        Me.PaymentPanel.Controls.Add(Me.Panel6)
-        Me.PaymentPanel.Controls.Add(Me.CheckBox1)
-        Me.PaymentPanel.Controls.Add(Me.TrRemark)
-        Me.PaymentPanel.Controls.Add(Me.Label25)
-        Me.PaymentPanel.Controls.Add(Me.PayMethod)
-        Me.PaymentPanel.Controls.Add(Me.Label24)
-        Me.PaymentPanel.Controls.Add(Me.Label23)
-        Me.PaymentPanel.Enabled = False
-        Me.PaymentPanel.Location = New System.Drawing.Point(821, 330)
-        Me.PaymentPanel.Margin = New System.Windows.Forms.Padding(4)
-        Me.PaymentPanel.Name = "PaymentPanel"
-        Me.PaymentPanel.Size = New System.Drawing.Size(587, 248)
-        Me.PaymentPanel.TabIndex = 18
-        '
-        'ServStatus
-        '
-        Me.ServStatus.Location = New System.Drawing.Point(221, 81)
-        Me.ServStatus.Margin = New System.Windows.Forms.Padding(4)
-        Me.ServStatus.Name = "ServStatus"
-        Me.ServStatus.Size = New System.Drawing.Size(275, 23)
-        Me.ServStatus.TabIndex = 29
-        Me.ServStatus.Visible = False
-        '
-        'Label31
-        '
-        Me.Label31.AutoSize = True
-        Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label31.Location = New System.Drawing.Point(16, 118)
-        Me.Label31.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(118, 15)
-        Me.Label31.TabIndex = 28
-        Me.Label31.Text = "Voucher Payment"
-        Me.Label31.Visible = False
-        '
-        'Panel6
-        '
-        Me.Panel6.BackColor = System.Drawing.Color.Gold
-        Me.Panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel6.Controls.Add(Me.Label30)
-        Me.Panel6.Location = New System.Drawing.Point(-1, -1)
-        Me.Panel6.Margin = New System.Windows.Forms.Padding(4)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(587, 32)
-        Me.Panel6.TabIndex = 15
-        '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.Location = New System.Drawing.Point(5, 7)
-        Me.Label30.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(234, 14)
-        Me.Label30.TabIndex = 0
-        Me.Label30.Text = "Term of Payment and Other Transaction detail"
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox1.Location = New System.Drawing.Point(221, 118)
-        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(49, 19)
-        Me.CheckBox1.TabIndex = 27
-        Me.CheckBox1.Text = "Yes"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        Me.CheckBox1.Visible = False
-        '
-        'TrRemark
-        '
-        Me.TrRemark.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TrRemark.Location = New System.Drawing.Point(221, 118)
-        Me.TrRemark.Margin = New System.Windows.Forms.Padding(4)
-        Me.TrRemark.Multiline = True
-        Me.TrRemark.Name = "TrRemark"
-        Me.TrRemark.Size = New System.Drawing.Size(332, 114)
-        Me.TrRemark.TabIndex = 26
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.Location = New System.Drawing.Point(16, 118)
-        Me.Label25.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(64, 15)
-        Me.Label25.TabIndex = 25
-        Me.Label25.Text = "Remarks"
-        '
-        'PayMethod
-        '
-        Me.PayMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.PayMethod.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PayMethod.FormattingEnabled = True
-        Me.PayMethod.Items.AddRange(New Object() {"Cash", "Debit", "Credit Card"})
-        Me.PayMethod.Location = New System.Drawing.Point(221, 46)
-        Me.PayMethod.Margin = New System.Windows.Forms.Padding(4)
-        Me.PayMethod.Name = "PayMethod"
-        Me.PayMethod.Size = New System.Drawing.Size(275, 23)
-        Me.PayMethod.TabIndex = 23
-        '
-        'Label24
-        '
-        Me.Label24.AutoSize = True
-        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(16, 46)
-        Me.Label24.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(114, 15)
-        Me.Label24.TabIndex = 22
-        Me.Label24.Text = "Payment Method"
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(16, 81)
-        Me.Label23.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(98, 15)
-        Me.Label23.TabIndex = 20
-        Me.Label23.Text = "Service Status"
-        Me.Label23.Visible = False
-        '
-        'RemainingAR
-        '
-        Me.RemainingAR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.RemainingAR.Controls.Add(Me.Panel9)
-        Me.RemainingAR.Controls.Add(Me.TotalPayment)
-        Me.RemainingAR.Controls.Add(Me.DEBT)
-        Me.RemainingAR.Controls.Add(Me.Label22)
-        Me.RemainingAR.Controls.Add(Me.Label21)
-        Me.RemainingAR.Controls.Add(Me.Label19)
-        Me.RemainingAR.Controls.Add(Me.totalChange)
-        Me.RemainingAR.Enabled = False
-        Me.RemainingAR.Location = New System.Drawing.Point(1041, 546)
-        Me.RemainingAR.Margin = New System.Windows.Forms.Padding(4)
-        Me.RemainingAR.Name = "RemainingAR"
-        Me.RemainingAR.Size = New System.Drawing.Size(587, 179)
-        Me.RemainingAR.TabIndex = 24
-        '
-        'Panel9
-        '
-        Me.Panel9.BackColor = System.Drawing.Color.Gold
-        Me.Panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel9.Controls.Add(Me.Label33)
-        Me.Panel9.Location = New System.Drawing.Point(-1, 153)
-        Me.Panel9.Margin = New System.Windows.Forms.Padding(4)
-        Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(129, 25)
-        Me.Panel9.TabIndex = 30
-        '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label33.Location = New System.Drawing.Point(5, 2)
-        Me.Label33.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(84, 14)
-        Me.Label33.TabIndex = 0
-        Me.Label33.Text = "Payment Detail"
-        '
-        'TotalPayment
-        '
-        Me.TotalPayment.Font = New System.Drawing.Font("Microsoft YaHei", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TotalPayment.Location = New System.Drawing.Point(239, 12)
-        Me.TotalPayment.Margin = New System.Windows.Forms.Padding(4)
-        Me.TotalPayment.MaxLength = 9
-        Me.TotalPayment.Name = "TotalPayment"
-        Me.TotalPayment.Size = New System.Drawing.Size(323, 33)
-        Me.TotalPayment.TabIndex = 17
-        Me.TotalPayment.Text = "0"
-        Me.TotalPayment.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'DEBT
-        '
-        Me.DEBT.Enabled = False
-        Me.DEBT.Font = New System.Drawing.Font("Microsoft YaHei", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DEBT.Location = New System.Drawing.Point(239, 103)
-        Me.DEBT.Margin = New System.Windows.Forms.Padding(4)
-        Me.DEBT.Name = "DEBT"
-        Me.DEBT.Size = New System.Drawing.Size(323, 33)
-        Me.DEBT.TabIndex = 19
-        Me.DEBT.Text = "0"
-        Me.DEBT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Font = New System.Drawing.Font("Microsoft YaHei", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(7, 103)
-        Me.Label22.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(168, 26)
-        Me.Label22.TabIndex = 16
-        Me.Label22.Text = "Remaining Debt"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Font = New System.Drawing.Font("Microsoft YaHei", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(7, 62)
-        Me.Label21.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(139, 26)
-        Me.Label21.TabIndex = 15
-        Me.Label21.Text = "Total Change"
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Microsoft YaHei", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(7, 16)
-        Me.Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(151, 26)
-        Me.Label19.TabIndex = 14
-        Me.Label19.Text = "Total Payment"
-        '
-        'totalChange
-        '
-        Me.totalChange.Enabled = False
-        Me.totalChange.Font = New System.Drawing.Font("Microsoft YaHei", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.totalChange.Location = New System.Drawing.Point(239, 58)
-        Me.totalChange.Margin = New System.Windows.Forms.Padding(4)
-        Me.totalChange.Name = "totalChange"
-        Me.totalChange.Size = New System.Drawing.Size(323, 33)
-        Me.totalChange.TabIndex = 18
-        Me.totalChange.Text = "0"
-        Me.totalChange.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(123, 820)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(100, 28)
-        Me.Button3.TabIndex = 25
-        Me.Button3.Text = "Button3"
-        Me.Button3.UseVisualStyleBackColor = True
         '
         'Panel5
         '
@@ -1109,10 +826,10 @@ Partial Class _003_07_TrDetail2
         Me.Panel7.Controls.Add(Me.Label10)
         Me.Panel7.Controls.Add(Me.Label32)
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel7.Location = New System.Drawing.Point(0, 689)
+        Me.Panel7.Location = New System.Drawing.Point(0, 649)
         Me.Panel7.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(1244, 32)
+        Me.Panel7.Size = New System.Drawing.Size(1048, 32)
         Me.Panel7.TabIndex = 28
         '
         'Label18
@@ -1154,7 +871,7 @@ Partial Class _003_07_TrDetail2
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label32.AutoSize = True
         Me.Label32.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label32.Location = New System.Drawing.Point(1029, 9)
+        Me.Label32.Location = New System.Drawing.Point(833, 9)
         Me.Label32.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(209, 14)
@@ -1171,7 +888,7 @@ Partial Class _003_07_TrDetail2
         Me.Panel8.Location = New System.Drawing.Point(0, 0)
         Me.Panel8.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(1244, 51)
+        Me.Panel8.Size = New System.Drawing.Size(1048, 51)
         Me.Panel8.TabIndex = 29
         '
         'Panel10
@@ -1181,34 +898,34 @@ Partial Class _003_07_TrDetail2
         Me.Panel10.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel10.Location = New System.Drawing.Point(0, 51)
         Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(1244, 244)
+        Me.Panel10.Size = New System.Drawing.Size(1048, 244)
         Me.Panel10.TabIndex = 33
         '
-        'QUEUE
+        'QueueBtn
         '
-        Me.QUEUE.BackgroundImage = CType(resources.GetObject("QUEUE.BackgroundImage"), System.Drawing.Image)
-        Me.QUEUE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.QUEUE.Enabled = False
-        Me.QUEUE.Location = New System.Drawing.Point(1372, 737)
-        Me.QUEUE.Margin = New System.Windows.Forms.Padding(4)
-        Me.QUEUE.Name = "QUEUE"
-        Me.QUEUE.Size = New System.Drawing.Size(80, 68)
-        Me.QUEUE.TabIndex = 32
-        Me.QUEUE.UseVisualStyleBackColor = True
+        Me.QueueBtn.BackgroundImage = CType(resources.GetObject("QueueBtn.BackgroundImage"), System.Drawing.Image)
+        Me.QueueBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.QueueBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.QueueBtn.Location = New System.Drawing.Point(905, 567)
+        Me.QueueBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.QueueBtn.Name = "QueueBtn"
+        Me.QueueBtn.Size = New System.Drawing.Size(61, 56)
+        Me.QueueBtn.TabIndex = 32
+        Me.QueueBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.QueueBtn.UseVisualStyleBackColor = True
         '
-        'voidBtn
+        'VoidBtn
         '
-        Me.voidBtn.BackgroundImage = CType(resources.GetObject("voidBtn.BackgroundImage"), System.Drawing.Image)
-        Me.voidBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.voidBtn.Enabled = False
-        Me.voidBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.voidBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.voidBtn.Location = New System.Drawing.Point(1460, 737)
-        Me.voidBtn.Margin = New System.Windows.Forms.Padding(4)
-        Me.voidBtn.Name = "voidBtn"
-        Me.voidBtn.Size = New System.Drawing.Size(80, 68)
-        Me.voidBtn.TabIndex = 31
-        Me.voidBtn.UseVisualStyleBackColor = True
+        Me.VoidBtn.BackgroundImage = CType(resources.GetObject("VoidBtn.BackgroundImage"), System.Drawing.Image)
+        Me.VoidBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.VoidBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.VoidBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.VoidBtn.Location = New System.Drawing.Point(974, 567)
+        Me.VoidBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.VoidBtn.Name = "VoidBtn"
+        Me.VoidBtn.Size = New System.Drawing.Size(61, 56)
+        Me.VoidBtn.TabIndex = 31
+        Me.VoidBtn.UseVisualStyleBackColor = True
         '
         'CancelBtn
         '
@@ -1216,10 +933,10 @@ Partial Class _003_07_TrDetail2
         Me.CancelBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CancelBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.CancelBtn.Location = New System.Drawing.Point(1549, 737)
+        Me.CancelBtn.Location = New System.Drawing.Point(837, 567)
         Me.CancelBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.CancelBtn.Name = "CancelBtn"
-        Me.CancelBtn.Size = New System.Drawing.Size(80, 68)
+        Me.CancelBtn.Size = New System.Drawing.Size(61, 56)
         Me.CancelBtn.TabIndex = 27
         Me.CancelBtn.UseVisualStyleBackColor = True
         '
@@ -1230,102 +947,152 @@ Partial Class _003_07_TrDetail2
         Me.SaveBtn.Enabled = False
         Me.SaveBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SaveBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.SaveBtn.Location = New System.Drawing.Point(1284, 737)
+        Me.SaveBtn.Location = New System.Drawing.Point(769, 567)
         Me.SaveBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.SaveBtn.Name = "SaveBtn"
-        Me.SaveBtn.Size = New System.Drawing.Size(80, 68)
+        Me.SaveBtn.Size = New System.Drawing.Size(60, 57)
         Me.SaveBtn.TabIndex = 19
         Me.SaveBtn.UseVisualStyleBackColor = True
         '
-        'ProductIdCol
+        'PricePanel
         '
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.ProductIdCol.DefaultCellStyle = DataGridViewCellStyle6
-        Me.ProductIdCol.HeaderText = "Product ID"
-        Me.ProductIdCol.Name = "ProductIdCol"
-        Me.ProductIdCol.ReadOnly = True
-        Me.ProductIdCol.Visible = False
-        Me.ProductIdCol.Width = 75
+        Me.PricePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PricePanel.Controls.Add(Me.Panel6)
+        Me.PricePanel.Controls.Add(Me.Panel2)
+        Me.PricePanel.Controls.Add(Me.GrandTotalLbl)
+        Me.PricePanel.Controls.Add(Me.ServiceSubtotalLbl)
+        Me.PricePanel.Controls.Add(Me.ProductSubtotalLbl)
+        Me.PricePanel.Controls.Add(Me.Label16)
+        Me.PricePanel.Controls.Add(Me.Label15)
+        Me.PricePanel.Controls.Add(Me.Label14)
+        Me.PricePanel.Location = New System.Drawing.Point(678, 302)
+        Me.PricePanel.Name = "PricePanel"
+        Me.PricePanel.Size = New System.Drawing.Size(354, 258)
+        Me.PricePanel.TabIndex = 34
         '
-        'ProductDescCol
+        'Panel6
         '
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.ProductDescCol.DefaultCellStyle = DataGridViewCellStyle7
-        Me.ProductDescCol.HeaderText = "Product Item"
-        Me.ProductDescCol.Name = "ProductDescCol"
-        Me.ProductDescCol.ReadOnly = True
-        Me.ProductDescCol.Width = 107
+        Me.Panel6.BackColor = System.Drawing.Color.Gold
+        Me.Panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel6.Controls.Add(Me.Label19)
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel6.Location = New System.Drawing.Point(0, 0)
+        Me.Panel6.Margin = New System.Windows.Forms.Padding(4)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(352, 30)
+        Me.Panel6.TabIndex = 24
         '
-        'ProductQuantityCol
+        'Label19
         '
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter
-        DataGridViewCellStyle8.Format = "N0"
-        DataGridViewCellStyle8.NullValue = "0"
-        Me.ProductQuantityCol.DefaultCellStyle = DataGridViewCellStyle8
-        Me.ProductQuantityCol.HeaderText = "Quantity"
-        Me.ProductQuantityCol.Name = "ProductQuantityCol"
-        Me.ProductQuantityCol.Width = 81
+        Me.Label19.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label19.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Label19.Location = New System.Drawing.Point(0, 0)
+        Me.Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(350, 28)
+        Me.Label19.TabIndex = 0
+        Me.Label19.Text = "SUMMARY"
+        Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'ProductRemainingQtyCol
+        'Panel2
         '
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle9.Format = "N0"
-        Me.ProductRemainingQtyCol.DefaultCellStyle = DataGridViewCellStyle9
-        Me.ProductRemainingQtyCol.HeaderText = "Stock"
-        Me.ProductRemainingQtyCol.Name = "ProductRemainingQtyCol"
-        Me.ProductRemainingQtyCol.ReadOnly = True
-        Me.ProductRemainingQtyCol.Width = 64
+        Me.Panel2.BackColor = System.Drawing.Color.Black
+        Me.Panel2.Location = New System.Drawing.Point(194, 109)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(150, 1)
+        Me.Panel2.TabIndex = 17
         '
-        'ProductMeasurementCol
+        'GrandTotalLbl
         '
-        DataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.ProductMeasurementCol.DefaultCellStyle = DataGridViewCellStyle10
-        Me.ProductMeasurementCol.HeaderText = "Measurement"
-        Me.ProductMeasurementCol.Name = "ProductMeasurementCol"
-        Me.ProductMeasurementCol.ReadOnly = True
-        Me.ProductMeasurementCol.Width = 113
+        Me.GrandTotalLbl.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GrandTotalLbl.Font = New System.Drawing.Font("Segoe UI Semibold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GrandTotalLbl.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.GrandTotalLbl.Location = New System.Drawing.Point(175, 118)
+        Me.GrandTotalLbl.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.GrandTotalLbl.Name = "GrandTotalLbl"
+        Me.GrandTotalLbl.Size = New System.Drawing.Size(174, 25)
+        Me.GrandTotalLbl.TabIndex = 16
+        Me.GrandTotalLbl.Text = "0"
+        Me.GrandTotalLbl.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'ProductPriceCol
+        'ServiceSubtotalLbl
         '
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle11.Format = "N0"
-        DataGridViewCellStyle11.NullValue = "0"
-        Me.ProductPriceCol.DefaultCellStyle = DataGridViewCellStyle11
-        Me.ProductPriceCol.HeaderText = "Price"
-        Me.ProductPriceCol.Name = "ProductPriceCol"
-        Me.ProductPriceCol.ReadOnly = True
-        Me.ProductPriceCol.Width = 61
+        Me.ServiceSubtotalLbl.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ServiceSubtotalLbl.Font = New System.Drawing.Font("Segoe UI", 14.0!)
+        Me.ServiceSubtotalLbl.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ServiceSubtotalLbl.Location = New System.Drawing.Point(174, 74)
+        Me.ServiceSubtotalLbl.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.ServiceSubtotalLbl.Name = "ServiceSubtotalLbl"
+        Me.ServiceSubtotalLbl.Size = New System.Drawing.Size(174, 25)
+        Me.ServiceSubtotalLbl.TabIndex = 15
+        Me.ServiceSubtotalLbl.Text = "0"
+        Me.ServiceSubtotalLbl.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'ProductDiscountCol
+        'ProductSubtotalLbl
         '
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle12.Format = "N0"
-        DataGridViewCellStyle12.NullValue = "0"
-        Me.ProductDiscountCol.DefaultCellStyle = DataGridViewCellStyle12
-        Me.ProductDiscountCol.HeaderText = "Discount (%)"
-        Me.ProductDiscountCol.Name = "ProductDiscountCol"
-        Me.ProductDiscountCol.Width = 106
+        Me.ProductSubtotalLbl.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ProductSubtotalLbl.Font = New System.Drawing.Font("Segoe UI", 14.0!)
+        Me.ProductSubtotalLbl.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ProductSubtotalLbl.Location = New System.Drawing.Point(174, 34)
+        Me.ProductSubtotalLbl.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.ProductSubtotalLbl.Name = "ProductSubtotalLbl"
+        Me.ProductSubtotalLbl.Size = New System.Drawing.Size(174, 25)
+        Me.ProductSubtotalLbl.TabIndex = 14
+        Me.ProductSubtotalLbl.Text = "0"
+        Me.ProductSubtotalLbl.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Segoe UI Semibold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label16.Location = New System.Drawing.Point(47, 118)
+        Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(110, 25)
+        Me.Label16.TabIndex = 13
+        Me.Label16.Text = "Grand Total"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Segoe UI", 14.0!)
+        Me.Label15.ForeColor = System.Drawing.SystemColors.WindowFrame
+        Me.Label15.Location = New System.Drawing.Point(10, 74)
+        Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(147, 25)
+        Me.Label15.TabIndex = 6
+        Me.Label15.Text = "Service Subtotal"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Segoe UI", 14.0!)
+        Me.Label14.ForeColor = System.Drawing.SystemColors.WindowFrame
+        Me.Label14.Location = New System.Drawing.Point(4, 34)
+        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(153, 25)
+        Me.Label14.TabIndex = 5
+        Me.Label14.Text = "Product Subtotal"
         '
         '_003_07_TrDetail2
         '
+        Me.AcceptButton = Me.SaveBtn
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Info
-        Me.ClientSize = New System.Drawing.Size(1244, 721)
+        Me.ClientSize = New System.Drawing.Size(1048, 681)
         Me.ControlBox = False
+        Me.Controls.Add(Me.PricePanel)
         Me.Controls.Add(Me.Panel10)
-        Me.Controls.Add(Me.QUEUE)
-        Me.Controls.Add(Me.voidBtn)
+        Me.Controls.Add(Me.QueueBtn)
+        Me.Controls.Add(Me.VoidBtn)
         Me.Controls.Add(Me.Panel7)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.CancelBtn)
-        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.SaveBtn)
-        Me.Controls.Add(Me.PaymentPanel)
-        Me.Controls.Add(Me.RemainingAR)
-        Me.Controls.Add(Me.PricePanel)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.ProductPanel)
         Me.Controls.Add(Me.ServicePanel)
@@ -1351,16 +1118,6 @@ Partial Class _003_07_TrDetail2
         Me.ProductPanel.ResumeLayout(False)
         Me.Panel11.ResumeLayout(False)
         CType(Me.TransactionProductDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PricePanel.ResumeLayout(False)
-        Me.PricePanel.PerformLayout()
-        Me.PaymentPanel.ResumeLayout(False)
-        Me.PaymentPanel.PerformLayout()
-        Me.Panel6.ResumeLayout(False)
-        Me.Panel6.PerformLayout()
-        Me.RemainingAR.ResumeLayout(False)
-        Me.RemainingAR.PerformLayout()
-        Me.Panel9.ResumeLayout(False)
-        Me.Panel9.PerformLayout()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         Me.Panel7.ResumeLayout(False)
@@ -1368,6 +1125,9 @@ Partial Class _003_07_TrDetail2
         Me.Panel8.ResumeLayout(False)
         Me.Panel8.PerformLayout()
         Me.Panel10.ResumeLayout(False)
+        Me.PricePanel.ResumeLayout(False)
+        Me.PricePanel.PerformLayout()
+        Me.Panel6.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1400,32 +1160,10 @@ Partial Class _003_07_TrDetail2
     Friend WithEvents RemoveServiceBtn As System.Windows.Forms.Button
     Friend WithEvents ProductPanel As System.Windows.Forms.Panel
     Friend WithEvents TransactionProductDataGrid As System.Windows.Forms.DataGridView
-    Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents Label15 As System.Windows.Forms.Label
-    Friend WithEvents Label16 As System.Windows.Forms.Label
-    Friend WithEvents totalProduct As System.Windows.Forms.TextBox
-    Friend WithEvents totalService As System.Windows.Forms.TextBox
-    Friend WithEvents GrandTotal As System.Windows.Forms.TextBox
     Friend WithEvents TransactionIdLbl As System.Windows.Forms.Label
     Friend WithEvents TransactionDate As System.Windows.Forms.DateTimePicker
-    Friend WithEvents PricePanel As System.Windows.Forms.Panel
     Friend WithEvents VehicleBrandTxt As System.Windows.Forms.TextBox
-    Friend WithEvents PaymentPanel As System.Windows.Forms.Panel
-    Friend WithEvents totalChange As System.Windows.Forms.TextBox
-    Friend WithEvents Label19 As System.Windows.Forms.Label
-    Friend WithEvents Label21 As System.Windows.Forms.Label
-    Friend WithEvents Label22 As System.Windows.Forms.Label
-    Friend WithEvents TotalPayment As System.Windows.Forms.TextBox
-    Friend WithEvents DEBT As System.Windows.Forms.TextBox
-    Friend WithEvents PayMethod As System.Windows.Forms.ComboBox
-    Friend WithEvents Label24 As System.Windows.Forms.Label
-    Friend WithEvents Label23 As System.Windows.Forms.Label
-    Friend WithEvents RemainingAR As System.Windows.Forms.Panel
-    Friend WithEvents TrRemark As System.Windows.Forms.TextBox
-    Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents IsMemberChk As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
-    Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents CancelBtn As System.Windows.Forms.Button
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Label26 As System.Windows.Forms.Label
@@ -1433,20 +1171,14 @@ Partial Class _003_07_TrDetail2
     Friend WithEvents Label27 As System.Windows.Forms.Label
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
     Friend WithEvents Label28 As System.Windows.Forms.Label
-    Friend WithEvents Panel6 As System.Windows.Forms.Panel
-    Friend WithEvents Label30 As System.Windows.Forms.Label
     Friend WithEvents Panel5 As System.Windows.Forms.Panel
     Friend WithEvents Label29 As System.Windows.Forms.Label
-    Friend WithEvents Label31 As System.Windows.Forms.Label
     Friend WithEvents Panel7 As System.Windows.Forms.Panel
     Friend WithEvents Label32 As System.Windows.Forms.Label
     Friend WithEvents Panel8 As System.Windows.Forms.Panel
-    Friend WithEvents ServStatus As System.Windows.Forms.TextBox
-    Friend WithEvents voidBtn As System.Windows.Forms.Button
-    Friend WithEvents QUEUE As System.Windows.Forms.Button
+    Friend WithEvents VoidBtn As System.Windows.Forms.Button
+    Friend WithEvents QueueBtn As System.Windows.Forms.Button
     Friend WithEvents SaveBtn As System.Windows.Forms.Button
-    Friend WithEvents Panel9 As System.Windows.Forms.Panel
-    Friend WithEvents Label33 As System.Windows.Forms.Label
     Friend WithEvents Panel10 As System.Windows.Forms.Panel
     Friend WithEvents MotorcycleRadio As System.Windows.Forms.RadioButton
     Friend WithEvents CarRadio As System.Windows.Forms.RadioButton
@@ -1471,5 +1203,15 @@ Partial Class _003_07_TrDetail2
     Friend WithEvents ProductMeasurementCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ProductPriceCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ProductDiscountCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents PricePanel As System.Windows.Forms.Panel
+    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents GrandTotalLbl As System.Windows.Forms.Label
+    Friend WithEvents ServiceSubtotalLbl As System.Windows.Forms.Label
+    Friend WithEvents ProductSubtotalLbl As System.Windows.Forms.Label
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents Panel6 As System.Windows.Forms.Panel
+    Friend WithEvents Label19 As System.Windows.Forms.Label
 
 End Class

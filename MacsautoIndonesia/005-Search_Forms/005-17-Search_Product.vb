@@ -21,7 +21,7 @@
             .Columns(ProductDescriptionCol.Index).DataPropertyName = "pdtds"
             .Columns(ProductTypeIdCol.Index).DataPropertyName = "idptp"
             .Columns(ProductTypeDescriptionCol.Index).DataPropertyName = "ptpdc"
-            .Columns(ProductStockCol.Index).DataPropertyName = "pdqty"
+            .Columns(ProductStockCol.Index).DataPropertyName = "slqty"
             .Columns(ProductUoMCol.Index).DataPropertyName = "uodsc"
             .Columns(ProductPurchasePriceCol.Index).DataPropertyName = "ppamt"
             .Columns(ProductSellPriceCol.Index).DataPropertyName = "psamt"
@@ -46,6 +46,7 @@
             "   hproduct.psamt," & _
             "   hproduct.ppamt," & _
             "   hproduct.pdqty," & _
+            "   dproduct.slqty," & _
             "   producttype.ptpdc," & _
             "   uom.uodsc" & _
             " FROM hproduct" & _

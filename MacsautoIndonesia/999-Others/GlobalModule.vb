@@ -53,24 +53,29 @@ Module GlobalModule
         Dim handler =
             Sub(sender As Object, e As DataGridViewEditingControlShowingEventArgs)
                 If dataGridView.CurrentCell.ColumnIndex = colIndex Then
-                    Dim servicePriceTxt As TextBox = CType(e.Control, TextBox)
+                    Dim txt As TextBox = CType(e.Control, TextBox)
 
-                    If Not servicePriceTxt Is Nothing Then
-                        AddHandler servicePriceTxt.KeyPress,
+                    If Not txt Is Nothing Then
+                        AddHandler txt.KeyPress,
                             Sub(txtSender As Object, txtEvt As KeyPressEventArgs)
                                 If Not (Char.IsControl(txtEvt.KeyChar) Or Char.IsNumber(txtEvt.KeyChar)) Then
                                     txtEvt.Handled = True
-                                ElseIf (txtEvt.KeyChar.SameAsKey(Keys.Back)) And (servicePriceTxt.Text.Length = 1) Then
+                                ElseIf (txtEvt.KeyChar.SameAsKey(Keys.Back)) And (txt.Text.Length = 1) Then
                                     txtEvt.Handled = True
+                                    txt.Text = 0
+                                ElseIf Char.IsNumber(txtEvt.KeyChar) AndAlso txt.Text = "0" Then
+                                    txtEvt.Handled = True
+                                    txt.Text = Integer.Parse(txtEvt.KeyChar)
+                                    txt.SelectionStart = 1
                                 ElseIf Not maxValue = 0 And Not Char.IsControl(txtEvt.KeyChar) Then
                                     Dim inputtedValue As Integer
 
                                     Integer.TryParse(txtEvt.KeyChar, inputtedValue)
 
                                     Dim nextValue As Integer = Integer.Parse(
-                                        servicePriceTxt.Text.Substring(0, servicePriceTxt.SelectionStart) &
+                                        txt.Text.Substring(0, txt.SelectionStart) &
                                         inputtedValue.ToString() &
-                                        servicePriceTxt.Text.Substring(servicePriceTxt.SelectionStart))
+                                        txt.Text.Substring(txt.SelectionStart))
 
                                     If nextValue > maxValue Then
                                         txtEvt.Handled = True

@@ -4,6 +4,42 @@ Imports MacsautoIndonesia.Printing
 Imports MySql.Data.MySqlClient
 
 Public Class _003_07_TrDetail2
+    Const CustomerQuery As String =
+        "SELECT hcustomer.idcus," & _
+        "   hcustomer.cname," & _
+        "   hcustomer.cgndr," & _
+        "   hcustomer.cudob," & _
+        "   hcustomer.cphon," & _
+        "   hcustomer.ccpon," & _
+        "   hcustomer.cmail," & _
+        "   hcustomer.cadd1," & _
+        "   hcustomer.cpoin," & _
+        "   hcustomer.cstat," & _
+        "   (hcustomer.cstat = 'Member') AS is_member" & _
+        " FROM hcustomer" & _
+        " WHERE hcustomer.idcus = '{0}'"
+    Const VehiclesQuery As String =
+        "SELECT dcustomer.idcus," & _
+        "   dcustomer.idbrn," & _
+        "   dcustomer.idvmd," & _
+        "   dcustomer.idcol," & _
+        "   dcustomer.linum," & _
+        "   dcustomer.vexpd," & _
+        "   dcustomer.vyear," & _
+        "   dcustomer.vkilo," & _
+        "   dcustomer.vtype," & _
+        "   vehiclebrand.brdsc," & _
+        "   vehiclemodel.modsc," & _
+        "   vehiclemodel.idsiz," & _
+        "   vehiclesize.sizdc," & _
+        "   vehiclecolor.coldc" & _
+        " FROM dcustomer" & _
+        " LEFT JOIN vehiclebrand ON dcustomer.idbrn = vehiclebrand.idbrn" & _
+        " LEFT JOIN vehiclemodel ON dcustomer.idvmd = vehiclemodel.idvmd" & _
+        " LEFT JOIN vehiclecolor ON dcustomer.idcol = vehiclecolor.idcol" & _
+        " LEFT JOIN vehiclesize ON vehiclemodel.idsiz = vehiclesize.idsiz" & _
+        " WHERE dcustomer.idcus = '{0}'"
+
     Private ReadOnly _selectedMode As PointOfSalesMode
     Private ReadOnly _customerDataTable As DataTable
     Private ReadOnly _vehiclesDataTable As DataTable
@@ -11,6 +47,33 @@ Public Class _003_07_TrDetail2
     Private _searchCustomerForm As _005_15_Search_Vehicle
     Private _searchServiceForm As _005_16_Search_Service
     Private _searchProductForm As _005_17_Search_Product
+
+    Property ProductSubtotal As Double
+        Set(ByVal value As Double)
+            ProductSubtotalLbl.Text = value.ToString("N0")
+        End Set
+        Get
+            Return Double.Parse(ProductSubtotalLbl.Text)
+        End Get
+    End Property
+
+    Property ServiceSubtotal As Double
+        Set(ByVal value As Double)
+            ServiceSubtotalLbl.Text = value.ToString("N0")
+        End Set
+        Get
+            Return Double.Parse(ServiceSubtotalLbl.Text)
+        End Get
+    End Property
+
+    Property GrandTotal As Double
+        Set(ByVal value As Double)
+            GrandTotalLbl.Text = value.ToString("N0")
+        End Set
+        Get
+            Return ProductSubtotal + ServiceSubtotal
+        End Get
+    End Property
 
     Property SelectedVehicleType As String
         Set(ByVal value As String)
@@ -44,12 +107,17 @@ Public Class _003_07_TrDetail2
 
         Select Case _selectedMode
             Case PointOfSalesMode.NewTransaction
-                
+
             Case PointOfSalesMode.ExistingTransaction
 
         End Select
 
         SwitchMode()
+    End Sub
+
+    Private Sub SwitchMode()
+        CustomerPanel.Enabled = (_selectedMode = PointOfSalesMode.NewTransaction)
+        VehiclePanel.Enabled = (_selectedMode = PointOfSalesMode.NewTransaction)
     End Sub
 
     Private Sub PerformBindings()
@@ -77,53 +145,27 @@ Public Class _003_07_TrDetail2
         End If
     End Sub
 
-    Private Sub _searchCustomer_CustomerVehicleSelected(ByVal sender As Object, ByVal e As CustomerVehicleSelectedEventArgs)
-        Const customerQuery As String =
-            "SELECT hcustomer.idcus," & _
-            "   hcustomer.cname," & _
-            "   hcustomer.cgndr," & _
-            "   hcustomer.cudob," & _
-            "   hcustomer.cphon," & _
-            "   hcustomer.ccpon," & _
-            "   hcustomer.cmail," & _
-            "   hcustomer.cadd1," & _
-            "   hcustomer.cpoin," & _
-            "   hcustomer.cstat," & _
-            "   (hcustomer.cstat = 'Member') AS is_member" & _
-            " FROM hcustomer" & _
-            " WHERE hcustomer.idcus = '{0}'"
-        Const vehiclesQuery As String =
-            "SELECT dcustomer.idcus," & _
-            "   dcustomer.idbrn," & _
-            "   dcustomer.idvmd," & _
-            "   dcustomer.idcol," & _
-            "   dcustomer.linum," & _
-            "   dcustomer.vexpd," & _
-            "   dcustomer.vyear," & _
-            "   dcustomer.vkilo," & _
-            "   dcustomer.vtype," & _
-            "   vehiclebrand.brdsc," & _
-            "   vehiclemodel.modsc," & _
-            "   vehiclemodel.idsiz," & _
-            "   vehiclesize.sizdc," & _
-            "   vehiclecolor.coldc" & _
-            " FROM dcustomer" & _
-            " LEFT JOIN vehiclebrand ON dcustomer.idbrn = vehiclebrand.idbrn" & _
-            " LEFT JOIN vehiclemodel ON dcustomer.idvmd = vehiclemodel.idvmd" & _
-            " LEFT JOIN vehiclecolor ON dcustomer.idcol = vehiclecolor.idcol" & _
-            " LEFT JOIN vehiclesize ON vehiclemodel.idsiz = vehiclesize.idsiz" & _
-            " WHERE dcustomer.idcus = '{0}'"
+    Private Sub _003_07_TrDetail2_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyData = Keys.F1 Then
+            ShowCustomerForm()
+        ElseIf e.KeyData = Keys.F2 Then
+            ShowServiceForm()
+        ElseIf e.KeyData = Keys.F3 Then
+            ShowProductForm()
+        End If
+    End Sub
 
+    Private Sub _searchCustomer_CustomerVehicleSelected(ByVal sender As Object, ByVal e As CustomerVehicleSelectedEventArgs)
         _customerDataTable.Rows.Clear()
-        _customerDataTable.Load(ExecQueryReader(String.Format(customerQuery, e.CustomerId)))
+        _customerDataTable.Load(ExecQueryReader(String.Format(CustomerQuery, e.CustomerId)))
 
         _vehiclesDataTable.Rows.Clear()
-        _vehiclesDataTable.Load(ExecQueryReader(String.Format(vehiclesQuery, e.CustomerId)))
-        
+        _vehiclesDataTable.Load(ExecQueryReader(String.Format(VehiclesQuery, e.CustomerId)))
+
         _selectedVehicleBinding.ResetBindings(False)
 
         PerformBindings()
-        
+
         _searchCustomerForm.Close()
     End Sub
 
@@ -151,17 +193,16 @@ Public Class _003_07_TrDetail2
             End Function)
 
         If Not alreadyExisted Is Nothing Then
-            TransactionProductDataGrid(ProductQuantityCol.Index, alreadyExisted.Index).Value += 1
+            If (TransactionProductDataGrid(ProductQuantityCol.Index, alreadyExisted.Index).Value + 1) > TransactionProductDataGrid(ProductRemainingQtyCol.Index, alreadyExisted.Index).Value Then
+                MsgBox("Remaining quantity is not enough", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Warning")
+            Else
+                TransactionProductDataGrid(ProductQuantityCol.Index, alreadyExisted.Index).Value += 1
+            End If
         Else
-            TransactionProductDataGrid.Rows.Add(selectedProductRow("idpdt"), selectedProductRow("pdtds"), 1, selectedProductRow("pdqty"), selectedProductRow("uodsc"), selectedProductRow("psamt"), 0)
+            TransactionProductDataGrid.Rows.Add(selectedProductRow("idpdt"), selectedProductRow("pdtds"), 1, selectedProductRow("slqty"), selectedProductRow("uodsc"), selectedProductRow("psamt"), 0)
         End If
 
         _searchProductForm.Close()
-    End Sub
-
-    Private Sub SwitchMode()
-        CustomerPanel.Enabled = (_selectedMode = PointOfSalesMode.NewTransaction)
-        VehiclePanel.Enabled = (_selectedMode = PointOfSalesMode.NewTransaction)
     End Sub
 
     Private Sub ShowCustomerForm()
@@ -207,18 +248,20 @@ Public Class _003_07_TrDetail2
         End If
     End Sub
 
-    Private Sub FindCustomerBtn_Click(sender As Object, e As EventArgs) Handles FindCustomerBtn.Click
-        ShowCustomerForm()
+    Private Sub Recalculate()
+        ProductSubtotal = TransactionProductDataGrid.Rows.OfType(Of DataGridViewRow).Sum(
+            Function(row As DataGridViewRow)
+                Return Double.Parse((row.Cells(ProductQuantityCol.Index).Value * row.Cells(ProductPriceCol.Index).Value) * ((100 - row.Cells(ProductDiscountCol.Index).Value) / 100))
+            End Function)
+        ServiceSubtotal = TransactionServiceDataGrid.Rows.OfType(Of DataGridViewRow).Sum(
+            Function(row As DataGridViewRow)
+                Return Double.Parse(row.Cells(ServicePriceCol.Index).Value * ((100 - row.Cells(ServiceDiscountCol.Index).Value) / 100))
+            End Function)
+        GrandTotal = ProductSubtotal + ServiceSubtotal
     End Sub
 
-    Private Sub _003_07_TrDetail2_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
-        If e.KeyData = Keys.F1 Then
-            ShowCustomerForm()
-        ElseIf e.KeyData = Keys.F2 Then
-            ShowServiceForm()
-        ElseIf e.KeyData = Keys.F3 Then
-            ShowProductForm()
-        End If
+    Private Sub FindCustomerBtn_Click(sender As Object, e As EventArgs) Handles FindCustomerBtn.Click
+        ShowCustomerForm()
     End Sub
 
     Private Sub AddServiceBtn_Click(sender As Object, e As EventArgs) Handles AddServiceBtn.Click
@@ -242,10 +285,14 @@ Public Class _003_07_TrDetail2
 
     Private Sub TransactionServiceDataGrid_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles TransactionServiceDataGrid.RowsAdded
         RemoveServiceBtn.Enabled = (TransactionServiceDataGrid.Rows.Count > 0)
+
+        Recalculate()
     End Sub
 
     Private Sub TransactionServiceDataGrid_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles TransactionServiceDataGrid.RowsRemoved
         RemoveServiceBtn.Enabled = (TransactionServiceDataGrid.Rows.Count > 0)
+
+        Recalculate()
     End Sub
 
     Private Sub RemoveServiceBtn_Click(sender As Object, e As EventArgs) Handles RemoveServiceBtn.Click
@@ -256,25 +303,8 @@ Public Class _003_07_TrDetail2
         End If
     End Sub
 
-    Private Sub VehicleRegCbo_Enter(sender As Object, e As EventArgs) Handles VehicleRegCbo.Enter
-        If Not VehicleRegCbo.SelectedItem Is Nothing Then
-            
-        Else
-            CurrentVehicleSize = String.Empty
-            CurrentVehicleRegistration = String.Empty
-        End If
-    End Sub
-
     Private Sub AddProductBtn_Click(sender As Object, e As EventArgs) Handles AddProductBtn.Click
         ShowProductForm()
-    End Sub
-
-    Private Sub TransactionProductDataGrid_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles TransactionProductDataGrid.RowsAdded
-        RemoveProductBtn.Enabled = (TransactionProductDataGrid.Rows.Count > 0)
-    End Sub
-
-    Private Sub TransactionProductDataGrid_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles TransactionProductDataGrid.RowsRemoved
-        RemoveProductBtn.Enabled = (TransactionProductDataGrid.Rows.Count > 0)
     End Sub
 
     Private Sub RemoveProductBtn_Click(sender As Object, e As EventArgs) Handles RemoveProductBtn.Click
@@ -283,6 +313,56 @@ Public Class _003_07_TrDetail2
         Else
             TransactionProductDataGrid.Rows.RemoveAt(TransactionProductDataGrid.CurrentRow.Index)
         End If
+    End Sub
+
+    Private Sub TransactionProductDataGrid_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles TransactionProductDataGrid.RowsAdded
+        RemoveProductBtn.Enabled = (TransactionProductDataGrid.Rows.Count > 0)
+
+        Recalculate()
+    End Sub
+
+    Private Sub TransactionProductDataGrid_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles TransactionProductDataGrid.RowsRemoved
+        RemoveProductBtn.Enabled = (TransactionProductDataGrid.Rows.Count > 0)
+
+        Recalculate()
+    End Sub
+
+    Private Sub TransactionProductDataGrid_CellValidating(sender As Object, e As DataGridViewCellValidatingEventArgs) Handles TransactionProductDataGrid.CellValidating
+        If e.ColumnIndex = ProductQuantityCol.Index AndAlso (e.FormattedValue > TransactionProductDataGrid(ProductRemainingQtyCol.Index, e.RowIndex).Value) Then
+            MsgBox("Remaining quantity is not enough", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Warning")
+
+            e.Cancel = True
+        End If
+    End Sub
+
+    Private Sub TransactionProductDataGrid_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles TransactionProductDataGrid.CellValueChanged
+        If e.ColumnIndex = ProductQuantityCol.Index Or e.ColumnIndex = ProductDiscountCol.Index Then
+            Recalculate()
+        End If
+    End Sub
+
+    Private Sub TransactionServiceDataGrid_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles TransactionServiceDataGrid.CellValueChanged
+        If e.ColumnIndex = ServiceDiscountCol.Index Then
+            Recalculate()
+        End If
+    End Sub
+
+    Private Sub CancelBtn_Click(sender As Object, e As EventArgs) Handles CancelBtn.Click
+        If MsgBox("Cancelling transaction. Are you sure?", MsgBoxStyle.Question Or MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
+            Close()
+        End If
+    End Sub
+
+    Private Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
+
+    End Sub
+
+    Private Sub QueueBtn_Click(sender As Object, e As EventArgs) Handles QueueBtn.Click
+
+    End Sub
+
+    Private Sub VoidBtn_Click(sender As Object, e As EventArgs) Handles VoidBtn.Click
+
     End Sub
 End Class
 
