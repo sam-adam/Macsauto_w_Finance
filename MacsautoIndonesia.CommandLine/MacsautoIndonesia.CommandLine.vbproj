@@ -99,6 +99,8 @@
   <ItemGroup>
     <Compile Include="CommandLine.vb" />
     <Compile Include="GLAccountImporter.vb" />
+    <Compile Include="Migrations\_026_PointTransTableAddAutoIncrement.vb" />
+    <Compile Include="Migrations\_025_PointTransTableFixFields.vb" />
     <Compile Include="Migrations\_024_JourDTTableAddCompositePrimaryKey.vb" />
     <Compile Include="Migrations\_023_HTransactionTableAlterAddUpdatedBy.vb" />
     <Compile Include="Migrations\_022_JourHDTableAlterDocIdAutoIncrement.vb" />
