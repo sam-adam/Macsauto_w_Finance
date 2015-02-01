@@ -22,18 +22,18 @@ Partial Class _003_07_TrDetail2
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle49 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle50 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle51 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle52 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle53 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle54 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle55 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle56 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle57 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle58 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle59 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle60 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_003_07_TrDetail2))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -102,10 +102,6 @@ Partial Class _003_07_TrDetail2
         Me.Label32 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Panel10 = New System.Windows.Forms.Panel()
-        Me.QueueBtn = New System.Windows.Forms.Button()
-        Me.VoidBtn = New System.Windows.Forms.Button()
-        Me.CancelBtn = New System.Windows.Forms.Button()
-        Me.SaveBtn = New System.Windows.Forms.Button()
         Me.PricePanel = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -116,6 +112,12 @@ Partial Class _003_07_TrDetail2
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
+        Me.SaveBtn = New System.Windows.Forms.Button()
+        Me.QueueBtn = New System.Windows.Forms.Button()
+        Me.VoidBtn = New System.Windows.Forms.Button()
+        Me.CancelBtn = New System.Windows.Forms.Button()
+        Me.VehicleMileageTxt = New System.Windows.Forms.TextBox()
+        Me.Label20 = New System.Windows.Forms.Label()
         Me.CustomerPanel.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.VehiclePanel.SuspendLayout()
@@ -305,6 +307,8 @@ Partial Class _003_07_TrDetail2
         'VehiclePanel
         '
         Me.VehiclePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.VehiclePanel.Controls.Add(Me.VehicleMileageTxt)
+        Me.VehiclePanel.Controls.Add(Me.Label20)
         Me.VehiclePanel.Controls.Add(Me.VehicleRegCbo)
         Me.VehiclePanel.Controls.Add(Me.MotorcycleRadio)
         Me.VehiclePanel.Controls.Add(Me.CarRadio)
@@ -553,8 +557,8 @@ Partial Class _003_07_TrDetail2
         '
         'ServiceIdCol
         '
-        DataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.ServiceIdCol.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle49.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.ServiceIdCol.DefaultCellStyle = DataGridViewCellStyle49
         Me.ServiceIdCol.HeaderText = "Service ID"
         Me.ServiceIdCol.Name = "ServiceIdCol"
         Me.ServiceIdCol.ReadOnly = True
@@ -563,8 +567,8 @@ Partial Class _003_07_TrDetail2
         '
         'ServiceDescriptionCol
         '
-        DataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.ServiceDescriptionCol.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle50.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.ServiceDescriptionCol.DefaultCellStyle = DataGridViewCellStyle50
         Me.ServiceDescriptionCol.HeaderText = "Service Item"
         Me.ServiceDescriptionCol.Name = "ServiceDescriptionCol"
         Me.ServiceDescriptionCol.ReadOnly = True
@@ -572,11 +576,11 @@ Partial Class _003_07_TrDetail2
         '
         'ServicePriceCol
         '
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle15.Format = "N0"
-        DataGridViewCellStyle15.NullValue = "0"
-        Me.ServicePriceCol.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle51.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle51.Format = "N0"
+        DataGridViewCellStyle51.NullValue = "0"
+        Me.ServicePriceCol.DefaultCellStyle = DataGridViewCellStyle51
         Me.ServicePriceCol.HeaderText = "Price"
         Me.ServicePriceCol.Name = "ServicePriceCol"
         Me.ServicePriceCol.ReadOnly = True
@@ -584,17 +588,17 @@ Partial Class _003_07_TrDetail2
         '
         'ServiceDiscountCol
         '
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle16.Format = "N0"
-        Me.ServiceDiscountCol.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle52.Format = "N0"
+        Me.ServiceDiscountCol.DefaultCellStyle = DataGridViewCellStyle52
         Me.ServiceDiscountCol.HeaderText = "Discount (%)"
         Me.ServiceDiscountCol.Name = "ServiceDiscountCol"
         Me.ServiceDiscountCol.Width = 108
         '
         'ServiceRemarksCol
         '
-        DataGridViewCellStyle17.NullValue = "-"
-        Me.ServiceRemarksCol.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle53.NullValue = "-"
+        Me.ServiceRemarksCol.DefaultCellStyle = DataGridViewCellStyle53
         Me.ServiceRemarksCol.HeaderText = "Remarks"
         Me.ServiceRemarksCol.Name = "ServiceRemarksCol"
         Me.ServiceRemarksCol.ReadOnly = True
@@ -705,18 +709,18 @@ Partial Class _003_07_TrDetail2
         '
         'ProductIdCol
         '
-        DataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.ProductIdCol.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle54.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.ProductIdCol.DefaultCellStyle = DataGridViewCellStyle54
         Me.ProductIdCol.HeaderText = "Product ID"
         Me.ProductIdCol.Name = "ProductIdCol"
         Me.ProductIdCol.ReadOnly = True
         Me.ProductIdCol.Visible = False
-        Me.ProductIdCol.Width = 75
+        Me.ProductIdCol.Width = 64
         '
         'ProductDescCol
         '
-        DataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.ProductDescCol.DefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle55.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.ProductDescCol.DefaultCellStyle = DataGridViewCellStyle55
         Me.ProductDescCol.HeaderText = "Product Item"
         Me.ProductDescCol.Name = "ProductDescCol"
         Me.ProductDescCol.ReadOnly = True
@@ -724,20 +728,20 @@ Partial Class _003_07_TrDetail2
         '
         'ProductQuantityCol
         '
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter
-        DataGridViewCellStyle20.Format = "N0"
-        DataGridViewCellStyle20.NullValue = "0"
-        Me.ProductQuantityCol.DefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter
+        DataGridViewCellStyle56.Format = "N0"
+        DataGridViewCellStyle56.NullValue = "0"
+        Me.ProductQuantityCol.DefaultCellStyle = DataGridViewCellStyle56
         Me.ProductQuantityCol.HeaderText = "Quantity"
         Me.ProductQuantityCol.Name = "ProductQuantityCol"
         Me.ProductQuantityCol.Width = 81
         '
         'ProductRemainingQtyCol
         '
-        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle21.Format = "N0"
-        Me.ProductRemainingQtyCol.DefaultCellStyle = DataGridViewCellStyle21
+        DataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle57.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle57.Format = "N0"
+        Me.ProductRemainingQtyCol.DefaultCellStyle = DataGridViewCellStyle57
         Me.ProductRemainingQtyCol.HeaderText = "Stock"
         Me.ProductRemainingQtyCol.Name = "ProductRemainingQtyCol"
         Me.ProductRemainingQtyCol.ReadOnly = True
@@ -745,8 +749,8 @@ Partial Class _003_07_TrDetail2
         '
         'ProductMeasurementCol
         '
-        DataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.ProductMeasurementCol.DefaultCellStyle = DataGridViewCellStyle22
+        DataGridViewCellStyle58.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.ProductMeasurementCol.DefaultCellStyle = DataGridViewCellStyle58
         Me.ProductMeasurementCol.HeaderText = "Measurement"
         Me.ProductMeasurementCol.Name = "ProductMeasurementCol"
         Me.ProductMeasurementCol.ReadOnly = True
@@ -754,11 +758,11 @@ Partial Class _003_07_TrDetail2
         '
         'ProductPriceCol
         '
-        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle23.Format = "N0"
-        DataGridViewCellStyle23.NullValue = "0"
-        Me.ProductPriceCol.DefaultCellStyle = DataGridViewCellStyle23
+        DataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle59.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle59.Format = "N0"
+        DataGridViewCellStyle59.NullValue = "0"
+        Me.ProductPriceCol.DefaultCellStyle = DataGridViewCellStyle59
         Me.ProductPriceCol.HeaderText = "Price"
         Me.ProductPriceCol.Name = "ProductPriceCol"
         Me.ProductPriceCol.ReadOnly = True
@@ -766,10 +770,10 @@ Partial Class _003_07_TrDetail2
         '
         'ProductDiscountCol
         '
-        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle24.Format = "N0"
-        DataGridViewCellStyle24.NullValue = "0"
-        Me.ProductDiscountCol.DefaultCellStyle = DataGridViewCellStyle24
+        DataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle60.Format = "N0"
+        DataGridViewCellStyle60.NullValue = "0"
+        Me.ProductDiscountCol.DefaultCellStyle = DataGridViewCellStyle60
         Me.ProductDiscountCol.HeaderText = "Discount (%)"
         Me.ProductDiscountCol.Name = "ProductDiscountCol"
         Me.ProductDiscountCol.Width = 106
@@ -901,59 +905,6 @@ Partial Class _003_07_TrDetail2
         Me.Panel10.Size = New System.Drawing.Size(1048, 244)
         Me.Panel10.TabIndex = 33
         '
-        'QueueBtn
-        '
-        Me.QueueBtn.BackgroundImage = CType(resources.GetObject("QueueBtn.BackgroundImage"), System.Drawing.Image)
-        Me.QueueBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.QueueBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.QueueBtn.Location = New System.Drawing.Point(905, 567)
-        Me.QueueBtn.Margin = New System.Windows.Forms.Padding(4)
-        Me.QueueBtn.Name = "QueueBtn"
-        Me.QueueBtn.Size = New System.Drawing.Size(61, 56)
-        Me.QueueBtn.TabIndex = 32
-        Me.QueueBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.QueueBtn.UseVisualStyleBackColor = True
-        '
-        'VoidBtn
-        '
-        Me.VoidBtn.BackgroundImage = CType(resources.GetObject("VoidBtn.BackgroundImage"), System.Drawing.Image)
-        Me.VoidBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.VoidBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.VoidBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.VoidBtn.Location = New System.Drawing.Point(974, 567)
-        Me.VoidBtn.Margin = New System.Windows.Forms.Padding(4)
-        Me.VoidBtn.Name = "VoidBtn"
-        Me.VoidBtn.Size = New System.Drawing.Size(61, 56)
-        Me.VoidBtn.TabIndex = 31
-        Me.VoidBtn.UseVisualStyleBackColor = True
-        '
-        'CancelBtn
-        '
-        Me.CancelBtn.BackgroundImage = CType(resources.GetObject("CancelBtn.BackgroundImage"), System.Drawing.Image)
-        Me.CancelBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.CancelBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CancelBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.CancelBtn.Location = New System.Drawing.Point(837, 567)
-        Me.CancelBtn.Margin = New System.Windows.Forms.Padding(4)
-        Me.CancelBtn.Name = "CancelBtn"
-        Me.CancelBtn.Size = New System.Drawing.Size(61, 56)
-        Me.CancelBtn.TabIndex = 27
-        Me.CancelBtn.UseVisualStyleBackColor = True
-        '
-        'SaveBtn
-        '
-        Me.SaveBtn.BackgroundImage = CType(resources.GetObject("SaveBtn.BackgroundImage"), System.Drawing.Image)
-        Me.SaveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.SaveBtn.Enabled = False
-        Me.SaveBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SaveBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.SaveBtn.Location = New System.Drawing.Point(769, 567)
-        Me.SaveBtn.Margin = New System.Windows.Forms.Padding(4)
-        Me.SaveBtn.Name = "SaveBtn"
-        Me.SaveBtn.Size = New System.Drawing.Size(60, 57)
-        Me.SaveBtn.TabIndex = 19
-        Me.SaveBtn.UseVisualStyleBackColor = True
-        '
         'PricePanel
         '
         Me.PricePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -1076,6 +1027,78 @@ Partial Class _003_07_TrDetail2
         Me.Label14.Size = New System.Drawing.Size(153, 25)
         Me.Label14.TabIndex = 5
         Me.Label14.Text = "Product Subtotal"
+        '
+        'SaveBtn
+        '
+        Me.SaveBtn.BackgroundImage = CType(resources.GetObject("SaveBtn.BackgroundImage"), System.Drawing.Image)
+        Me.SaveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.SaveBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SaveBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SaveBtn.Location = New System.Drawing.Point(769, 567)
+        Me.SaveBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.SaveBtn.Name = "SaveBtn"
+        Me.SaveBtn.Size = New System.Drawing.Size(60, 57)
+        Me.SaveBtn.TabIndex = 19
+        Me.SaveBtn.UseVisualStyleBackColor = True
+        '
+        'QueueBtn
+        '
+        Me.QueueBtn.BackgroundImage = CType(resources.GetObject("QueueBtn.BackgroundImage"), System.Drawing.Image)
+        Me.QueueBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.QueueBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.QueueBtn.Location = New System.Drawing.Point(905, 567)
+        Me.QueueBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.QueueBtn.Name = "QueueBtn"
+        Me.QueueBtn.Size = New System.Drawing.Size(61, 56)
+        Me.QueueBtn.TabIndex = 32
+        Me.QueueBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.QueueBtn.UseVisualStyleBackColor = True
+        '
+        'VoidBtn
+        '
+        Me.VoidBtn.BackgroundImage = CType(resources.GetObject("VoidBtn.BackgroundImage"), System.Drawing.Image)
+        Me.VoidBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.VoidBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.VoidBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.VoidBtn.Location = New System.Drawing.Point(974, 567)
+        Me.VoidBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.VoidBtn.Name = "VoidBtn"
+        Me.VoidBtn.Size = New System.Drawing.Size(61, 56)
+        Me.VoidBtn.TabIndex = 31
+        Me.VoidBtn.UseVisualStyleBackColor = True
+        '
+        'CancelBtn
+        '
+        Me.CancelBtn.BackgroundImage = CType(resources.GetObject("CancelBtn.BackgroundImage"), System.Drawing.Image)
+        Me.CancelBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.CancelBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CancelBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.CancelBtn.Location = New System.Drawing.Point(837, 567)
+        Me.CancelBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.CancelBtn.Name = "CancelBtn"
+        Me.CancelBtn.Size = New System.Drawing.Size(61, 56)
+        Me.CancelBtn.TabIndex = 27
+        Me.CancelBtn.UseVisualStyleBackColor = True
+        '
+        'VehicleMileageTxt
+        '
+        Me.VehicleMileageTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.VehicleMileageTxt.Location = New System.Drawing.Point(315, 153)
+        Me.VehicleMileageTxt.Margin = New System.Windows.Forms.Padding(4)
+        Me.VehicleMileageTxt.Name = "VehicleMileageTxt"
+        Me.VehicleMileageTxt.Size = New System.Drawing.Size(170, 25)
+        Me.VehicleMileageTxt.TabIndex = 29
+        Me.VehicleMileageTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(283, 155)
+        Me.Label20.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(28, 17)
+        Me.Label20.TabIndex = 28
+        Me.Label20.Text = "KM"
         '
         '_003_07_TrDetail2
         '
@@ -1213,5 +1236,7 @@ Partial Class _003_07_TrDetail2
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Panel6 As System.Windows.Forms.Panel
     Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents VehicleMileageTxt As System.Windows.Forms.TextBox
+    Friend WithEvents Label20 As System.Windows.Forms.Label
 
 End Class

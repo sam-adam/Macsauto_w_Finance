@@ -1,7 +1,8 @@
-﻿Imports MacsautoIndonesia.SmartCard.Reader
+﻿Imports MySql.Data.MySqlClient
+Imports MacsautoIndonesia.SmartCard.Reader
 Imports MacsautoIndonesia.Printing.Page
 Imports MacsautoIndonesia.Printing
-Imports MySql.Data.MySqlClient
+Imports MacsautoIndonesia.Services
 
 Public Class _003_07_TrDetail2
     Const CustomerQuery As String =
@@ -39,6 +40,25 @@ Public Class _003_07_TrDetail2
         " LEFT JOIN vehiclecolor ON dcustomer.idcol = vehiclecolor.idcol" & _
         " LEFT JOIN vehiclesize ON vehiclemodel.idsiz = vehiclesize.idsiz" & _
         " WHERE dcustomer.idcus = '{0}'"
+    Const NewTransactionQuery As String =
+        "INSERT INTO htransaction" & _
+        "   (trsid, trdat, idcus," & _
+        "    vtype, vbrnd, vmodl," & _
+        "    vcolr, vsize, vkmre," & _
+        "    linum, liexp, svamt," & _
+        "    pdamt, toamt, topay," & _
+        "    pterm, trstat, svsts," & _
+        "    tpoin, chnce, createdBy," & _
+        "    remrk, cpoin)" & _
+        " VALUES" & _
+        "   (@transactionId, NOW(), @customerId," & _
+        "    @vehicleType, @vehicleBrand, @vehicleModel," & _
+        "    @vehicleColor, @vehicleSize, @vehicleMileage," & _
+        "    @vehicleReg, @licenseExpired, @serviceSubtotal," & _
+        "    @productSubtotal, @grandTotal, @paymentTotal," & _
+        "    @paymentTerm, @transactionStatus, @serviceStatus," & _
+        "    @pointsEarned, @paymentChange, @employee," & _
+        "    @transactionRemark, @currentPoint)"
 
     Private ReadOnly _selectedMode As PointOfSalesMode
     Private ReadOnly _customerDataTable As DataTable
@@ -47,6 +67,7 @@ Public Class _003_07_TrDetail2
     Private _searchCustomerForm As _005_15_Search_Vehicle
     Private _searchServiceForm As _005_16_Search_Service
     Private _searchProductForm As _005_17_Search_Product
+    Private _paymentForm As _003_08_Payment
 
     Property ProductSubtotal As Double
         Set(ByVal value As Double)
@@ -140,6 +161,7 @@ Public Class _003_07_TrDetail2
             VehicleColorTxt.DataBindings.Add("Text", _selectedVehicleBinding, "coldc")
             VehicleSizeTxt.DataBindings.Add("Text", _selectedVehicleBinding, "sizdc")
             VehicleExpiryDate.DataBindings.Add("Text", _selectedVehicleBinding, "vexpd")
+            VehicleMileageTxt.DataBindings.Add("Text", _selectedVehicleBinding, "vkilo")
             DataBindings.Add("SelectedVehicleType", _selectedVehicleBinding, "vtype")
             DataBindings.Add("SelectedVehicleSize", _selectedVehicleBinding, "idsiz")
         End If
@@ -156,6 +178,13 @@ Public Class _003_07_TrDetail2
     End Sub
 
     Private Sub _searchCustomer_CustomerVehicleSelected(ByVal sender As Object, ByVal e As CustomerVehicleSelectedEventArgs)
+        DoInTransaction(
+            Function(command As MySqlCommand)
+                TransactionService.CheckPointExpiry(command, e.CustomerId)
+
+                Return True
+            End Function)
+
         _customerDataTable.Rows.Clear()
         _customerDataTable.Load(ExecQueryReader(String.Format(CustomerQuery, e.CustomerId)))
 
@@ -268,6 +297,10 @@ Public Class _003_07_TrDetail2
         ShowServiceForm()
     End Sub
 
+    Private Sub VehicleMileageTxt_TextChanged(sender As Object, e As EventArgs) Handles VehicleMileageTxt.TextChanged
+        VehicleMileageTxt.Text = String.Format("{0:n0}", VehicleMileageTxt.Text)
+    End Sub
+
     Private Sub VehicleRegCbo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles VehicleRegCbo.SelectedIndexChanged
         If VehicleRegCbo.SelectedIndex > -1 Then
             If VehicleSizeTxt.Text <> CurrentVehicleSize AndAlso TransactionServiceDataGrid.Rows.Count > 0 Then
@@ -354,7 +387,20 @@ Public Class _003_07_TrDetail2
     End Sub
 
     Private Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
+        If _selectedVehicleBinding.Count = 0 Then
+            ErrorInput(FindCustomerBtn, "Customer and vehicle is required")
+        ElseIf (TransactionProductDataGrid.Rows.Count + TransactionServiceDataGrid.Rows.Count) = 0 Then
+            ErrorInput(AddServiceBtn, "No service or product selected")
+        ElseIf MsgBox("Make payment?", MsgBoxStyle.Question Or MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
+            If _paymentForm Is Nothing Then
+                _paymentForm = New _003_08_Payment(GrandTotal)
+                AddHandler _paymentForm.PaymentSubmitted, AddressOf _paymentForm_PaymentSubmitted
+            Else
+                _paymentForm.GrandTotal = GrandTotal
+            End If
 
+            _paymentForm.ShowDialog(Me)
+        End If
     End Sub
 
     Private Sub QueueBtn_Click(sender As Object, e As EventArgs) Handles QueueBtn.Click
@@ -363,6 +409,117 @@ Public Class _003_07_TrDetail2
 
     Private Sub VoidBtn_Click(sender As Object, e As EventArgs) Handles VoidBtn.Click
 
+    End Sub
+
+    Private Sub _paymentForm_PaymentSubmitted(ByVal sender As Object, ByVal e As PaymentSubmittedEventArgs)
+        DoInTransaction(
+            Function(command As MySqlCommand)
+                Dim newTransactionId As String = NewTransactionInsert(command, e.PaymentForm)
+                Dim newPaymentId As String = TransactionService.GetNewPaymentId(command)
+
+                command.CommandText = "INSERT INTO payment(payid, trsid, pyamt, pydat) VALUES(@paymentId, @transactionId, @paymentAmount, NOW())"
+                command.Parameters.Clear()
+
+                command.Parameters.AddWithValue("paymentId", newPaymentId)
+                command.Parameters.AddWithValue("transactionId", newTransactionId)
+                command.Parameters.AddWithValue("paymentAmount", If(e.PaymentForm.SelectedPaymentType = "Cash", e.PaymentForm.CashPayment, GrandTotal))
+
+                command.ExecuteNonQuery()
+                Return True
+            End Function)
+
+        MsgBox("Transaction saved", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Success")
+
+        _paymentForm.Close()
+
+        Dispose()
+    End Sub
+
+    Private Function NewTransactionInsert(ByVal command As MySqlCommand, ByVal paymentForm As _003_08_Payment) As String
+        Dim customer As DataRow = _customerDataTable.Select("idcus = '" & CustomerIdTxt.Text & "'").FirstOrDefault()
+        Dim newTransactionId As String = TransactionService.GetNewTransactionId(command)
+        Dim pointsEarned As Integer = TransactionService.CalculatePointsEarned(GrandTotal, command)
+
+        command.CommandText = NewTransactionQuery
+        command.CreateParameter()
+
+        command.Parameters.Clear()
+        command.Parameters.AddWithValue("transactionId", newTransactionId)
+        command.Parameters.AddWithValue("customerId", CustomerIdTxt.Text)
+        command.Parameters.AddWithValue("vehicleType", SelectedVehicleType)
+        command.Parameters.AddWithValue("vehicleBrand", VehicleBrandTxt.Text)
+        command.Parameters.AddWithValue("vehicleModel", VehicleModelTxt.Text)
+        command.Parameters.AddWithValue("vehicleColor", VehicleColorTxt.Text)
+        command.Parameters.AddWithValue("vehicleSize", VehicleSizeTxt.Text)
+        command.Parameters.AddWithValue("vehicleMileage", VehicleMileageTxt.Text)
+        command.Parameters.AddWithValue("vehicleReg", VehicleRegCbo.SelectedItem.ToString())
+        command.Parameters.AddWithValue("licenseExpired", VehicleExpiryDate.Value.ToMySQLDateTime())
+        command.Parameters.AddWithValue("serviceSubtotal", ServiceSubtotal)
+        command.Parameters.AddWithValue("productSubtotal", ProductSubtotal)
+        command.Parameters.AddWithValue("grandTotal", GrandTotal)
+        command.Parameters.AddWithValue("paymentTotal", 0)
+        command.Parameters.AddWithValue("paymentTerm", paymentForm.SelectedPaymentType)
+        command.Parameters.AddWithValue("transactionStatus", "PAID")
+        command.Parameters.AddWithValue("serviceStatus", "")
+        command.Parameters.AddWithValue("pointsEarned", If(IsMemberChk.Checked, pointsEarned, 0))
+        command.Parameters.AddWithValue("paymentChange", If(paymentForm.SelectedPaymentType = "Cash", paymentForm.CashChange, 0))
+        command.Parameters.AddWithValue("employee", LoggedInEmployee.Id)
+        command.Parameters.AddWithValue("transactionRemark", "")
+        command.Parameters.AddWithValue("currentPoint", customer("cpoin"))
+
+        command.ExecuteNonQuery()
+
+        For Each serviceItem As DataGridViewRow In TransactionServiceDataGrid.Rows
+            command.CommandText =
+                "INSERT INTO dtransaction(trsid, ttype, seqnr, idsvc, trqty, uomdc, price, idisc, rmark, vpaym)" & _
+                " VALUES(@transactionId, 'S', @rowIndex, @serviceId, 1, 'UNIT', @servicePrice, @serviceDiscount, @serviceRemark, 'False')"
+            command.Parameters.Clear()
+
+            command.Parameters.AddWithValue("transactionId", newTransactionId)
+            command.Parameters.AddWithValue("rowIndex", (serviceItem.Index + 1))
+            command.Parameters.AddWithValue("serviceId", serviceItem.Cells(ServiceIdCol.Index).Value)
+            command.Parameters.AddWithValue("servicePrice", serviceItem.Cells(ServicePriceCol.Index).Value)
+            command.Parameters.AddWithValue("serviceDiscount", serviceItem.Cells(ServiceDiscountCol.Index).Value)
+            command.Parameters.AddWithValue("serviceRemark", serviceItem.Cells(ServiceRemarksCol.Index).Value)
+
+            command.ExecuteNonQuery()
+        Next
+
+        For Each productItem As DataGridViewRow In TransactionProductDataGrid.Rows
+            command.CommandText =
+                "INSERT INTO dtransaction(trsid, ttype, seqnr, idpdt, trqty, uomdc, price, idisc)" & _
+                " VALUES(@transactionId, 'P', @rowIndex, @productId, @productQty, @productUoM, @productPrice, @productDiscount)"
+            command.Parameters.Clear()
+
+            command.Parameters.AddWithValue("transactionId", newTransactionId)
+            command.Parameters.AddWithValue("rowIndex", (productItem.Index + 1))
+            command.Parameters.AddWithValue("productId", productItem.Cells(ProductIdCol.Index).Value)
+            command.Parameters.AddWithValue("productQty", productItem.Cells(ProductQuantityCol.Index).Value)
+            command.Parameters.AddWithValue("productUoM", productItem.Cells(ProductMeasurementCol.Index).Value)
+            command.Parameters.AddWithValue("productPrice", productItem.Cells(ProductPriceCol.Index).Value)
+            command.Parameters.AddWithValue("productDiscount", productItem.Cells(ProductDiscountCol.Index).Value)
+
+            command.ExecuteNonQuery()
+        Next
+
+        Return newTransactionId
+    End Function
+
+    Private Sub UpdateMemberPoint(ByVal command As MySqlCommand, ByVal customerId As String, ByVal currentPoint As Integer, ByVal earnedPoint As Integer)
+        If IsMemberChk.Checked Then
+            command.CommandText = "UPDATE hcustomer SET cpoin = @newPoint WHERE idcus = @customerId"
+            command.Parameters.Clear()
+
+            command.Parameters.AddWithValue("newPoint", (currentPoint + earnedPoint))
+            command.Parameters.AddWithValue("customerId", customerId)
+
+            command.ExecuteNonQuery()
+
+            command.CommandText = "INSERT INTO pointtrans(idcus, ptdat, trpon, trtype) VALUES(@customerId, NOW(), @earnedPoint, 'ADD')"
+            command.Parameters.AddWithValue("earnedPoint", earnedPoint)
+
+            command.ExecuteNonQuery()
+        End If
     End Sub
 End Class
 

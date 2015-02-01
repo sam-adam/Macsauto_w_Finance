@@ -18,4 +18,3 @@ Namespace Migrations
         End Sub
     End Class
 End Namespace
-

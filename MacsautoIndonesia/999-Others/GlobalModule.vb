@@ -55,38 +55,47 @@ Module GlobalModule
                 If dataGridView.CurrentCell.ColumnIndex = colIndex Then
                     Dim txt As TextBox = CType(e.Control, TextBox)
 
-                    If Not txt Is Nothing Then
-                        AddHandler txt.KeyPress,
-                            Sub(txtSender As Object, txtEvt As KeyPressEventArgs)
-                                If Not (Char.IsControl(txtEvt.KeyChar) Or Char.IsNumber(txtEvt.KeyChar)) Then
-                                    txtEvt.Handled = True
-                                ElseIf (txtEvt.KeyChar.SameAsKey(Keys.Back)) And (txt.Text.Length = 1) Then
-                                    txtEvt.Handled = True
-                                    txt.Text = 0
-                                ElseIf Char.IsNumber(txtEvt.KeyChar) AndAlso txt.Text = "0" Then
-                                    txtEvt.Handled = True
-                                    txt.Text = Integer.Parse(txtEvt.KeyChar)
-                                    txt.SelectionStart = 1
-                                ElseIf Not maxValue = 0 And Not Char.IsControl(txtEvt.KeyChar) Then
-                                    Dim inputtedValue As Integer
-
-                                    Integer.TryParse(txtEvt.KeyChar, inputtedValue)
-
-                                    Dim nextValue As Integer = Integer.Parse(
-                                        txt.Text.Substring(0, txt.SelectionStart) &
-                                        inputtedValue.ToString() &
-                                        txt.Text.Substring(txt.SelectionStart))
-
-                                    If nextValue > maxValue Then
-                                        txtEvt.Handled = True
-                                    End If
-                                End If
-                            End Sub
-                    End If
+                    IntegerInputHandler(txt, maxValue)
                 End If
             End Sub
 
         AddHandler dataGridView.EditingControlShowing, handler
+    End Sub
+
+    <Extension>
+    Public Sub ValidateIntegerInput(ByVal txt As TextBox, Optional ByVal maxValue As Integer = 0)
+        IntegerInputHandler(txt, maxValue)
+    End Sub
+
+    Private Sub IntegerInputHandler(ByVal txt As TextBox, Optional ByVal maxValue As Integer = 0)
+        If Not txt Is Nothing Then
+            AddHandler txt.KeyPress,
+                Sub(txtSender As Object, txtEvt As KeyPressEventArgs)
+                    If Not (Char.IsControl(txtEvt.KeyChar) Or Char.IsNumber(txtEvt.KeyChar)) Then
+                        txtEvt.Handled = True
+                    ElseIf (txtEvt.KeyChar.SameAsKey(Keys.Back)) And (txt.Text.Length = 1) Then
+                        txtEvt.Handled = True
+                        txt.Text = 0
+                    ElseIf Char.IsNumber(txtEvt.KeyChar) AndAlso txt.Text = "0" Then
+                        txtEvt.Handled = True
+                        txt.Text = Integer.Parse(txtEvt.KeyChar)
+                        txt.SelectionStart = 1
+                    ElseIf Not maxValue = 0 And Not Char.IsControl(txtEvt.KeyChar) Then
+                        Dim inputtedValue As Integer
+
+                        Integer.TryParse(txtEvt.KeyChar, inputtedValue)
+
+                        Dim nextValue As Integer = Integer.Parse(
+                            txt.Text.Substring(0, txt.SelectionStart) &
+                            inputtedValue.ToString() &
+                            txt.Text.Substring(txt.SelectionStart))
+
+                        If nextValue > maxValue Then
+                            txtEvt.Handled = True
+                        End If
+                    End If
+                End Sub
+        End If
     End Sub
 
     Public Sub BackupDatabase(ByVal mysqlDumper As String, ByVal database As String, ByVal outputPath As String, ByVal user As String, ByVal password As String)
