@@ -11,12 +11,13 @@ Namespace Printing
         Private _page As RollPage
         Private _showPrintPreview As Boolean = False
 
-        Public Sub New(ByVal printerName As String)
+        Property PrinterName() As String
+
+        Public Sub New(ByVal currentPrinterName As String)
             _printDocument = New PrintDocument()
             _printPreview = New PrintPreviewDialog()
 
-            _printDocument.PrinterSettings.PrinterName = printerName
-            _printPreview.Document = _printDocument
+            PrinterName = currentPrinterName
 
             AddHandler _printDocument.PrintPage, AddressOf _printDocument_PrintPage
         End Sub
@@ -34,6 +35,9 @@ Namespace Printing
 
         Public Sub Print(ByVal page As RollPage)
             _page = page
+
+            _printDocument.PrinterSettings.PrinterName = PrinterName
+            _printPreview.Document = _printDocument
 
             InitializePrintDocument()
 

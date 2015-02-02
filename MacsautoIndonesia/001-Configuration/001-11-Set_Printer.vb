@@ -1,6 +1,8 @@
 ﻿Imports System.Printing
 
 Public Class _001_11_Set_Printer
+    Public Event PrinterDefined As EventHandler
+
     Public Sub New()
         Dim printServer = New PrintServer
 
@@ -21,7 +23,11 @@ Public Class _001_11_Set_Printer
         My.Settings.DefaultPrinter = ListBoxPrinter.SelectedItem.ToString()
         My.Settings.ShowPrintPreview = ChkPrintPreview.Checked
 
+        My.Settings.Save()
+
         MessageBox.Show(Me, "Printer settings saved", "Success")
+
+        RaiseEvent PrinterDefined(Me, New EventArgs())
 
         Close()
     End Sub

@@ -3,6 +3,9 @@ Imports System.IO
 Imports System.Text
 Imports System.Globalization
 Imports System.ComponentModel
+Imports MacsautoIndonesia.Printing.Page
+Imports MacsautoIndonesia.Printing
+Imports System.Drawing.Printing
 
 Module GlobalModule
 #If DEBUG Then
@@ -222,5 +225,28 @@ Module GlobalModule
             End Sub
 
         Return moneyBinding
+    End Function
+
+    Public Function PrintPage(ByVal caller As Form, ByVal rollPage As RollPage)
+        Dim printer As Printer = New Printer(My.Settings.DefaultPrinter)
+
+        Try
+            printer.Print(rollPage)
+        Catch ex As InvalidPrinterException
+            If MsgBox("Printer '" & printer.PrinterName & "'is not available. Choose another printer?", MsgBoxStyle.Critical Or MsgBoxStyle.YesNo, "Printer Error") = MsgBoxResult.Yes Then
+                Dim definePrinterForm As _001_11_Set_Printer = New _001_11_Set_Printer()
+
+                AddHandler definePrinterForm.PrinterDefined,
+                    Sub()
+                        PrintPage(caller, rollPage)
+                    End Sub
+
+                definePrinterForm.ShowDialog(caller)
+            Else
+                MsgBox("Transaction is not printer", MsgBoxStyle.Critical Or MsgBoxStyle.OkOnly, "Warning")
+            End If
+        Catch ex As Exception
+            Throw
+        End Try
     End Function
 End Module

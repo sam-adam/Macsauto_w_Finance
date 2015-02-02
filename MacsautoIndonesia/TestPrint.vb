@@ -26,7 +26,7 @@ Public Class TestPrint
 
         page.Logo = My.Resources.Logo_MACSAUTO_only__background_putih__1_
 
-        page.SetTransactionInformation("001/03- 2014/0029/030", "B321DS", "TOYOTA", "AVANZA 1.3", "24/03/2014", "21:37", "Samuel Adam Suhendra")
+        page.SetTransactionInformation("001/03- 2014/0029/030", "B1874BZP", "TOYOTA", "XENIA 1.0 / 1.3 DELUXE", "24/03/2014", "21:37", "Samuel Adam Suhendra")
         page.AppendTitle("HOS COKROAMINOTO (KOMP. SPBU PERTAMINA)")
         page.AppendTitle("SAMPING UBUD VILLAGE, CILEDUG RAYA")
         page.AppendTitle("WWW.MACSAUTO-INDONESIA.COM")

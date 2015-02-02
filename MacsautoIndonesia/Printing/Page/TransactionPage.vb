@@ -206,7 +206,7 @@ Namespace Printing.Page
             Dim vehicleBrandAndModelText As String = "MODEL : " & vehicleModel & ", " & vehicleBrand
 
             If vehicleBrandAndModelText.Length > 35 Then
-                vehicleBrandAndModelText = vehicleBrandAndModelText.Substring(0, 35)
+                vehicleBrandAndModelText = vehicleBrandAndModelText.Substring(0, 30)
             End If
 
             Dim vehicleDataContainer As Line = New Line("VEHICLE DATA CONTAINER", _defaultFont)

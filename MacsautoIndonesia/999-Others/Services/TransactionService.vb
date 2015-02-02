@@ -51,7 +51,7 @@ Namespace Services
                 command.CommandText = "SELECT DATEDIFF(NOW(), htransaction.trdat) AS last_transaction FROM htransaction WHERE htransaction.idcus = @customerId ORDER BY htransaction.trdat DESC LIMIT 1"
                 Dim lastTransaction As Integer = command.ExecuteScalar()
 
-                command.CommandText = "SELECT DATEDIFF(NOW(), hredemption.rdmpdat) AS last_redemption FROM hredemption WHERE hredemption.idcus = @customerId ORDER BY hredemption.trdat DESC LIMIT 1"
+                command.CommandText = "SELECT DATEDIFF(NOW(), hredemption.rdmpdat) AS last_redemption FROM hredemption WHERE hredemption.idcus = @customerId ORDER BY hredemption.rdmpdat DESC LIMIT 1"
                 Dim lastRedemption As Integer = command.ExecuteScalar()
 
                 If lastTransaction > 365 Or lastRedemption > 365 Then
