@@ -126,9 +126,9 @@ Partial Class _003_08_Payment
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.Panel3)
+        Me.Panel1.Controls.Add(Me.CashPnl)
         Me.Panel1.Controls.Add(Me.DebitPnl)
         Me.Panel1.Controls.Add(Me.CreditPnl)
-        Me.Panel1.Controls.Add(Me.CashPnl)
         Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 51)

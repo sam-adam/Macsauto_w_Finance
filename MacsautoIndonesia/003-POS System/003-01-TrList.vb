@@ -20,7 +20,7 @@
     End Function
     Public Sub loadTransactionList()
         TrlistGrid.Rows.Clear()
-        reader = ExecQueryReader("SELECT * FROM HTRANSACTION WHERE trstat LIKE 'Open' order by trdat,trsid desc")
+        reader = ExecQueryReader("SELECT * FROM HTRANSACTION WHERE trstat = 'Open' OR trstat = 'OPEN' order by trdat,trsid desc")
         While reader.read
             TrlistGrid.Rows.Add(reader(0).ToString, reader(1).ToString, reader(2).ToString, reader(3).ToString, reader(4).ToString, reader(5).ToString, reader(6).ToString, reader(7).ToString, reader(8).ToString, reader(9).ToString, reader(10).ToString, reader(11).ToString, reader(12).ToString, reader(13).ToString, reader(14).ToString, reader(15).ToString, reader(16).ToString, reader(17).ToString, reader(18).ToString)
         End While
@@ -225,6 +225,12 @@
  
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         Dim trDetail As _003_07_TrDetail2 = New _003_07_TrDetail2(PointOfSalesMode.NewTransaction)
+
+        trDetail.ShowDialog()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim trDetail As _003_07_TrDetail2 = New _003_07_TrDetail2(PointOfSalesMode.ExistingTransaction, TrlistGrid.CurrentRow.Cells(0).Value)
 
         trDetail.ShowDialog()
     End Sub

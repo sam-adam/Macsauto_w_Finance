@@ -59,8 +59,60 @@ Public Class _003_07_TrDetail2
         "    @paymentTerm, @transactionStatus, @serviceStatus," & _
         "    @pointsEarned, @paymentChange, @employee," & _
         "    @transactionRemark, @currentPoint)"
+    Const TransactionHeaderQuery As String =
+        "SELECT htransaction.trsid," & _
+        "   htransaction.trdat," & _
+        "   htransaction.idcus," & _
+        "   htransaction.vtype," & _
+        "   htransaction.vbrnd," & _
+        "   htransaction.vmodl," & _
+        "   htransaction.vcolr," & _
+        "   htransaction.vsize," & _
+        "   htransaction.vkmre," & _
+        "   htransaction.linum," & _
+        "   htransaction.liexp," & _
+        "   htransaction.svamt," & _
+        "   htransaction.pdamt," & _
+        "   htransaction.toamt," & _
+        "   htransaction.topay," & _
+        "   htransaction.pterm," & _
+        "   htransaction.trstat," & _
+        "   htransaction.svsts," & _
+        "   htransaction.tpoin," & _
+        "   htransaction.chnce," & _
+        "   htransaction.createdBy," & _
+        "   htransaction.remrk," & _
+        "   htransaction.cpoin," & _
+        "   htransaction.updatedBy" & _
+        " FROM htransaction" & _
+        " WHERE htransaction.trsid = '{0}'"
+    Const TransactionDetailQuery As String =
+        "SELECT dtransaction.trsid," & _
+        "   dtransaction.ttype," & _
+        "   dtransaction.seqnr," & _
+        "   dtransaction.idsvc," & _
+        "   dtransaction.idpdt," & _
+        "   dtransaction.trqty," & _
+        "   dtransaction.uomdc," & _
+        "   dtransaction.price," & _
+        "   dtransaction.idisc," & _
+        "   dtransaction.rmark," & _
+        "   dtransaction.vpaym," & _
+        "   dtransaction.vnumb," & _
+        "   hproduct.idpdt," & _
+        "   hproduct.pdqty," & _
+        "   hproduct.pdtds," & _
+        "   hservice.idsvc," & _
+        "   hservice.svcdc" & _
+        " FROM dtransaction" & _
+        " LEFT JOIN hproduct ON dtransaction.idpdt = hproduct.idpdt" & _
+        " LEFT JOIN hservice ON dtransaction.idsvc = hservice.idsvc" & _
+        " WHERE dtransaction.trsid = '{0}'"
 
     Private ReadOnly _selectedMode As PointOfSalesMode
+    Private ReadOnly _transactionHeaderDataTable As DataTable
+    Private ReadOnly _transactionDetailDataTable As DataTable
+    Private ReadOnly _selectedTransactionDataRow As DataRow
     Private ReadOnly _customerDataTable As DataTable
     Private ReadOnly _vehiclesDataTable As DataTable
     Private ReadOnly _selectedVehicleBinding As BindingSource
@@ -68,6 +120,7 @@ Public Class _003_07_TrDetail2
     Private _searchServiceForm As _005_16_Search_Service
     Private _searchProductForm As _005_17_Search_Product
     Private _paymentForm As _003_08_Payment
+    Private _transactionCompleted As Boolean = False
 
     Property ProductSubtotal As Double
         Set(ByVal value As Double)
@@ -130,15 +183,66 @@ Public Class _003_07_TrDetail2
             Case PointOfSalesMode.NewTransaction
 
             Case PointOfSalesMode.ExistingTransaction
+                _transactionHeaderDataTable = New DataTable()
+                _transactionDetailDataTable = New DataTable()
 
+                If String.IsNullOrEmpty(transactionId) Then
+                    Throw New ArgumentException("Transaction id is required in editing queue mode", transactionId)
+                End If
+
+                _transactionHeaderDataTable.Load(ExecQueryReader(String.Format(TransactionHeaderQuery, transactionId)))
+                _transactionDetailDataTable.Load(ExecQueryReader(String.Format(TransactionDetailQuery, transactionId)))
+
+                _selectedTransactionDataRow = _transactionHeaderDataTable.Rows(0)
+
+                TransactionIdLbl.DataBindings.Add("Text", _transactionHeaderDataTable, "trsid", False, DataSourceUpdateMode.Never)
+
+                SelectCustomer(_selectedTransactionDataRow("idcus"))
+
+                VehicleRegCbo.SelectedItem = VehicleRegCbo.Items.OfType(Of DataRowView).FirstOrDefault(
+                    Function(row As DataRowView)
+                        Return row("linum") = _selectedTransactionDataRow("linum")
+                    End Function)
+
+                For Each transactionItem As DataRow In _transactionDetailDataTable.Rows
+                    If transactionItem("ttype") = "P" Then
+                        Dim newRowIndex As Integer = TransactionProductDataGrid.Rows.Add(
+                            transactionItem("idpdt"),
+                            transactionItem("pdtds"),
+                            transactionItem("trqty"),
+                            transactionItem("pdqty"),
+                            transactionItem("uomdc"),
+                            transactionItem("price"),
+                            transactionItem("idisc"),
+                            transactionItem("trqty"),
+                            True,
+                            transactionItem("trqty"))
+                        TransactionProductDataGrid(ProductQuantityCol.Index, newRowIndex).ReadOnly = True
+                        TransactionProductDataGrid(ProductQuantityCol.Index, newRowIndex).Style.BackColor = ProductIdCol.DefaultCellStyle.BackColor
+                        TransactionProductDataGrid(ProductDiscountCol.Index, newRowIndex).ReadOnly = True
+                        TransactionProductDataGrid(ProductDiscountCol.Index, newRowIndex).Style.BackColor = ProductIdCol.DefaultCellStyle.BackColor
+                    Else
+                        Dim newRowIndex As Integer = TransactionServiceDataGrid.Rows.Add(
+                            transactionItem("idsvc"),
+                            transactionItem("svcdc"),
+                            transactionItem("price"),
+                            transactionItem("idisc"),
+                            transactionItem("rmark"),
+                            True)
+                        TransactionServiceDataGrid(ServiceDiscountCol.Index, newRowIndex).ReadOnly = True
+                        TransactionServiceDataGrid(ServiceDiscountCol.Index, newRowIndex).Style.BackColor = ProductIdCol.DefaultCellStyle.BackColor
+                    End If
+                Next
         End Select
 
         SwitchMode()
     End Sub
 
     Private Sub SwitchMode()
-        CustomerPanel.Enabled = (_selectedMode = PointOfSalesMode.NewTransaction)
-        VehiclePanel.Enabled = (_selectedMode = PointOfSalesMode.NewTransaction)
+        FindCustomerBtn.Visible = (_selectedMode = PointOfSalesMode.NewTransaction)
+        VehicleRegCbo.Enabled = (_selectedMode = PointOfSalesMode.NewTransaction)
+        VoidBtn.Enabled = (_selectedMode = PointOfSalesMode.ExistingTransaction)
+        QueueBtn.Enabled = (_selectedMode = PointOfSalesMode.NewTransaction)
     End Sub
 
     Private Sub PerformBindings()
@@ -177,23 +281,27 @@ Public Class _003_07_TrDetail2
         End If
     End Sub
 
-    Private Sub _searchCustomer_CustomerVehicleSelected(ByVal sender As Object, ByVal e As CustomerVehicleSelectedEventArgs)
+    Private Sub SelectCustomer(ByVal customerId As String)
         DoInTransaction(
             Function(command As MySqlCommand)
-                TransactionService.CheckPointExpiry(command, e.CustomerId)
+                TransactionService.CheckPointExpiry(command, customerId)
 
                 Return True
             End Function)
 
         _customerDataTable.Rows.Clear()
-        _customerDataTable.Load(ExecQueryReader(String.Format(CustomerQuery, e.CustomerId)))
+        _customerDataTable.Load(ExecQueryReader(String.Format(CustomerQuery, customerId)))
 
         _vehiclesDataTable.Rows.Clear()
-        _vehiclesDataTable.Load(ExecQueryReader(String.Format(VehiclesQuery, e.CustomerId)))
+        _vehiclesDataTable.Load(ExecQueryReader(String.Format(VehiclesQuery, customerId)))
 
         _selectedVehicleBinding.ResetBindings(False)
 
         PerformBindings()
+    End Sub
+
+    Private Sub _searchCustomer_CustomerVehicleSelected(ByVal sender As Object, ByVal e As CustomerVehicleSelectedEventArgs)
+        SelectCustomer(e.CustomerId)
 
         _searchCustomerForm.Close()
     End Sub
@@ -208,7 +316,7 @@ Public Class _003_07_TrDetail2
         If alreadyExisted Then
             MsgBox("This service is already added", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Warning")
         Else
-            TransactionServiceDataGrid.Rows.Add(selectedServiceRow("idsvc"), selectedServiceRow("svcdc"), selectedServiceRow("svprc"), 0, "-")
+            TransactionServiceDataGrid.Rows.Add(selectedServiceRow("idsvc"), selectedServiceRow("svcdc"), selectedServiceRow("svprc"), 0, "-", False)
 
             _searchServiceForm.Close()
         End If
@@ -228,24 +336,28 @@ Public Class _003_07_TrDetail2
                 TransactionProductDataGrid(ProductQuantityCol.Index, alreadyExisted.Index).Value += 1
             End If
         Else
-            TransactionProductDataGrid.Rows.Add(selectedProductRow("idpdt"), selectedProductRow("pdtds"), 1, selectedProductRow("slqty"), selectedProductRow("uodsc"), selectedProductRow("psamt"), 0)
+            TransactionProductDataGrid.Rows.Add(selectedProductRow("idpdt"), selectedProductRow("pdtds"), 1, selectedProductRow("slqty"), selectedProductRow("uodsc"), selectedProductRow("psamt"), 0, False, True)
         End If
 
         _searchProductForm.Close()
     End Sub
 
     Private Sub ShowCustomerForm()
-        If _searchCustomerForm Is Nothing Then
-            _searchCustomerForm = New _005_15_Search_Vehicle()
-            AddHandler _searchCustomerForm.CustomerVehicleSelected, AddressOf _searchCustomer_CustomerVehicleSelected
-        End If
-
-        If _selectedVehicleBinding.Count = 0 OrElse (TransactionServiceDataGrid.Rows.Count = 0 OrElse MsgBox("Changing customer will remove all existing services. Continue?", MsgBoxStyle.Exclamation Or MsgBoxStyle.YesNo, "Warning") = MsgBoxResult.Yes) Then
-            If _selectedVehicleBinding.Count > 0 Then
-                TransactionServiceDataGrid.Rows.Clear()
+        If _selectedMode = PointOfSalesMode.NewTransaction Then
+            If _searchCustomerForm Is Nothing Then
+                _searchCustomerForm = New _005_15_Search_Vehicle()
+                AddHandler _searchCustomerForm.CustomerVehicleSelected, AddressOf _searchCustomer_CustomerVehicleSelected
             End If
 
-            _searchCustomerForm.ShowDialog(Me)
+            If _selectedVehicleBinding.Count = 0 OrElse (TransactionServiceDataGrid.Rows.Count = 0 OrElse MsgBox("Changing customer will remove all existing services. Continue?", MsgBoxStyle.Exclamation Or MsgBoxStyle.YesNo, "Warning") = MsgBoxResult.Yes) Then
+                If _selectedVehicleBinding.Count > 0 Then
+                    TransactionServiceDataGrid.Rows.Clear()
+                End If
+
+                _searchCustomerForm.ShowDialog(Me)
+            End If
+        Else
+            MsgBox("Cannot choose customer in queued transaction", MsgBoxStyle.Critical Or MsgBoxStyle.OkOnly, "Warning")
         End If
     End Sub
 
@@ -317,20 +429,18 @@ Public Class _003_07_TrDetail2
     End Sub
 
     Private Sub TransactionServiceDataGrid_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles TransactionServiceDataGrid.RowsAdded
-        RemoveServiceBtn.Enabled = (TransactionServiceDataGrid.Rows.Count > 0)
-
         Recalculate()
     End Sub
 
     Private Sub TransactionServiceDataGrid_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles TransactionServiceDataGrid.RowsRemoved
-        RemoveServiceBtn.Enabled = (TransactionServiceDataGrid.Rows.Count > 0)
-
         Recalculate()
     End Sub
 
     Private Sub RemoveServiceBtn_Click(sender As Object, e As EventArgs) Handles RemoveServiceBtn.Click
         If TransactionServiceDataGrid.SelectedCells.Count = 0 Then
             MsgBox("Nothing to remove", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Warning")
+        ElseIf TransactionServiceDataGrid.CurrentRow.Cells(ServicePreAddedCol.Index).Value = True Then
+            MsgBox("Cannot remove service pre-added before queue", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Warning")
         Else
             TransactionServiceDataGrid.Rows.RemoveAt(TransactionServiceDataGrid.CurrentRow.Index)
         End If
@@ -343,6 +453,8 @@ Public Class _003_07_TrDetail2
     Private Sub RemoveProductBtn_Click(sender As Object, e As EventArgs) Handles RemoveProductBtn.Click
         If TransactionProductDataGrid.SelectedCells.Count = 0 Then
             MsgBox("Nothing to remove", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Warning")
+        ElseIf TransactionProductDataGrid.CurrentRow.Cells(ProductPreAddedCol.Index).Value = True Then
+            MsgBox("Cannot remove product pre-added before queue", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Warning")
         Else
             TransactionProductDataGrid.Rows.RemoveAt(TransactionProductDataGrid.CurrentRow.Index)
         End If
@@ -361,7 +473,7 @@ Public Class _003_07_TrDetail2
     End Sub
 
     Private Sub TransactionProductDataGrid_CellValidating(sender As Object, e As DataGridViewCellValidatingEventArgs) Handles TransactionProductDataGrid.CellValidating
-        If e.ColumnIndex = ProductQuantityCol.Index AndAlso (e.FormattedValue > TransactionProductDataGrid(ProductRemainingQtyCol.Index, e.RowIndex).Value) Then
+        If e.ColumnIndex = ProductQuantityCol.Index AndAlso TransactionProductDataGrid(ProductRemainingQtyCol.Index, e.RowIndex).IsInEditMode AndAlso (e.FormattedValue > TransactionProductDataGrid(ProductRemainingQtyCol.Index, e.RowIndex).Value) Then
             MsgBox("Remaining quantity is not enough", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Warning")
 
             e.Cancel = True
@@ -380,10 +492,24 @@ Public Class _003_07_TrDetail2
         End If
     End Sub
 
-    Private Sub CancelBtn_Click(sender As Object, e As EventArgs) Handles CancelBtn.Click
-        If MsgBox("Cancelling transaction. Are you sure?", MsgBoxStyle.Question Or MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
-            Close()
+    Private Function ConfirmExit()
+        If _transactionCompleted Then
+            Return True
         End If
+
+        Dim message As String = ""
+
+        If _selectedMode = PointOfSalesMode.NewTransaction Then
+            message = "Cancelling transaction. Are you sure?"
+        ElseIf _selectedMode = PointOfSalesMode.ExistingTransaction Then
+            message = "Close transaction? All changes will be unsaved. Are you sure?"
+        End If
+
+        Return MsgBox(message, MsgBoxStyle.Question Or MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes
+    End Function
+
+    Private Sub CancelBtn_Click(sender As Object, e As EventArgs) Handles CancelBtn.Click
+        Close()
     End Sub
 
     Private Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
@@ -404,7 +530,56 @@ Public Class _003_07_TrDetail2
     End Sub
 
     Private Sub QueueBtn_Click(sender As Object, e As EventArgs) Handles QueueBtn.Click
+        If _selectedVehicleBinding.Count = 0 Then
+            ErrorInput(FindCustomerBtn, "Customer and vehicle is required")
+        ElseIf (TransactionProductDataGrid.Rows.Count + TransactionServiceDataGrid.Rows.Count) = 0 Then
+            ErrorInput(AddServiceBtn, "No service or product selected")
+        ElseIf MsgBox("Queue transaction?" & If(TransactionProductDataGrid.Rows.Count > 0, " Selected products cannot be removed after queue. Are you sure?", ""), MsgBoxStyle.Question Or MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
+            DoInTransaction(
+                Function(command As MySqlCommand)
+                    Dim customer As DataRow = _customerDataTable.Select("idcus = '" & CustomerIdTxt.Text & "'").FirstOrDefault()
+                    Dim newTransactionId As String = TransactionService.GetNewTransactionId(command)
 
+                    command.CommandText = NewTransactionQuery
+                    command.CreateParameter()
+
+                    command.Parameters.Clear()
+                    command.Parameters.AddWithValue("transactionId", newTransactionId)
+                    command.Parameters.AddWithValue("customerId", CustomerIdTxt.Text)
+                    command.Parameters.AddWithValue("vehicleType", SelectedVehicleType)
+                    command.Parameters.AddWithValue("vehicleBrand", VehicleBrandTxt.Text)
+                    command.Parameters.AddWithValue("vehicleModel", VehicleModelTxt.Text)
+                    command.Parameters.AddWithValue("vehicleColor", VehicleColorTxt.Text)
+                    command.Parameters.AddWithValue("vehicleSize", VehicleSizeTxt.Text)
+                    command.Parameters.AddWithValue("vehicleMileage", VehicleMileageTxt.Text)
+                    command.Parameters.AddWithValue("vehicleReg", VehicleRegCbo.SelectedValue)
+                    command.Parameters.AddWithValue("licenseExpired", VehicleExpiryDate.Value.ToMySQLDateTime())
+                    command.Parameters.AddWithValue("serviceSubtotal", ServiceSubtotal)
+                    command.Parameters.AddWithValue("productSubtotal", ProductSubtotal)
+                    command.Parameters.AddWithValue("grandTotal", GrandTotal)
+                    command.Parameters.AddWithValue("paymentTotal", 0)
+                    command.Parameters.AddWithValue("paymentTerm", "")
+                    command.Parameters.AddWithValue("transactionStatus", "OPEN")
+                    command.Parameters.AddWithValue("serviceStatus", "")
+                    command.Parameters.AddWithValue("pointsEarned", 0)
+                    command.Parameters.AddWithValue("paymentChange", 0)
+                    command.Parameters.AddWithValue("employee", LoggedInEmployee.Id)
+                    command.Parameters.AddWithValue("transactionRemark", "")
+                    command.Parameters.AddWithValue("currentPoint", customer("cpoin"))
+
+                    command.ExecuteNonQuery()
+
+                    NewTransactionItemsInsert(command, newTransactionId)
+
+                    Return True
+                End Function)
+
+            MsgBox("Transaction queued", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Success")
+
+            _transactionCompleted = True
+
+            Close()
+        End If
     End Sub
 
     Private Sub VoidBtn_Click(sender As Object, e As EventArgs) Handles VoidBtn.Click
@@ -496,7 +671,9 @@ Public Class _003_07_TrDetail2
 
         _paymentForm.Close()
 
-        Dispose()
+        _transactionCompleted = True
+
+        Close()
     End Sub
 
     Private Function NewTransactionInsert(ByVal command As MySqlCommand, ByVal paymentForm As _003_08_Payment, ByVal pointsEarned As Integer) As String
@@ -531,6 +708,13 @@ Public Class _003_07_TrDetail2
         command.Parameters.AddWithValue("currentPoint", customer("cpoin"))
 
         command.ExecuteNonQuery()
+
+        NewTransactionItemsInsert(command, newTransactionId)
+
+        Return newTransactionId
+    End Function
+
+    Public Sub NewTransactionItemsInsert(ByVal command As MySqlCommand, ByVal newTransactionId As String)
 
         For Each serviceItem As DataGridViewRow In TransactionServiceDataGrid.Rows
             command.CommandText =
@@ -580,9 +764,21 @@ Public Class _003_07_TrDetail2
 
             command.ExecuteNonQuery()
         Next
+    End Sub
 
-        Return newTransactionId
-    End Function
+    Private Sub _003_07_TrDetail2_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If Not ConfirmExit() Then
+            e.Cancel = True
+        End If
+    End Sub
+
+    Private Sub TransactionServiceDataGrid_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles TransactionServiceDataGrid.CellEnter
+        RemoveServiceBtn.Enabled = (TransactionServiceDataGrid(ServicePreAddedCol.Index, e.RowIndex).Value = False)
+    End Sub
+
+    Private Sub TransactionProductDataGrid_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles TransactionProductDataGrid.CellEnter
+        RemoveProductBtn.Enabled = (TransactionProductDataGrid(ProductPreAddedCol.Index, e.RowIndex).Value = False)
+    End Sub
 End Class
 
 Public Enum PointOfSalesMode

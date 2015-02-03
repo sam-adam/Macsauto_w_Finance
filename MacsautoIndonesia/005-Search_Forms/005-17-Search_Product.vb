@@ -37,7 +37,7 @@
     End Sub
 
     Private Sub ReloadData()
-        Const allServicesQuery As String =
+        Const allProductsQuery As String =
             "SELECT hproduct.idpdt," & _
             "   hproduct.idptp," & _
             "   hproduct.iduom," & _
@@ -54,10 +54,11 @@
             " LEFT JOIN producttype ON hproduct.idptp = producttype.idptp" & _
             " LEFT JOIN uom ON hproduct.iduom = uom.iduom" & _
             " WHERE hproduct.is_active = 1" & _
-            " GROUP BY idpdt"
+            " GROUP BY idpdt" & _
+            " HAVING SUM(dproduct.slqty) > 0"
 
         _productsDataTable.Rows.Clear()
-        _productsDataTable.Load(ExecQueryReader(allServicesQuery))
+        _productsDataTable.Load(ExecQueryReader(allProductsQuery))
 
         _productsDataView = _productsDataTable.AsDataView()
         ProductDataGrid.DataSource = _productsDataView

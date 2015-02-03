@@ -129,6 +129,12 @@
     Private Sub _003_08_Payment_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CashPaymentTxt.Focus()
     End Sub
+
+    Private Sub _003_08_Payment_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        If CashPnl.Visible Then
+            CashPaymentTxt.Focus()
+        End If
+    End Sub
 End Class
 
 Public Class PaymentSubmittedEventArgs
