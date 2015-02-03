@@ -112,6 +112,7 @@ Partial Class _005_16_Search_Service
         '
         Me.ServiceDataGrid.AllowUserToAddRows = False
         Me.ServiceDataGrid.AllowUserToDeleteRows = False
+        Me.ServiceDataGrid.AllowUserToResizeRows = False
         Me.ServiceDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.ServiceDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ServiceDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ServiceIdCol, Me.ServiceDescriptionCol, Me.ServiceTypeIdCol, Me.ServiceTypeDescriptionCol, Me.ServicePriceCol})

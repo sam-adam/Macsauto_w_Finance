@@ -1,7 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports MacsautoIndonesia.SmartCard.Reader
 Imports MacsautoIndonesia.Printing.Page
-Imports MacsautoIndonesia.Printing
 Imports MacsautoIndonesia.Services
 
 Public Class _003_07_TrDetail2
@@ -569,7 +568,7 @@ Public Class _003_07_TrDetail2
 
                     command.ExecuteNonQuery()
 
-                    NewTransactionItemsInsert(command, newTransactionId)
+                    TransactionItemsInsert(command, newTransactionId, TransactionServiceDataGrid.Rows.OfType(Of DataGridViewRow).ToArray(), TransactionProductDataGrid.Rows.OfType(Of DataGridViewRow).ToArray())
 
                     Return True
                 End Function)
@@ -596,7 +595,12 @@ Public Class _003_07_TrDetail2
                 Dim newPaymentId As String = TransactionService.GetNewPaymentId(command)
 
                 memberEarnedPoint = TransactionService.CalculatePointsEarned(GrandTotal, command)
-                newTransactionId = NewTransactionInsert(command, e.PaymentForm, memberEarnedPoint)
+
+                If (_selectedMode = PointOfSalesMode.NewTransaction) Then
+                    newTransactionId = NewTransactionInsert(command, e.PaymentForm, memberEarnedPoint)
+                Else
+                    newTransactionId = QueuedTransactionUpdate(command, e.PaymentForm, memberEarnedPoint)
+                End If
 
                 '===========================================================================================================================================
                 ' Create New Payment
@@ -709,20 +713,19 @@ Public Class _003_07_TrDetail2
 
         command.ExecuteNonQuery()
 
-        NewTransactionItemsInsert(command, newTransactionId)
+        TransactionItemsInsert(command, newTransactionId, TransactionServiceDataGrid.Rows.OfType(Of DataGridViewRow).ToArray(), TransactionProductDataGrid.Rows.OfType(Of DataGridViewRow).ToArray())
 
         Return newTransactionId
     End Function
 
-    Public Sub NewTransactionItemsInsert(ByVal command As MySqlCommand, ByVal newTransactionId As String)
-
-        For Each serviceItem As DataGridViewRow In TransactionServiceDataGrid.Rows
+    Private Sub TransactionItemsInsert(ByVal command As MySqlCommand, ByVal transactionId As String, ByVal serviceRows As DataGridViewRow(), ByVal productRows As DataGridViewRow())
+        For Each serviceItem As DataGridViewRow In serviceRows
             command.CommandText =
                 "INSERT INTO dtransaction(trsid, ttype, seqnr, idsvc, trqty, uomdc, price, idisc, rmark, vpaym)" & _
                 " VALUES(@transactionId, 'S', @rowIndex, @serviceId, 1, 'UNIT', @servicePrice, @serviceDiscount, @serviceRemark, 'False')"
             command.Parameters.Clear()
 
-            command.Parameters.AddWithValue("transactionId", newTransactionId)
+            command.Parameters.AddWithValue("transactionId", transactionId)
             command.Parameters.AddWithValue("rowIndex", (serviceItem.Index + 1))
             command.Parameters.AddWithValue("serviceId", serviceItem.Cells(ServiceIdCol.Index).Value)
             command.Parameters.AddWithValue("servicePrice", serviceItem.Cells(ServicePriceCol.Index).Value)
@@ -732,13 +735,13 @@ Public Class _003_07_TrDetail2
             command.ExecuteNonQuery()
         Next
 
-        For Each productItem As DataGridViewRow In TransactionProductDataGrid.Rows
+        For Each productItem As DataGridViewRow In productRows
             command.CommandText =
                 "INSERT INTO dtransaction(trsid, ttype, seqnr, idpdt, trqty, uomdc, price, idisc)" & _
                 " VALUES(@transactionId, 'P', @rowIndex, @productId, @productQty, @productUoM, @productPrice, @productDiscount)"
             command.Parameters.Clear()
 
-            command.Parameters.AddWithValue("transactionId", newTransactionId)
+            command.Parameters.AddWithValue("transactionId", transactionId)
             command.Parameters.AddWithValue("rowIndex", (productItem.Index + 1))
             command.Parameters.AddWithValue("productId", productItem.Cells(ProductIdCol.Index).Value)
             command.Parameters.AddWithValue("productQty", productItem.Cells(ProductQuantityCol.Index).Value)
@@ -765,6 +768,46 @@ Public Class _003_07_TrDetail2
             command.ExecuteNonQuery()
         Next
     End Sub
+
+    Private Function QueuedTransactionUpdate(ByVal command As MySqlCommand, ByVal paymentForm As _003_08_Payment, ByVal pointsEarned As Integer)
+        _customerDataTable.Load(ExecQueryReader(String.Format(CustomerQuery, CustomerIdTxt.Text)))
+
+        Dim customer As DataRow = _customerDataTable.Select("idcus = '" & CustomerIdTxt.Text & "'").FirstOrDefault()
+
+        command.CommandText =
+            "UPDATE htransaction" & _
+            " SET toamt = @grandTotal, topay = @paymentTotal," & _
+            "   pterm = @paymentTerm, trstat = @transactionStatus," & _
+            "   tpoin = @pointsEarned, chnce = @paymentChange," & _
+            "   updatedBy = @employee, cpoin = @currentPoint," & _
+            "   svamt = @serviceSubtotal, pdamt = @productSubtotal" & _
+            " WHERE htransaction.trsid = @transactionId"
+        command.Parameters.Clear()
+
+        command.Parameters.AddWithValue("transactionId", TransactionIdLbl.Text)
+        command.Parameters.AddWithValue("grandTotal", paymentForm.GrandTotal)
+        command.Parameters.AddWithValue("paymentTotal", If(paymentForm.SelectedPaymentType = "Cash", paymentForm.CashPayment, paymentForm.GrandTotal))
+        command.Parameters.AddWithValue("paymentTerm", paymentForm.SelectedPaymentType)
+        command.Parameters.AddWithValue("transactionStatus", "PAID")
+        command.Parameters.AddWithValue("pointsEarned", If(IsMemberChk.Checked, pointsEarned, 0))
+        command.Parameters.AddWithValue("paymentChange", If(paymentForm.SelectedPaymentType = "Cash", paymentForm.CashChange, 0))
+        command.Parameters.AddWithValue("employee", LoggedInEmployee.Id)
+        command.Parameters.AddWithValue("serviceSubtotal", ServiceSubtotal)
+        command.Parameters.AddWithValue("productSubtotal", ProductSubtotal)
+        command.Parameters.AddWithValue("currentPoint", customer("cpoin"))
+
+        command.ExecuteNonQuery()
+
+        TransactionItemsInsert(command, TransactionIdLbl.Text, TransactionServiceDataGrid.Rows.OfType(Of DataGridViewRow).Where(
+                               Function(row As DataGridViewRow)
+                                   Return row.Cells(ServicePreAddedCol.Index).Value = False
+                               End Function).ToArray(), TransactionProductDataGrid.Rows.OfType(Of DataGridViewRow).Where(
+                               Function(row As DataGridViewRow)
+                                   Return row.Cells(ProductPreAddedCol.Index).Value = False
+                               End Function).ToArray())
+
+        Return TransactionIdLbl.Text
+    End Function
 
     Private Sub _003_07_TrDetail2_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If Not ConfirmExit() Then
