@@ -4,6 +4,7 @@ Imports MacsautoIndonesia.Printing.Page
 Imports MacsautoIndonesia.Services
 
 Public Class _003_07_TrDetail2
+#Region "Constants"
     Const CustomerQuery As String =
         "SELECT hcustomer.idcus," & _
         "   hcustomer.cname," & _
@@ -107,6 +108,15 @@ Public Class _003_07_TrDetail2
         " LEFT JOIN hproduct ON dtransaction.idpdt = hproduct.idpdt" & _
         " LEFT JOIN hservice ON dtransaction.idsvc = hservice.idsvc" & _
         " WHERE dtransaction.trsid = '{0}'"
+    Const UpdateProductStockQuery As String =
+        "UPDATE hproduct" & _
+        " INNER JOIN (" & _
+        "   SELECT dproduct.idpdt, SUM(dproduct.slqty) AS total_stock" & _
+        "   FROM dproduct" & _
+        "   GROUP BY dproduct.idpdt" & _
+        " ) dproduct ON hproduct.idpdt = dproduct.idpdt" & _
+        " SET pdqty = dproduct.total_stock WHERE hproduct.idpdt = @productId"
+#End Region
 
     Private ReadOnly _selectedMode As PointOfSalesMode
     Private ReadOnly _transactionHeaderDataTable As DataTable
@@ -119,6 +129,8 @@ Public Class _003_07_TrDetail2
     Private _searchServiceForm As _005_16_Search_Service
     Private _searchProductForm As _005_17_Search_Product
     Private _paymentForm As _003_08_Payment
+    Private _authorizationForm As _006_04_Authorization_Form
+    Private _voidReasonForm As _003_09_Void_Remark
     Private _transactionCompleted As Boolean = False
 
     Property ProductSubtotal As Double
@@ -335,7 +347,11 @@ Public Class _003_07_TrDetail2
                 TransactionProductDataGrid(ProductQuantityCol.Index, alreadyExisted.Index).Value += 1
             End If
         Else
-            TransactionProductDataGrid.Rows.Add(selectedProductRow("idpdt"), selectedProductRow("pdtds"), 1, selectedProductRow("slqty"), selectedProductRow("uodsc"), selectedProductRow("psamt"), 0, False, True)
+            If alreadyExisted.Cells(ProductPreAddedCol.Index).Value = True Then
+                MsgBox("Cannot add same product as queued", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkCancel, "Warning")
+            Else
+                TransactionProductDataGrid.Rows.Add(selectedProductRow("idpdt"), selectedProductRow("pdtds"), 1, selectedProductRow("slqty"), selectedProductRow("uodsc"), selectedProductRow("psamt"), 0, False, True)
+            End If
         End If
 
         _searchProductForm.Close()
@@ -582,7 +598,67 @@ Public Class _003_07_TrDetail2
     End Sub
 
     Private Sub VoidBtn_Click(sender As Object, e As EventArgs) Handles VoidBtn.Click
+        If _authorizationForm Is Nothing OrElse _authorizationForm.IsDisposed Then
+            _authorizationForm = New _006_04_Authorization_Form(AuthorizationLevel.Supervisor)
 
+            AddHandler _authorizationForm.AuthorizationSuccess,
+                Sub(s As Object, evt As AuthorizationSuccessEventArgs)
+                    If _voidReasonForm Is Nothing OrElse _voidReasonForm.IsDisposed Then
+                        _voidReasonForm = New _003_09_Void_Remark()
+
+                        AddHandler _voidReasonForm.ReasonSubmitted,
+                            Sub(sV As Object, eV As EventArgs)
+                                Dim form As _003_09_Void_Remark = CType(sV, _003_09_Void_Remark)
+
+                                If MsgBox("Used product quantity will be added back to inventory. Continue void?", MsgBoxStyle.Question Or MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
+                                    DoInTransaction(
+                                        Function(command As MySqlCommand)
+                                            command.CommandText = "UPDATE htransaction SET trstat = 'VOID', updatedBy = @managerId, remrk = @voidReason WHERE trsid = @transactionId"
+                                            command.CreateParameter()
+
+                                            command.Parameters.Clear()
+                                            command.Parameters.AddWithValue("managerId", evt.AuthorizedUser("Id"))
+                                            command.Parameters.AddWithValue("transactionId", TransactionIdLbl.Text)
+                                            command.Parameters.AddWithValue("voidReason", form.VoidReason)
+
+                                            command.ExecuteNonQuery()
+
+                                            For Each row As DataRow In _transactionDetailDataTable.Rows
+                                                If row("ttype") = "P" Then
+                                                    command.CommandText = "UPDATE dproduct SET slqty = (slqty + @usedQuantity) WHERE defsl = 'True' AND idpdt = @productId"
+                                                    command.Parameters.Clear()
+
+                                                    command.Parameters.AddWithValue("usedQuantity", row("trqty"))
+                                                    command.Parameters.AddWithValue("productId", row("idpdt"))
+                                                    command.ExecuteNonQuery()
+
+                                                    command.CommandText = UpdateProductStockQuery
+                                                    command.ExecuteNonQuery()
+                                                End If
+                                            Next
+
+                                            Return True
+                                        End Function)
+
+                                    MsgBox("Transaction voided", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Success")
+
+                                    _transactionCompleted = True
+
+                                    Dispose()
+                                End If
+                            End Sub
+                        _voidReasonForm.ShowDialog(Me)
+                    End If
+                End Sub
+            AddHandler _authorizationForm.AuthorizationFailed,
+                Sub(s As Object, evt As EventArgs)
+                    MsgBox("Authorization failed", MsgBoxStyle.Critical Or MsgBoxStyle.OkOnly, "Error")
+
+                    _authorizationForm.Close()
+                End Sub
+        End If
+
+        _authorizationForm.ShowDialog(Me)
     End Sub
 
     Private Sub _paymentForm_PaymentSubmitted(ByVal sender As Object, ByVal e As PaymentSubmittedEventArgs)
@@ -756,14 +832,7 @@ Public Class _003_07_TrDetail2
 
             command.ExecuteNonQuery()
 
-            command.CommandText =
-                "UPDATE hproduct" & _
-                " INNER JOIN (" & _
-                "   SELECT dproduct.idpdt, SUM(dproduct.slqty) AS total_stock" & _
-                "   FROM dproduct" & _
-                "   GROUP BY dproduct.idpdt" & _
-                " ) dproduct ON hproduct.idpdt = dproduct.idpdt" & _
-                " SET pdqty = dproduct.total_stock WHERE hproduct.idpdt = @productId"
+            command.CommandText = UpdateProductStockQuery
 
             command.ExecuteNonQuery()
         Next

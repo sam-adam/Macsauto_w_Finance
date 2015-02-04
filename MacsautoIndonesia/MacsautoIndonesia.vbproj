@@ -309,6 +309,12 @@
     <Compile Include="003-POS System\003-08-Payment.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="003-POS System\003-09-Void_Remark.Designer.vb">
+      <DependentUpon>003-09-Void_Remark.vb</DependentUpon>
+    </Compile>
+    <Compile Include="003-POS System\003-09-Void_Remark.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="005-Search_Forms\005-11-GLAccount.designer.vb">
       <DependentUpon>005-11-GLAccount.vb</DependentUpon>
     </Compile>
@@ -772,6 +778,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="003-POS System\003-08-Payment.resx">
       <DependentUpon>003-08-Payment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="003-POS System\003-09-Void_Remark.resx">
+      <DependentUpon>003-09-Void_Remark.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="003-POS System\003_03-TrViewPayment.resx">
       <DependentUpon>003_03-TrViewPayment.vb</DependentUpon>
