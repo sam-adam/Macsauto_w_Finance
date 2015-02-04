@@ -906,6 +906,84 @@ Public Class _003_07_TrDetail2
         Return TransactionIdLbl.Text
     End Function
 
+    Private Sub TryPostJournal(ByVal transactionId As String, ByVal paymentMethod As String)
+        Dim glAccounts As New Dictionary(Of String, Dictionary(Of String, String))
+        Dim serviceQuery As String = "SELECT idsvc, glnum" & _
+            " FROM hservice" & _
+            " WHERE idsvc IN (" & String.Join(", ", TransactionServiceDataGrid.Rows.OfType(Of DataGridViewRow).Select(Function(row) "'" & row.Cells(1).Value.ToString() & "'")) & ")"
+        Dim productQuery As String = "SELECT idpdt, glnum" & _
+            " FROM hproduct" & _
+            " WHERE idpdt IN (" & String.Join(", ", TransactionProductDataGrid.Rows.OfType(Of DataGridViewRow).Select(Function(row) "'" & row.Cells(1).Value.ToString() & "'")) & ")"
+        Dim reader As MySqlDataReader
+
+        If TransactionServiceDataGrid.Rows.Count > 0 Then
+            reader = ExecQueryReader(serviceQuery)
+
+            While reader.Read()
+                Dim dictionary As New Dictionary(Of String, String)
+                Dim row As DataGridViewRow = TransactionServiceDataGrid.Rows.OfType(Of DataGridViewRow).First(Function(rowItem) rowItem.Cells(1).Value.ToString() = reader("idsvc").ToString())
+                Dim subTotal As Double = Double.Parse(row.Cells(3).Value) * Double.Parse(row.Cells(5).Value)
+
+                If Not String.IsNullOrEmpty(row.Cells(6).Value) And Not row.Cells(6).Value = "0" Then
+                    subTotal -= (subTotal * (Integer.Parse(row.Cells(6).Value)) / 100)
+                End If
+
+                dictionary.Add("id", reader("idsvc").ToString())
+                dictionary.Add("glaccount", reader("glnum").ToString())
+                dictionary.Add("amount", subTotal)
+
+                glAccounts.Add("SERVICE-" & reader("idsvc").ToString(), dictionary)
+            End While
+        End If
+
+        If TransactionProductDataGrid.Rows.Count > 0 Then
+            reader = ExecQueryReader(productQuery)
+
+            While reader.Read()
+                Dim dictionary As New Dictionary(Of String, String)
+                Dim row As DataGridViewRow = TransactionProductDataGrid.Rows.OfType(Of DataGridViewRow).First(Function(rowItem) rowItem.Cells(1).Value.ToString() = reader("idpdt").ToString())
+                Dim subTotal As Double = Double.Parse(row.Cells(3).Value) * Double.Parse(row.Cells(5).Value)
+
+                If Not String.IsNullOrEmpty(row.Cells(6).Value) And Not row.Cells(6).Value = "0" Then
+                    subTotal -= (subTotal * (Integer.Parse(row.Cells(6).Value)) / 100)
+                End If
+
+                dictionary.Add("id", reader("idpdt").ToString())
+                dictionary.Add("glaccount", reader("glnum").ToString())
+                dictionary.Add("amount", subTotal)
+                glAccounts.Add("PRODUCT-" & reader("idpdt").ToString(), dictionary)
+            End While
+        End If
+
+        If glAccounts.Count = (TransactionServiceDataGrid.Rows.Count + TransactionProductDataGrid.Rows.Count) Then
+            DoInTransaction(
+                Function(command As MySqlCommand)
+                    command.CommandText = "INSERT INTO jourhd(docdt, pstdt, rfdoc, rmark, dstat, uname, cgdat, dtnum, cancl) VALUES(NOW(), NOW(), '" & transactionId & "', 'AUTOPOST TRANSAKSI', '', '" & LoggedInEmployee.Id & "', '0000-00-00', 'TR', '' FROM jourhd)"
+                    ExecQueryNonReader("INSERT INTO jourhd (SELECT (COUNT(*) + 1), NOW(), NOW(), '" & transactionId & "', 'AUTOPOST TRANSAKSI', '', '" & LoggedInEmployee.Id & "', '0000-00-00', 'TR', '' FROM jourhd)")
+
+                    Dim jourReader As MySqlDataReader = ExecQueryReader("SELECT docid FROM jourhd ORDER BY docid DESC LIMIT 1")
+
+                    If (jourReader.Read()) Then
+                        Dim newJournalId As String = jourReader(0)
+
+                        If paymentMethod = "Cash" Then
+                            ExecQueryNonReader("INSERT INTO jourdt VALUES('" & newJournalId & "', '1000.01', '10', '" & GrandTotal & "', '')")
+                        Else
+                            ExecQueryNonReader("INSERT INTO jourdt VALUES('" & newJournalId & "', '1000.02', '10', '" & GrandTotal & "', '')")
+                        End If
+
+                        For Each glAccount In glAccounts
+                            ExecQueryNonReader("INSERT INTO jourdt VALUES('" & newJournalId & "', '" & glAccount.Value("glaccount") & "', '20', '" & glAccount.Value("amount") & "', '')")
+                        Next
+                    End If
+
+                    jourReader.Close()
+
+                    Return True
+                End Function)
+        End If
+    End Sub
+
     Private Sub _003_07_TrDetail2_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If Not ConfirmExit() Then
             e.Cancel = True

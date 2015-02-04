@@ -10,7 +10,8 @@ Module Module1
     Public reader, reader1
     Public findserviceFlag
 
-    Dim con As New MySqlConnection("Server=" & My.Settings.Host & ";Uid=" & My.Settings.Username & ";Pwd=" & My.Settings.Password & ";Database=" & My.Settings.Database & ";Convert Zero Datetime=True")
+    Dim connectionString As String = "Server=" & My.Settings.Host & ";Uid=" & My.Settings.Username & ";Pwd=" & My.Settings.Password & ";Database=" & My.Settings.Database & ";Convert Zero Datetime=True"
+    Dim con As New MySqlConnection(connectionString)
     Dim cmd As New MySqlCommand
     Dim cardReaders As List(Of SmartCardReader)
 
@@ -373,8 +374,16 @@ Module Module1
 
     Public Function GetConnection() As MySqlConnection
         Try
-            If (con.State = ConnectionState.Closed) Then
+            If (con.State = ConnectionState.Open) Then
+                Dim newConnection As MySqlConnection = New MySqlConnection(connectionString)
+
+                newConnection.Open()
+
+                Return newConnection
+            ElseIf con.State = ConnectionState.Closed Then
                 con.Open()
+
+                Return con
             End If
 
             Return con

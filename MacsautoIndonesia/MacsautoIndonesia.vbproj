@@ -237,6 +237,12 @@
     <Compile Include="001-Configuration\001-18-Define_Database.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="001-Configuration\001-19-Accounting_Configuration.Designer.vb">
+      <DependentUpon>001-19-Accounting_Configuration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="001-Configuration\001-19-Accounting_Configuration.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="001-Configuration\001_10_Define_Base_point.Designer.vb">
       <DependentUpon>001_10_Define_Base_point.vb</DependentUpon>
     </Compile>
@@ -735,6 +741,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="001-Configuration\001-18-Define_Database.resx">
       <DependentUpon>001-18-Define_Database.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="001-Configuration\001-19-Accounting_Configuration.resx">
+      <DependentUpon>001-19-Accounting_Configuration.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="001-Configuration\001_10_Define_Base_point.resx">
       <DependentUpon>001_10_Define_Base_point.vb</DependentUpon>

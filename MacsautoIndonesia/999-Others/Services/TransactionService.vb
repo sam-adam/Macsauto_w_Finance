@@ -146,5 +146,9 @@ Namespace Services
 
             Return bestPromotionDataRow
         End Function
+
+        Public Shared Function IsAutopostReady() As Boolean
+            Return AccountingService.IsConfigurationValid("transaction_cash") And AccountingService.IsConfigurationValid("transaction_card")
+        End Function
     End Class
 End Namespace

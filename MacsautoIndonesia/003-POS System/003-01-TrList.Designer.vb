@@ -25,7 +25,6 @@ Partial Class _003_01_TrList
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_003_01_TrList))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -34,12 +33,6 @@ Partial Class _003_01_TrList
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RefreshBtn = New System.Windows.Forms.Button()
-        Me.ExportBtn = New System.Windows.Forms.Button()
-        Me.TrListDisplaybtn = New System.Windows.Forms.Button()
-        Me.TrListViewPayBtn = New System.Windows.Forms.Button()
-        Me._003_02_TrDetail = New System.Windows.Forms.Button()
-        Me.TrListAddBtn = New System.Windows.Forms.Button()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.TrlistGrid = New System.Windows.Forms.DataGridView()
@@ -63,7 +56,12 @@ Partial Class _003_01_TrList
         Me.Column19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.UpdateTransactionBtn = New System.Windows.Forms.Button()
+        Me.NewTransactionBtn = New System.Windows.Forms.Button()
+        Me.RefreshBtn = New System.Windows.Forms.Button()
+        Me.ExportBtn = New System.Windows.Forms.Button()
+        Me.TrListDisplaybtn = New System.Windows.Forms.Button()
+        Me.TrListViewPayBtn = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -82,8 +80,8 @@ Partial Class _003_01_TrList
         '
         'SplitContainer1.Panel1
         '
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Button2)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Button1)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.UpdateTransactionBtn)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.NewTransactionBtn)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label4)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label5)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label3)
@@ -93,8 +91,6 @@ Partial Class _003_01_TrList
         Me.SplitContainer1.Panel1.Controls.Add(Me.ExportBtn)
         Me.SplitContainer1.Panel1.Controls.Add(Me.TrListDisplaybtn)
         Me.SplitContainer1.Panel1.Controls.Add(Me.TrListViewPayBtn)
-        Me.SplitContainer1.Panel1.Controls.Add(Me._003_02_TrDetail)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.TrListAddBtn)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Panel7)
         '
         'SplitContainer1.Panel2
@@ -103,18 +99,6 @@ Partial Class _003_01_TrList
         Me.SplitContainer1.Size = New System.Drawing.Size(1364, 661)
         Me.SplitContainer1.SplitterDistance = 56
         Me.SplitContainer1.TabIndex = 0
-        '
-        'Button1
-        '
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button1.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button1.Location = New System.Drawing.Point(117, 10)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(45, 39)
-        Me.Button1.TabIndex = 38
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Label4
         '
@@ -202,79 +186,6 @@ Partial Class _003_01_TrList
         Me.RadioButton2.TabStop = True
         Me.RadioButton2.Text = "OUTSTANDING"
         Me.RadioButton2.UseVisualStyleBackColor = False
-        '
-        'RefreshBtn
-        '
-        Me.RefreshBtn.BackgroundImage = CType(resources.GetObject("RefreshBtn.BackgroundImage"), System.Drawing.Image)
-        Me.RefreshBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.RefreshBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RefreshBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.RefreshBtn.Location = New System.Drawing.Point(405, 9)
-        Me.RefreshBtn.Name = "RefreshBtn"
-        Me.RefreshBtn.Size = New System.Drawing.Size(44, 39)
-        Me.RefreshBtn.TabIndex = 12
-        Me.RefreshBtn.UseVisualStyleBackColor = True
-        '
-        'ExportBtn
-        '
-        Me.ExportBtn.BackgroundImage = CType(resources.GetObject("ExportBtn.BackgroundImage"), System.Drawing.Image)
-        Me.ExportBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ExportBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ExportBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ExportBtn.Location = New System.Drawing.Point(360, 9)
-        Me.ExportBtn.Name = "ExportBtn"
-        Me.ExportBtn.Size = New System.Drawing.Size(44, 39)
-        Me.ExportBtn.TabIndex = 11
-        Me.ExportBtn.Tag = "Export to Excel"
-        Me.ExportBtn.UseVisualStyleBackColor = True
-        '
-        'TrListDisplaybtn
-        '
-        Me.TrListDisplaybtn.BackgroundImage = CType(resources.GetObject("TrListDisplaybtn.BackgroundImage"), System.Drawing.Image)
-        Me.TrListDisplaybtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.TrListDisplaybtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TrListDisplaybtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TrListDisplaybtn.Location = New System.Drawing.Point(264, 9)
-        Me.TrListDisplaybtn.Name = "TrListDisplaybtn"
-        Me.TrListDisplaybtn.Size = New System.Drawing.Size(43, 39)
-        Me.TrListDisplaybtn.TabIndex = 3
-        Me.TrListDisplaybtn.UseVisualStyleBackColor = True
-        '
-        'TrListViewPayBtn
-        '
-        Me.TrListViewPayBtn.BackgroundImage = CType(resources.GetObject("TrListViewPayBtn.BackgroundImage"), System.Drawing.Image)
-        Me.TrListViewPayBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.TrListViewPayBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TrListViewPayBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TrListViewPayBtn.Location = New System.Drawing.Point(313, 9)
-        Me.TrListViewPayBtn.Name = "TrListViewPayBtn"
-        Me.TrListViewPayBtn.Size = New System.Drawing.Size(45, 39)
-        Me.TrListViewPayBtn.TabIndex = 2
-        Me.TrListViewPayBtn.UseVisualStyleBackColor = True
-        '
-        '_003_02_TrDetail
-        '
-        Me._003_02_TrDetail.BackgroundImage = CType(resources.GetObject("_003_02_TrDetail.BackgroundImage"), System.Drawing.Image)
-        Me._003_02_TrDetail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me._003_02_TrDetail.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me._003_02_TrDetail.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me._003_02_TrDetail.Location = New System.Drawing.Point(219, 9)
-        Me._003_02_TrDetail.Name = "_003_02_TrDetail"
-        Me._003_02_TrDetail.Size = New System.Drawing.Size(39, 39)
-        Me._003_02_TrDetail.TabIndex = 1
-        Me._003_02_TrDetail.UseVisualStyleBackColor = True
-        '
-        'TrListAddBtn
-        '
-        Me.TrListAddBtn.BackgroundImage = CType(resources.GetObject("TrListAddBtn.BackgroundImage"), System.Drawing.Image)
-        Me.TrListAddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.TrListAddBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TrListAddBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.TrListAddBtn.Location = New System.Drawing.Point(168, 9)
-        Me.TrListAddBtn.Name = "TrListAddBtn"
-        Me.TrListAddBtn.Size = New System.Drawing.Size(45, 39)
-        Me.TrListAddBtn.TabIndex = 0
-        Me.TrListAddBtn.UseVisualStyleBackColor = True
         '
         'Panel7
         '
@@ -427,17 +338,78 @@ Partial Class _003_01_TrList
         'Timer1
         '
         '
-        'Button2
+        'UpdateTransactionBtn
         '
-        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button2.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button2.Location = New System.Drawing.Point(72, 10)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(39, 39)
-        Me.Button2.TabIndex = 39
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.UpdateTransactionBtn.BackgroundImage = CType(resources.GetObject("UpdateTransactionBtn.BackgroundImage"), System.Drawing.Image)
+        Me.UpdateTransactionBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.UpdateTransactionBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UpdateTransactionBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.UpdateTransactionBtn.Location = New System.Drawing.Point(219, 10)
+        Me.UpdateTransactionBtn.Name = "UpdateTransactionBtn"
+        Me.UpdateTransactionBtn.Size = New System.Drawing.Size(39, 39)
+        Me.UpdateTransactionBtn.TabIndex = 39
+        Me.UpdateTransactionBtn.UseVisualStyleBackColor = True
+        '
+        'NewTransactionBtn
+        '
+        Me.NewTransactionBtn.BackgroundImage = CType(resources.GetObject("NewTransactionBtn.BackgroundImage"), System.Drawing.Image)
+        Me.NewTransactionBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.NewTransactionBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NewTransactionBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.NewTransactionBtn.Location = New System.Drawing.Point(168, 10)
+        Me.NewTransactionBtn.Name = "NewTransactionBtn"
+        Me.NewTransactionBtn.Size = New System.Drawing.Size(45, 39)
+        Me.NewTransactionBtn.TabIndex = 38
+        Me.NewTransactionBtn.UseVisualStyleBackColor = True
+        '
+        'RefreshBtn
+        '
+        Me.RefreshBtn.BackgroundImage = CType(resources.GetObject("RefreshBtn.BackgroundImage"), System.Drawing.Image)
+        Me.RefreshBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.RefreshBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RefreshBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.RefreshBtn.Location = New System.Drawing.Point(405, 9)
+        Me.RefreshBtn.Name = "RefreshBtn"
+        Me.RefreshBtn.Size = New System.Drawing.Size(44, 39)
+        Me.RefreshBtn.TabIndex = 12
+        Me.RefreshBtn.UseVisualStyleBackColor = True
+        '
+        'ExportBtn
+        '
+        Me.ExportBtn.BackgroundImage = CType(resources.GetObject("ExportBtn.BackgroundImage"), System.Drawing.Image)
+        Me.ExportBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ExportBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ExportBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.ExportBtn.Location = New System.Drawing.Point(360, 9)
+        Me.ExportBtn.Name = "ExportBtn"
+        Me.ExportBtn.Size = New System.Drawing.Size(44, 39)
+        Me.ExportBtn.TabIndex = 11
+        Me.ExportBtn.Tag = "Export to Excel"
+        Me.ExportBtn.UseVisualStyleBackColor = True
+        '
+        'TrListDisplaybtn
+        '
+        Me.TrListDisplaybtn.BackgroundImage = CType(resources.GetObject("TrListDisplaybtn.BackgroundImage"), System.Drawing.Image)
+        Me.TrListDisplaybtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.TrListDisplaybtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TrListDisplaybtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.TrListDisplaybtn.Location = New System.Drawing.Point(264, 9)
+        Me.TrListDisplaybtn.Name = "TrListDisplaybtn"
+        Me.TrListDisplaybtn.Size = New System.Drawing.Size(43, 39)
+        Me.TrListDisplaybtn.TabIndex = 3
+        Me.TrListDisplaybtn.UseVisualStyleBackColor = True
+        '
+        'TrListViewPayBtn
+        '
+        Me.TrListViewPayBtn.BackgroundImage = CType(resources.GetObject("TrListViewPayBtn.BackgroundImage"), System.Drawing.Image)
+        Me.TrListViewPayBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.TrListViewPayBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TrListViewPayBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.TrListViewPayBtn.Location = New System.Drawing.Point(313, 9)
+        Me.TrListViewPayBtn.Name = "TrListViewPayBtn"
+        Me.TrListViewPayBtn.Size = New System.Drawing.Size(45, 39)
+        Me.TrListViewPayBtn.TabIndex = 2
+        Me.TrListViewPayBtn.UseVisualStyleBackColor = True
         '
         '_003_01_TrList
         '
@@ -465,8 +437,6 @@ Partial Class _003_01_TrList
     End Sub
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
     Friend WithEvents TrlistGrid As System.Windows.Forms.DataGridView
-    Friend WithEvents TrListAddBtn As System.Windows.Forms.Button
-    Friend WithEvents _003_02_TrDetail As System.Windows.Forms.Button
     Friend WithEvents TrListDisplaybtn As System.Windows.Forms.Button
     Friend WithEvents TrListViewPayBtn As System.Windows.Forms.Button
     Friend WithEvents ExportBtn As System.Windows.Forms.Button
@@ -501,6 +471,6 @@ Partial Class _003_01_TrList
     Friend WithEvents Column18 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column19 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column7 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents NewTransactionBtn As System.Windows.Forms.Button
+    Friend WithEvents UpdateTransactionBtn As System.Windows.Forms.Button
 End Class

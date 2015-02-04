@@ -6,6 +6,7 @@ Imports System.ComponentModel
 Imports MacsautoIndonesia.Printing.Page
 Imports MacsautoIndonesia.Printing
 Imports System.Drawing.Printing
+Imports System.Collections.Specialized
 
 Module GlobalModule
 #If DEBUG Then
@@ -69,6 +70,40 @@ Module GlobalModule
     Public Sub ValidateIntegerInput(ByVal txt As TextBox, Optional ByVal maxValue As Integer = 0)
         IntegerInputHandler(txt, maxValue)
     End Sub
+
+    <Extension>
+    Public Sub SafeAdd(ByVal collection As ArrayList, ByVal key As String, ByVal value As String)
+        Dim needToBeRemoved As List(Of String) = New List(Of String)()
+
+        For Each item As String In collection
+            If item.IndexOf(key & "=", StringComparison.Ordinal) = 0 Then
+                needToBeRemoved.Add(item)
+            End If
+        Next
+
+        For Each item As String In needToBeRemoved
+            collection.Remove(item)
+        Next
+
+        collection.Add(key & "=" & value)
+    End Sub
+
+    <Extension>
+    Public Function Find(ByVal collection As ArrayList, ByVal key As String) As String
+        For Each item As String In collection
+            Dim itemExploded As String() = item.Split("=")
+
+            If itemExploded.Count() = 0 Then
+                Return Nothing
+            Else
+                If itemExploded(0) = key Then
+                    Return itemExploded(1)
+                End If
+            End If
+        Next
+
+        Return Nothing
+    End Function
 
     Private Sub IntegerInputHandler(ByVal txt As TextBox, Optional ByVal maxValue As Integer = 0)
         If Not txt Is Nothing Then

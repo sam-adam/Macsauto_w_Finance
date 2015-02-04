@@ -1,4 +1,8 @@
-﻿Public Class _003_01_TrList
+﻿Imports MacsautoIndonesia.Services
+
+Public Class _003_01_TrList
+    Const AccountingNotReadyMsg As String = "Autopost configuration is invalid, please configure autopost accounts"
+
     Public Sub New()
         InitializeComponent()
 
@@ -99,11 +103,11 @@
         End If
     End Sub
 
-    Private Sub TrListEditBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles _003_02_TrDetail.Click
+    Private Sub TrListEditBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         loadDetail()
     End Sub
 
-    Private Sub TrListAddBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TrListAddBtn.Click
+    Private Sub TrListAddBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim form = New _003_02_TrDetail2
         form.CustomerPanel.Enabled = True
         form.Panel2.Enabled = True
@@ -219,19 +223,49 @@
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
-        Label2.Text = System.DateTime.Now.ToString("HH:mm:ss")
+        Label2.Text = DateTime.Now.ToString("HH:mm:ss")
     End Sub
 
- 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim trDetail As _003_07_TrDetail2 = New _003_07_TrDetail2(PointOfSalesMode.NewTransaction)
 
-        trDetail.ShowDialog()
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles NewTransactionBtn.Click
+        If Not TransactionService.IsAutopostReady() Then
+            MsgBox(AccountingNotReadyMsg, MsgBoxStyle.Critical Or vbOKOnly, "Warning")
+
+            Dim accountingConfiguration As _001_19_Accounting_Configuration = New _001_19_Accounting_Configuration()
+
+            accountingConfiguration.ShowDialog(Me)
+        Else
+            Dim trDetail As _003_07_TrDetail2 = New _003_07_TrDetail2(PointOfSalesMode.NewTransaction)
+
+            trDetail.ShowDialog()
+        End If
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim trDetail As _003_07_TrDetail2 = New _003_07_TrDetail2(PointOfSalesMode.ExistingTransaction, TrlistGrid.CurrentRow.Cells(0).Value)
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles UpdateTransactionBtn.Click
+        If Not TransactionService.IsAutopostReady() Then
+            MsgBox(AccountingNotReadyMsg, MsgBoxStyle.Critical Or vbOKOnly, "Warning")
 
-        trDetail.ShowDialog()
+            Dim accountingConfiguration As _001_19_Accounting_Configuration = New _001_19_Accounting_Configuration()
+
+            accountingConfiguration.ShowDialog(Me)
+        Else
+            Dim trDetail As _003_07_TrDetail2 = New _003_07_TrDetail2(PointOfSalesMode.ExistingTransaction, TrlistGrid.CurrentRow.Cells(0).Value)
+
+            trDetail.ShowDialog()
+        End If
+    End Sub
+
+    Private Sub TrlistGrid_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles TrlistGrid.CellDoubleClick
+        If Not TransactionService.IsAutopostReady() Then
+            MsgBox(AccountingNotReadyMsg, MsgBoxStyle.Critical Or vbOKOnly, "Warning")
+
+            Dim accountingConfiguration As _001_19_Accounting_Configuration = New _001_19_Accounting_Configuration()
+
+            accountingConfiguration.ShowDialog(Me)
+        Else
+            Dim trDetail As _003_07_TrDetail2 = New _003_07_TrDetail2(PointOfSalesMode.ExistingTransaction, TrlistGrid.CurrentRow.Cells(0).Value)
+
+            trDetail.ShowDialog()
+        End If
     End Sub
 End Class

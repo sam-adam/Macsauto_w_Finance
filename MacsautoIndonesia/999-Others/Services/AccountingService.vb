@@ -1,7 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Namespace Services
-
     Public Class AccountingService
         Public Const JournalStatusAll = 0
         Public Const JournalStatusCancelled = 1
@@ -101,6 +100,23 @@ Namespace Services
             journalDataTable.Load(ExecQueryReader(transactionJournalQuery))
 
             Return journalDataTable
+        End Function
+
+        Public Shared Function IsConfigurationValid(ByVal key As String) As Boolean
+            If My.Settings.AutomaticPostingConfiguration Is Nothing OrElse My.Settings.AutomaticPostingConfiguration.Find(key) Is Nothing Then
+                Return False
+            End If
+
+            Dim command As MySqlCommand = New MySqlCommand()
+            command.Connection = GetConnection()
+
+            command.CommandText = "SELECT glnum FROM glaccountms WHERE glnum = @accountId AND glsta = 'ACTIVE'"
+            command.CreateParameter()
+
+            command.Parameters.Clear()
+            command.Parameters.AddWithValue("accountId", My.Settings.AutomaticPostingConfiguration.Find(key))
+
+            Return (Not command.ExecuteScalar() Is Nothing)
         End Function
     End Class
 End Namespace
