@@ -87,5 +87,64 @@ Namespace Services
 
             Return Math.Abs(Math.Floor(grandTotal / basePoint))
         End Function
+
+        Public Shared Function CalculatePromotion(ByVal price As Double, ByVal promotion As DataRow) As Double
+            If promotion("ptype") = "3001" Then
+                Dim newPrice As Double = (price - promotion("pdamt"))
+
+                Return If(newPrice < 0, 0, newPrice)
+            Else
+                Return (price * ((100 - promotion("pdpct")) / 100))
+            End If
+        End Function
+
+        Public Shared Function FindBestPromotion(ByVal nonMemberOnly As Boolean, ByVal itemId As String, ByVal itemType As String, ByVal itemPrice As Double, Optional ByRef command As MySqlCommand = Nothing) As DataRow
+            If command Is Nothing Then
+                command = New MySqlCommand()
+                command.Connection = GetConnection()
+            End If
+
+            Dim promotionDataTable As DataTable = New DataTable()
+            Dim bestPromotionDataRow As DataRow = Nothing
+
+            command.CommandText =
+                "SELECT promotion.idpmt," & _
+                "   promotion.pmdcp," & _
+                "   promotion.ptype," & _
+                "   promotion.pdamt," & _
+                "   promotion.pdpct," & _
+                "   promoassignment.atype," & _
+                "   promoassignment.iditm," & _
+                "   promoassignment.idpmt," & _
+                "   promoassignment.begda," & _
+                "   promoassignment.endda," & _
+                "   promoassignment.astat," & _
+                "   promoassignment.ismem" & _
+                " FROM promoassignment" & _
+                " LEFT JOIN promotion ON promoassignment.idpmt = promotion.idpmt" & _
+                " WHERE DATE(NOW()) BETWEEN promoassignment.begda AND promoassignment.endda" & _
+                " AND promoassignment.astat = 'True'" & _
+                " AND promoassignment.atype = @itemType" & _
+                " AND promoassignment.iditm = @itemId" & _
+                " AND promoassignment.ismem = @isMember"
+            command.CreateParameter()
+
+            command.Parameters.Clear()
+            command.Parameters.AddWithValue("itemType", itemType)
+            command.Parameters.AddWithValue("itemId", itemId)
+            command.Parameters.AddWithValue("isMember", nonMemberOnly)
+
+            promotionDataTable.Load(command.ExecuteReader())
+
+            For Each promotion As DataRow In promotionDataTable.Rows
+                If bestPromotionDataRow Is Nothing Then
+                    bestPromotionDataRow = promotion
+                ElseIf CalculatePromotion(itemPrice, bestPromotionDataRow) < CalculatePromotion(itemPrice, promotion) Then
+                    bestPromotionDataRow = promotion
+                End If
+            Next
+
+            Return bestPromotionDataRow
+        End Function
     End Class
 End Namespace
