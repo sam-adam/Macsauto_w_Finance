@@ -21,9 +21,17 @@ Public Class _001_19_Accounting_Configuration
         _allAccountsDataTable = New DataTable()
         _allAccountsDataTable.Load(ExecQueryReader(AllAccountsQuery))
 
-        For Each account As DataRow In _allAccountsDataTable.Select("actid = 4")
+        For Each account As DataRow In _allAccountsDataTable.Select("actid = 1")
             CashPaymentCbo.Items.Add(New KeyValuePair(Of String, String)(account("glnum"), account("gldes")))
             CardPaymentCbo.Items.Add(New KeyValuePair(Of String, String)(account("glnum"), account("gldes")))
+        Next
+
+        For Each account As DataRow In _allAccountsDataTable.Select("actid = 4")
+            ProductSalesRevenueCbo.Items.Add(New KeyValuePair(Of String, String)(account("glnum"), account("gldes")))
+        Next
+
+        For Each account As DataRow In _allAccountsDataTable.Select("actid = 5")
+            CoGSCbo.Items.Add(New KeyValuePair(Of String, String)(account("glnum"), account("gldes")))
         Next
 
         If AccountingService.IsConfigurationValid("transaction_cash") Then
@@ -39,6 +47,20 @@ Public Class _001_19_Accounting_Configuration
                     Return item.Key = My.Settings.AutomaticPostingConfiguration.Find("transaction_card")
                 End Function)
         End If
+
+        If AccountingService.IsConfigurationValid("transaction_product_revenue") Then
+            ProductSalesRevenueCbo.SelectedItem = ProductSalesRevenueCbo.Items.OfType(Of KeyValuePair(Of String, String)).FirstOrDefault(
+                Function(item As KeyValuePair(Of String, String))
+                    Return item.Key = My.Settings.AutomaticPostingConfiguration.Find("transaction_product_revenue")
+                End Function)
+        End If
+
+        If AccountingService.IsConfigurationValid("transaction_cogs") Then
+            CoGSCbo.SelectedItem = CoGSCbo.Items.OfType(Of KeyValuePair(Of String, String)).FirstOrDefault(
+                Function(item As KeyValuePair(Of String, String))
+                    Return item.Key = My.Settings.AutomaticPostingConfiguration.Find("transaction_cogs")
+                End Function)
+        End If
     End Sub
 
     Private Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
@@ -46,6 +68,10 @@ Public Class _001_19_Accounting_Configuration
             ErrorInput(CashPaymentCbo, "Cash payment account is required")
         ElseIf CardPaymentCbo.SelectedItem Is Nothing Then
             ErrorInput(CardPaymentCbo, "Card payment account is required")
+        ElseIf CoGSCbo.SelectedItem Is Nothing Then
+            ErrorInput(CoGSCbo, "CoGS account is required")
+        ElseIf ProductSalesRevenueCbo.SelectedItem Is Nothing Then
+            ErrorInput(CoGSCbo, "Product sales revenue account is required")
         Else
             If My.Settings.AutomaticPostingConfiguration Is Nothing Then
                 My.Settings.AutomaticPostingConfiguration = New ArrayList()
@@ -53,6 +79,8 @@ Public Class _001_19_Accounting_Configuration
 
             My.Settings.AutomaticPostingConfiguration.SafeAdd("transaction_cash", CType(CashPaymentCbo.SelectedItem, KeyValuePair(Of String, String)).Key)
             My.Settings.AutomaticPostingConfiguration.SafeAdd("transaction_card", CType(CardPaymentCbo.SelectedItem, KeyValuePair(Of String, String)).Key)
+            My.Settings.AutomaticPostingConfiguration.SafeAdd("transaction_cogs", CType(CoGSCbo.SelectedItem, KeyValuePair(Of String, String)).Key)
+            My.Settings.AutomaticPostingConfiguration.SafeAdd("transaction_product_revenue", CType(ProductSalesRevenueCbo.SelectedItem, KeyValuePair(Of String, String)).Key)
             My.Settings.Save()
 
             MsgBox("Configuration is saved", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Success")

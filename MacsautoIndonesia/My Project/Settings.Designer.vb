@@ -113,7 +113,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("macsauto")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property Database() As String
             Get
                 Return CType(Me("Database"),String)

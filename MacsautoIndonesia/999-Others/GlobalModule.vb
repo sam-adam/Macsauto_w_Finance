@@ -90,6 +90,7 @@ Module GlobalModule
     End Sub
 
     <Extension>
+    <DebuggerStepThrough()>
     Public Function Find(ByVal collection As ArrayList, ByVal key As String) As String
         For Each item As String In collection
             Dim itemExploded As String() = item.Split("=")

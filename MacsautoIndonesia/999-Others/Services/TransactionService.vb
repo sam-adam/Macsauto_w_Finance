@@ -148,7 +148,10 @@ Namespace Services
         End Function
 
         Public Shared Function IsAutopostReady() As Boolean
-            Return AccountingService.IsConfigurationValid("transaction_cash") And AccountingService.IsConfigurationValid("transaction_card")
+            Return AccountingService.IsConfigurationValid("transaction_cash") And
+                AccountingService.IsConfigurationValid("transaction_card") And
+                AccountingService.IsConfigurationValid("transaction_cogs") And
+                AccountingService.IsConfigurationValid("transaction_product_revenue")
         End Function
     End Class
 End Namespace

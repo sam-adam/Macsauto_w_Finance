@@ -102,6 +102,8 @@ Public Class _003_07_TrDetail2
         "   hproduct.idpdt," & _
         "   hproduct.pdqty," & _
         "   hproduct.pdtds," & _
+        "   hproduct.ppamt," & _
+        "   hproduct.psamt," & _
         "   hservice.idsvc," & _
         "   hservice.svcdc" & _
         " FROM dtransaction" & _
@@ -224,6 +226,7 @@ Public Class _003_07_TrDetail2
                             transactionItem("pdqty"),
                             transactionItem("uomdc"),
                             transactionItem("price"),
+                            transactionItem("ppamt"),
                             transactionItem("idisc"),
                             transactionItem("trqty"),
                             True,
@@ -370,6 +373,7 @@ Public Class _003_07_TrDetail2
                     selectedProductRow("slqty"),
                     selectedProductRow("uodsc"),
                     If(bestPromotion Is Nothing, selectedProductRow("psamt"), TransactionService.CalculatePromotion(selectedProductRow("psamt"), bestPromotion)),
+                    selectedProductRow("ppamt"),
                     If(bestPromotion Is Nothing, 0, bestPromotion("pdpct")),
                     If(bestPromotion Is Nothing, "-", bestPromotion("pmdcp")),
                     False,
@@ -472,10 +476,14 @@ Public Class _003_07_TrDetail2
     End Sub
 
     Private Sub TransactionServiceDataGrid_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles TransactionServiceDataGrid.RowsAdded
+        RemoveServiceBtn.Enabled = (TransactionServiceDataGrid.Rows.Count > 0)
+
         Recalculate()
     End Sub
 
     Private Sub TransactionServiceDataGrid_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles TransactionServiceDataGrid.RowsRemoved
+        RemoveServiceBtn.Enabled = (TransactionServiceDataGrid.Rows.Count > 0)
+
         Recalculate()
     End Sub
 
@@ -775,6 +783,8 @@ Public Class _003_07_TrDetail2
         PrintPage(Me, transactionPage)
         '===========================================================================================================================================
 
+        TryPostJournal(newTransactionId, e.PaymentForm.SelectedPaymentType)
+
         MsgBox("Transaction saved", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Success")
 
         _paymentForm.Close()
@@ -896,88 +906,132 @@ Public Class _003_07_TrDetail2
         command.ExecuteNonQuery()
 
         TransactionItemsInsert(command, TransactionIdLbl.Text, TransactionServiceDataGrid.Rows.OfType(Of DataGridViewRow).Where(
-                               Function(row As DataGridViewRow)
-                                   Return row.Cells(ServicePreAddedCol.Index).Value = False
-                               End Function).ToArray(), TransactionProductDataGrid.Rows.OfType(Of DataGridViewRow).Where(
-                               Function(row As DataGridViewRow)
-                                   Return row.Cells(ProductPreAddedCol.Index).Value = False
-                               End Function).ToArray())
+            Function(row As DataGridViewRow)
+                Return row.Cells(ServicePreAddedCol.Index).Value = False
+            End Function).ToArray(), TransactionProductDataGrid.Rows.OfType(Of DataGridViewRow).Where(
+            Function(row As DataGridViewRow)
+                Return row.Cells(ProductPreAddedCol.Index).Value = False
+            End Function).ToArray())
 
         Return TransactionIdLbl.Text
     End Function
 
     Private Sub TryPostJournal(ByVal transactionId As String, ByVal paymentMethod As String)
-        Dim glAccounts As New Dictionary(Of String, Dictionary(Of String, String))
-        Dim serviceQuery As String = "SELECT idsvc, glnum" & _
+        Dim serviceAccountsDataTable As DataTable = New DataTable()
+        Dim productAccountsDataTable As DataTable = New DataTable()
+
+        Dim serviceAccounts As Dictionary(Of String, Double) = New Dictionary(Of String, Double)()
+        Dim serviceQuery As String =
+            "SELECT hservice.idsvc, hservice.glnum" & _
             " FROM hservice" & _
-            " WHERE idsvc IN (" & String.Join(", ", TransactionServiceDataGrid.Rows.OfType(Of DataGridViewRow).Select(Function(row) "'" & row.Cells(1).Value.ToString() & "'")) & ")"
-        Dim productQuery As String = "SELECT idpdt, glnum" & _
-            " FROM hproduct" & _
-            " WHERE idpdt IN (" & String.Join(", ", TransactionProductDataGrid.Rows.OfType(Of DataGridViewRow).Select(Function(row) "'" & row.Cells(1).Value.ToString() & "'")) & ")"
-        Dim reader As MySqlDataReader
+            " RIGHT JOIN glaccountms ON hservice.glnum = glaccountms.glnum AND glaccountms.glsta = 'Active'" & _
+            " WHERE hservice.idsvc IN (" & String.Join(", ", TransactionServiceDataGrid.Rows.OfType(Of DataGridViewRow).Select(Function(row) "'" & row.Cells(ServiceIdCol.Index).Value.ToString() & "'")) & ")"
 
         If TransactionServiceDataGrid.Rows.Count > 0 Then
-            reader = ExecQueryReader(serviceQuery)
+            serviceAccountsDataTable.Load(ExecQueryReader(serviceQuery))
 
-            While reader.Read()
-                Dim dictionary As New Dictionary(Of String, String)
-                Dim row As DataGridViewRow = TransactionServiceDataGrid.Rows.OfType(Of DataGridViewRow).First(Function(rowItem) rowItem.Cells(1).Value.ToString() = reader("idsvc").ToString())
-                Dim subTotal As Double = Double.Parse(row.Cells(3).Value) * Double.Parse(row.Cells(5).Value)
+            For Each serviceAccount As DataRow In serviceAccountsDataTable.Rows
+                Dim row As DataGridViewRow = TransactionServiceDataGrid.Rows.OfType(Of DataGridViewRow).First(Function(rowItem) rowItem.Cells(ServiceIdCol.Index).Value.ToString() = serviceAccount("idsvc"))
+                Dim subTotal As Double = 0
 
-                If Not String.IsNullOrEmpty(row.Cells(6).Value) And Not row.Cells(6).Value = "0" Then
-                    subTotal -= (subTotal * (Integer.Parse(row.Cells(6).Value)) / 100)
+                If row.Cells(ServiceRemarksCol.Index).Value <> "-" Then
+                    If row.Cells(ServiceDiscountCol.Index).Value = 0 Then
+                        subTotal = Double.Parse(row.Cells(ServicePriceCol.Index).Value)
+                    Else
+                        subTotal = Double.Parse(row.Cells(ServicePriceCol.Index).Value) * (100 - Double.Parse(row.Cells(ServiceDiscountCol.Index).Value)) / 100
+                    End If
+                Else
+                    subTotal = Double.Parse(row.Cells(ServicePriceCol.Index).Value)
                 End If
 
-                dictionary.Add("id", reader("idsvc").ToString())
-                dictionary.Add("glaccount", reader("glnum").ToString())
-                dictionary.Add("amount", subTotal)
-
-                glAccounts.Add("SERVICE-" & reader("idsvc").ToString(), dictionary)
-            End While
-        End If
-
-        If TransactionProductDataGrid.Rows.Count > 0 Then
-            reader = ExecQueryReader(productQuery)
-
-            While reader.Read()
-                Dim dictionary As New Dictionary(Of String, String)
-                Dim row As DataGridViewRow = TransactionProductDataGrid.Rows.OfType(Of DataGridViewRow).First(Function(rowItem) rowItem.Cells(1).Value.ToString() = reader("idpdt").ToString())
-                Dim subTotal As Double = Double.Parse(row.Cells(3).Value) * Double.Parse(row.Cells(5).Value)
-
-                If Not String.IsNullOrEmpty(row.Cells(6).Value) And Not row.Cells(6).Value = "0" Then
-                    subTotal -= (subTotal * (Integer.Parse(row.Cells(6).Value)) / 100)
+                If serviceAccounts.ContainsKey(serviceAccount("glnum")) Then
+                    serviceAccounts(serviceAccount("glnum")) += subTotal
+                Else
+                    serviceAccounts(serviceAccount("glnum")) = subTotal
                 End If
-
-                dictionary.Add("id", reader("idpdt").ToString())
-                dictionary.Add("glaccount", reader("glnum").ToString())
-                dictionary.Add("amount", subTotal)
-                glAccounts.Add("PRODUCT-" & reader("idpdt").ToString(), dictionary)
-            End While
+            Next
         End If
 
-        If glAccounts.Count = (TransactionServiceDataGrid.Rows.Count + TransactionProductDataGrid.Rows.Count) Then
+        If serviceAccountsDataTable.Rows.Count = TransactionServiceDataGrid.Rows.Count And productAccountsDataTable.Rows.Count = TransactionProductDataGrid.Rows.Count Then
             DoInTransaction(
                 Function(command As MySqlCommand)
-                    command.CommandText = "INSERT INTO jourhd(docdt, pstdt, rfdoc, rmark, dstat, uname, cgdat, dtnum, cancl) VALUES(NOW(), NOW(), '" & transactionId & "', 'AUTOPOST TRANSAKSI', '', '" & LoggedInEmployee.Id & "', '0000-00-00', 'TR', '' FROM jourhd)"
-                    ExecQueryNonReader("INSERT INTO jourhd (SELECT (COUNT(*) + 1), NOW(), NOW(), '" & transactionId & "', 'AUTOPOST TRANSAKSI', '', '" & LoggedInEmployee.Id & "', '0000-00-00', 'TR', '' FROM jourhd)")
+                    command.CommandText = "INSERT INTO jourhd(docdt, pstdt, rfdoc, rmark, dstat, uname, cgdat, dtnum, cancl) VALUES(NOW(), NOW(), @referenceId, @remark, '', @employeeId, '0000-00-00', 'TR', '')"
+                    command.CreateParameter()
 
-                    Dim jourReader As MySqlDataReader = ExecQueryReader("SELECT docid FROM jourhd ORDER BY docid DESC LIMIT 1")
+                    command.Parameters.Clear()
+                    command.Parameters.AddWithValue("referenceId", transactionId)
+                    command.Parameters.AddWithValue("remark", "AUTOPOST TRANSAKSI")
+                    command.Parameters.AddWithValue("employeeId", LoggedInEmployee.Id)
 
-                    If (jourReader.Read()) Then
-                        Dim newJournalId As String = jourReader(0)
+                    command.ExecuteNonQuery()
 
-                        If paymentMethod = "Cash" Then
-                            ExecQueryNonReader("INSERT INTO jourdt VALUES('" & newJournalId & "', '1000.01', '10', '" & GrandTotal & "', '')")
-                        Else
-                            ExecQueryNonReader("INSERT INTO jourdt VALUES('" & newJournalId & "', '1000.02', '10', '" & GrandTotal & "', '')")
-                        End If
+                    command.CommandText = "SELECT docid FROM jourhd ORDER BY docid DESC LIMIT 1"
+                    Dim newJournalId As String = command.ExecuteScalar()
 
-                        For Each glAccount In glAccounts
-                            ExecQueryNonReader("INSERT INTO jourdt VALUES('" & newJournalId & "', '" & glAccount.Value("glaccount") & "', '20', '" & glAccount.Value("amount") & "', '')")
+                    command.CommandText = "INSERT INTO jourdt(docid, glnum, pstky, psamt, notes) VALUES(@journalId, @accountId, @postingKey, @postingAmount, @notes)"
+
+                    command.Parameters.Clear()
+                    command.Parameters.AddWithValue("journalId", newJournalId)
+                    command.Parameters.AddWithValue("accountId", If(paymentMethod = "Cash", My.Settings.AutomaticPostingConfiguration.Find("transaction_cash"), My.Settings.AutomaticPostingConfiguration.Find("transaction_card")))
+                    command.Parameters.AddWithValue("postingKey", 10)
+                    command.Parameters.AddWithValue("postingAmount", GrandTotal)
+                    command.Parameters.AddWithValue("notes", "")
+
+                    command.ExecuteNonQuery()
+
+                    If TransactionProductDataGrid.Rows.Count > 0 Then
+                        Dim totalCogs As Double = 0
+
+                        command.Parameters.Clear()
+                        command.Parameters.AddWithValue("journalId", newJournalId)
+                        command.Parameters.AddWithValue("accountId", My.Settings.AutomaticPostingConfiguration.Find("transaction_product_revenue"))
+                        command.Parameters.AddWithValue("postingKey", 20)
+                        command.Parameters.AddWithValue("postingAmount", ProductSubtotal)
+                        command.Parameters.AddWithValue("notes", "")
+
+                        command.ExecuteNonQuery()
+
+                        '=====================================================================================================================================================
+                        ' Product CoGS Posting
+                        '=====================================================================================================================================================
+                        For Each row As DataGridViewRow In TransactionProductDataGrid.Rows
+                            Dim account As String = productAccountsDataTable.Select("idpdt = '" & row.Cells(ProductIdCol.Index).Value & "'").FirstOrDefault()("glnum")
+
+                            totalCogs += Double.Parse(row.Cells(ProductPurchasePriceCol.Index).Value)
+
+                            command.Parameters.Clear()
+                            command.Parameters.AddWithValue("journalId", newJournalId)
+                            command.Parameters.AddWithValue("accountId", account)
+                            command.Parameters.AddWithValue("postingKey", 20)
+                            command.Parameters.AddWithValue("postingAmount", Double.Parse(row.Cells(ProductPurchasePriceCol.Index).Value))
+                            command.Parameters.AddWithValue("notes", "")
+
+                            command.ExecuteNonQuery()
                         Next
+
+                        command.Parameters.Clear()
+                        command.Parameters.AddWithValue("journalId", newJournalId)
+                        command.Parameters.AddWithValue("accountId", My.Settings.AutomaticPostingConfiguration.Find("transaction_cogs"))
+                        command.Parameters.AddWithValue("postingKey", 10)
+                        command.Parameters.AddWithValue("postingAmount", totalCogs)
+                        command.Parameters.AddWithValue("notes", "")
+
+                        command.ExecuteNonQuery()
+                        '=====================================================================================================================================================
                     End If
 
-                    jourReader.Close()
+                    If TransactionServiceDataGrid.Rows.Count > 0 Then
+                        For Each account As KeyValuePair(Of String, Double) In serviceAccounts
+                            command.Parameters.Clear()
+                            command.Parameters.AddWithValue("journalId", newJournalId)
+                            command.Parameters.AddWithValue("accountId", account.Key)
+                            command.Parameters.AddWithValue("postingKey", 10)
+                            command.Parameters.AddWithValue("postingAmount", account.Value)
+                            command.Parameters.AddWithValue("notes", "")
+
+                            command.ExecuteNonQuery()
+                        Next
+                    End If
 
                     Return True
                 End Function)

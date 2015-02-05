@@ -8,20 +8,13 @@ Public Class _003_01_TrList
 
         loadTransactionList()
 
-        Label2.Text = System.DateTime.Now.ToString("HH:mm:ss")
+        Label2.Text = DateTime.Now.ToString("HH:mm:ss")
 
         Timer1.Interval = 1000
         Timer1.Start()
         Label3.Text = Today.Date
     End Sub
 
-    Private Function generateCustomerPoint() As Integer
-        Dim point As Integer
-
-        point = Math.Round(100000 / Integer.Parse(getText("SELECT pbase from basepoint", 0)))
-
-        Return point
-    End Function
     Public Sub loadTransactionList()
         TrlistGrid.Rows.Clear()
         reader = ExecQueryReader("SELECT * FROM HTRANSACTION WHERE trstat = 'Open' OR trstat = 'OPEN' order by trdat,trsid desc")
@@ -45,82 +38,6 @@ Public Class _003_01_TrList
         While reader.read()
             _003_02_TrDetail2.ProductGrid.Rows.Add(reader(0).ToString, reader(1).ToString, reader(2).ToString, reader(3).ToString, reader(4).ToString, reader(6).ToString, reader(5).ToString, reader(7).ToString, reader(8).ToString)
         End While
-    End Sub
-    Private Sub loadDetail()
-        ' Try
-        If TrlistGrid.Rows.Count <> 0 Then
-            Try
-                _003_02_TrDetail2.SizeNumber = getText("SELECT idsiz FROM vehicleSize WHERE sizdc = '" + TrlistGrid.CurrentRow.Cells(7).Value.ToString + "' ", 0)
-            Catch ex As Exception
-
-            End Try
-            _003_02_TrDetail2.TextBox4.Text = TrlistGrid.CurrentRow.Cells(0).Value.ToString
-            _003_02_TrDetail2.cNumber.Text = TrlistGrid.CurrentRow.Cells(2).Value.ToString
-            _003_02_TrDetail2.vType.Text = TrlistGrid.CurrentRow.Cells(3).Value.ToString
-            _003_02_TrDetail2.vBrand.Text = TrlistGrid.CurrentRow.Cells(4).Value.ToString
-            _003_02_TrDetail2.vModel.Text = TrlistGrid.CurrentRow.Cells(5).Value.ToString
-            _003_02_TrDetail2.vColor.Text = TrlistGrid.CurrentRow.Cells(6).Value.ToString
-            _003_02_TrDetail2.vSize.Text = TrlistGrid.CurrentRow.Cells(7).Value.ToString
-            _003_02_TrDetail2.vKilo.Text = TrlistGrid.CurrentRow.Cells(8).Value.ToString
-            _003_02_TrDetail2.vNumber.Text = TrlistGrid.CurrentRow.Cells(9).Value.ToString
-            _003_02_TrDetail2.vExpDate.Value = TrlistGrid.CurrentRow.Cells(10).Value.ToString()
-            _003_02_TrDetail2.totalService.Text = TrlistGrid.CurrentRow.Cells(11).Value.ToString()
-            _003_02_TrDetail2.totalProduct.Text = TrlistGrid.CurrentRow.Cells(12).Value.ToString()
-            _003_02_TrDetail2.GrandTotal.Text = TrlistGrid.CurrentRow.Cells(13).Value.ToString()
-            _003_02_TrDetail2.ServStatus.Text = TrlistGrid.CurrentRow.Cells(17).Value.ToString()
-            _003_02_TrDetail2.PayMethod.Text = TrlistGrid.CurrentRow.Cells(15).Value.ToString()
-            loadServiceTable()
-            loadProductTable()
-            If getText("SELECT count(*) from payment where trsid = '" + TrlistGrid.CurrentRow.Cells(0).Value.ToString() + "'", 0) = 0 Then
-                _003_02_TrDetail2.remainAR = TrlistGrid.CurrentRow.Cells(13).Value.ToString()
-            Else
-                _003_02_TrDetail2.remainAR = Integer.Parse(TrlistGrid.CurrentRow.Cells(13).Value.ToString()) - Integer.Parse(getText("select sum(pyamt) from payment where trsid like '" + TrlistGrid.CurrentRow.Cells(0).Value.ToString + "'", 0))
-            End If
-            MsgBox(TrlistGrid.CurrentRow.Cells(16).Value.ToString)
-            If TrlistGrid.CurrentRow.Cells(16).Value.ToString = "PAID" Then
-                _003_02_TrDetail2.PricePanel.Visible = False
-                _003_02_TrDetail2.PaymentPanel.Visible = False
-                _003_02_TrDetail2.RemainingAR.Visible = False
-                _003_02_TrDetail2.SaveBtn.Visible = False
-                _003_02_TrDetail2.voidBtn.Visible = False
-                _003_02_TrDetail2.QUEUE.Visible = False
-            Else
-                _003_02_TrDetail2.PricePanel.Visible = True
-                _003_02_TrDetail2.PaymentPanel.Visible = True
-                _003_02_TrDetail2.RemainingAR.Visible = True
-                _003_02_TrDetail2.SaveBtn.Visible = True
-                _003_02_TrDetail2.voidBtn.Visible = True
-                _003_02_TrDetail2.QUEUE.Visible = True
-
-                _003_02_TrDetail2.DEBT.Text = _003_02_TrDetail2.remainAR
-                _003_02_TrDetail2.PaymentPanel.Enabled = True
-                _003_02_TrDetail2.ProductPanel.Enabled = True
-                _003_02_TrDetail2.ServicePanel.Enabled = True
-                _003_02_TrDetail2.SaveBtn.Enabled = True
-                _003_02_TrDetail2.voidBtn.Enabled = True
-            End If
-            _003_02_TrDetail2.ShowDialog()
-        End If
-    End Sub
-
-    Private Sub TrListEditBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        loadDetail()
-    End Sub
-
-    Private Sub TrListAddBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Dim form = New _003_02_TrDetail2
-        form.CustomerPanel.Enabled = True
-        form.Panel2.Enabled = True
-        form.ServicePanel.Enabled = True
-        form.ProductPanel.Enabled = True
-        form.PricePanel.Enabled = True
-        form.PaymentPanel.Enabled = True
-        form.SaveBtn.Enabled = True
-        form.voidBtn.Enabled = True
-        form.Column14.FalseValue = True
-        form.QUEUE.Enabled = True
-
-        form.ShowDialog()
     End Sub
 
     Private Sub TrListDisplaybtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TrListDisplaybtn.Click
@@ -179,21 +96,6 @@ Public Class _003_01_TrList
     Private Sub RefreshBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RefreshBtn.Click
         loadTransactionList()
     End Sub
-
-    Private Sub TrlistGrid_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TrlistGrid.DoubleClick
-        loadDetail()
-    End Sub
-
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        'MsgBox(Math.Round(100000 / Integer.Parse(getText("select pbase from basepoint", 0))))
-        Dim i As Integer
-        i = generateCustomerPoint()
-        MsgBox(i)
-        MsgBox("UPDATE HTransaction set tpoin = tpoin + " & i & " where trsid like '001/12-2013/0000/001'")
-    End Sub
-
-
-
 
     Private Sub RadioButton3_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton3.CheckedChanged
         TrlistGrid.Rows.Clear()

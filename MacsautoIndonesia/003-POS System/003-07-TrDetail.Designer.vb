@@ -119,6 +119,7 @@ Partial Class _003_07_TrDetail2
         Me.ProductRemainingQtyCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductMeasurementCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductPriceCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductPurchasePriceCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductDiscountCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductRemarksCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductPreAddedCol = New System.Windows.Forms.DataGridViewCheckBoxColumn()
@@ -730,7 +731,7 @@ Partial Class _003_07_TrDetail2
         Me.TransactionProductDataGrid.AllowUserToDeleteRows = False
         Me.TransactionProductDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.TransactionProductDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.TransactionProductDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ProductIdCol, Me.ProductDescCol, Me.ProductQuantityCol, Me.ProductRemainingQtyCol, Me.ProductMeasurementCol, Me.ProductPriceCol, Me.ProductDiscountCol, Me.ProductRemarksCol, Me.ProductPreAddedCol, Me.ProductMinQuantityCol})
+        Me.TransactionProductDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ProductIdCol, Me.ProductDescCol, Me.ProductQuantityCol, Me.ProductRemainingQtyCol, Me.ProductMeasurementCol, Me.ProductPriceCol, Me.ProductPurchasePriceCol, Me.ProductDiscountCol, Me.ProductRemarksCol, Me.ProductPreAddedCol, Me.ProductMinQuantityCol})
         Me.TransactionProductDataGrid.Dock = System.Windows.Forms.DockStyle.Top
         Me.TransactionProductDataGrid.Location = New System.Drawing.Point(0, 0)
         Me.TransactionProductDataGrid.Margin = New System.Windows.Forms.Padding(4)
@@ -1102,6 +1103,14 @@ Partial Class _003_07_TrDetail2
         Me.ProductPriceCol.ReadOnly = True
         Me.ProductPriceCol.Width = 61
         '
+        'ProductPurchasePriceCol
+        '
+        Me.ProductPurchasePriceCol.HeaderText = "Purchase Price"
+        Me.ProductPurchasePriceCol.Name = "ProductPurchasePriceCol"
+        Me.ProductPurchasePriceCol.ReadOnly = True
+        Me.ProductPurchasePriceCol.Visible = False
+        Me.ProductPurchasePriceCol.Width = 117
+        '
         'ProductDiscountCol
         '
         DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
@@ -1275,6 +1284,7 @@ Partial Class _003_07_TrDetail2
     Friend WithEvents ProductRemainingQtyCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ProductMeasurementCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ProductPriceCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ProductPurchasePriceCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ProductDiscountCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ProductRemarksCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ProductPreAddedCol As System.Windows.Forms.DataGridViewCheckBoxColumn
