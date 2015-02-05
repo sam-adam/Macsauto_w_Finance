@@ -29,13 +29,17 @@ Module Module1
     End Function
 
     Public Sub ExecQueryNonReader(ByVal query)
-        con.Close()
-        con.Open()
-        Dim dataTable As New System.Data.DataTable
-        Dim adapter As New MySqlDataAdapter(query, con)
-        Dim cb As New MySqlCommandBuilder(adapter)
-        adapter.Fill(dataTable)
-        con.Close()
+        Try
+            con.Close()
+            con.Open()
+            Dim dataTable As New System.Data.DataTable
+            Dim adapter As New MySqlDataAdapter(query, con)
+            Dim cb As New MySqlCommandBuilder(adapter)
+            adapter.Fill(dataTable)
+            con.Close()
+        Catch ex As Exception
+            ex.Handle()
+        End Try
     End Sub
 
     Public Sub loadTable(ByVal query As String, ByVal DataGridView As DataGridView)
@@ -50,13 +54,17 @@ Module Module1
 
     End Sub
     Public Function ExecQueryReader(ByVal query)
-        con.Close()
-        con.Open()
-        Dim adapter As New MySqlCommand(query, con)
-        Dim reader As MySqlDataReader = adapter.ExecuteReader
-        Return reader
-        con.Close()
+        Try
+            con.Close()
+            con.Open()
 
+            Dim adapter As New MySqlCommand(query, con)
+            Dim reader As MySqlDataReader = adapter.ExecuteReader
+
+            Return reader
+        Catch ex As Exception
+            ex.Handle()
+        End Try
     End Function
     Function toCurrencyFormat(ByVal number As String)
         Return FormatNumber(number, TriState.True, TriState.True, TriState.True).ToString()
@@ -351,11 +359,11 @@ Module Module1
         Catch ex As MySqlException
             transaction.Rollback()
 
-            Throw
+            ex.Handle()
         Catch ex As Exception
             transaction.Rollback()
 
-            Throw
+            ex.Handle()
         End Try
     End Sub
 
@@ -388,7 +396,7 @@ Module Module1
 
             Return con
         Catch ex As MySqlException
-            Throw
+            ex.Handle()
         End Try
     End Function
 End Module

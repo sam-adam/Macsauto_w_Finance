@@ -6,7 +6,8 @@ Imports System.ComponentModel
 Imports MacsautoIndonesia.Printing.Page
 Imports MacsautoIndonesia.Printing
 Imports System.Drawing.Printing
-Imports System.Collections.Specialized
+Imports System.Net.Mail
+Imports System.Net
 
 Module GlobalModule
 #If DEBUG Then
@@ -134,6 +135,74 @@ Module GlobalModule
                     End If
                 End Sub
         End If
+    End Sub
+
+    <Extension>
+    Public Sub Handle(ByVal exception As Exception)
+        Dim backgroundWorker As BackgroundWorker = New BackgroundWorker()
+
+        AddHandler backgroundWorker.DoWork,
+            Sub(sender As Object, evt As DoWorkEventArgs)
+                Dim ex As Exception = CType(evt.Argument, Exception)
+                Dim body As String = ex.Message
+
+                body &= Environment.NewLine
+                body &= ex.StackTrace
+
+                body &= Environment.NewLine & Environment.NewLine
+
+                body &= "Open Forms:"
+                body &= Environment.NewLine
+
+                For Each form As Form In Application.OpenForms
+                    body &= form.Name & " - "
+                Next
+
+                Dim graph As Graphics
+                Dim bmp As Bitmap = New Bitmap(1280, 768)
+
+                graph = Graphics.FromImage(bmp)
+                graph.CopyFromScreen(0, 0, 0, 0, New Size(1280, 768))
+
+                Dim path As String = (IO.Path.GetTempPath() & "/" & Guid.NewGuid().ToString() & ".png")
+                bmp.Save(path)
+
+                bmp.Dispose()
+                graph.Dispose()
+
+                Dim attachment As Attachment = New Attachment(path, "image/png")
+
+                SendMail("Macsauto Auto Exception Report - " & LoggedInEmployee.Company.Name, body, {attachment})
+            End Sub
+
+        backgroundWorker.RunWorkerAsync(exception)
+
+        Throw exception
+    End Sub
+
+    Public Sub SendMail(ByVal subject As String, ByVal body As String, Optional mailAttachments As Attachment() = Nothing)
+        Dim smtp As SmtpClient = New SmtpClient()
+        Dim mail As MailMessage = New MailMessage()
+
+        smtp.UseDefaultCredentials = False
+        smtp.Credentials = New NetworkCredential("samuel.suhendra@gmail.com", "samueladamsuhendra")
+        smtp.Host = "smtp.gmail.com"
+        smtp.Port = 587
+        smtp.EnableSsl = True
+
+        mail.From = New MailAddress("samuel.suhendra@gmail.com")
+        mail.To.Add("samuel.suhendra@gmail.com,surya.wijaya12@gmail.com")
+        mail.Subject = subject
+        mail.Body = body
+        mail.BodyEncoding = Encoding.UTF8
+
+        If Not mailAttachments Is Nothing Then
+            For Each mailAttachment As Attachment In mailAttachments
+                mail.Attachments.Add(mailAttachment)
+            Next
+        End If
+
+        smtp.Send(mail)
     End Sub
 
     Public Sub BackupDatabase(ByVal mysqlDumper As String, ByVal database As String, ByVal outputPath As String, ByVal user As String, ByVal password As String)
