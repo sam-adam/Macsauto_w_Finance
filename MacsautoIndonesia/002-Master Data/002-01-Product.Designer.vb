@@ -22,16 +22,26 @@ Partial Class _002_01_Product
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle33 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle36 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_002_01_Product))
-        Dim DataGridViewCellStyle37 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle38 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle39 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle40 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle34 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle35 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ProductGridView = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column14 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Remove = New System.Windows.Forms.Button()
         Me.Edit = New System.Windows.Forms.Button()
         Me.save = New System.Windows.Forms.Button()
@@ -86,19 +96,9 @@ Partial Class _002_01_Product
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.SplitContainer3 = New System.Windows.Forms.SplitContainer()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column14 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.ProductGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
@@ -133,30 +133,100 @@ Partial Class _002_01_Product
         '
         Me.ProductGridView.AllowUserToAddRows = False
         Me.ProductGridView.AllowUserToDeleteRows = False
-        DataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle33.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.ProductGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle33
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.ProductGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
         Me.ProductGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ProductGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column9, Me.Column10, Me.Column2, Me.Column3, Me.Column12, Me.Column4, Me.Column8, Me.Column13, Me.Column14})
-        DataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.ActiveBorder
-        DataGridViewCellStyle36.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.ProductGridView.DefaultCellStyle = DataGridViewCellStyle36
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.ActiveBorder
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.ProductGridView.DefaultCellStyle = DataGridViewCellStyle12
         Me.ProductGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ProductGridView.Location = New System.Drawing.Point(0, 0)
         Me.ProductGridView.Name = "ProductGridView"
         Me.ProductGridView.ReadOnly = True
         Me.ProductGridView.Size = New System.Drawing.Size(922, 260)
         Me.ProductGridView.TabIndex = 0
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Product #"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Width = 120
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "PTID"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Visible = False
+        '
+        'Column10
+        '
+        Me.Column10.HeaderText = "Type"
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Description"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 200
+        '
+        'Column3
+        '
+        DataGridViewCellStyle10.Format = "C2"
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle10
+        Me.Column3.HeaderText = "Prch. Price"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 150
+        '
+        'Column12
+        '
+        DataGridViewCellStyle11.Format = "C2"
+        Me.Column12.DefaultCellStyle = DataGridViewCellStyle11
+        Me.Column12.HeaderText = "Sales Price"
+        Me.Column12.Name = "Column12"
+        Me.Column12.ReadOnly = True
+        Me.Column12.Width = 150
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Total QTY"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Width = 120
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "Unit"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        '
+        'Column13
+        '
+        Me.Column13.HeaderText = "GL Act."
+        Me.Column13.Name = "Column13"
+        Me.Column13.ReadOnly = True
+        '
+        'Column14
+        '
+        Me.Column14.HeaderText = "Consumable"
+        Me.Column14.Name = "Column14"
+        Me.Column14.ReadOnly = True
         '
         'Remove
         '
@@ -495,8 +565,8 @@ Partial Class _002_01_Product
         '
         Me.ProdSLoc.AllowUserToAddRows = False
         Me.ProdSLoc.AllowUserToDeleteRows = False
-        DataGridViewCellStyle37.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ProdSLoc.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle37
+        DataGridViewCellStyle13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ProdSLoc.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle13
         Me.ProdSLoc.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.ProdSLoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ProdSLoc.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column5, Me.Column6, Me.Column7, Me.Column11})
@@ -507,23 +577,23 @@ Partial Class _002_01_Product
         '
         'Column5
         '
-        DataGridViewCellStyle38.BackColor = System.Drawing.Color.LightGray
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle38
+        DataGridViewCellStyle14.BackColor = System.Drawing.Color.LightGray
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle14
         Me.Column5.HeaderText = "Storage #"
         Me.Column5.Name = "Column5"
         '
         'Column6
         '
-        DataGridViewCellStyle39.BackColor = System.Drawing.Color.LightGray
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle39
+        DataGridViewCellStyle15.BackColor = System.Drawing.Color.LightGray
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle15
         Me.Column6.HeaderText = "Storage Location"
         Me.Column6.Name = "Column6"
         Me.Column6.Width = 200
         '
         'Column7
         '
-        DataGridViewCellStyle40.BackColor = System.Drawing.Color.LightGray
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle40
+        DataGridViewCellStyle16.BackColor = System.Drawing.Color.LightGray
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle16
         Me.Column7.HeaderText = "Qty"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
@@ -780,6 +850,15 @@ Partial Class _002_01_Product
         Me.Panel1.Size = New System.Drawing.Size(922, 45)
         Me.Panel1.TabIndex = 25
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(17, 12)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 1
+        Me.Button2.Text = "EXPORT"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Label14
         '
         Me.Label14.AutoSize = True
@@ -810,85 +889,6 @@ Partial Class _002_01_Product
         Me.SplitContainer3.Size = New System.Drawing.Size(922, 250)
         Me.SplitContainer3.SplitterDistance = 791
         Me.SplitContainer3.TabIndex = 0
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Product #"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Width = 120
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "PTID"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        Me.Column9.Visible = False
-        '
-        'Column10
-        '
-        Me.Column10.HeaderText = "Type"
-        Me.Column10.Name = "Column10"
-        Me.Column10.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Description"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        Me.Column2.Width = 200
-        '
-        'Column3
-        '
-        DataGridViewCellStyle34.Format = "C2"
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle34
-        Me.Column3.HeaderText = "Prch. Price"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 150
-        '
-        'Column12
-        '
-        DataGridViewCellStyle35.Format = "C2"
-        Me.Column12.DefaultCellStyle = DataGridViewCellStyle35
-        Me.Column12.HeaderText = "Sales Price"
-        Me.Column12.Name = "Column12"
-        Me.Column12.ReadOnly = True
-        Me.Column12.Width = 150
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Total QTY"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        Me.Column4.Width = 120
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "Unit"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        '
-        'Column13
-        '
-        Me.Column13.HeaderText = "GL Act."
-        Me.Column13.Name = "Column13"
-        Me.Column13.ReadOnly = True
-        '
-        'Column14
-        '
-        Me.Column14.HeaderText = "Consumable"
-        Me.Column14.Name = "Column14"
-        Me.Column14.ReadOnly = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(17, 12)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "EXPORT"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         '_002_01_Product
         '

@@ -220,7 +220,7 @@
                         End If
                     End While
 
-                    ExecQueryNonReader("INSERT INTO HPRODUCT VALUES('" + ProductID.Text + "','" + ProductType.SelectedItem.ToString.Substring(0, 4) + "','" + ProductDesc.Text + "','0','" + getText("SELECT iduom FROM uom WHERE uodsc ='" + UOMcBo.SelectedItem.ToString + "'", 0) + "','" + prodAmt.Text + "','" + ProdSAmt.Text + "','" + GLNumber.Text + "')")
+                    ExecQueryNonReader("INSERT INTO HPRODUCT VALUES('" + ProductID.Text + "','" + ProductType.SelectedItem.ToString.Substring(0, 4) + "','" + ProductDesc.Text + "','0','" + getText("SELECT iduom FROM uom WHERE uodsc ='" + UOMcBo.SelectedItem.ToString + "'", 0) + "','" + prodAmt.Text + "','" + ProdSAmt.Text + "','" + GLNumber.Text + "','1')")
 
                     If isMerchandise Then
                         Dim merchandiseId = CreateNewCode("SELECT * FROM hmerchandise ORDER BY idmrch DESC", "H", 4, 4)
