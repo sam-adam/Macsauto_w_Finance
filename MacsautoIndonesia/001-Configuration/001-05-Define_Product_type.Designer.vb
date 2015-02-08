@@ -28,9 +28,10 @@ Partial Class _001_05_Define_Product_type
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.PTypeGridView = New System.Windows.Forms.DataGridView()
         Me.BtnSave = New System.Windows.Forms.Button()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.ProductTypeIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductTypeDescriptionCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductTypeIsMerchandiseCol = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.ProductTypeIsConsumablesCol = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.NewProductTypeCol = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -53,13 +54,14 @@ Partial Class _001_05_Define_Product_type
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.BtnSave)
-        Me.SplitContainer1.Size = New System.Drawing.Size(433, 420)
+        Me.SplitContainer1.Size = New System.Drawing.Size(518, 420)
         Me.SplitContainer1.SplitterDistance = 364
         Me.SplitContainer1.TabIndex = 3
         '
         'PTypeGridView
         '
         Me.PTypeGridView.AllowUserToDeleteRows = False
+        Me.PTypeGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.PTypeGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
@@ -70,11 +72,11 @@ Partial Class _001_05_Define_Product_type
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.PTypeGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.PTypeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.PTypeGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.NewProductTypeCol})
+        Me.PTypeGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ProductTypeIdCol, Me.ProductTypeDescriptionCol, Me.ProductTypeIsMerchandiseCol, Me.ProductTypeIsConsumablesCol, Me.NewProductTypeCol})
         Me.PTypeGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PTypeGridView.Location = New System.Drawing.Point(0, 0)
         Me.PTypeGridView.Name = "PTypeGridView"
-        Me.PTypeGridView.Size = New System.Drawing.Size(433, 364)
+        Me.PTypeGridView.Size = New System.Drawing.Size(518, 364)
         Me.PTypeGridView.TabIndex = 0
         '
         'BtnSave
@@ -90,27 +92,33 @@ Partial Class _001_05_Define_Product_type
         Me.BtnSave.Text = "SAVE"
         Me.BtnSave.UseVisualStyleBackColor = True
         '
-        'Column1
+        'ProductTypeIdCol
         '
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle2
-        Me.Column1.HeaderText = "Product Type #"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Visible = False
-        Me.Column1.Width = 120
+        Me.ProductTypeIdCol.DefaultCellStyle = DataGridViewCellStyle2
+        Me.ProductTypeIdCol.HeaderText = "Product Type #"
+        Me.ProductTypeIdCol.Name = "ProductTypeIdCol"
+        Me.ProductTypeIdCol.ReadOnly = True
+        Me.ProductTypeIdCol.Visible = False
+        Me.ProductTypeIdCol.Width = 120
         '
-        'Column2
+        'ProductTypeDescriptionCol
         '
-        Me.Column2.HeaderText = "Product Type Description"
-        Me.Column2.MaxInputLength = 50
-        Me.Column2.Name = "Column2"
-        Me.Column2.Width = 200
+        Me.ProductTypeDescriptionCol.HeaderText = "Product Type Description"
+        Me.ProductTypeDescriptionCol.MaxInputLength = 50
+        Me.ProductTypeDescriptionCol.Name = "ProductTypeDescriptionCol"
+        Me.ProductTypeDescriptionCol.Width = 172
         '
-        'Column3
+        'ProductTypeIsMerchandiseCol
         '
-        Me.Column3.HeaderText = "isMerchandise"
-        Me.Column3.Name = "Column3"
+        Me.ProductTypeIsMerchandiseCol.HeaderText = "Is Merchandise?"
+        Me.ProductTypeIsMerchandiseCol.Name = "ProductTypeIsMerchandiseCol"
+        '
+        'ProductTypeIsConsumablesCol
+        '
+        Me.ProductTypeIsConsumablesCol.HeaderText = "Is Consumables?"
+        Me.ProductTypeIsConsumablesCol.Name = "ProductTypeIsConsumablesCol"
+        Me.ProductTypeIsConsumablesCol.Width = 102
         '
         'NewProductTypeCol
         '
@@ -124,7 +132,7 @@ Partial Class _001_05_Define_Product_type
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Info
-        Me.ClientSize = New System.Drawing.Size(433, 420)
+        Me.ClientSize = New System.Drawing.Size(518, 420)
         Me.Controls.Add(Me.SplitContainer1)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -141,8 +149,9 @@ Partial Class _001_05_Define_Product_type
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
     Friend WithEvents PTypeGridView As System.Windows.Forms.DataGridView
     Friend WithEvents BtnSave As System.Windows.Forms.Button
-    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewCheckBoxColumn
+    Friend WithEvents ProductTypeIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ProductTypeDescriptionCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ProductTypeIsMerchandiseCol As System.Windows.Forms.DataGridViewCheckBoxColumn
+    Friend WithEvents ProductTypeIsConsumablesCol As System.Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents NewProductTypeCol As System.Windows.Forms.DataGridViewCheckBoxColumn
 End Class
