@@ -120,7 +120,7 @@
         Catch ex As Exception
             MsgBox("Please complete configuration for material account in order to continue product movement transaction ")
             _001_16_Material_Account.ShowDialog()
-            Me.Close()
+            Close()
         End Try
     End Sub
 

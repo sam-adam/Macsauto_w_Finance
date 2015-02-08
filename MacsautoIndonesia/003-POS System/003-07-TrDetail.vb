@@ -358,31 +358,29 @@ Public Class _003_07_TrDetail2
         If Not alreadyExisted Is Nothing Then
             If (TransactionProductDataGrid(ProductQuantityCol.Index, alreadyExisted.Index).Value + 1) > TransactionProductDataGrid(ProductRemainingQtyCol.Index, alreadyExisted.Index).Value Then
                 MsgBox("Remaining quantity is not enough", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Warning")
+            ElseIf alreadyExisted.Cells(ProductPreAddedCol.Index).Value = True Then
+                MsgBox("Cannot add same product as queued", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Warning")
             Else
                 TransactionProductDataGrid(ProductQuantityCol.Index, alreadyExisted.Index).Value += 1
             End If
         Else
-            If alreadyExisted.Cells(ProductPreAddedCol.Index).Value = True Then
-                MsgBox("Cannot add same product as queued", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkCancel, "Warning")
-            Else
-                Dim bestPromotion As DataRow = TransactionService.FindBestPromotion(Not IsMemberChk.Checked, selectedProductRow("idpdt"), "P", selectedProductRow("psamt"))
-                Dim newRowIndex As Integer = TransactionProductDataGrid.Rows.Add(
-                    selectedProductRow("idpdt"),
-                    selectedProductRow("pdtds"),
-                    1,
-                    selectedProductRow("slqty"),
-                    selectedProductRow("uodsc"),
-                    If(bestPromotion Is Nothing, selectedProductRow("psamt"), TransactionService.CalculatePromotion(selectedProductRow("psamt"), bestPromotion)),
-                    selectedProductRow("ppamt"),
-                    If(bestPromotion Is Nothing, 0, bestPromotion("pdpct")),
-                    If(bestPromotion Is Nothing, "-", bestPromotion("pmdcp")),
-                    False,
-                    True)
+            Dim bestPromotion As DataRow = TransactionService.FindBestPromotion(Not IsMemberChk.Checked, selectedProductRow("idpdt"), "P", selectedProductRow("psamt"))
+            Dim newRowIndex As Integer = TransactionProductDataGrid.Rows.Add(
+                selectedProductRow("idpdt"),
+                selectedProductRow("pdtds"),
+                1,
+                selectedProductRow("slqty"),
+                selectedProductRow("uodsc"),
+                If(bestPromotion Is Nothing, selectedProductRow("psamt"), TransactionService.CalculatePromotion(selectedProductRow("psamt"), bestPromotion)),
+                selectedProductRow("ppamt"),
+                If(bestPromotion Is Nothing, 0, bestPromotion("pdpct")),
+                If(bestPromotion Is Nothing, "-", bestPromotion("pmdcp")),
+                False,
+                True)
 
-                If Not bestPromotion Is Nothing Then
-                    TransactionServiceDataGrid(ServiceDiscountCol.Index, newRowIndex).ReadOnly = True
-                    TransactionServiceDataGrid(ServiceDiscountCol.Index, newRowIndex).Style.BackColor = ProductIdCol.DefaultCellStyle.BackColor
-                End If
+            If Not bestPromotion Is Nothing Then
+                TransactionServiceDataGrid(ServiceDiscountCol.Index, newRowIndex).ReadOnly = True
+                TransactionServiceDataGrid(ServiceDiscountCol.Index, newRowIndex).Style.BackColor = ProductIdCol.DefaultCellStyle.BackColor
             End If
         End If
 
