@@ -1,11 +1,16 @@
-﻿Public Class _001_16_Material_Account
+﻿Imports MySql.Data.MySqlClient
+
+Public Class _001_16_Material_Account
     Dim word() As String
     Dim sale() As String
     Dim hpp() As String
     Private Sub setData(ByVal query As String, ByVal cbo As ComboBox)
-        reader = ExecQueryReader(query)
-        reader.READ()
-        cbo.Text = (reader(0).ToString + "-" + reader(1).ToString)
+        Dim reader As MySqlDataReader = ExecQueryReader(query)
+        reader.Read()
+
+        If reader.HasRows Then
+            cbo.Text = (reader(0).ToString + "-" + reader(1).ToString)
+        End If
     End Sub
     Private Sub loadAccount(ByVal query As String, ByVal combo As ComboBox)
         reader = ExecQueryReader(query)
@@ -15,12 +20,12 @@
     End Sub
 
     Private Sub _001_16_Material_Account_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        loadAccount("SELECT GLNUM,GLDES FROM GLACCOUNTMS WHERE ACTID LIKE '1'", glact)
-        loadAccount("SELECT GLNUM,GLDES FROM GLACCOUNTMS WHERE ACTID LIKE '4'", Sales)
-        loadAccount("SELECT GLNUM,GLDES FROM GLACCOUNTMS WHERE ACTID LIKE '5'", COGS)
-        setData("SELECT GLNUM,GLDES FROM MTRAC WHERE MTRID = '1'", glact)
-        setData("SELECT GLNUM,GLDES FROM MTRAC WHERE MTRID = '2'", Sales)
-        setData("SELECT GLNUM,GLDES FROM MTRAC WHERE MTRID = '3'", COGS)
+        loadAccount("SELECT glnum, gldes FROM glaccountms WHERE actid = '1'", glact)
+        loadAccount("SELECT glnum, gldes FROM glaccountms WHERE actid = '4'", Sales)
+        loadAccount("SELECT glnum, gldes FROM glaccountms WHERE actid = '5'", COGS)
+        setData("SELECT glnum, gldes FROM mtrac WHERE mtrid = '1'", glact)
+        setData("SELECT glnum, gldes FROM mtrac WHERE mtrid = '2'", Sales)
+        setData("SELECT glnum, gldes FROM mtrac WHERE mtrid = '3'", COGS)
     End Sub
 
     Private Sub BtnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSave.Click
