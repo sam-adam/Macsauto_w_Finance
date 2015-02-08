@@ -120,6 +120,8 @@ Public Class _003_07_TrDetail2
         " SET pdqty = dproduct.total_stock WHERE hproduct.idpdt = @productId"
 #End Region
 
+    Public Event TransactionUpdated As EventHandler
+
     Private ReadOnly _selectedMode As PointOfSalesMode
     Private ReadOnly _transactionHeaderDataTable As DataTable
     Private ReadOnly _transactionDetailDataTable As DataTable
@@ -627,6 +629,8 @@ Public Class _003_07_TrDetail2
 
             _transactionCompleted = True
 
+            RaiseEvent TransactionUpdated(Me, New EventArgs())
+
             Close()
         End If
     End Sub
@@ -678,7 +682,9 @@ Public Class _003_07_TrDetail2
 
                                     _transactionCompleted = True
 
-                                    Dispose()
+                                    RaiseEvent TransactionUpdated(Me, New EventArgs())
+
+                                    Close()
                                 End If
                             End Sub
                         _voidReasonForm.ShowDialog(Me)
@@ -788,6 +794,8 @@ Public Class _003_07_TrDetail2
         _paymentForm.Close()
 
         _transactionCompleted = True
+
+        RaiseEvent TransactionUpdated(Me, New EventArgs())
 
         Close()
     End Sub
@@ -1023,7 +1031,7 @@ Public Class _003_07_TrDetail2
                             command.Parameters.Clear()
                             command.Parameters.AddWithValue("journalId", newJournalId)
                             command.Parameters.AddWithValue("accountId", account.Key)
-                            command.Parameters.AddWithValue("postingKey", 10)
+                            command.Parameters.AddWithValue("postingKey", 20)
                             command.Parameters.AddWithValue("postingAmount", account.Value)
                             command.Parameters.AddWithValue("notes", "")
 

@@ -139,6 +139,11 @@ Public Class _003_01_TrList
         Else
             Dim trDetail As _003_07_TrDetail2 = New _003_07_TrDetail2(PointOfSalesMode.NewTransaction)
 
+            AddHandler trDetail.TransactionUpdated,
+                Sub()
+                    loadTransactionList()
+                End Sub
+
             trDetail.ShowDialog()
         End If
     End Sub
@@ -153,6 +158,11 @@ Public Class _003_01_TrList
         Else
             Dim trDetail As _003_07_TrDetail2 = New _003_07_TrDetail2(PointOfSalesMode.ExistingTransaction, TrlistGrid.CurrentRow.Cells(0).Value)
 
+            AddHandler trDetail.TransactionUpdated,
+                Sub()
+                    loadTransactionList()
+                End Sub
+
             trDetail.ShowDialog()
         End If
     End Sub
@@ -166,6 +176,11 @@ Public Class _003_01_TrList
             accountingConfiguration.ShowDialog(Me)
         Else
             Dim trDetail As _003_07_TrDetail2 = New _003_07_TrDetail2(PointOfSalesMode.ExistingTransaction, TrlistGrid.CurrentRow.Cells(0).Value)
+
+            AddHandler trDetail.TransactionUpdated,
+                Sub()
+                    loadTransactionList()
+                End Sub
 
             trDetail.ShowDialog()
         End If
