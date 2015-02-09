@@ -27,9 +27,9 @@ Public Class _001_02_Define_Storage_Location
                             newId = String.Format("{0:000}{1:000}", LoggedInEmployee.Company.Id, Integer.Parse(newIdReader("idslc").ToString().Substring(3)) + 1)
                         End While
 
-                        ExecQueryNonReader("INSERT INTO sloc VALUES ('" & newId & "', '" & row.Cells(StorageDescriptionCol.Index).Value & "')")
+                        ExecQueryNonReader("INSERT INTO sloc VALUES ('" & newId & "', '" & row.Cells(StorageDescriptionCol.Index).Value.ToString().ToUpperInvariant() & "')")
                     Else
-                        ExecQueryNonReader("UPDATE sloc SET slocd = '" & row.Cells(StorageDescriptionCol.Index).Value & "' WHERE idslc = '" & row.Cells(StorageIdCol.Index).Value & "'")
+                        ExecQueryNonReader("UPDATE sloc SET slocd = '" & row.Cells(StorageDescriptionCol.Index).Value.ToString().ToUpperInvariant() & "' WHERE idslc = '" & row.Cells(StorageIdCol.Index).Value & "'")
                     End If
                 End If
             Next

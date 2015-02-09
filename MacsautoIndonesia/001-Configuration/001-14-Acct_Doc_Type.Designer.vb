@@ -28,8 +28,9 @@ Partial Class _001_14_Acct_Doc_Type
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.ActGridView = New System.Windows.Forms.DataGridView()
         Me.BtnSave = New System.Windows.Forms.Button()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AccountDocTypeCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AccountDocTypeDescCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NewAccountDocumentCol = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -52,12 +53,13 @@ Partial Class _001_14_Acct_Doc_Type
         '
         Me.SplitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Info
         Me.SplitContainer1.Panel2.Controls.Add(Me.BtnSave)
-        Me.SplitContainer1.Size = New System.Drawing.Size(311, 322)
+        Me.SplitContainer1.Size = New System.Drawing.Size(412, 322)
         Me.SplitContainer1.SplitterDistance = 272
         Me.SplitContainer1.TabIndex = 4
         '
         'ActGridView
         '
+        Me.ActGridView.AllowUserToDeleteRows = False
         Me.ActGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
@@ -68,11 +70,11 @@ Partial Class _001_14_Acct_Doc_Type
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.ActGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.ActGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ActGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
+        Me.ActGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.AccountDocTypeCol, Me.AccountDocTypeDescCol, Me.NewAccountDocumentCol})
         Me.ActGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ActGridView.Location = New System.Drawing.Point(0, 0)
         Me.ActGridView.Name = "ActGridView"
-        Me.ActGridView.Size = New System.Drawing.Size(311, 272)
+        Me.ActGridView.Size = New System.Drawing.Size(412, 272)
         Me.ActGridView.TabIndex = 0
         '
         'BtnSave
@@ -88,31 +90,40 @@ Partial Class _001_14_Acct_Doc_Type
         Me.BtnSave.Text = "SAVE"
         Me.BtnSave.UseVisualStyleBackColor = True
         '
-        'Column1
+        'AccountDocTypeCol
         '
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle2
-        Me.Column1.FillWeight = 120.0!
-        Me.Column1.HeaderText = "Act. Doc Typ"
-        Me.Column1.MaxInputLength = 2
-        Me.Column1.Name = "Column1"
-        Me.Column1.Width = 80
+        Me.AccountDocTypeCol.DefaultCellStyle = DataGridViewCellStyle2
+        Me.AccountDocTypeCol.FillWeight = 120.0!
+        Me.AccountDocTypeCol.HeaderText = "Act. Doc Type"
+        Me.AccountDocTypeCol.MaxInputLength = 2
+        Me.AccountDocTypeCol.Name = "AccountDocTypeCol"
+        Me.AccountDocTypeCol.Width = 80
         '
-        'Column2
+        'AccountDocTypeDescCol
         '
-        Me.Column2.HeaderText = "Act. Doc. Type Desc."
-        Me.Column2.MaxInputLength = 50
-        Me.Column2.Name = "Column2"
-        Me.Column2.Width = 160
+        Me.AccountDocTypeDescCol.HeaderText = "Act. Doc. Type Desc."
+        Me.AccountDocTypeDescCol.MaxInputLength = 50
+        Me.AccountDocTypeDescCol.Name = "AccountDocTypeDescCol"
+        Me.AccountDocTypeDescCol.Width = 160
+        '
+        'NewAccountDocumentCol
+        '
+        Me.NewAccountDocumentCol.HeaderText = "New Account Document"
+        Me.NewAccountDocumentCol.Name = "NewAccountDocumentCol"
+        Me.NewAccountDocumentCol.ReadOnly = True
+        Me.NewAccountDocumentCol.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.NewAccountDocumentCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.NewAccountDocumentCol.Visible = False
         '
         '_001_14_Acct_Doc_Type
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(311, 322)
+        Me.ClientSize = New System.Drawing.Size(412, 322)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "_001_14_Acct_Doc_Type"
-        Me.Text = "Define Accounting Document Type"
+        Me.Text = "Accounting Document - Define"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -124,6 +135,7 @@ Partial Class _001_14_Acct_Doc_Type
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
     Friend WithEvents ActGridView As System.Windows.Forms.DataGridView
     Friend WithEvents BtnSave As System.Windows.Forms.Button
-    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents AccountDocTypeCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents AccountDocTypeDescCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents NewAccountDocumentCol As System.Windows.Forms.DataGridViewCheckBoxColumn
 End Class

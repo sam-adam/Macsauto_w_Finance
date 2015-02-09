@@ -28,9 +28,9 @@ Public Class _001_13_Define_Account_Type
                             newId = (Integer.Parse(newIdReader("actid").ToString()) + 1)
                         End While
 
-                        ExecQueryNonReader("INSERT INTO accounttype VALUES('" & newId & "', '" & row.Cells(AccountTypeDescCol.Index).Value & "')")
+                        ExecQueryNonReader("INSERT INTO accounttype VALUES('" & newId & "', '" & row.Cells(AccountTypeDescCol.Index).Value.ToString().ToUpperInvariant() & "')")
                     Else
-                        ExecQueryNonReader("UPDATE accounttype SET actds = '" & row.Cells(AccountTypeDescCol.Index).Value & "' WHERE actid = '" & row.Cells(AccountTypeIdCol.Index).Value & "'")
+                        ExecQueryNonReader("UPDATE accounttype SET actds = '" & row.Cells(AccountTypeDescCol.Index).Value.ToString().ToUpperInvariant() & "' WHERE actid = '" & row.Cells(AccountTypeIdCol.Index).Value & "'")
                     End If
                 End If
             Next

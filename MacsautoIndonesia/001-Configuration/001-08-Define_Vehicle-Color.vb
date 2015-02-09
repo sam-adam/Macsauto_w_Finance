@@ -31,9 +31,9 @@ Public Class _001_08_Define_Vehicle_Color
                             newId = String.Format("L{0:00}", Integer.Parse(newIdReader("idcol").ToString().Replace("L", "")) + 1)
                         End While
 
-                        ExecQueryNonReader("INSERT INTO vehiclecolor VALUES('" & newId & "', '" & row.Cells(ColorDescriptionCol.Index).Value & "')")
+                        ExecQueryNonReader("INSERT INTO vehiclecolor VALUES('" & newId & "', '" & row.Cells(ColorDescriptionCol.Index).Value.ToString().ToUpperInvariant() & "')")
                     Else
-                        ExecQueryNonReader("UPDATE vehiclecolor SET coldc = '" & row.Cells(ColorDescriptionCol.Index).Value & "' WHERE idcol = '" & row.Cells(ColorIdCol.Index).Value & "'")
+                        ExecQueryNonReader("UPDATE vehiclecolor SET coldc = '" & row.Cells(ColorDescriptionCol.Index).Value.ToString().ToUpperInvariant() & "' WHERE idcol = '" & row.Cells(ColorIdCol.Index).Value.ToString().ToUpperInvariant() & "'")
                     End If
                 End If
             Next
