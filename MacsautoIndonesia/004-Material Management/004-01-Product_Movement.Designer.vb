@@ -62,9 +62,10 @@ Partial Class _004_01_Product_Movement
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.ProdMoveGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -360,6 +361,7 @@ Partial Class _004_01_Product_Movement
         '
         'SplitContainer2.Panel1
         '
+        Me.SplitContainer2.Panel1.Controls.Add(Me.Button1)
         Me.SplitContainer2.Panel1.Controls.Add(Me.Label8)
         Me.SplitContainer2.Panel1.Controls.Add(Me.MoveID)
         Me.SplitContainer2.Panel1.Controls.Add(Me.Label1)
@@ -378,6 +380,17 @@ Partial Class _004_01_Product_Movement
         Me.SplitContainer2.Size = New System.Drawing.Size(894, 544)
         Me.SplitContainer2.SplitterDistance = 162
         Me.SplitContainer2.TabIndex = 34
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.Red
+        Me.Label8.Location = New System.Drawing.Point(420, 140)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(261, 17)
+        Me.Label8.TabIndex = 16
+        Me.Label8.Text = "Press ""F4"" on the table to search product"
         '
         'Label17
         '
@@ -400,16 +413,14 @@ Partial Class _004_01_Product_Movement
         Me.Panel8.Size = New System.Drawing.Size(894, 35)
         Me.Panel8.TabIndex = 32
         '
-        'Label8
+        'Button1
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.Red
-        Me.Label8.Location = New System.Drawing.Point(420, 140)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(261, 17)
-        Me.Label8.TabIndex = 16
-        Me.Label8.Text = "Press ""F4"" on the table to search product"
+        Me.Button1.Location = New System.Drawing.Point(808, 38)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 17
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         '_004_01_Product_Movement
         '
@@ -474,4 +485,5 @@ Partial Class _004_01_Product_Movement
     Friend WithEvents Column5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column6 As System.Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

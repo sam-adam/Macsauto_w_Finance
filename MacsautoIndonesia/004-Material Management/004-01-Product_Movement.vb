@@ -8,7 +8,56 @@
         reader.read()
         Return (reader(0).ToString)
     End Function
+    Private Sub incomingFIPosting()
+        Dim Code As String
+        'Initial stock entry  & Goods Receipt
+        '==============================================================
+        'u/yg non-consumables
+        'EXPENSE (Expense account yang nempel ke material)
+        '               CASH IN BANK 
+        '==============================================================
+        '==============================================================
+        'u/yg consumables
+        'Inventory account (inventory account yang nempel ke material)
+        '               CASH IN BANK 
+        '==============================================================
+        ExecQueryNonReader("INSERT INTO jourhd VALUES('" + Code + "',NOW(),'" + MoveDate.Value.ToString("yyyy-MM-dd") + "','" + MoveID.Text + "','" + MoveRea.Text + "','','" + LoggedInEmployee.Name + "','0000-00-00 00:00:00','GR','')")
+        Dim i As Integer
+        For i = 0 To ProdMoveGrid.Rows.Count - 2
+            ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + ProdMoveGrid.Rows(i).Cells(8).Value.ToString + "','10','" + (ProdMoveGrid.Rows(i).Cells(2).Value * ProdMoveGrid.Rows(i).Cells(3).Value).ToString + "','" + ProdMoveGrid.Rows(i).Cells(1).Value.ToString + "')")
+        Next i
+        ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + glaccount + "','20','" + MoveTotalPrice.Text + "','')")
+    End Sub
+    Private Sub outGoingFIPosting()
+        Dim Code As String
+        'Goods Issue
+        '==============================================================
+        'u/yg non-consumables
+        '(Dr)CASH (
+        '(Cr)SALES (Sales Account config)
+        '(Dr)COGS (Cogs Account config)
+        '(Cr)Inventory
+        '==============================================================
+        Dim sumtotal, Subtotal, cogs As Double
+        ExecQueryNonReader("INSERT INTO jourhd VALUES('" + Code + "',NOW(),'" + MoveDate.Value.ToString("yyyy-MM-dd") + "','" + MoveID.Text + "','" + MoveRea.Text + "','','" + LoggedInEmployee.Name + "','0000-00-00 00:00:00','GI','')")
+        Dim i As Integer
+        sumtotal = 0
+        cogs = 0
+        For i = 0 To ProdMoveGrid.Rows.Count - 1
+            If ProdMoveGrid.Rows(i).Cells(9).Value = "False" Then
+                Subtotal = 0
+                Subtotal = (getGLAccount("SELECT ppamt FROM hproduct WHERE idpdt LIKE '" + ProdMoveGrid.Rows(i).Cells(0).Value + "'") * ProdMoveGrid.Rows(i).Cells(2).Value)
+                ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + ProdMoveGrid.Rows(i).Cells(8).Value.ToString + "','20','" + Subtotal.ToString + "','" + ProdMoveGrid.Rows(i).Cells(1).Value.ToString + "')")
+                sumtotal = sumtotal + (ProdMoveGrid.Rows(i).Cells(2).Value * ProdMoveGrid.Rows(i).Cells(3).Value)
+                cogs = cogs + Subtotal
+            End If
+        Next i
 
+        ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + glaccount + "','10','" + sumtotal.ToString + "','')")
+        ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + salesAct + "','20','" + sumtotal.ToString + "','')")
+        ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + COGSAct + "','10','" + cogs.ToString + "','')")
+
+    End Sub
     Private Sub autoPosting()
         Dim Code As String
         Code = NewJournalCode()
@@ -22,28 +71,38 @@
             '(Cr)Inventory
             '==============================================================
             Dim sumtotal, Subtotal, cogs As Double
-            ExecQueryNonReader("INSERT INTO jourhd VALUES('" + Code + "',NOW(),'" + MoveDate.Value.ToString("yyyy-MM-dd") + "','" + MoveID.Text + "','" + MoveRea.Text + "','','" + LoggedInEmployee.Name + "','0000-00-00 00:00:00','GI','')")
-            Dim i As Integer
-            sumtotal = 0
-            cogs = 0
-            For i = 0 To ProdMoveGrid.Rows.Count - 1
-                If ProdMoveGrid.Rows(i).Cells(9).Value = "False" Then
-                    Subtotal = 0
-                    Subtotal = (getGLAccount("SELECT ppamt FROM hproduct WHERE idpdt LIKE '" + ProdMoveGrid.Rows(i).Cells(0).Value + "'") * ProdMoveGrid.Rows(i).Cells(2).Value)
-                    ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + ProdMoveGrid.Rows(i).Cells(8).Value.ToString + "','20','" + Subtotal.ToString + "','" + ProdMoveGrid.Rows(i).Cells(1).Value.ToString + "')")
-                    sumtotal = sumtotal + (ProdMoveGrid.Rows(i).Cells(2).Value * ProdMoveGrid.Rows(i).Cells(3).Value)
-                    cogs = cogs + Subtotal
-                End If
-            Next i
+            If checkAnyConsumables() = False Then
+                ExecQueryNonReader("INSERT INTO jourhd VALUES('" + Code + "',NOW(),'" + MoveDate.Value.ToString("yyyy-MM-dd") + "','" + MoveID.Text + "','" + MoveRea.Text + "','','" + LoggedInEmployee.Name + "','0000-00-00 00:00:00','GI','')")
+                Dim i As Integer
+                sumtotal = 0
+                cogs = 0
+                For i = 0 To ProdMoveGrid.Rows.Count - 1
+                    If ProdMoveGrid.Rows(i).Cells(9).Value = "False" Then
+                        Subtotal = 0
+                        Subtotal = (getGLAccount("SELECT ppamt FROM hproduct WHERE idpdt LIKE '" + ProdMoveGrid.Rows(i).Cells(0).Value + "'") * ProdMoveGrid.Rows(i).Cells(2).Value)
+                        ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + ProdMoveGrid.Rows(i).Cells(8).Value.ToString + "','20','" + Subtotal.ToString + "','" + ProdMoveGrid.Rows(i).Cells(1).Value.ToString + "')")
+                        sumtotal = sumtotal + (ProdMoveGrid.Rows(i).Cells(2).Value * ProdMoveGrid.Rows(i).Cells(3).Value)
+                        cogs = cogs + Subtotal
+                    End If
+                Next i
 
-            ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + glaccount + "','10','" + sumtotal.ToString + "','')")
-            ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + salesAct + "','20','" + sumtotal.ToString + "','')")
-            ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + COGSAct + "','10','" + cogs.ToString + "','')")
+                ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + glaccount + "','10','" + sumtotal.ToString + "','')")
+                ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + salesAct + "','20','" + sumtotal.ToString + "','')")
+                ExecQueryNonReader("INSERT INTO jourdt VALUES('" + Code + "','" + COGSAct + "','10','" + cogs.ToString + "','')")
+
+            End If
+
+
         Else
             'Initial stock entry  & Goods Receipt
             '==============================================================
             'u/yg non-consumables
             'EXPENSE (Expense account yang nempel ke material)
+            '               CASH IN BANK 
+            '==============================================================
+            '==============================================================
+            'u/yg consumables
+            'Inventory account (inventory account yang nempel ke material)
             '               CASH IN BANK 
             '==============================================================
             ExecQueryNonReader("INSERT INTO jourhd VALUES('" + Code + "',NOW(),'" + MoveDate.Value.ToString("yyyy-MM-dd") + "','" + MoveID.Text + "','" + MoveRea.Text + "','','" + LoggedInEmployee.Name + "','0000-00-00 00:00:00','GR','')")
@@ -191,7 +250,11 @@
                             End If
                         End If
                     Next i
+
+
                     autoPosting()
+
+
                     If flag = 2 Then
                         Try
                             UpdateAveragePrice()
@@ -202,12 +265,22 @@
                     End If
                     MsgBox(note & " Transaction complete with the number " & MoveID.Text)
                     Me.Close()
-                End If
+            End If
 
             End If
         End If
 
     End Sub
+    Private Function checkAnyConsumables()
+        Dim i As Integer
+        For i = 0 To ProdMoveGrid.Rows.Count - 2
+            If ProdMoveGrid.Rows(i).Cells(9).Value = True Then
+                Return True
+            Else
+                Return False
+            End If
+        Next
+    End Function
 
     Private Sub ProdMoveGrid_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles ProdMoveGrid.KeyDown
         If e.KeyCode = Keys.F4 Then
@@ -253,4 +326,7 @@
    
  
 
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        MsgBox(checkAnyConsumables)
+    End Sub
 End Class
