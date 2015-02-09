@@ -111,6 +111,7 @@ Partial Class _001_02_Define_Storage_Location
         Me.NewStorageCol.HeaderText = "New Storage"
         Me.NewStorageCol.Name = "NewStorageCol"
         Me.NewStorageCol.ReadOnly = True
+        Me.NewStorageCol.Visible = False
         '
         '_001_02_Define_Storage_Location
         '
