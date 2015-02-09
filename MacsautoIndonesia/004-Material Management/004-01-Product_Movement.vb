@@ -26,7 +26,7 @@
             Dim i As Integer
             sumtotal = 0
             cogs = 0
-            For i = 0 To ProdMoveGrid.Rows.Count - 2
+            For i = 0 To ProdMoveGrid.Rows.Count - 1
                 If ProdMoveGrid.Rows(i).Cells(9).Value = "False" Then
                     Subtotal = 0
                     Subtotal = (getGLAccount("SELECT ppamt FROM hproduct WHERE idpdt LIKE '" + ProdMoveGrid.Rows(i).Cells(0).Value + "'") * ProdMoveGrid.Rows(i).Cells(2).Value)
