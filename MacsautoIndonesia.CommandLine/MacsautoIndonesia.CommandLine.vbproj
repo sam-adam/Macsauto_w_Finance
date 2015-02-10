@@ -99,6 +99,7 @@
   <ItemGroup>
     <Compile Include="CommandLine.vb" />
     <Compile Include="GLAccountImporter.vb" />
+    <Compile Include="Migrations\_028_AccountTypeTableAlterActIdColumnType.vb" />
     <Compile Include="Migrations\_027_HTransactionTableAlterAddTrTim.vb" />
     <Compile Include="Migrations\_026_PointTransTableAddAutoIncrement.vb" />
     <Compile Include="Migrations\_025_PointTransTableFixFields.vb" />

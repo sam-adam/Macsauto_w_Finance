@@ -90,6 +90,6 @@ Public Class DummyEmployee
     Inherits Employee
 
     Public Sub New()
-        MyBase.New("001", "Test", Position.Manager, New Company("001", "Test Company", "Jalan jalan", "Jakarta"))
+        MyBase.New("001", "Test", Position.Manager, New Company("002", "Test Company", "Jalan jalan", "Jakarta"))
     End Sub
 End Class

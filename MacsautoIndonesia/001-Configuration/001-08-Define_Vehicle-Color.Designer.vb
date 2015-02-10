@@ -28,8 +28,9 @@ Partial Class _001_08_Define_Vehicle_Color
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.ColorGridView = New System.Windows.Forms.DataGridView()
         Me.BtnSave = New System.Windows.Forms.Button()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ColorIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ColorDescriptionCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NewColorCol = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -69,7 +70,7 @@ Partial Class _001_08_Define_Vehicle_Color
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.ColorGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.ColorGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ColorGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
+        Me.ColorGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ColorIdCol, Me.ColorDescriptionCol, Me.NewColorCol})
         Me.ColorGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ColorGridView.Location = New System.Drawing.Point(0, 0)
         Me.ColorGridView.Name = "ColorGridView"
@@ -89,22 +90,29 @@ Partial Class _001_08_Define_Vehicle_Color
         Me.BtnSave.Text = "SAVE"
         Me.BtnSave.UseVisualStyleBackColor = True
         '
-        'Column1
+        'ColorIdCol
         '
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle2
-        Me.Column1.HeaderText = "Color #"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Visible = False
-        Me.Column1.Width = 120
+        Me.ColorIdCol.DefaultCellStyle = DataGridViewCellStyle2
+        Me.ColorIdCol.HeaderText = "Color #"
+        Me.ColorIdCol.Name = "ColorIdCol"
+        Me.ColorIdCol.ReadOnly = True
+        Me.ColorIdCol.Visible = False
+        Me.ColorIdCol.Width = 120
         '
-        'Column2
+        'ColorDescriptionCol
         '
-        Me.Column2.HeaderText = "Color Description"
-        Me.Column2.MaxInputLength = 50
-        Me.Column2.Name = "Column2"
-        Me.Column2.Width = 200
+        Me.ColorDescriptionCol.HeaderText = "Color Description"
+        Me.ColorDescriptionCol.MaxInputLength = 50
+        Me.ColorDescriptionCol.Name = "ColorDescriptionCol"
+        Me.ColorDescriptionCol.Width = 200
+        '
+        'NewColorCol
+        '
+        Me.NewColorCol.HeaderText = "New Color"
+        Me.NewColorCol.Name = "NewColorCol"
+        Me.NewColorCol.ReadOnly = True
+        Me.NewColorCol.Visible = False
         '
         '_001_08_Define_Vehicle_Color
         '
@@ -125,6 +133,7 @@ Partial Class _001_08_Define_Vehicle_Color
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
     Friend WithEvents ColorGridView As System.Windows.Forms.DataGridView
     Friend WithEvents BtnSave As System.Windows.Forms.Button
-    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ColorIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ColorDescriptionCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents NewColorCol As System.Windows.Forms.DataGridViewCheckBoxColumn
 End Class

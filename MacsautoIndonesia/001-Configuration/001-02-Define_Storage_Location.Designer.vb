@@ -28,8 +28,9 @@ Partial Class _001_02_Define_Storage_Location
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.SlocGridView = New System.Windows.Forms.DataGridView()
         Me.BtnSave = New System.Windows.Forms.Button()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StorageIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StorageDescriptionCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NewStorageCol = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -69,7 +70,7 @@ Partial Class _001_02_Define_Storage_Location
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.SlocGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.SlocGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.SlocGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
+        Me.SlocGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.StorageIdCol, Me.StorageDescriptionCol, Me.NewStorageCol})
         Me.SlocGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SlocGridView.Location = New System.Drawing.Point(0, 0)
         Me.SlocGridView.Name = "SlocGridView"
@@ -89,21 +90,28 @@ Partial Class _001_02_Define_Storage_Location
         Me.BtnSave.Text = "SAVE"
         Me.BtnSave.UseVisualStyleBackColor = True
         '
-        'Column1
+        'StorageIdCol
         '
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle2
-        Me.Column1.HeaderText = "Storage #"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Visible = False
+        Me.StorageIdCol.DefaultCellStyle = DataGridViewCellStyle2
+        Me.StorageIdCol.HeaderText = "Storage #"
+        Me.StorageIdCol.Name = "StorageIdCol"
+        Me.StorageIdCol.ReadOnly = True
+        Me.StorageIdCol.Visible = False
         '
-        'Column2
+        'StorageDescriptionCol
         '
-        Me.Column2.HeaderText = "Storage Location Description"
-        Me.Column2.MaxInputLength = 10
-        Me.Column2.Name = "Column2"
-        Me.Column2.Width = 250
+        Me.StorageDescriptionCol.HeaderText = "Storage Location Description"
+        Me.StorageDescriptionCol.MaxInputLength = 10
+        Me.StorageDescriptionCol.Name = "StorageDescriptionCol"
+        Me.StorageDescriptionCol.Width = 250
+        '
+        'NewStorageCol
+        '
+        Me.NewStorageCol.HeaderText = "New Storage"
+        Me.NewStorageCol.Name = "NewStorageCol"
+        Me.NewStorageCol.ReadOnly = True
+        Me.NewStorageCol.Visible = False
         '
         '_001_02_Define_Storage_Location
         '
@@ -114,7 +122,7 @@ Partial Class _001_02_Define_Storage_Location
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "_001_02_Define_Storage_Location"
-        Me.Text = "_001_02_Define_Storage_Location"
+        Me.Text = "Storage Location - Define"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -126,6 +134,7 @@ Partial Class _001_02_Define_Storage_Location
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
     Friend WithEvents SlocGridView As System.Windows.Forms.DataGridView
     Friend WithEvents BtnSave As System.Windows.Forms.Button
-    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents StorageIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents StorageDescriptionCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents NewStorageCol As System.Windows.Forms.DataGridViewCheckBoxColumn
 End Class
