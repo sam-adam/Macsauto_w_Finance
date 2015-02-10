@@ -13,9 +13,7 @@
     Private Sub saveSource1()
         Dim i As Integer
         ExecQueryNonReader("TRUNCATE TABLE scash")
-
         ExecQueryNonReader("INSERT INTO scash VALUES('1','Petty Cash Account', " + Account.Text + ")")
-
     End Sub
     Private Sub saveSource()
         Dim i As Integer
@@ -83,17 +81,38 @@
             LoadSourceTable()
         End If
     End Sub
+    Private Function checkTable(ByVal num As Integer)
+        Dim i, j As Integer
+        j = 0
+        For i = 0 To usageTable.Rows.Count - 2
+            If usageTable.Rows(i).Cells(num).Value = Nothing Then
+                j = j + 1
+            End If
+        Next
+        Return j
+    End Function
 
     Private Sub BtnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSave.Click
-        If MsgBox("Save usage account for petty cash?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
-            saveUsage()
-            MsgBox("usage account for petty cash saved")
-            loadUsageTable()
+        If checkTable(1) <> 0 Or checkTable(3) <> 0 Or checkTable(4) <> 0 Then
+            MsgBox("Please complete usage description data")
+        Else
+            If MsgBox("Save usage account for petty cash?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
+                Try
+                    'MsgBox(checkCashType)
+                    saveUsage()
+                    MsgBox("usage account for petty cash saved")
+                    loadUsageTable()
+                Catch ex As Exception
+
+                End Try
+            End If
         End If
     End Sub
 
     Private Sub usageTable_CellEndEdit(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles usageTable.CellEndEdit
         getNumbers(usageTable)
+        usageTable.Rows(e.RowIndex).ErrorText = String.Empty
+
     End Sub
 
     Private Sub _001_15_Petty_Cash_Config_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -108,4 +127,7 @@
             _005_12_Petty_Cash_Account.ShowDialog()
         End If
     End Sub
+
+
+
 End Class

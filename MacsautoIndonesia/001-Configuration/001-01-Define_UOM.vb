@@ -40,6 +40,6 @@ Public Class _001_01_Define_UOM
     End Sub
 
     Private Sub UOMGridView_UserAddedRow(sender As Object, e As DataGridViewRowEventArgs) Handles UOMGridView.UserAddedRow
-        UOMGridView.Rows(UOMGridView.NewRowIndex - 1).Cells(NewUoMCol.Index).Value = True
+        UOMGridView.Rows(UOMGridView.NewRowIndex - 1).Cells(1).Value = True
     End Sub
 End Class
