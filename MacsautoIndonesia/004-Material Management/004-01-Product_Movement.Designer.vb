@@ -65,7 +65,6 @@ Partial Class _004_01_Product_Movement
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.ProdMoveGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -361,7 +360,6 @@ Partial Class _004_01_Product_Movement
         '
         'SplitContainer2.Panel1
         '
-        Me.SplitContainer2.Panel1.Controls.Add(Me.Button1)
         Me.SplitContainer2.Panel1.Controls.Add(Me.Label8)
         Me.SplitContainer2.Panel1.Controls.Add(Me.MoveID)
         Me.SplitContainer2.Panel1.Controls.Add(Me.Label1)
@@ -412,15 +410,6 @@ Partial Class _004_01_Product_Movement
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(894, 35)
         Me.Panel8.TabIndex = 32
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(808, 38)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 17
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         '_004_01_Product_Movement
         '
@@ -485,5 +474,4 @@ Partial Class _004_01_Product_Movement
     Friend WithEvents Column5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column6 As System.Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

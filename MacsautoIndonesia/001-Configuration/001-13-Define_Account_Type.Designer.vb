@@ -28,16 +28,10 @@ Partial Class _001_13_Define_Account_Type
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_001_13_Define_Account_Type))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.ActGridView = New System.Windows.Forms.DataGridView()
-<<<<<<< HEAD
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BtnSave = New System.Windows.Forms.Button()
-=======
         Me.BtnSave = New System.Windows.Forms.Button()
         Me.AccountTypeIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AccountTypeDescCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NewAccountTypeCol = New System.Windows.Forms.DataGridViewCheckBoxColumn()
->>>>>>> origin/master
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -66,12 +60,7 @@ Partial Class _001_13_Define_Account_Type
         '
         'ActGridView
         '
-<<<<<<< HEAD
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ActGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-=======
         Me.ActGridView.AllowUserToDeleteRows = False
->>>>>>> origin/master
         Me.ActGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
@@ -89,16 +78,6 @@ Partial Class _001_13_Define_Account_Type
         Me.ActGridView.Size = New System.Drawing.Size(384, 331)
         Me.ActGridView.TabIndex = 0
         '
-<<<<<<< HEAD
-        'Column1
-        '
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle3
-        Me.Column1.FillWeight = 120.0!
-        Me.Column1.HeaderText = "Act. Type ID"
-        Me.Column1.Name = "Column1"
-        Me.Column1.Width = 80
-=======
         'BtnSave
         '
         Me.BtnSave.BackgroundImage = CType(resources.GetObject("BtnSave.BackgroundImage"), System.Drawing.Image)
@@ -121,7 +100,6 @@ Partial Class _001_13_Define_Account_Type
         Me.AccountTypeIdCol.Name = "AccountTypeIdCol"
         Me.AccountTypeIdCol.Visible = False
         Me.AccountTypeIdCol.Width = 80
->>>>>>> origin/master
         '
         'AccountTypeDescCol
         '
@@ -159,11 +137,7 @@ Partial Class _001_13_Define_Account_Type
         Me.ClientSize = New System.Drawing.Size(384, 391)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "_001_13_Define_Account_Type"
-<<<<<<< HEAD
-        Me.Text = "Define Accounting Document Type"
-=======
         Me.Text = "Account Type - Define"
->>>>>>> origin/master
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()

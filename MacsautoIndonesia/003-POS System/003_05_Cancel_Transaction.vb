@@ -31,9 +31,8 @@ Public Class _003_05_Cancel_Transaction
         If MsgBox("Cancelling transaction. This action cannot be reversed! Are you sure?", MsgBoxStyle.Critical Or MsgBoxStyle.YesNo, "Confirmation") = DialogResult.Yes Then
             Try
                 Dim journalDataTable As DataTable = AccountingService.FindTransactionJournal(TransactionIdTxt.Text, AccountingService.JournalStatusNotCancelled)
-                Dim journalDocId As String = journalDataTable.Rows(0)("docid")
 
-                If (String.IsNullOrEmpty(journalDocId) OrElse (Not String.IsNullOrEmpty(journalDocId) And MsgBox("This transaction is already journaled. Cancelling will result to a reversal of that journal. Are you sure?", MsgBoxStyle.Question Or MsgBoxStyle.YesNo, "Confirmation") = DialogResult.Yes)) Then
+                If (journalDataTable.Rows.Count = 0 OrElse (journalDataTable.Rows.Count > 0 AndAlso Not String.IsNullOrEmpty(journalDataTable.Rows(0)("docid")) AndAlso MsgBox("This transaction is already journaled. Cancelling will result to a reversal of that journal. Are you sure?", MsgBoxStyle.Question Or MsgBoxStyle.YesNo, "Confirmation") = DialogResult.Yes)) Then
                     DoInTransaction(
                         Function(command As MySqlCommand) As Boolean
                             command.CommandText = "UPDATE htransaction SET trstat = 'CANCELLED', updatedBy = @authorizedUserId, remrk = @remark WHERE trsid = @transactionId"
@@ -46,7 +45,9 @@ Public Class _003_05_Cancel_Transaction
 
                             command.ExecuteNonQuery()
 
-                            If (Not String.IsNullOrEmpty(journalDocId)) Then
+                            If journalDataTable.Rows.Count > 0 Then
+                                Dim journalDocId As String = journalDataTable.Rows(0)("docid")
+
                                 AccountingService.ReverseAJournal(command, journalDocId, e.AuthorizedUser.Item("Id"))
                             End If
 

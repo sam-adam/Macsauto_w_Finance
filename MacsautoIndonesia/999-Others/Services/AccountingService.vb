@@ -6,7 +6,7 @@ Namespace Services
         Public Const JournalStatusCancelled = 1
         Public Const JournalStatusNotCancelled = 2
 
-        Private Shared ReadOnly _findJournalQuery As String =
+        Private Const FindJournalQuery As String =
             "SELECT jourhd.docid," & _
             "   jourhd.docdt," & _
             "   jourhd.pstdt," & _
@@ -23,6 +23,23 @@ Namespace Services
             "   jourdt.notes" & _
             " FROM jourhd" & _
             " LEFT JOIN jourdt ON jourhd.docid = jourdt.docid"
+        Private Const FindJournalDetailQuery As String =
+            "SELECT jourhd.docid," & _
+            "   jourhd.docdt," & _
+            "   jourhd.pstdt," & _
+            "   jourhd.rfdoc," & _
+            "   jourhd.rmark," & _
+            "   jourhd.dstat," & _
+            "   jourhd.uname," & _
+            "   jourhd.cgdat," & _
+            "   jourhd.dtnum," & _
+            "   jourhd.cancl," & _
+            "   jourdt.glnum," & _
+            "   jourdt.pstky," & _
+            "   jourdt.psamt," & _
+            "   jourdt.notes" & _
+            " FROM jourdt" & _
+            " LEFT JOIN jourhd ON jourhd.docid = jourdt.docid"
 
         Public Shared Function GetAllPeriods() As DataTable
             Dim allPeriodQuery As String = "SELECT acpid, acyer, acmon, activ FROM pract"
@@ -46,7 +63,7 @@ Namespace Services
         Public Shared Sub ReverseAJournal(ByRef command As MySqlCommand, ByVal journalId As String, ByVal userId As String)
             Dim journalDataTable As DataTable = New DataTable()
 
-            command.CommandText = (_findJournalQuery & " WHERE jourhd.docid = @docid ORDER BY jourhd.docid")
+            command.CommandText = (FindJournalDetailQuery & " WHERE jourhd.docid = @docid ORDER BY jourhd.docid")
             command.CreateParameter()
 
             command.Parameters.Clear()
@@ -86,7 +103,7 @@ Namespace Services
 
         Public Shared Function FindTransactionJournal(ByVal transactionId As String, ByVal journalStatus As Integer) As DataTable
             Dim journalDataTable As DataTable = New DataTable()
-            Dim transactionJournalQuery As String = _findJournalQuery
+            Dim transactionJournalQuery As String = FindJournalQuery
 
             transactionJournalQuery &= " WHERE rfdoc = '" & transactionId & "'"
 
