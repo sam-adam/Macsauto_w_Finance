@@ -74,12 +74,12 @@ Namespace Services
             If journalDataTable.Rows.Count > 0 Then
                 Dim journal As DataRow = journalDataTable.Rows(0)
 
-                command.CommandText = "INSERT INTO jourhd(docdt, pstdt, rfdoc, rmark, dstat, uname, cgdat, dtnum, cancl) VALUES(NOW(), NOW(), @referenceDoc, @remark, '', @userId, NOW(), 'AD', 'X')"
+                command.CommandText = "INSERT INTO jourhd(docdt, pstdt, rfdoc, rmark, dstat, uname, cgdat, dtnum, cancl) VALUES(NOW(), NOW(), @referenceDoc, @remark, 'X', @userId, NOW(), 'AD', 'TRANSACTION CANCELLED')"
 
                 command.Parameters.Clear()
                 command.Parameters.AddWithValue("referenceDoc", journal("rfdoc"))
                 command.Parameters.AddWithValue("remark", ("REVERSAL OF JOURNAL #" & journal("docid")))
-                command.Parameters.AddWithValue("userId", userId)
+                command.Parameters.AddWithValue("userId", String.Format("{0:000}", userId))
 
                 command.ExecuteNonQuery()
 

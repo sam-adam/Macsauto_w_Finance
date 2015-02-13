@@ -75,6 +75,8 @@ Public Class Migrator
         Dim announcer As New TextWriterAnnouncer(AddressOf TextWriterHandler)
         Dim migrationContext As New RunnerContext(announcer)
 
+        announcer.ShowSql = True
+
         options.PreviewOnly = False
         options.Timeout = 0
 

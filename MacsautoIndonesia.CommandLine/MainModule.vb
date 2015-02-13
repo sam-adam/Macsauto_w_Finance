@@ -15,6 +15,7 @@ Module MainModule
             Console.WriteLine("Enter command to run:")
             Console.WriteLine("1. Migration")
             Console.WriteLine("2. Import GL Accounts XLS")
+            Console.WriteLine("3. Configure Connection")
             Console.WriteLine("0. Exit command line")
             Console.WriteLine("")
             Console.Write("Command: ")
@@ -39,6 +40,8 @@ Module MainModule
                     Dim importer As New GLAccountImporter()
 
                     importer.Run()
+                Case 3
+                    Configuration()
                 Case Else
                     Console.WriteLine("Unknown command! Press any key to exit..")
                     Console.ReadLine()

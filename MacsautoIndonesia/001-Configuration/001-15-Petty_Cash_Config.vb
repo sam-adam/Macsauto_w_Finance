@@ -84,7 +84,7 @@
                 loadSourceTable()
             End If
         End If
-     
+
     End Sub
     Private Function checkTable(ByVal num As Integer)
         Dim i, j As Integer
