@@ -463,15 +463,17 @@ Public Class _003_07_TrDetail2
     Private Sub VehicleRegCbo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles VehicleRegCbo.SelectedIndexChanged
         If VehicleRegCbo.SelectedIndex > -1 Then
             If VehicleSizeTxt.Text <> CurrentVehicleSize AndAlso TransactionServiceDataGrid.Rows.Count > 0 Then
-                If MsgBox("The selected vehicle is different from previous, all existing services will be removed. Continue?", MsgBoxStyle.Exclamation Or MsgBoxStyle.YesNo, "Warning") = MsgBoxResult.Yes Then
-                    TransactionServiceDataGrid.Rows.Clear()
-                Else
-                    VehicleRegCbo.SelectedValue = CurrentVehicleRegistration
-                End If
-            End If
+                MsgBox("The selected vehicle is different from previous, all existing services will be removed", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Warning")
+                TransactionServiceDataGrid.Rows.Clear()
+        End If
 
             CurrentVehicleSize = VehicleSizeTxt.Text
-            CurrentVehicleRegistration = VehicleRegCbo.SelectedText
+
+            If VehicleRegCbo.SelectedValue.GetType() Is GetType(DataRowView) Then
+                CurrentVehicleRegistration = CType(VehicleRegCbo.SelectedValue, DataRowView)("linum")
+            Else
+                CurrentVehicleRegistration = VehicleRegCbo.SelectedText
+            End If
         End If
     End Sub
 

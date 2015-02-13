@@ -53,8 +53,6 @@ Public Class _006_03_Main_Form_Version2
             Sub(s As Object, args As CompanyDataChangedEventArgs)
                 Company = args.Company
             End Sub)
-
-        Company = LoggedInEmployee.Company
     End Sub
 
     Private Sub _loginForm_Closed(ByVal sender As Object, ByVal e As EventArgs)
@@ -72,8 +70,8 @@ Public Class _006_03_Main_Form_Version2
     End Sub
 
     Private Sub _loginForm_LoginSucceded(ByVal sender As Object, ByVal e As EventArgs)
+        Company = LoggedInEmployee.Company
         Company = CompanyService.GetCurrentCompany()
-
 
         _loginForm.Hide()
 

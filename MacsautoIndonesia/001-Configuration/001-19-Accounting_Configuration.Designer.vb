@@ -23,16 +23,16 @@ Partial Class _001_19_Accounting_Configuration
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.TransactionGroup = New System.Windows.Forms.GroupBox()
+        Me.ProductSalesRevenueCbo = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.CoGSCbo = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.CardPaymentCbo = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.CashPaymentCbo = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SaveBtn = New System.Windows.Forms.Button()
-        Me.CoGSCbo = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.ProductSalesRevenueCbo = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.TransactionGroup.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -54,8 +54,45 @@ Partial Class _001_19_Accounting_Configuration
         Me.TransactionGroup.TabStop = False
         Me.TransactionGroup.Text = "Transaction"
         '
+        'ProductSalesRevenueCbo
+        '
+        Me.ProductSalesRevenueCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ProductSalesRevenueCbo.FormattingEnabled = True
+        Me.ProductSalesRevenueCbo.Location = New System.Drawing.Point(168, 117)
+        Me.ProductSalesRevenueCbo.Name = "ProductSalesRevenueCbo"
+        Me.ProductSalesRevenueCbo.Size = New System.Drawing.Size(329, 25)
+        Me.ProductSalesRevenueCbo.TabIndex = 7
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(22, 120)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(140, 17)
+        Me.Label4.TabIndex = 6
+        Me.Label4.Text = "Product Sales Revenue"
+        '
+        'CoGSCbo
+        '
+        Me.CoGSCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CoGSCbo.FormattingEnabled = True
+        Me.CoGSCbo.Location = New System.Drawing.Point(168, 86)
+        Me.CoGSCbo.Name = "CoGSCbo"
+        Me.CoGSCbo.Size = New System.Drawing.Size(329, 25)
+        Me.CoGSCbo.TabIndex = 5
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(122, 89)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(40, 17)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "CoGS"
+        '
         'CardPaymentCbo
         '
+        Me.CardPaymentCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CardPaymentCbo.FormattingEnabled = True
         Me.CardPaymentCbo.Location = New System.Drawing.Point(168, 55)
         Me.CardPaymentCbo.Name = "CardPaymentCbo"
@@ -73,6 +110,7 @@ Partial Class _001_19_Accounting_Configuration
         '
         'CashPaymentCbo
         '
+        Me.CashPaymentCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CashPaymentCbo.FormattingEnabled = True
         Me.CashPaymentCbo.Location = New System.Drawing.Point(168, 24)
         Me.CashPaymentCbo.Name = "CashPaymentCbo"
@@ -106,40 +144,6 @@ Partial Class _001_19_Accounting_Configuration
         Me.SaveBtn.TabIndex = 0
         Me.SaveBtn.Text = "Save"
         Me.SaveBtn.UseVisualStyleBackColor = True
-        '
-        'CoGSCbo
-        '
-        Me.CoGSCbo.FormattingEnabled = True
-        Me.CoGSCbo.Location = New System.Drawing.Point(168, 86)
-        Me.CoGSCbo.Name = "CoGSCbo"
-        Me.CoGSCbo.Size = New System.Drawing.Size(329, 25)
-        Me.CoGSCbo.TabIndex = 5
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(122, 89)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(40, 17)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "CoGS"
-        '
-        'ProductSalesRevenueCbo
-        '
-        Me.ProductSalesRevenueCbo.FormattingEnabled = True
-        Me.ProductSalesRevenueCbo.Location = New System.Drawing.Point(168, 117)
-        Me.ProductSalesRevenueCbo.Name = "ProductSalesRevenueCbo"
-        Me.ProductSalesRevenueCbo.Size = New System.Drawing.Size(329, 25)
-        Me.ProductSalesRevenueCbo.TabIndex = 7
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(22, 120)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(140, 17)
-        Me.Label4.TabIndex = 6
-        Me.Label4.Text = "Product Sales Revenue"
         '
         '_001_19_Accounting_Configuration
         '
