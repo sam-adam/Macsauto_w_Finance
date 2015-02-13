@@ -22,11 +22,12 @@ Partial Class _001_15_Petty_Cash_Config
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_001_15_Petty_Cash_Config))
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
@@ -164,8 +165,8 @@ Partial Class _001_15_Petty_Cash_Config
         '
         'DataGridViewTextBoxColumn1
         '
-        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewTextBoxColumn1.FillWeight = 120.0!
         Me.DataGridViewTextBoxColumn1.HeaderText = "Source #"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
@@ -186,8 +187,8 @@ Partial Class _001_15_Petty_Cash_Config
         '
         'Column4
         '
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column4.HeaderText = "GL Description"
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
@@ -255,9 +256,9 @@ Partial Class _001_15_Petty_Cash_Config
         Me.Label2.ForeColor = System.Drawing.Color.Red
         Me.Label2.Location = New System.Drawing.Point(6, 8)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(280, 17)
+        Me.Label2.Size = New System.Drawing.Size(374, 17)
         Me.Label2.TabIndex = 18
-        Me.Label2.Text = "Press ""F4"" on the field to search GL Account"
+        Me.Label2.Text = "Press ""F4"" on the GL Account Column to search for account"
         '
         'BtnSave
         '
@@ -274,9 +275,9 @@ Partial Class _001_15_Petty_Cash_Config
         '
         'Column1
         '
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveBorder
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveBorder
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Column1.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column1.FillWeight = 120.0!
         Me.Column1.HeaderText = "Usage #"
         Me.Column1.Name = "Column1"
@@ -292,15 +293,18 @@ Partial Class _001_15_Petty_Cash_Config
         '
         'Column5
         '
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column5.HeaderText = "GL Account"
         Me.Column5.MaxInputLength = 10
         Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
         Me.Column5.Width = 120
         '
         'Column6
         '
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle5
         Me.Column6.HeaderText = "GL Account Description"
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True

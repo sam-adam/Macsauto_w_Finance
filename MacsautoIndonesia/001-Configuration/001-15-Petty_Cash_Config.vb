@@ -75,11 +75,16 @@
     End Sub
    
     Private Sub sourceBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles sourceBtn.Click
-        If MsgBox("Save Source account for petty cash?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
-            saveSource1()
-            MsgBox("Source account for petty cash saved")
-            LoadSourceTable()
+        If Account.Text = "" Then
+            MsgBox("Please enter source account for petty cash")
+        Else
+            If MsgBox("Save Source account for petty cash?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
+                saveSource1()
+                MsgBox("Source account for petty cash saved")
+                loadSourceTable()
+            End If
         End If
+     
     End Sub
     Private Function checkTable(ByVal num As Integer)
         Dim i, j As Integer
