@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿Imports MacsautoIndonesia.UserControls
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class _002_08_Service_List
     Inherits System.Windows.Forms.Form
 
@@ -23,17 +25,12 @@ Partial Class _002_08_Service_List
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_002_08_Service_List))
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.SplitContainer = New System.Windows.Forms.SplitContainer()
-        Me.ServiceGridView = New System.Windows.Forms.DataGridView()
-        Me.ServiceIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServiceDescCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServiceTypeCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServiceTypeIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServiceGLAccountIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServiceGLAccountDescCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CancelBtn = New System.Windows.Forms.Button()
         Me.SaveBtn = New System.Windows.Forms.Button()
         Me.RemoveBtn = New System.Windows.Forms.Button()
@@ -51,13 +48,20 @@ Partial Class _002_08_Service_List
         Me.ServiceNameTxt = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ServiceIdLbl = New System.Windows.Forms.Label()
+        Me.ServiceGridView = New MacsautoIndonesia.UserControls.MyDataGridView()
+        Me.ServiceIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServiceDescCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServiceTypeCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServiceTypeIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServiceGLAccountIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ServiceGLAccountDescCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel8.SuspendLayout()
         CType(Me.SplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer.Panel1.SuspendLayout()
         Me.SplitContainer.Panel2.SuspendLayout()
         Me.SplitContainer.SuspendLayout()
-        CType(Me.ServiceGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ServicePricesDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ServiceGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel8
@@ -116,6 +120,200 @@ Partial Class _002_08_Service_List
         Me.SplitContainer.SplitterWidth = 5
         Me.SplitContainer.TabIndex = 34
         '
+        'CancelBtn
+        '
+        Me.CancelBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CancelBtn.BackgroundImage = CType(resources.GetObject("CancelBtn.BackgroundImage"), System.Drawing.Image)
+        Me.CancelBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.CancelBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CancelBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.CancelBtn.Location = New System.Drawing.Point(184, 349)
+        Me.CancelBtn.Name = "CancelBtn"
+        Me.CancelBtn.Size = New System.Drawing.Size(100, 50)
+        Me.CancelBtn.TabIndex = 25
+        Me.CancelBtn.Text = "CANCEL"
+        Me.CancelBtn.UseVisualStyleBackColor = True
+        Me.CancelBtn.Visible = False
+        '
+        'SaveBtn
+        '
+        Me.SaveBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SaveBtn.BackgroundImage = CType(resources.GetObject("SaveBtn.BackgroundImage"), System.Drawing.Image)
+        Me.SaveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.SaveBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SaveBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.SaveBtn.Location = New System.Drawing.Point(290, 349)
+        Me.SaveBtn.Name = "SaveBtn"
+        Me.SaveBtn.Size = New System.Drawing.Size(100, 50)
+        Me.SaveBtn.TabIndex = 24
+        Me.SaveBtn.Text = "SAVE"
+        Me.SaveBtn.UseVisualStyleBackColor = True
+        Me.SaveBtn.Visible = False
+        '
+        'RemoveBtn
+        '
+        Me.RemoveBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.RemoveBtn.BackgroundImage = CType(resources.GetObject("RemoveBtn.BackgroundImage"), System.Drawing.Image)
+        Me.RemoveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.RemoveBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RemoveBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.RemoveBtn.Location = New System.Drawing.Point(0, 349)
+        Me.RemoveBtn.Name = "RemoveBtn"
+        Me.RemoveBtn.Size = New System.Drawing.Size(100, 50)
+        Me.RemoveBtn.TabIndex = 23
+        Me.RemoveBtn.Text = "REMOVE"
+        Me.RemoveBtn.UseVisualStyleBackColor = True
+        '
+        'EditBtn
+        '
+        Me.EditBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.EditBtn.BackgroundImage = CType(resources.GetObject("EditBtn.BackgroundImage"), System.Drawing.Image)
+        Me.EditBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.EditBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EditBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.EditBtn.Location = New System.Drawing.Point(184, 349)
+        Me.EditBtn.Name = "EditBtn"
+        Me.EditBtn.Size = New System.Drawing.Size(100, 50)
+        Me.EditBtn.TabIndex = 22
+        Me.EditBtn.Text = "EDIT"
+        Me.EditBtn.UseVisualStyleBackColor = True
+        '
+        'AddBtn
+        '
+        Me.AddBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.AddBtn.BackgroundImage = CType(resources.GetObject("AddBtn.BackgroundImage"), System.Drawing.Image)
+        Me.AddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.AddBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AddBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.AddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.AddBtn.Location = New System.Drawing.Point(290, 349)
+        Me.AddBtn.Name = "AddBtn"
+        Me.AddBtn.Size = New System.Drawing.Size(100, 50)
+        Me.AddBtn.TabIndex = 21
+        Me.AddBtn.Text = "ADD"
+        Me.AddBtn.UseVisualStyleBackColor = True
+        '
+        'ServicePricesDataGrid
+        '
+        Me.ServicePricesDataGrid.AllowUserToAddRows = False
+        Me.ServicePricesDataGrid.AllowUserToDeleteRows = False
+        Me.ServicePricesDataGrid.AllowUserToResizeRows = False
+        Me.ServicePricesDataGrid.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ServicePricesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ServicePricesDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.VehicleSizeIdCol, Me.VehicleSizeDescCol, Me.ServicePriceCol, Me.NewPriceCol})
+        Me.ServicePricesDataGrid.Location = New System.Drawing.Point(-1, 156)
+        Me.ServicePricesDataGrid.Name = "ServicePricesDataGrid"
+        Me.ServicePricesDataGrid.RowHeadersVisible = False
+        Me.ServicePricesDataGrid.Size = New System.Drawing.Size(390, 187)
+        Me.ServicePricesDataGrid.TabIndex = 13
+        '
+        'VehicleSizeIdCol
+        '
+        Me.VehicleSizeIdCol.HeaderText = "Vehicle Size Id"
+        Me.VehicleSizeIdCol.Name = "VehicleSizeIdCol"
+        Me.VehicleSizeIdCol.ReadOnly = True
+        Me.VehicleSizeIdCol.Visible = False
+        '
+        'VehicleSizeDescCol
+        '
+        Me.VehicleSizeDescCol.HeaderText = "Size"
+        Me.VehicleSizeDescCol.Name = "VehicleSizeDescCol"
+        Me.VehicleSizeDescCol.ReadOnly = True
+        '
+        'ServicePriceCol
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle3.Format = "N0"
+        DataGridViewCellStyle3.NullValue = "0"
+        Me.ServicePriceCol.DefaultCellStyle = DataGridViewCellStyle3
+        Me.ServicePriceCol.HeaderText = "Price"
+        Me.ServicePriceCol.Name = "ServicePriceCol"
+        Me.ServicePriceCol.ReadOnly = True
+        '
+        'NewPriceCol
+        '
+        Me.NewPriceCol.FalseValue = "0"
+        Me.NewPriceCol.HeaderText = "NewPrice"
+        Me.NewPriceCol.IndeterminateValue = "0"
+        Me.NewPriceCol.Name = "NewPriceCol"
+        Me.NewPriceCol.ReadOnly = True
+        Me.NewPriceCol.TrueValue = "1"
+        Me.NewPriceCol.Visible = False
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(5, 129)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(82, 17)
+        Me.Label5.TabIndex = 12
+        Me.Label5.Text = "GL Account"
+        '
+        'AccountCbo
+        '
+        Me.AccountCbo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.AccountCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.AccountCbo.Enabled = False
+        Me.AccountCbo.FormattingEnabled = True
+        Me.AccountCbo.Location = New System.Drawing.Point(93, 126)
+        Me.AccountCbo.Name = "AccountCbo"
+        Me.AccountCbo.Size = New System.Drawing.Size(296, 24)
+        Me.AccountCbo.TabIndex = 11
+        '
+        'ServiceTypeCbo
+        '
+        Me.ServiceTypeCbo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ServiceTypeCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ServiceTypeCbo.Enabled = False
+        Me.ServiceTypeCbo.FormattingEnabled = True
+        Me.ServiceTypeCbo.Location = New System.Drawing.Point(93, 96)
+        Me.ServiceTypeCbo.Name = "ServiceTypeCbo"
+        Me.ServiceTypeCbo.Size = New System.Drawing.Size(296, 24)
+        Me.ServiceTypeCbo.TabIndex = 10
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(47, 99)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(40, 17)
+        Me.Label2.TabIndex = 9
+        Me.Label2.Text = "Type"
+        '
+        'ServiceNameTxt
+        '
+        Me.ServiceNameTxt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ServiceNameTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.ServiceNameTxt.Location = New System.Drawing.Point(93, 44)
+        Me.ServiceNameTxt.Multiline = True
+        Me.ServiceNameTxt.Name = "ServiceNameTxt"
+        Me.ServiceNameTxt.ReadOnly = True
+        Me.ServiceNameTxt.Size = New System.Drawing.Size(296, 46)
+        Me.ServiceNameTxt.TabIndex = 8
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(8, 47)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(79, 17)
+        Me.Label1.TabIndex = 7
+        Me.Label1.Text = "Description"
+        '
+        'ServiceIdLbl
+        '
+        Me.ServiceIdLbl.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ServiceIdLbl.AutoSize = True
+        Me.ServiceIdLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
+        Me.ServiceIdLbl.Location = New System.Drawing.Point(-5, 4)
+        Me.ServiceIdLbl.Name = "ServiceIdLbl"
+        Me.ServiceIdLbl.Size = New System.Drawing.Size(103, 24)
+        Me.ServiceIdLbl.TabIndex = 0
+        Me.ServiceIdLbl.Text = "[Service Id]"
+        '
         'ServiceGridView
         '
         Me.ServiceGridView.AllowUserToAddRows = False
@@ -123,15 +321,34 @@ Partial Class _002_08_Service_List
         Me.ServiceGridView.AllowUserToOrderColumns = True
         Me.ServiceGridView.AllowUserToResizeRows = False
         Me.ServiceGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.ServiceGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        Me.ServiceGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.ServiceGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ServiceGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ServiceIdCol, Me.ServiceDescCol, Me.ServiceTypeCol, Me.ServiceTypeIdCol, Me.ServiceGLAccountIdCol, Me.ServiceGLAccountDescCol})
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.ServiceGridView.DefaultCellStyle = DataGridViewCellStyle2
         Me.ServiceGridView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ServiceGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(221, Byte), Integer))
+        Me.ServiceGridView.IsStripped = True
         Me.ServiceGridView.Location = New System.Drawing.Point(0, 0)
         Me.ServiceGridView.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.ServiceGridView.Name = "ServiceGridView"
         Me.ServiceGridView.ReadOnly = True
         Me.ServiceGridView.RowHeadersVisible = False
         Me.ServiceGridView.Size = New System.Drawing.Size(563, 648)
+        Me.ServiceGridView.StripBackColor = System.Drawing.Color.FromArgb(CType(CType(229, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(251, Byte), Integer))
         Me.ServiceGridView.TabIndex = 0
         '
         'ServiceIdCol
@@ -139,7 +356,7 @@ Partial Class _002_08_Service_List
         Me.ServiceIdCol.HeaderText = "Service Id"
         Me.ServiceIdCol.Name = "ServiceIdCol"
         Me.ServiceIdCol.ReadOnly = True
-        Me.ServiceIdCol.Width = 87
+        Me.ServiceIdCol.Width = 95
         '
         'ServiceDescCol
         '
@@ -168,208 +385,14 @@ Partial Class _002_08_Service_List
         Me.ServiceGLAccountIdCol.HeaderText = "GL Account"
         Me.ServiceGLAccountIdCol.Name = "ServiceGLAccountIdCol"
         Me.ServiceGLAccountIdCol.ReadOnly = True
-        Me.ServiceGLAccountIdCol.Width = 98
+        Me.ServiceGLAccountIdCol.Width = 107
         '
         'ServiceGLAccountDescCol
         '
         Me.ServiceGLAccountDescCol.HeaderText = "GL Account Desc"
         Me.ServiceGLAccountDescCol.Name = "ServiceGLAccountDescCol"
         Me.ServiceGLAccountDescCol.ReadOnly = True
-        Me.ServiceGLAccountDescCol.Width = 131
-        '
-        'CancelBtn
-        '
-        Me.CancelBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CancelBtn.BackgroundImage = CType(resources.GetObject("CancelBtn.BackgroundImage"), System.Drawing.Image)
-        Me.CancelBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.CancelBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CancelBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.CancelBtn.Location = New System.Drawing.Point(188, 349)
-        Me.CancelBtn.Name = "CancelBtn"
-        Me.CancelBtn.Size = New System.Drawing.Size(100, 50)
-        Me.CancelBtn.TabIndex = 25
-        Me.CancelBtn.Text = "CANCEL"
-        Me.CancelBtn.UseVisualStyleBackColor = True
-        Me.CancelBtn.Visible = False
-        '
-        'SaveBtn
-        '
-        Me.SaveBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SaveBtn.BackgroundImage = CType(resources.GetObject("SaveBtn.BackgroundImage"), System.Drawing.Image)
-        Me.SaveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.SaveBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SaveBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.SaveBtn.Location = New System.Drawing.Point(294, 349)
-        Me.SaveBtn.Name = "SaveBtn"
-        Me.SaveBtn.Size = New System.Drawing.Size(100, 50)
-        Me.SaveBtn.TabIndex = 24
-        Me.SaveBtn.Text = "SAVE"
-        Me.SaveBtn.UseVisualStyleBackColor = True
-        Me.SaveBtn.Visible = False
-        '
-        'RemoveBtn
-        '
-        Me.RemoveBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.RemoveBtn.BackgroundImage = CType(resources.GetObject("RemoveBtn.BackgroundImage"), System.Drawing.Image)
-        Me.RemoveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.RemoveBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RemoveBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.RemoveBtn.Location = New System.Drawing.Point(4, 349)
-        Me.RemoveBtn.Name = "RemoveBtn"
-        Me.RemoveBtn.Size = New System.Drawing.Size(100, 50)
-        Me.RemoveBtn.TabIndex = 23
-        Me.RemoveBtn.Text = "REMOVE"
-        Me.RemoveBtn.UseVisualStyleBackColor = True
-        '
-        'EditBtn
-        '
-        Me.EditBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.EditBtn.BackgroundImage = CType(resources.GetObject("EditBtn.BackgroundImage"), System.Drawing.Image)
-        Me.EditBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.EditBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EditBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.EditBtn.Location = New System.Drawing.Point(188, 349)
-        Me.EditBtn.Name = "EditBtn"
-        Me.EditBtn.Size = New System.Drawing.Size(100, 50)
-        Me.EditBtn.TabIndex = 22
-        Me.EditBtn.Text = "EDIT"
-        Me.EditBtn.UseVisualStyleBackColor = True
-        '
-        'AddBtn
-        '
-        Me.AddBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.AddBtn.BackgroundImage = CType(resources.GetObject("AddBtn.BackgroundImage"), System.Drawing.Image)
-        Me.AddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.AddBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AddBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.AddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.AddBtn.Location = New System.Drawing.Point(294, 349)
-        Me.AddBtn.Name = "AddBtn"
-        Me.AddBtn.Size = New System.Drawing.Size(100, 50)
-        Me.AddBtn.TabIndex = 21
-        Me.AddBtn.Text = "ADD"
-        Me.AddBtn.UseVisualStyleBackColor = True
-        '
-        'ServicePricesDataGrid
-        '
-        Me.ServicePricesDataGrid.AllowUserToAddRows = False
-        Me.ServicePricesDataGrid.AllowUserToDeleteRows = False
-        Me.ServicePricesDataGrid.AllowUserToResizeRows = False
-        Me.ServicePricesDataGrid.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ServicePricesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ServicePricesDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.VehicleSizeIdCol, Me.VehicleSizeDescCol, Me.ServicePriceCol, Me.NewPriceCol})
-        Me.ServicePricesDataGrid.Location = New System.Drawing.Point(3, 156)
-        Me.ServicePricesDataGrid.Name = "ServicePricesDataGrid"
-        Me.ServicePricesDataGrid.RowHeadersVisible = False
-        Me.ServicePricesDataGrid.Size = New System.Drawing.Size(390, 187)
-        Me.ServicePricesDataGrid.TabIndex = 13
-        '
-        'VehicleSizeIdCol
-        '
-        Me.VehicleSizeIdCol.HeaderText = "Vehicle Size Id"
-        Me.VehicleSizeIdCol.Name = "VehicleSizeIdCol"
-        Me.VehicleSizeIdCol.ReadOnly = True
-        Me.VehicleSizeIdCol.Visible = False
-        '
-        'VehicleSizeDescCol
-        '
-        Me.VehicleSizeDescCol.HeaderText = "Size"
-        Me.VehicleSizeDescCol.Name = "VehicleSizeDescCol"
-        Me.VehicleSizeDescCol.ReadOnly = True
-        '
-        'ServicePriceCol
-        '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle1.Format = "N0"
-        DataGridViewCellStyle1.NullValue = "0"
-        Me.ServicePriceCol.DefaultCellStyle = DataGridViewCellStyle1
-        Me.ServicePriceCol.HeaderText = "Price"
-        Me.ServicePriceCol.Name = "ServicePriceCol"
-        Me.ServicePriceCol.ReadOnly = True
-        '
-        'NewPriceCol
-        '
-        Me.NewPriceCol.FalseValue = "0"
-        Me.NewPriceCol.HeaderText = "NewPrice"
-        Me.NewPriceCol.IndeterminateValue = "0"
-        Me.NewPriceCol.Name = "NewPriceCol"
-        Me.NewPriceCol.ReadOnly = True
-        Me.NewPriceCol.TrueValue = "1"
-        Me.NewPriceCol.Visible = False
-        '
-        'Label5
-        '
-        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(9, 129)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(82, 17)
-        Me.Label5.TabIndex = 12
-        Me.Label5.Text = "GL Account"
-        '
-        'AccountCbo
-        '
-        Me.AccountCbo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.AccountCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.AccountCbo.Enabled = False
-        Me.AccountCbo.FormattingEnabled = True
-        Me.AccountCbo.Location = New System.Drawing.Point(97, 126)
-        Me.AccountCbo.Name = "AccountCbo"
-        Me.AccountCbo.Size = New System.Drawing.Size(296, 24)
-        Me.AccountCbo.TabIndex = 11
-        '
-        'ServiceTypeCbo
-        '
-        Me.ServiceTypeCbo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ServiceTypeCbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ServiceTypeCbo.Enabled = False
-        Me.ServiceTypeCbo.FormattingEnabled = True
-        Me.ServiceTypeCbo.Location = New System.Drawing.Point(97, 96)
-        Me.ServiceTypeCbo.Name = "ServiceTypeCbo"
-        Me.ServiceTypeCbo.Size = New System.Drawing.Size(296, 24)
-        Me.ServiceTypeCbo.TabIndex = 10
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(51, 99)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(40, 17)
-        Me.Label2.TabIndex = 9
-        Me.Label2.Text = "Type"
-        '
-        'ServiceNameTxt
-        '
-        Me.ServiceNameTxt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ServiceNameTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.ServiceNameTxt.Location = New System.Drawing.Point(97, 44)
-        Me.ServiceNameTxt.Multiline = True
-        Me.ServiceNameTxt.Name = "ServiceNameTxt"
-        Me.ServiceNameTxt.ReadOnly = True
-        Me.ServiceNameTxt.Size = New System.Drawing.Size(296, 46)
-        Me.ServiceNameTxt.TabIndex = 8
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 47)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(79, 17)
-        Me.Label1.TabIndex = 7
-        Me.Label1.Text = "Description"
-        '
-        'ServiceIdLbl
-        '
-        Me.ServiceIdLbl.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ServiceIdLbl.AutoSize = True
-        Me.ServiceIdLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.ServiceIdLbl.Location = New System.Drawing.Point(-1, 4)
-        Me.ServiceIdLbl.Name = "ServiceIdLbl"
-        Me.ServiceIdLbl.Size = New System.Drawing.Size(103, 24)
-        Me.ServiceIdLbl.TabIndex = 0
-        Me.ServiceIdLbl.Text = "[Service Id]"
+        Me.ServiceGLAccountDescCol.Width = 143
         '
         '_002_08_Service_List
         '
@@ -389,15 +412,14 @@ Partial Class _002_08_Service_List
         Me.SplitContainer.Panel2.PerformLayout()
         CType(Me.SplitContainer, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer.ResumeLayout(False)
-        CType(Me.ServiceGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ServicePricesDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ServiceGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents Panel8 As System.Windows.Forms.Panel
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents SplitContainer As System.Windows.Forms.SplitContainer
-    Friend WithEvents ServiceGridView As System.Windows.Forms.DataGridView
     Friend WithEvents ServiceIdLbl As System.Windows.Forms.Label
     Friend WithEvents ServiceNameTxt As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
@@ -421,4 +443,5 @@ Partial Class _002_08_Service_List
     Friend WithEvents ServiceTypeIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ServiceGLAccountIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ServiceGLAccountDescCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ServiceGridView As MacsautoIndonesia.UserControls.MyDataGridView
 End Class

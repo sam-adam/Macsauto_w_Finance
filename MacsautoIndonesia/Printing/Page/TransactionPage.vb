@@ -51,7 +51,7 @@ Namespace Printing.Page
         Private Sub InitializeSeparator()
             Dim idx As Integer = Width * 2.5
             Dim lineItemWidth As Integer = TextRenderer.MeasureText("-", _defaultFont, New Size(Width, 30)).Width
-            Dim line As String
+            Dim line As String = ""
 
             While idx > 0
                 line &= "-"

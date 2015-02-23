@@ -1,5 +1,4 @@
-﻿Imports System.Runtime.CompilerServices
-Imports System.IO
+﻿Imports System.IO
 Imports System.Text
 Imports System.Globalization
 Imports System.ComponentModel
@@ -17,166 +16,7 @@ Module GlobalModule
     Public CurrentDateTimeFormat As String = (DateTimeFormatInfo.CurrentInfo.ShortDatePattern & " " & DateTimeFormatInfo.CurrentInfo.LongTimePattern)
     Public RollPageWidth As Integer = 250
 
-    <Extension()>
-    Public Function IsIn(ByVal anObject As DockStyle, ByVal listToCompare As DockStyle()) As Boolean
-        If listToCompare.Any(Function(item) item = anObject) Then
-            Return True
-        End If
-
-        Return False
-    End Function
-
-    <Extension()>
-    Public Function ToDateTime(ByVal value As String) As DateTime
-        Dim parts = value.Split(" ")
-
-        Return IIf(parts.Count() = 2, DateTime.ParseExact(value, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture), DateTime.ParseExact(value, "yyyy-MM-dd", CultureInfo.InvariantCulture))
-    End Function
-
-    <Extension()>
-    Public Function ToMySQLDateTime(ByVal value As DateTime) As String
-        Return value.ToString("yyyy-MM-dd HH:mm:ss")
-    End Function
-
-    <Extension()>
-    Public Function ToLongFriendlyDateTimeFormat(ByVal value As DateTime) As String
-        Return value.ToString(LongFriendlyDateTimeFormat)
-    End Function
-
-    <Extension()>
-    <DebuggerStepThrough()>
-    Public Function SameAsKey(ByVal character As Char, ByVal control As Keys) As Boolean
-        Return AscW(character) = control
-    End Function
-
-    <Extension>
-    Public Sub ValidateIntegerInput(ByVal dataGridView As DataGridView, ByVal colIndex As Integer, Optional ByVal maxValue As Integer = 0)
-        Dim handler =
-            Sub(sender As Object, e As DataGridViewEditingControlShowingEventArgs)
-                If dataGridView.CurrentCell.ColumnIndex = colIndex Then
-                    Dim txt As TextBox = CType(e.Control, TextBox)
-
-                    IntegerInputHandler(txt, maxValue)
-                End If
-            End Sub
-
-        AddHandler dataGridView.EditingControlShowing, handler
-    End Sub
-
-    <Extension>
-    Public Sub ValidateIntegerInput(ByVal txt As TextBox, Optional ByVal maxValue As Integer = 0)
-        IntegerInputHandler(txt, maxValue)
-    End Sub
-
-    <Extension>
-    Public Sub SafeAdd(ByVal collection As ArrayList, ByVal key As String, ByVal value As String)
-        Dim needToBeRemoved As List(Of String) = New List(Of String)()
-
-        For Each item As String In collection
-            If item.IndexOf(key & "=", StringComparison.Ordinal) = 0 Then
-                needToBeRemoved.Add(item)
-            End If
-        Next
-
-        For Each item As String In needToBeRemoved
-            collection.Remove(item)
-        Next
-
-        collection.Add(key & "=" & value)
-    End Sub
-
-    <Extension>
-    <DebuggerStepThrough()>
-    Public Function Find(ByVal collection As ArrayList, ByVal key As String) As String
-        For Each item As String In collection
-            Dim itemExploded As String() = item.Split("=")
-
-            If itemExploded.Count() = 0 Then
-                Return Nothing
-            Else
-                If itemExploded(0) = key Then
-                    Return itemExploded(1)
-                End If
-            End If
-        Next
-
-        Return Nothing
-    End Function
-
-    Private Sub IntegerInputHandler(ByVal txt As TextBox, Optional ByVal maxValue As Integer = 0)
-        If Not txt Is Nothing Then
-            AddHandler txt.KeyPress,
-                Sub(txtSender As Object, txtEvt As KeyPressEventArgs)
-                    If Not (Char.IsControl(txtEvt.KeyChar) Or Char.IsNumber(txtEvt.KeyChar)) Then
-                        txtEvt.Handled = True
-                    ElseIf (txtEvt.KeyChar.SameAsKey(Keys.Back)) And (txt.Text.Length = 1) Then
-                        txtEvt.Handled = True
-                        txt.Text = 0
-                    ElseIf Char.IsNumber(txtEvt.KeyChar) AndAlso txt.Text = "0" Then
-                        txtEvt.Handled = True
-                        txt.Text = Integer.Parse(txtEvt.KeyChar)
-                        txt.SelectionStart = 1
-                    ElseIf Not maxValue = 0 And Not Char.IsControl(txtEvt.KeyChar) Then
-                        Dim inputtedValue As Integer
-
-                        Integer.TryParse(txtEvt.KeyChar, inputtedValue)
-
-                        Dim nextValue As Integer = Integer.Parse(
-                            txt.Text.Substring(0, txt.SelectionStart) &
-                            inputtedValue.ToString() &
-                            txt.Text.Substring(txt.SelectionStart))
-
-                        If nextValue > maxValue Then
-                            txtEvt.Handled = True
-                        End If
-                    End If
-                End Sub
-        End If
-    End Sub
-
-    <Extension>
-    Public Sub Handle(ByVal exception As Exception)
-        Dim backgroundWorker As BackgroundWorker = New BackgroundWorker()
-
-        AddHandler backgroundWorker.DoWork,
-            Sub(sender As Object, evt As DoWorkEventArgs)
-                Dim ex As Exception = CType(evt.Argument, Exception)
-                Dim body As String = ex.Message
-
-                body &= Environment.NewLine
-                body &= ex.StackTrace
-
-                body &= Environment.NewLine & Environment.NewLine
-
-                body &= "Open Forms:"
-                body &= Environment.NewLine
-
-                For Each form As Form In Application.OpenForms
-                    body &= form.Name & " - "
-                Next
-
-                Dim graph As Graphics
-                Dim bmp As Bitmap = New Bitmap(1280, 768)
-
-                graph = Graphics.FromImage(bmp)
-                graph.CopyFromScreen(0, 0, 0, 0, New Size(1280, 768))
-
-                Dim path As String = (IO.Path.GetTempPath() & "/" & Guid.NewGuid().ToString() & ".png")
-                bmp.Save(path)
-
-                bmp.Dispose()
-                graph.Dispose()
-
-                Dim attachment As Attachment = New Attachment(path, "image/png")
-
-                SendMail("Macsauto Auto Exception Report - " & LoggedInEmployee.Company.Name, body, {attachment})
-            End Sub
-
-        backgroundWorker.RunWorkerAsync(exception)
-
-        Throw exception
-    End Sub
-
+    
     Public Sub SendMail(ByVal subject As String, ByVal body As String, Optional mailAttachments As Attachment() = Nothing)
         Dim smtp As SmtpClient = New SmtpClient()
         Dim mail As MailMessage = New MailMessage()
@@ -351,3 +191,26 @@ Module GlobalModule
         End Try
     End Function
 End Module
+
+Structure BootstrapColor
+    Public Shared Function Success() As Color
+        Return Color.FromArgb(1, 92, 184, 92)
+    End Function
+
+    Public Shared Function Danger() As Color
+        Return Color.FromArgb(1, 217, 83, 79)
+    End Function
+
+    Public Shared Function Primary() As Color
+        Return Color.FromArgb(1, 51, 122, 183)
+    End Function
+End Structure
+
+Public Enum BorderRadius
+    None = &H0
+    Left = &H2
+    Right = &H4
+    Top = &H8
+    Bottom = &H10
+    All = &HF1
+End Enum

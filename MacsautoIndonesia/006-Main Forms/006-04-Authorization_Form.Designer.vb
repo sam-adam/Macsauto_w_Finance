@@ -27,7 +27,7 @@ Partial Class _006_04_Authorization_Form
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PasswordTxt = New System.Windows.Forms.TextBox()
         Me.AuthorizeBtn = New System.Windows.Forms.Button()
-        Me.CancelButton = New System.Windows.Forms.Button()
+        Me.CancelBtn = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.AuthorizationLevelLabel = New System.Windows.Forms.Label()
         Me.SuspendLayout()
@@ -74,15 +74,15 @@ Partial Class _006_04_Authorization_Form
         Me.AuthorizeBtn.Text = "Authorize"
         Me.AuthorizeBtn.UseVisualStyleBackColor = True
         '
-        'CancelButton
+        'CancelBtn
         '
-        Me.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.CancelButton.Location = New System.Drawing.Point(206, 70)
-        Me.CancelButton.Name = "CancelButton"
-        Me.CancelButton.Size = New System.Drawing.Size(90, 27)
-        Me.CancelButton.TabIndex = 5
-        Me.CancelButton.Text = "Cancel"
-        Me.CancelButton.UseVisualStyleBackColor = True
+        Me.CancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.CancelBtn.Location = New System.Drawing.Point(206, 70)
+        Me.CancelBtn.Name = "CancelBtn"
+        Me.CancelBtn.Size = New System.Drawing.Size(90, 27)
+        Me.CancelBtn.TabIndex = 5
+        Me.CancelBtn.Text = "Cancel"
+        Me.CancelBtn.UseVisualStyleBackColor = True
         '
         'Label3
         '
@@ -110,7 +110,7 @@ Partial Class _006_04_Authorization_Form
         Me.ClientSize = New System.Drawing.Size(404, 144)
         Me.Controls.Add(Me.AuthorizationLevelLabel)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.CancelButton)
+        Me.Controls.Add(Me.CancelBtn)
         Me.Controls.Add(Me.AuthorizeBtn)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.PasswordTxt)
@@ -131,7 +131,7 @@ Partial Class _006_04_Authorization_Form
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents PasswordTxt As System.Windows.Forms.TextBox
     Friend WithEvents AuthorizeBtn As System.Windows.Forms.Button
-    Friend WithEvents CancelButton As System.Windows.Forms.Button
+    Friend WithEvents CancelBtn As System.Windows.Forms.Button
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents AuthorizationLevelLabel As System.Windows.Forms.Label
 End Class

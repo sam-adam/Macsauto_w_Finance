@@ -355,7 +355,7 @@ Public Class _006_03_Main_Form_Version2
 
     Private Sub LoadForm(Of T As Form)()
         Dim formType As Type = GetType(T)
-        Dim form As Form
+        Dim form As Form = Nothing
 
         For Each openForm As Form In From openForms As Form In Application.OpenForms() Where openForms.GetType() = formType
             form = openForm

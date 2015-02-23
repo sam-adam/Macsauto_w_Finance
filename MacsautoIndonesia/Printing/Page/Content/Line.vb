@@ -90,7 +90,7 @@
         End Function
 
         Private Function IndentText(ByVal textToIndent As String, ByVal count As Integer) As String
-            Dim indentation As String
+            Dim indentation As String = ""
 
             For i = 0 To count - 1
                 indentation &= "    "

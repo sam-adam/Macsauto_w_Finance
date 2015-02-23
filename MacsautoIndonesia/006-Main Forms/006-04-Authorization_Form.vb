@@ -48,6 +48,10 @@ Public Class _006_04_Authorization_Form
 
         Dispose()
     End Sub
+
+    Private Sub CancelBtn_Click(sender As Object, e As EventArgs) Handles CancelBtn.Click
+        Dispose()
+    End Sub
 End Class
 
 Public Enum AuthorizationLevel
