@@ -205,7 +205,7 @@ Partial Class _009_04_Display_Journal_Tr
         '
         'Column3
         '
-        DataGridViewCellStyle1.Format = "C2"
+        DataGridViewCellStyle1.Format = "N0"
         Me.Column3.DefaultCellStyle = DataGridViewCellStyle1
         Me.Column3.HeaderText = "Db"
         Me.Column3.Name = "Column3"
@@ -214,7 +214,7 @@ Partial Class _009_04_Display_Journal_Tr
         '
         'Column4
         '
-        DataGridViewCellStyle2.Format = "C2"
+        DataGridViewCellStyle2.Format = "N0"
         Me.Column4.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column4.HeaderText = "Cr"
         Me.Column4.Name = "Column4"

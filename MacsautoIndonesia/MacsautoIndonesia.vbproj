@@ -711,6 +711,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="001-Configuration\001-01-Define_UOM.resx">
       <DependentUpon>001-01-Define_UOM.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="001-Configuration\001-03-02-Define_vehicle_model.resx">
       <DependentUpon>001-03-02-Define_vehicle_model.vb</DependentUpon>

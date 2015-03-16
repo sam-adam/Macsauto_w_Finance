@@ -375,7 +375,7 @@ Partial Class _007_02_Petty_Cash
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(3, 3)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(724, 445)
+        Me.Panel3.Size = New System.Drawing.Size(868, 445)
         Me.Panel3.TabIndex = 33
         '
         'TransDate
@@ -532,7 +532,7 @@ Partial Class _007_02_Petty_Cash
         Me.TabPage2.Location = New System.Drawing.Point(4, 25)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(730, 451)
+        Me.TabPage2.Size = New System.Drawing.Size(874, 451)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Create New Petty Cash "
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -551,7 +551,8 @@ Partial Class _007_02_Petty_Cash
         '
         'Amount
         '
-        DataGridViewCellStyle1.Format = "C2"
+        DataGridViewCellStyle1.Format = "N0"
+        DataGridViewCellStyle1.NullValue = Nothing
         Me.Amount.DefaultCellStyle = DataGridViewCellStyle1
         Me.Amount.HeaderText = "Amount"
         Me.Amount.Name = "Amount"

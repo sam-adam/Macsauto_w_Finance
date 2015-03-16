@@ -160,7 +160,7 @@ Partial Class _009_07_Profit_and_Lost
         '
         'Column4
         '
-        DataGridViewCellStyle3.Format = "C2"
+        DataGridViewCellStyle3.Format = "N0"
         Me.Column4.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column4.HeaderText = "Amount"
         Me.Column4.Name = "Column4"
@@ -169,7 +169,7 @@ Partial Class _009_07_Profit_and_Lost
         '
         'Column5
         '
-        DataGridViewCellStyle4.Format = "c2"
+        DataGridViewCellStyle4.Format = "N0"
         Me.Column5.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column5.HeaderText = "Sub Total"
         Me.Column5.Name = "Column5"

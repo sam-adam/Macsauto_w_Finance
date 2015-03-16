@@ -30,7 +30,7 @@ Partial Class _001_03_02
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VehicleSizeCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NewAddition = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Edited = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.ModelView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -41,7 +41,7 @@ Partial Class _001_03_02
         Me.ModelView.AllowUserToDeleteRows = False
         Me.ModelView.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.ModelView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ModelView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.NewAddition, Me.Edited})
+        Me.ModelView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.VehicleSizeCol, Me.NewAddition, Me.Edited})
         Me.ModelView.Location = New System.Drawing.Point(2, 1)
         Me.ModelView.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ModelView.Name = "ModelView"
@@ -86,14 +86,15 @@ Partial Class _001_03_02
         Me.Column2.Name = "Column2"
         Me.Column2.Width = 200
         '
-        'Column3
+        'VehicleSizeCol
         '
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle2
-        Me.Column3.HeaderText = "Vehicle Size"
-        Me.Column3.Name = "Column3"
-        Me.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Column3.Width = 150
+        Me.VehicleSizeCol.DefaultCellStyle = DataGridViewCellStyle2
+        Me.VehicleSizeCol.HeaderText = "Vehicle Size"
+        Me.VehicleSizeCol.Name = "VehicleSizeCol"
+        Me.VehicleSizeCol.ReadOnly = True
+        Me.VehicleSizeCol.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.VehicleSizeCol.Width = 150
         '
         'NewAddition
         '
@@ -134,7 +135,7 @@ Partial Class _001_03_02
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents VehicleSizeCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents NewAddition As System.Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents Edited As System.Windows.Forms.DataGridViewCheckBoxColumn
 End Class

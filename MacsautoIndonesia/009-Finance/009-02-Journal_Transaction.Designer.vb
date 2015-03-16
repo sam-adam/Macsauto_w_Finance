@@ -356,7 +356,7 @@ Partial Class _009_02_Journal_Transaction
         '
         'Column4
         '
-        DataGridViewCellStyle2.Format = "C2"
+        DataGridViewCellStyle2.Format = "N0"
         DataGridViewCellStyle2.NullValue = Nothing
         Me.Column4.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column4.HeaderText = "Amount"

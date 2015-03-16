@@ -78,4 +78,10 @@
         ModelView(3, ModelView.NewRowIndex).Value = True
         ModelView(4, ModelView.NewRowIndex).Value = True
     End Sub
+
+    Private Sub ModelView_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles ModelView.CellValueChanged
+        If e.ColumnIndex = VehicleSizeCol.Index AndAlso e.RowIndex <> -1 AndAlso ModelView.Rows.Count > 0 AndAlso ModelView.Columns.Count > 0 Then
+            ModelView(4, e.RowIndex).Value = True
+        End If
+    End Sub
 End Class

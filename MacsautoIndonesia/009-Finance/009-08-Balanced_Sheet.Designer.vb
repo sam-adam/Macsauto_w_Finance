@@ -162,7 +162,7 @@ Partial Class _009_08_Balanced_Sheet
         '
         'Column4
         '
-        DataGridViewCellStyle3.Format = "C2"
+        DataGridViewCellStyle3.Format = "N0"
         DataGridViewCellStyle3.NullValue = Nothing
         Me.Column4.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column4.HeaderText = "Amount"
@@ -172,7 +172,7 @@ Partial Class _009_08_Balanced_Sheet
         '
         'Column5
         '
-        DataGridViewCellStyle4.Format = "C2"
+        DataGridViewCellStyle4.Format = "N0"
         DataGridViewCellStyle4.NullValue = Nothing
         Me.Column5.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column5.HeaderText = "Total"

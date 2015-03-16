@@ -148,7 +148,7 @@ Partial Class _009_03_Transaction_List
         '
         'Column8
         '
-        DataGridViewCellStyle15.Format = "c2"
+        DataGridViewCellStyle15.Format = "N0"
         Me.Column8.DefaultCellStyle = DataGridViewCellStyle15
         Me.Column8.HeaderText = "Amount"
         Me.Column8.Name = "Column8"

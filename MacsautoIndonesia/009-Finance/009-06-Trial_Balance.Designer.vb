@@ -160,7 +160,7 @@ Partial Class _009_06_Trial_Balance
         '
         'Column5
         '
-        DataGridViewCellStyle6.Format = "C2"
+        DataGridViewCellStyle6.Format = "N0"
         DataGridViewCellStyle6.NullValue = "0"
         Me.Column5.DefaultCellStyle = DataGridViewCellStyle6
         Me.Column5.HeaderText = "Debit"
@@ -170,7 +170,7 @@ Partial Class _009_06_Trial_Balance
         '
         'Column6
         '
-        DataGridViewCellStyle7.Format = "C2"
+        DataGridViewCellStyle7.Format = "N0"
         DataGridViewCellStyle7.NullValue = "0"
         Me.Column6.DefaultCellStyle = DataGridViewCellStyle7
         Me.Column6.HeaderText = "Credit"
