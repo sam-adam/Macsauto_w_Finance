@@ -349,6 +349,10 @@ Public Class _006_03_Main_Form_Version2
         LoadForm(Of _003_05_Cancel_Transaction)()
     End Sub
 
+    Private Sub DefineTransactionAutopostToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DefineTransactionAutopostToolStripMenuItem.Click
+        LoadForm(Of _001_19_Accounting_Configuration)()
+    End Sub
+
     Private Sub CurrentTimer_Tick(sender As Object, e As EventArgs) Handles CurrentTimer.Tick
         Text = String.Format("Macsauto | [USER: {0} - {1}] - [LOGIN: {2}] - [BRANCH: {3}] | {4}", If(LoggedInEmployee.Position = Position.Manager, "Manager", "Staff"), LoggedInEmployee.Name, DateTime.Now.ToLongFriendlyDateTimeFormat(), LoggedInEmployee.Company.Name, DateTime.Now.ToString("HH:mm:ss tt"))
     End Sub

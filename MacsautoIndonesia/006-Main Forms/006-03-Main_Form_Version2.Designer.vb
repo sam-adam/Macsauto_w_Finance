@@ -99,6 +99,7 @@ Partial Class _006_03_Main_Form_Version2
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SidebarPictureBox = New System.Windows.Forms.PictureBox()
         Me.CurrentTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.DefineTransactionAutopostToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PnlLogo.SuspendLayout()
         CType(Me.PBoxMaskot, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -464,7 +465,7 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.CtxFinance.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GeneralLedgerAccountToolStripMenuItem, Me.JournalTransactionEntryToolStripMenuItem, Me.JournalTransactionListToolStripMenuItem, Me.GeneralLedgerReportToolStripMenuItem, Me.ConfigurationToolStripMenuItem})
         Me.CtxFinance.Name = "CtxFinance"
-        Me.CtxFinance.Size = New System.Drawing.Size(208, 114)
+        Me.CtxFinance.Size = New System.Drawing.Size(208, 136)
         '
         'GeneralLedgerAccountToolStripMenuItem
         '
@@ -517,7 +518,7 @@ Partial Class _006_03_Main_Form_Version2
         '
         'ConfigurationToolStripMenuItem
         '
-        Me.ConfigurationToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GLAccountTypeToolStripMenuItem, Me.AccountingDocumentTypeToolStripMenuItem, Me.PettyCashAccountToolStripMenuItem, Me.DefineAccountingPeriodToolStripMenuItem, Me.DefineServiceAccountToolStripMenuItem})
+        Me.ConfigurationToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GLAccountTypeToolStripMenuItem, Me.AccountingDocumentTypeToolStripMenuItem, Me.PettyCashAccountToolStripMenuItem, Me.DefineAccountingPeriodToolStripMenuItem, Me.DefineServiceAccountToolStripMenuItem, Me.DefineTransactionAutopostToolStripMenuItem})
         Me.ConfigurationToolStripMenuItem.Name = "ConfigurationToolStripMenuItem"
         Me.ConfigurationToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
         Me.ConfigurationToolStripMenuItem.Text = "Configuration"
@@ -525,31 +526,31 @@ Partial Class _006_03_Main_Form_Version2
         'GLAccountTypeToolStripMenuItem
         '
         Me.GLAccountTypeToolStripMenuItem.Name = "GLAccountTypeToolStripMenuItem"
-        Me.GLAccountTypeToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
+        Me.GLAccountTypeToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
         Me.GLAccountTypeToolStripMenuItem.Text = "GL Account Type"
         '
         'AccountingDocumentTypeToolStripMenuItem
         '
         Me.AccountingDocumentTypeToolStripMenuItem.Name = "AccountingDocumentTypeToolStripMenuItem"
-        Me.AccountingDocumentTypeToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
+        Me.AccountingDocumentTypeToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
         Me.AccountingDocumentTypeToolStripMenuItem.Text = "Accounting Document Type"
         '
         'PettyCashAccountToolStripMenuItem
         '
         Me.PettyCashAccountToolStripMenuItem.Name = "PettyCashAccountToolStripMenuItem"
-        Me.PettyCashAccountToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
+        Me.PettyCashAccountToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
         Me.PettyCashAccountToolStripMenuItem.Text = "Petty Cash Account"
         '
         'DefineAccountingPeriodToolStripMenuItem
         '
         Me.DefineAccountingPeriodToolStripMenuItem.Name = "DefineAccountingPeriodToolStripMenuItem"
-        Me.DefineAccountingPeriodToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
+        Me.DefineAccountingPeriodToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
         Me.DefineAccountingPeriodToolStripMenuItem.Text = "Define Accounting Period"
         '
         'DefineServiceAccountToolStripMenuItem
         '
         Me.DefineServiceAccountToolStripMenuItem.Name = "DefineServiceAccountToolStripMenuItem"
-        Me.DefineServiceAccountToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
+        Me.DefineServiceAccountToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
         Me.DefineServiceAccountToolStripMenuItem.Text = "Define Service Account"
         '
         'SplitContainer1
@@ -719,6 +720,12 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.CurrentTimer.Interval = 1000
         '
+        'DefineTransactionAutopostToolStripMenuItem
+        '
+        Me.DefineTransactionAutopostToolStripMenuItem.Name = "DefineTransactionAutopostToolStripMenuItem"
+        Me.DefineTransactionAutopostToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.DefineTransactionAutopostToolStripMenuItem.Text = "Define Transaction Autopost"
+        '
         '_006_03_Main_Form_Version2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -825,4 +832,5 @@ Partial Class _006_03_Main_Form_Version2
     Friend WithEvents CompanyPhone2Lbl As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents CancelTransactionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DefineTransactionAutopostToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

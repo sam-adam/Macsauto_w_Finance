@@ -27,8 +27,7 @@ Public Class _002_08_Service_List
         revenueAccountDataTable.Load(ExecQueryReader("SELECT glaccountms.glnum, glaccountms.gldes" & _
             " FROM glaccountms" & _
             " LEFT JOIN accounttype ON glaccountms.actid = accounttype.actid" & _
-            " WHERE glaccountms.glsta = 'Active'" & _
-            " AND accounttype.actds = 'REVENUE'"))
+            " WHERE glaccountms.glsta = 'Active'"))
         _vehicleSizeDataTable.Load(ExecQueryReader("SELECT vehiclesize.idsiz, vehiclesize.sizdc FROM vehiclesize"))
 
         For Each serviceType In serviceTypeDataTable.Rows
@@ -128,7 +127,7 @@ Public Class _002_08_Service_List
         End If
 
         If Not String.IsNullOrEmpty(selectedAccountId) Then
-            AccountCbo.SelectedItem = AccountCbo.Items.OfType(Of KeyValuePair(Of String, String)).ToList().First(
+            AccountCbo.SelectedItem = AccountCbo.Items.OfType(Of KeyValuePair(Of String, String)).ToList().FirstOrDefault(
                 Function(item)
                     Return item.Key = selectedAccountId
                 End Function)

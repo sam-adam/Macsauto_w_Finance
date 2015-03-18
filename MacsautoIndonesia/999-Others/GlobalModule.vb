@@ -39,7 +39,11 @@ Module GlobalModule
             Next
         End If
 
-        smtp.Send(mail)
+        Try
+            smtp.Send(mail)
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Public Sub BackupDatabase(ByVal mysqlDumper As String, ByVal database As String, ByVal outputPath As String, ByVal user As String, ByVal password As String)

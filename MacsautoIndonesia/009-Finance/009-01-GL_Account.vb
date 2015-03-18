@@ -178,7 +178,13 @@ Public Class _009_01_GL_Account
     Private Sub GLActGrid_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles GLActGrid.CellClick
         GLNum.Text = GLActGrid.CurrentRow.Cells(0).Value.ToString.Substring(6, 4)
         GLDesc.Text = GLActGrid.CurrentRow.Cells(1).Value.ToString
-        actTypeCbo.SelectedItem = GLActGrid.CurrentRow.Cells(2).Value.ToString
+
+        If actTypeCbo.SelectedItem = GLActGrid.CurrentRow.Cells(2).Value.ToString Then
+            Prefix.Text = actTypeCbo.SelectedItem.ToString.Substring(0, 1) & "-" & "00" & "-" & comp
+        Else
+            actTypeCbo.SelectedItem = GLActGrid.CurrentRow.Cells(2).Value.ToString
+        End If
+
         setReportType()
     End Sub
 
@@ -209,11 +215,9 @@ Public Class _009_01_GL_Account
     End Sub
 
     Private Sub btnDel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDel.Click
-
         If GLNum.Text = "" Then
             MsgBox("Please Select GL Account that need to be deactivated")
         Else
-
             If checkTransaction("SELECT count(*) from jourdt where glnum like '" + GLNum.Text + "'") = 0 And checkTransaction("SELECT count(*) from mtrac where glnum like '" + GLNum.Text + "'") = 0 And checkTransaction("SELECT count(*) from btrgl where glnum like '" + GLNum.Text + "'") = 0 And checkTransaction("SELECT count(*) from scash where glnum like '" + GLNum.Text + "'") = 0 And checkTransaction("SELECT count(*) from hproduct where glnum like '" + GLNum.Text + "'") = 0 And checkTransaction("SELECT count(*) from hservice where glnum like '" + GLNum.Text + "'") = 0 Then
                 If MsgBox("Delete GL Account ?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
                     removeGLAccount()
@@ -223,18 +227,14 @@ Public Class _009_01_GL_Account
             Else
                 MsgBox("GL Account cannot be delete, because it has been used in transaction or configuration")
             End If
-
         End If
     End Sub
 
     Private Sub actTypeCbo_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles actTypeCbo.SelectedIndexChanged
         If actTypeCbo.SelectedIndex <> -1 Then
             Prefix.Text = actTypeCbo.SelectedItem.ToString.Substring(0, 1) & "-" & "00" & "-" & comp
-
         End If
-       
     End Sub
-
 
     Private Sub GLNum_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles GLNum.KeyPress
         If Asc(e.KeyChar) <> 8 Then

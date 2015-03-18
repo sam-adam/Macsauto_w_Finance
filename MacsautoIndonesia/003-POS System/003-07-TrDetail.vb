@@ -934,6 +934,12 @@ Public Class _003_07_TrDetail2
             " FROM hservice" & _
             " RIGHT JOIN glaccountms ON hservice.glnum = glaccountms.glnum AND glaccountms.glsta = 'Active'" & _
             " WHERE hservice.idsvc IN (" & String.Join(", ", TransactionServiceDataGrid.Rows.OfType(Of DataGridViewRow).Select(Function(row) "'" & row.Cells(ServiceIdCol.Index).Value.ToString() & "'")) & ")"
+        Dim productAccounts As Dictionary(Of String, Double) = New Dictionary(Of String, Double)()
+        Dim productQuery As String =
+            "SELECT hproduct.idpdt, hproduct.glnum" & _
+            " FROM hproduct" & _
+            " RIGHT JOIN glaccountms ON hproduct.glnum = glaccountms.glnum AND glaccountms.glsta = 'Active'" & _
+            " WHERE hproduct.idpdt IN (" & String.Join(", ", TransactionProductDataGrid.Rows.OfType(Of DataGridViewRow).Select(Function(row) "'" & row.Cells(ProductIdCol.Index).Value.ToString() & "'")) & ")"
 
         If TransactionServiceDataGrid.Rows.Count > 0 Then
             serviceAccountsDataTable.Load(ExecQueryReader(serviceQuery))
@@ -942,7 +948,7 @@ Public Class _003_07_TrDetail2
                 Dim row As DataGridViewRow = TransactionServiceDataGrid.Rows.OfType(Of DataGridViewRow).First(Function(rowItem) rowItem.Cells(ServiceIdCol.Index).Value.ToString() = serviceAccount("idsvc"))
                 Dim subTotal As Double = 0
 
-                If row.Cells(ServiceRemarksCol.Index).Value <> "-" Then
+                If row.Cells(ServiceRemarksCol.Index).Value <> "-" Or row.Cells(ServiceDiscountCol.Index).Value <> 0 Then
                     If row.Cells(ServiceDiscountCol.Index).Value = 0 Then
                         subTotal = Double.Parse(row.Cells(ServicePriceCol.Index).Value)
                     Else
@@ -958,6 +964,10 @@ Public Class _003_07_TrDetail2
                     serviceAccounts(serviceAccount("glnum")) = subTotal
                 End If
             Next
+        End If
+
+        If TransactionProductDataGrid.Rows.Count > 0 Then
+            productAccountsDataTable.Load(ExecQueryReader(productQuery))
         End If
 
         If serviceAccountsDataTable.Rows.Count = TransactionServiceDataGrid.Rows.Count And productAccountsDataTable.Rows.Count = TransactionProductDataGrid.Rows.Count Then
