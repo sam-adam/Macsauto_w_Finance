@@ -75,6 +75,10 @@ Public Class _006_03_Main_Form_Version2
 
         _loginForm.Hide()
 
+        UserToolStripMenuItem.Visible = (LoggedInEmployee.Position = Position.Manager)
+        ProductMovementToolStripMenuItem.Visible = (LoggedInEmployee.Position = Position.Manager)
+        ProductToolStripMenuItem.Visible = (LoggedInEmployee.Position = Position.Manager)
+
         Me.Show()
         Me.Focus()
     End Sub
@@ -308,11 +312,6 @@ Public Class _006_03_Main_Form_Version2
             Text = String.Format(TitleFormat, If(LoggedInEmployee.Position = Position.Manager, "Manager", "Staff"), LoggedInEmployee.Name, DateTime.Now.ToLongFriendlyDateTimeFormat(), LoggedInEmployee.Company.Name, DateTime.Now.ToString("HH:mm:ss tt"))
 
             CurrentTimer.Start()
-
-            UserToolStripMenuItem.Visible = (LoggedInEmployee.Position = Position.Manager)
-            ProductMovementToolStripMenuItem.Visible = (LoggedInEmployee.Position = Position.Manager)
-            ProductToolStripMenuItem.Visible = (LoggedInEmployee.Position = Position.Manager)
-            CancelTransactionToolStripMenuItem.Visible = (LoggedInEmployee.Position = Position.Manager)
         End If
     End Sub
 

@@ -2,6 +2,7 @@
 Imports MySql.Data.MySqlClient
 Imports MacsautoIndonesia.Printing.Page
 Imports MacsautoIndonesia.Printing
+Imports MacsautoIndonesia.Services
 
 Public Class _003_04_TrMerchandiseRedemption
     Dim smartCardReader As SmartCardReader
@@ -196,7 +197,7 @@ Public Class _003_04_TrMerchandiseRedemption
             cPoin.Text = reader(4).ToString()
         End While
 
-        CheckPointExpiry(cNumber.Text)
+        TransactionService.CheckPointExpiry(New MySqlCommand() With {.Connection = GetConnection()}, cNumber.Text)
     End Sub
 
     Private Sub PrintForm(ByVal transactionNumber As String)

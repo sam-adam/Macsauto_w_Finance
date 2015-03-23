@@ -57,9 +57,15 @@ Public Class _008_06_BrutoReport
         _allTransactionsDataTable.Rows.Clear()
         _allTransactionsDataTable.Load(ExecQueryReader(String.Format(_brutoReportQuery, from.ToString("yyyy-MM-dd 00:00:00"), until.ToString("yyyy-MM-dd 23:59:59"))))
 
+        Dim totalPayment = _allTransactionsDataTable.Compute("SUM(toamt)", "")
+
+        If TypeOf totalPayment Is DBNull Then
+            totalPayment = 0
+        End If
+
         TotalCarLabel.Text = (_allTransactionsDataTable.Select("vtype = 'Car'").Count())
         TotalMotorcycleLabel.Text = (_allTransactionsDataTable.Select("vtype = 'Motorcycle'").Count())
-        TotalPaymentLabel.Text = "Total payment: Rp. " & FormatNumber(_allTransactionsDataTable.Compute("SUM(toamt)", ""), 0)
+        TotalPaymentLabel.Text = "Total payment: Rp. " & FormatNumber(totalPayment, 0)
 
         Marking(DataGridView)
     End Sub

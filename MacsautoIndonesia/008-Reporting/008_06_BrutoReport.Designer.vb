@@ -22,24 +22,12 @@ Partial Class _008_06_BrutoReport
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DataGridView = New System.Windows.Forms.DataGridView()
-        Me.PanelTop = New System.Windows.Forms.Panel()
-        Me.BtnExport = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.PanelBottom = New System.Windows.Forms.Panel()
-        Me.TotalPaymentLabel = New System.Windows.Forms.Label()
-        Me.TotalCarLabel = New System.Windows.Forms.Label()
-        Me.TotalMotorcycleLabel = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.IdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DateCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StatusCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -56,6 +44,18 @@ Partial Class _008_06_BrutoReport
         Me.VehicleSizeCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VehicleColorCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RemarkCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PanelTop = New System.Windows.Forms.Panel()
+        Me.BtnExport = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.PanelBottom = New System.Windows.Forms.Panel()
+        Me.TotalPaymentLabel = New System.Windows.Forms.Label()
+        Me.TotalCarLabel = New System.Windows.Forms.Label()
+        Me.TotalMotorcycleLabel = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.DataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelTop.SuspendLayout()
         Me.PanelBottom.SuspendLayout()
@@ -69,12 +69,124 @@ Partial Class _008_06_BrutoReport
         Me.DataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdCol, Me.DateCol, Me.StatusCol, Me.RegistrationNumberCol, Me.TotalServiceCol, Me.TotalProductCol, Me.TotalCostCol, Me.TotalPaymentCol, Me.TotalChangeCol, Me.EmployeeCol, Me.VehicleTypeCol, Me.VehicleBrandCol, Me.VehicleModelCol, Me.VehicleSizeCol, Me.VehicleColorCol, Me.RemarkCol})
         Me.DataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView.Location = New System.Drawing.Point(0, 54)
-        Me.DataGridView.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView.Name = "DataGridView"
         Me.DataGridView.ReadOnly = True
         Me.DataGridView.RowHeadersVisible = False
         Me.DataGridView.Size = New System.Drawing.Size(1370, 499)
         Me.DataGridView.TabIndex = 0
+        '
+        'IdCol
+        '
+        Me.IdCol.HeaderText = "Id"
+        Me.IdCol.Name = "IdCol"
+        Me.IdCol.ReadOnly = True
+        '
+        'DateCol
+        '
+        Me.DateCol.HeaderText = "Date"
+        Me.DateCol.Name = "DateCol"
+        Me.DateCol.ReadOnly = True
+        '
+        'StatusCol
+        '
+        Me.StatusCol.HeaderText = "Status"
+        Me.StatusCol.Name = "StatusCol"
+        Me.StatusCol.ReadOnly = True
+        '
+        'RegistrationNumberCol
+        '
+        Me.RegistrationNumberCol.HeaderText = "Registration Number"
+        Me.RegistrationNumberCol.Name = "RegistrationNumberCol"
+        Me.RegistrationNumberCol.ReadOnly = True
+        '
+        'TotalServiceCol
+        '
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle1.Format = "N0"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.TotalServiceCol.DefaultCellStyle = DataGridViewCellStyle1
+        Me.TotalServiceCol.HeaderText = "Total Service"
+        Me.TotalServiceCol.Name = "TotalServiceCol"
+        Me.TotalServiceCol.ReadOnly = True
+        '
+        'TotalProductCol
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle2.Format = "N0"
+        Me.TotalProductCol.DefaultCellStyle = DataGridViewCellStyle2
+        Me.TotalProductCol.HeaderText = "Total Product"
+        Me.TotalProductCol.Name = "TotalProductCol"
+        Me.TotalProductCol.ReadOnly = True
+        '
+        'TotalCostCol
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle3.Format = "N0"
+        Me.TotalCostCol.DefaultCellStyle = DataGridViewCellStyle3
+        Me.TotalCostCol.HeaderText = "Total Cost"
+        Me.TotalCostCol.Name = "TotalCostCol"
+        Me.TotalCostCol.ReadOnly = True
+        '
+        'TotalPaymentCol
+        '
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle4.Format = "N0"
+        Me.TotalPaymentCol.DefaultCellStyle = DataGridViewCellStyle4
+        Me.TotalPaymentCol.HeaderText = "Total Payment"
+        Me.TotalPaymentCol.Name = "TotalPaymentCol"
+        Me.TotalPaymentCol.ReadOnly = True
+        '
+        'TotalChangeCol
+        '
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle5.Format = "N0"
+        Me.TotalChangeCol.DefaultCellStyle = DataGridViewCellStyle5
+        Me.TotalChangeCol.HeaderText = "Total Change"
+        Me.TotalChangeCol.Name = "TotalChangeCol"
+        Me.TotalChangeCol.ReadOnly = True
+        '
+        'EmployeeCol
+        '
+        Me.EmployeeCol.HeaderText = "Employee"
+        Me.EmployeeCol.Name = "EmployeeCol"
+        Me.EmployeeCol.ReadOnly = True
+        '
+        'VehicleTypeCol
+        '
+        Me.VehicleTypeCol.HeaderText = "VehicleType"
+        Me.VehicleTypeCol.Name = "VehicleTypeCol"
+        Me.VehicleTypeCol.ReadOnly = True
+        '
+        'VehicleBrandCol
+        '
+        Me.VehicleBrandCol.HeaderText = "Vehicle Brand"
+        Me.VehicleBrandCol.Name = "VehicleBrandCol"
+        Me.VehicleBrandCol.ReadOnly = True
+        '
+        'VehicleModelCol
+        '
+        Me.VehicleModelCol.HeaderText = "Vehicle Model"
+        Me.VehicleModelCol.Name = "VehicleModelCol"
+        Me.VehicleModelCol.ReadOnly = True
+        '
+        'VehicleSizeCol
+        '
+        Me.VehicleSizeCol.HeaderText = "Size"
+        Me.VehicleSizeCol.Name = "VehicleSizeCol"
+        Me.VehicleSizeCol.ReadOnly = True
+        '
+        'VehicleColorCol
+        '
+        Me.VehicleColorCol.HeaderText = "Color"
+        Me.VehicleColorCol.Name = "VehicleColorCol"
+        Me.VehicleColorCol.ReadOnly = True
+        '
+        'RemarkCol
+        '
+        Me.RemarkCol.HeaderText = "Remark"
+        Me.RemarkCol.Name = "RemarkCol"
+        Me.RemarkCol.ReadOnly = True
         '
         'PanelTop
         '
@@ -85,7 +197,7 @@ Partial Class _008_06_BrutoReport
         Me.PanelTop.Controls.Add(Me.DateTimePicker1)
         Me.PanelTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelTop.Location = New System.Drawing.Point(0, 0)
-        Me.PanelTop.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelTop.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelTop.Name = "PanelTop"
         Me.PanelTop.Size = New System.Drawing.Size(1370, 54)
         Me.PanelTop.TabIndex = 1
@@ -94,7 +206,7 @@ Partial Class _008_06_BrutoReport
         '
         Me.BtnExport.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnExport.Location = New System.Drawing.Point(1257, 8)
-        Me.BtnExport.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.BtnExport.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnExport.Name = "BtnExport"
         Me.BtnExport.Size = New System.Drawing.Size(100, 28)
         Me.BtnExport.TabIndex = 5
@@ -114,7 +226,7 @@ Partial Class _008_06_BrutoReport
         'DateTimePicker2
         '
         Me.DateTimePicker2.Location = New System.Drawing.Point(372, 10)
-        Me.DateTimePicker2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DateTimePicker2.Margin = New System.Windows.Forms.Padding(4)
         Me.DateTimePicker2.Name = "DateTimePicker2"
         Me.DateTimePicker2.Size = New System.Drawing.Size(265, 23)
         Me.DateTimePicker2.TabIndex = 6
@@ -132,7 +244,7 @@ Partial Class _008_06_BrutoReport
         'DateTimePicker1
         '
         Me.DateTimePicker1.Location = New System.Drawing.Point(63, 10)
-        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(4)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(265, 23)
         Me.DateTimePicker1.TabIndex = 4
@@ -146,7 +258,7 @@ Partial Class _008_06_BrutoReport
         Me.PanelBottom.Controls.Add(Me.Label3)
         Me.PanelBottom.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.PanelBottom.Location = New System.Drawing.Point(0, 553)
-        Me.PanelBottom.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanelBottom.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelBottom.Name = "PanelBottom"
         Me.PanelBottom.Size = New System.Drawing.Size(1370, 98)
         Me.PanelBottom.TabIndex = 2
@@ -155,7 +267,7 @@ Partial Class _008_06_BrutoReport
         '
         Me.TotalPaymentLabel.AutoSize = True
         Me.TotalPaymentLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TotalPaymentLabel.Location = New System.Drawing.Point(1103, 18)
+        Me.TotalPaymentLabel.Location = New System.Drawing.Point(927, 18)
         Me.TotalPaymentLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.TotalPaymentLabel.Name = "TotalPaymentLabel"
         Me.TotalPaymentLabel.Size = New System.Drawing.Size(190, 20)
@@ -206,118 +318,6 @@ Partial Class _008_06_BrutoReport
         Me.Label3.TabIndex = 6
         Me.Label3.Text = "Total Car:"
         '
-        'IdCol
-        '
-        Me.IdCol.HeaderText = "Id"
-        Me.IdCol.Name = "IdCol"
-        Me.IdCol.ReadOnly = True
-        '
-        'DateCol
-        '
-        Me.DateCol.HeaderText = "Date"
-        Me.DateCol.Name = "DateCol"
-        Me.DateCol.ReadOnly = True
-        '
-        'StatusCol
-        '
-        Me.StatusCol.HeaderText = "Status"
-        Me.StatusCol.Name = "StatusCol"
-        Me.StatusCol.ReadOnly = True
-        '
-        'RegistrationNumberCol
-        '
-        Me.RegistrationNumberCol.HeaderText = "Registration Number"
-        Me.RegistrationNumberCol.Name = "RegistrationNumberCol"
-        Me.RegistrationNumberCol.ReadOnly = True
-        '
-        'TotalServiceCol
-        '
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle6.Format = "N0"
-        DataGridViewCellStyle6.NullValue = Nothing
-        Me.TotalServiceCol.DefaultCellStyle = DataGridViewCellStyle6
-        Me.TotalServiceCol.HeaderText = "Total Service"
-        Me.TotalServiceCol.Name = "TotalServiceCol"
-        Me.TotalServiceCol.ReadOnly = True
-        '
-        'TotalProductCol
-        '
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle7.Format = "N0"
-        Me.TotalProductCol.DefaultCellStyle = DataGridViewCellStyle7
-        Me.TotalProductCol.HeaderText = "Total Product"
-        Me.TotalProductCol.Name = "TotalProductCol"
-        Me.TotalProductCol.ReadOnly = True
-        '
-        'TotalCostCol
-        '
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle8.Format = "N0"
-        Me.TotalCostCol.DefaultCellStyle = DataGridViewCellStyle8
-        Me.TotalCostCol.HeaderText = "Total Cost"
-        Me.TotalCostCol.Name = "TotalCostCol"
-        Me.TotalCostCol.ReadOnly = True
-        '
-        'TotalPaymentCol
-        '
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle9.Format = "N0"
-        Me.TotalPaymentCol.DefaultCellStyle = DataGridViewCellStyle9
-        Me.TotalPaymentCol.HeaderText = "Total Payment"
-        Me.TotalPaymentCol.Name = "TotalPaymentCol"
-        Me.TotalPaymentCol.ReadOnly = True
-        '
-        'TotalChangeCol
-        '
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle10.Format = "N0"
-        Me.TotalChangeCol.DefaultCellStyle = DataGridViewCellStyle10
-        Me.TotalChangeCol.HeaderText = "Total Change"
-        Me.TotalChangeCol.Name = "TotalChangeCol"
-        Me.TotalChangeCol.ReadOnly = True
-        '
-        'EmployeeCol
-        '
-        Me.EmployeeCol.HeaderText = "Employee"
-        Me.EmployeeCol.Name = "EmployeeCol"
-        Me.EmployeeCol.ReadOnly = True
-        '
-        'VehicleTypeCol
-        '
-        Me.VehicleTypeCol.HeaderText = "VehicleType"
-        Me.VehicleTypeCol.Name = "VehicleTypeCol"
-        Me.VehicleTypeCol.ReadOnly = True
-        '
-        'VehicleBrandCol
-        '
-        Me.VehicleBrandCol.HeaderText = "Vehicle Brand"
-        Me.VehicleBrandCol.Name = "VehicleBrandCol"
-        Me.VehicleBrandCol.ReadOnly = True
-        '
-        'VehicleModelCol
-        '
-        Me.VehicleModelCol.HeaderText = "Vehicle Model"
-        Me.VehicleModelCol.Name = "VehicleModelCol"
-        Me.VehicleModelCol.ReadOnly = True
-        '
-        'VehicleSizeCol
-        '
-        Me.VehicleSizeCol.HeaderText = "Size"
-        Me.VehicleSizeCol.Name = "VehicleSizeCol"
-        Me.VehicleSizeCol.ReadOnly = True
-        '
-        'VehicleColorCol
-        '
-        Me.VehicleColorCol.HeaderText = "Color"
-        Me.VehicleColorCol.Name = "VehicleColorCol"
-        Me.VehicleColorCol.ReadOnly = True
-        '
-        'RemarkCol
-        '
-        Me.RemarkCol.HeaderText = "Remark"
-        Me.RemarkCol.Name = "RemarkCol"
-        Me.RemarkCol.ReadOnly = True
-        '
         '_008_06_BrutoReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -327,7 +327,7 @@ Partial Class _008_06_BrutoReport
         Me.Controls.Add(Me.PanelBottom)
         Me.Controls.Add(Me.PanelTop)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "_008_06_BrutoReport"
         Me.Text = "Report - Bruto"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

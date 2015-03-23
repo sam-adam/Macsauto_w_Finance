@@ -46,6 +46,6 @@ Public Class _001_13_Define_Account_Type
     End Sub
 
     Private Sub ActGridView_UserAddedRow(sender As Object, e As DataGridViewRowEventArgs) Handles ActGridView.UserAddedRow
-        ActGridView.Rows(ActGridView.NewRowIndex).Cells(NewAccountTypeCol.Index).Value = True
+        ActGridView.Rows(ActGridView.NewRowIndex - 1).Cells(NewAccountTypeCol.Index).Value = True
     End Sub
 End Class

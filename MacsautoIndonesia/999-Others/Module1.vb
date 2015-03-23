@@ -260,7 +260,7 @@ Module Module1
         myReader = ExecQueryReader(query)
 
         While myReader.Read()
-            If DateDiff("d", DateTime.Now, DateTime.Parse(ToDate(myReader(0).ToString()))) > 365 Then
+            If DateDiff("d", DateTime.Now, DateTime.ParseExact(myReader(0).ToString(), MySqlDateTimeFormat, CultureInfo.InvariantCulture)) > 365 Then
                 MsgBox("Last transaction is more than 1 year. Points will be set expired.", MsgBoxStyle.OkOnly, "Warning")
 
                 setExpired = True

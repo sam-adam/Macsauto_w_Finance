@@ -23,9 +23,8 @@ Partial Class _001_13_Define_Account_Type
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_001_13_Define_Account_Type))
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.ActGridView = New System.Windows.Forms.DataGridView()
         Me.BtnSave = New System.Windows.Forms.Button()
@@ -62,14 +61,14 @@ Partial Class _001_13_Define_Account_Type
         '
         Me.ActGridView.AllowUserToDeleteRows = False
         Me.ActGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.ActGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.ActGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.ActGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.ActGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.AccountTypeIdCol, Me.AccountTypeDescCol, Me.NewAccountTypeCol})
         Me.ActGridView.Dock = System.Windows.Forms.DockStyle.Fill
@@ -93,7 +92,13 @@ Partial Class _001_13_Define_Account_Type
         '
         'AccountTypeIdCol
         '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.AccountTypeIdCol.DefaultCellStyle = DataGridViewCellStyle2
         Me.AccountTypeIdCol.FillWeight = 120.0!
         Me.AccountTypeIdCol.HeaderText = "Act. Type ID"
@@ -116,19 +121,6 @@ Partial Class _001_13_Define_Account_Type
         Me.NewAccountTypeCol.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.NewAccountTypeCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.NewAccountTypeCol.Visible = False
-        '
-        'BtnSave
-        '
-        Me.BtnSave.BackgroundImage = CType(resources.GetObject("BtnSave.BackgroundImage"), System.Drawing.Image)
-        Me.BtnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnSave.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnSave.Location = New System.Drawing.Point(195, 10)
-        Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.Size = New System.Drawing.Size(78, 39)
-        Me.BtnSave.TabIndex = 1
-        Me.BtnSave.Text = "SAVE"
-        Me.BtnSave.UseVisualStyleBackColor = True
         '
         '_001_13_Define_Account_Type
         '
