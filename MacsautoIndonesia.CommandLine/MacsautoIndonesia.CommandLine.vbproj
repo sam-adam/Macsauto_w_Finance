@@ -99,6 +99,7 @@
   <ItemGroup>
     <Compile Include="CommandLine.vb" />
     <Compile Include="GLAccountImporter.vb" />
+    <Compile Include="Migrations\_031_HRedemptionAddCPoin.vb" />
     <Compile Include="Migrations\_030_JourHDTableAlterCancl.vb" />
     <Compile Include="Migrations\_000_StartupStructure.vb" />
     <Compile Include="Migrations\_029_PettyCashTableAlterRefString.vb" />

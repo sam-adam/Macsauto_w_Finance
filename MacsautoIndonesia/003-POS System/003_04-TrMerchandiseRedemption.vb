@@ -67,7 +67,7 @@ Public Class _003_04_TrMerchandiseRedemption
             MsgBox("Please select at least one merchandise")
         Else
             If MsgBox("Save Transaction", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
-                ExecQueryNonReader("INSERT INTO hredemption VALUES('" + TrNumber + "', '" + TrDATE.Value.ToString("yyyy-MM-dd") + "', '" + cNumber.Text + "', " + TotalPointRequired.Text + ")")
+                ExecQueryNonReader("INSERT INTO hredemption VALUES('" & TrNumber & "', '" & TrDATE.Value.ToString("yyyy-MM-dd") & "', '" & cNumber.Text & "', " & TotalPointRequired.Text & ", " & cPoin.Text & ")")
 
                 For Each row As DataGridViewRow In MerchandiseGrid.Rows
                     If row.Cells(3).Value <> Nothing And row.Cells(5).Value <> Nothing Then
@@ -183,8 +183,8 @@ Public Class _003_04_TrMerchandiseRedemption
         Dim query As String
         Dim reader As MySqlDataReader
 
-        query = "SELECT Cname, cadd1, cphon, ccpon, cpoin" & _
-                " FROM HCustomer" & _
+        query = "SELECT cname, cadd1, cphon, ccpon, cpoin" & _
+                " FROM hcustomer" & _
                 " WHERE cstat = 'Member'" & _
                 " AND idcus = '" & cNumber.Text & "'"
         reader = ExecQueryReader(query)

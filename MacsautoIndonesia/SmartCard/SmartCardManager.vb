@@ -1,12 +1,14 @@
-﻿Imports MacsautoIndonesia.SmartCard.Reader
+﻿Imports MacsautoIndonesia.SmartCard.Card
+Imports MacsautoIndonesia.SmartCard.Reader
 
 Namespace SmartCard
     Public Module SmartCardManager
         Private _returnCode As Integer
         Private _hContext As Integer
         Private _cardReaders As IList(Of SmartCardReader)
+        Private _acrReaders As IList(Of AcrReader)
 
-        Public Sub Initialize()
+        Public Sub InitializeMifare()
             If (_cardReaders Is Nothing) Then
                 _cardReaders = New List(Of SmartCardReader)()
                 _returnCode = ModWinsCard.SCardEstablishContext(ModWinsCard.SCARD_SCOPE_USER, 0, 0, _hContext)
@@ -16,6 +18,30 @@ Namespace SmartCard
                 End If
 
                 FetchReaders()
+            End If
+        End Sub
+
+        Public Sub InitializeAcr()
+            If (_cardReaders Is Nothing) Then
+                _cardReaders = New List(Of SmartCardReader)()
+
+                For Each port As Integer In System.Enum.GetValues(GetType(ACR120_UsbPorts))
+                    _returnCode = ACR120U.ACR120_Open(port)
+
+                    If _returnCode >= 0 Then
+                        _hContext = _returnCode
+
+                        Exit For
+                    End If
+                Next
+
+                If _hContext < 0 Then
+                    Throw New ApplicationException(ACR120U.GetErrMsg(_hContext))
+                End If
+
+                Dim acrReader As New AcrReader(_hContext)
+                Dim firmware As String = acrReader.Firmware
+                Dim tag As AcrSmartCard = acrReader.GetTag()
             End If
         End Sub
 

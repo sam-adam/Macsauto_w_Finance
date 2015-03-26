@@ -16,7 +16,7 @@ Module Module1
     Dim cardReaders As List(Of SmartCardReader)
 
     Public Sub InitCardReader()
-        SmartCardManager.Initialize()
+        SmartCardManager.InitializeAcr()
         cardReaders = SmartCardManager.CardReaders
     End Sub
     Public Function getCardReader() As SmartCardReader

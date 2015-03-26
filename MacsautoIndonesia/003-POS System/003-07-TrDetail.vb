@@ -733,6 +733,17 @@ Public Class _003_07_TrDetail2
                 command.ExecuteNonQuery()
                 '===========================================================================================================================================
 
+                If IsNumeric(VehicleMileageTxt.Text) Then
+                    command.CommandText = "UPDATE dcustomer SET vkilo = @vehicleMileage WHERE idcus = @customerId AND linum = @vehicleRegistration"
+                    command.Parameters.Clear()
+
+                    command.Parameters.AddWithValue("vehicleMileage", Double.Parse(VehicleMileageTxt.Text))
+                    command.Parameters.AddWithValue("customerId", CustomerIdTxt.Text)
+                    command.Parameters.AddWithValue("vehicleRegistration", VehicleRegCbo.SelectedValue)
+
+                    command.ExecuteNonQuery()
+                End If
+
                 If IsMemberChk.Checked And memberEarnedPoint > 0 Then
                     '===========================================================================================================================================
                     ' Member Point Related Transactions

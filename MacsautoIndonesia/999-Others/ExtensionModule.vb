@@ -142,6 +142,12 @@ Module ExtensionModule
     Public Function IsEven(ByVal value As Integer) As Boolean
         Return Not value.IsOdd()
     End Function
+
+    <Extension>
+    <DebuggerStepThrough()>
+    Public Function FormatHexToString(ByVal value As Byte) As String
+        Return Microsoft.VisualBasic.Right("00" & Hex(value), 2)
+    End Function
 #End Region
 
     <Extension>

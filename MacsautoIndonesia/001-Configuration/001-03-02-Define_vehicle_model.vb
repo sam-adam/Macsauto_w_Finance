@@ -30,11 +30,7 @@
     Private Sub getNumbers()
         Dim i As Integer
         For i = 0 To ModelView.Rows.Count - 2
-            If ModelView.Rows.Count <= 9 Then
-                ModelView.Rows(i).Cells(0).Value = code & "M0" & i + 1
-            Else
-                ModelView.Rows(i).Cells(0).Value = code & "M" & i + 1
-            End If
+            ModelView.Rows(i).Cells(0).Value = String.Format(code & "M{0:00}", i + 1)
         Next i
     End Sub
 

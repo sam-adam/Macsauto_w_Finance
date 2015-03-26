@@ -303,6 +303,12 @@
     <Compile Include="002-Master Data\002-07-Service_Add.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="002-Master Data\002-09-Customer.Designer.vb">
+      <DependentUpon>002-09-Customer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="002-Master Data\002-09-Customer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="003-POS System\003-07-TrDetail.Designer.vb">
       <DependentUpon>003-07-TrDetail.vb</DependentUpon>
     </Compile>
@@ -349,6 +355,12 @@
       <DependentUpon>005-17-Search_Product.vb</DependentUpon>
     </Compile>
     <Compile Include="005-Search_Forms\005-17-Search_Product.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="008-Reporting\008_08_CustomerTransactionHistoryReport.Designer.vb">
+      <DependentUpon>008_08_CustomerTransactionHistoryReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="008-Reporting\008_08_CustomerTransactionHistoryReport.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="999-Others\ExtensionModule.vb" />
@@ -682,8 +694,11 @@
     <Compile Include="Printing\Renderer\PanelRenderer.vb" />
     <Compile Include="Printing\Page\RollPage.vb" />
     <Compile Include="Settings.vb" />
+    <Compile Include="SmartCard\ACR120U.vb" />
+    <Compile Include="SmartCard\Card\AcrSmartCard.vb" />
     <Compile Include="SmartCard\Card\SmartCard.vb" />
     <Compile Include="SmartCard\ModWinsCard.vb" />
+    <Compile Include="SmartCard\Reader\AcrReader.vb" />
     <Compile Include="SmartCard\Reader\APDUCommands.vb" />
     <Compile Include="SmartCard\Reader\ReaderCardState.vb" />
     <Compile Include="SmartCard\Reader\ReaderCardStateChangedEventArgs.vb" />
@@ -783,6 +798,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="002-Master Data\002-07-Service_Add.resx">
       <DependentUpon>002-07-Service_Add.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="002-Master Data\002-09-Customer.resx">
+      <DependentUpon>002-09-Customer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="002-Master Data\_002_06_User.resx">
       <DependentUpon>_002_06_User.vb</DependentUpon>
@@ -895,6 +913,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="008-Reporting\008-02-GoodIssueReport.resx">
       <DependentUpon>008-02-GoodIssueReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="008-Reporting\008_08_CustomerTransactionHistoryReport.resx">
+      <DependentUpon>008_08_CustomerTransactionHistoryReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="008-Reporting\008_02_ProductMovementReport.resx">
       <DependentUpon>008_02_ProductMovementReport.vb</DependentUpon>

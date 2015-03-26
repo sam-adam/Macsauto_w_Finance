@@ -22,8 +22,8 @@ Partial Class _005_15_Search_Vehicle
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.RefreshBtn = New System.Windows.Forms.Button()
         Me.SearchTxt = New System.Windows.Forms.TextBox()
@@ -165,9 +165,9 @@ Partial Class _005_15_Search_Vehicle
         '
         'CustomerDoBCol
         '
-        DataGridViewCellStyle3.Format = "d"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.CustomerDoBCol.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Format = "d"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.CustomerDoBCol.DefaultCellStyle = DataGridViewCellStyle1
         Me.CustomerDoBCol.HeaderText = "Birthdate"
         Me.CustomerDoBCol.Name = "CustomerDoBCol"
         Me.CustomerDoBCol.ReadOnly = True
@@ -199,9 +199,9 @@ Partial Class _005_15_Search_Vehicle
         '
         'CustomerPointCol
         '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle4.Format = "N0"
-        Me.CustomerPointCol.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle2.Format = "N0"
+        Me.CustomerPointCol.DefaultCellStyle = DataGridViewCellStyle2
         Me.CustomerPointCol.HeaderText = "Point"
         Me.CustomerPointCol.Name = "CustomerPointCol"
         Me.CustomerPointCol.ReadOnly = True
