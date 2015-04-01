@@ -23,7 +23,7 @@ Namespace SmartCard
 
         Public Sub InitializeAcr()
             If (_cardReaders Is Nothing) Then
-                _cardReaders = New List(Of SmartCardReader)()
+                _acrReaders = New List(Of AcrReader)()
 
                 For Each port As Integer In System.Enum.GetValues(GetType(ACR120_UsbPorts))
                     _returnCode = ACR120U.ACR120_Open(port)
@@ -39,15 +39,19 @@ Namespace SmartCard
                     Throw New ApplicationException(ACR120U.GetErrMsg(_hContext))
                 End If
 
-                Dim acrReader As New AcrReader(_hContext)
-                Dim firmware As String = acrReader.Firmware
-                Dim tag As AcrSmartCard = acrReader.GetTag()
+                _acrReaders.Add(New AcrReader(_hContext))
             End If
         End Sub
 
         Public ReadOnly Property CardReaders() As IList(Of SmartCardReader)
             Get
                 Return _cardReaders
+            End Get
+        End Property
+
+        Public ReadOnly Property AcrReaders() As IList(Of AcrReader)
+            Get
+                Return _acrReaders
             End Get
         End Property
 

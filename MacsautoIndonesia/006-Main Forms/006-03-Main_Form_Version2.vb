@@ -291,6 +291,7 @@ Public Class _006_03_Main_Form_Version2
                 dialog.ShowDialog(Me)
 
                 My.MySettings.Default.MySQLBackupPath = dialog.SelectedPath
+                My.MySettings.Default.Save()
 
                 Try
                     BackupDatabase(mysqlDumpPath, My.Settings.Database, My.MySettings.Default.MySQLBackupPath, My.Settings.Username, My.Settings.Password)

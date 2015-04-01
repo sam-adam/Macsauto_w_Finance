@@ -9,6 +9,8 @@ Namespace SmartCard.Reader
         Private ReadOnly _hContext As Integer
         Private _readerCardState As ReaderCardState = ReaderCardState.NO_CARD_DETECTED
         Private _firmware As String
+        Private _dllVersion As String
+        Private _lastSector As Integer = -1
 
         Public Sub New(ByVal hContext As Integer)
             If hContext < 0 Then
@@ -46,21 +48,107 @@ Namespace SmartCard.Reader
             End If
         End Function
 
-        Public Function ReadBlock()
+        Public Function ReadBlock(ByVal block As ACR120_Block)
+            If Not [Enum].IsDefined(GetType(ACR120_Block), block) Then
+                Throw New ApplicationException("Please use ACR120_Block enum")
+            End If
+
             If _hContext = 0 Then
-                If GetTag() Is Nothing Then
-                    Throw New ApplicationException("No card detected")
+                If _lastSector = -1 AndAlso Not Login(_lastSector) Then
+                    Throw New ApplicationException("Please login to a sector first")
                 End If
 
+                Dim result As Integer
+                Dim tempBlockData(16) As Byte
 
+                block = block + (_lastSector * 4)
+
+                result = ACR120U.ACR120_Read(_hContext, block, tempBlockData(0))
+
+                If result = 0 Then
+                    Return System.Text.Encoding.UTF8.GetString(tempBlockData).Trim()
+                Else
+                    Throw New ApplicationException(ACR120U.GetErrMsg(result))
+                End If
             Else
                 Return Nothing
+            End If
+        End Function
+
+        Public Function WriteBlock(ByVal block As ACR120_Block, ByVal value As String) As Boolean
+            If Not [Enum].IsDefined(GetType(ACR120_Block), block) Then
+                Throw New ApplicationException("Please use ACR120_Block enum")
+            End If
+
+            If _hContext = 0 Then
+                If _lastSector = -1 AndAlso Not Login(_lastSector) Then
+                    Throw New ApplicationException("Please login to a sector first")
+                End If
+
+                block = block + (_lastSector * 4)
+
+                Dim result As Integer
+                Dim valueBytes(16) As Byte
+
+                For i = 0 To 15
+                    valueBytes(i) = &H0
+                Next
+
+                valueBytes = System.Text.Encoding.UTF8.GetBytes(value)
+
+                result = ACR120U.ACR120_Write(_hContext, block, valueBytes(0))
+
+                If result = 0 Then
+                    Return True
+                Else
+                    Throw New ApplicationException(ACR120U.GetErrMsg(result))
+                End If
+            Else
+                Return False
+            End If
+        End Function
+
+        Public Function Login(ByVal sector As Integer) As Boolean
+            GetTag()
+
+            Dim result As Integer
+            Dim keys() As Byte = {255, 255, 255, 255, 255, 255}
+
+            result = ACR120U.ACR120_Login(_hContext, sector, ACR120_LoginKeyTypes.ACR120_LOGIN_KEYTYPE_A, 0, keys(0))
+
+            If result = 0 Then
+                _lastSector = sector
+
+                Return True
+            Else
+                Throw New ApplicationException(ACR120U.GetErrMsg(result))
             End If
         End Function
 
         Public ReadOnly Property Name() As String
             Get
                 Return _name
+            End Get
+        End Property
+
+        Public ReadOnly Property DllVersion()
+            Get
+                If String.IsNullOrEmpty(_dllVersion) Then
+                    Dim tempBytes(40) As Byte
+                    Dim tempInfoLen As Byte
+                    Dim returnCode As Integer
+
+                    returnCode = ACR120U.ACR120_RequestDLLVersion(tempInfoLen, tempBytes(0))
+
+                    If returnCode = 0 Then
+                        _dllVersion = System.Text.Encoding.UTF8.GetString(tempBytes)
+                        _dllVersion = _dllVersion.TrimEnd()
+                    Else
+                        Throw New ApplicationException(ACR120U.GetErrMsg(returnCode))
+                    End If
+                End If
+
+                Return _dllVersion
             End Get
         End Property
 
@@ -82,18 +170,6 @@ Namespace SmartCard.Reader
                 End If
 
                 Return _firmware
-            End Get
-        End Property
-
-        Public ReadOnly Property IsConnected() As Boolean
-            Get
-                Return True
-            End Get
-        End Property
-
-        Public ReadOnly Property IsControlled() As Boolean
-            Get
-                Return True
             End Get
         End Property
 

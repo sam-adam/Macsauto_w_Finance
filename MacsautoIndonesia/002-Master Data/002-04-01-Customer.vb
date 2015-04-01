@@ -1,14 +1,11 @@
-﻿Imports System.Globalization
+﻿Imports MacsautoIndonesia.SmartCard.Card
 Imports MacsautoIndonesia.SmartCard
 Imports MacsautoIndonesia.SmartCard.Reader
 
 Public Class _002_04_Customer
     Dim flag, i As Integer
-    Dim smartCardReader As SmartCardReader
-    Dim smartCard As SmartCard.Card.SmartCard
+    Dim acrReader As AcrReader
     Dim savable As Boolean
-
-
 
     Public Function getPrefix()
         Return getText("SELECT * FROM COMPANY", 0)
@@ -123,14 +120,17 @@ Public Class _002_04_Customer
     End Sub
     Private Sub _002_04_Customer_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
-            loadCustomerDATA()
-            InitCardReader()
-            smartCardReader = getCardReader()
+            SmartCardManager.InitializeAcr()
+            acrReader = SmartCardManager.AcrReaders.FirstOrDefault()
 
-            If smartCardReader IsNot Nothing Then
-                AddHandler smartCardReader.ReaderCardStateChanged, AddressOf smartCardReader_readerCardStateChanged
-                smartCardReader.StartPolling(400)
+            If Not acrReader Is Nothing Then
                 savable = False
+            Else
+                If MsgBox("No card reader detected! You will not be able to register a member. Continue anyway?", MsgBoxStyle.OkCancel Or MsgBoxStyle.Critical, "Warning") = MsgBoxResult.Cancel Then
+                    Dispose()
+                Else
+                    loadCustomerDATA()
+                End If
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -202,7 +202,14 @@ Public Class _002_04_Customer
 
                     If cStatus.Checked Then
                         Try
-                            smartCardReader.UpdateCardBlockValue(1, CNumber.Text)
+                            Dim existingTag As AcrSmartCard? = acrReader.GetTag()
+
+                            If existingTag Is Nothing Then
+                                Throw New Exception("No card available")
+                            End If
+
+                            acrReader.Login(1)
+                            acrReader.WriteBlock(ACR120_Block.ACR120_BLOCK_0, CNumber.Text)
                         Catch ex As Exception
                             Throw New Exception("Failed to write card", ex)
                         End Try
@@ -232,14 +239,17 @@ Public Class _002_04_Customer
             If MsgBox("Edit Customer data?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
                 If cStatus.Checked Then
                     Try
-                        smartCardReader.UpdateCardBlockValue(1, CNumber.Text)
+                        Dim existingTag As AcrSmartCard? = acrReader.GetTag()
+
+                        If existingTag Is Nothing Then
+                            Throw New Exception("No card available")
+                        End If
+
+                        acrReader.Login(1)
+                        acrReader.WriteBlock(ACR120_Block.ACR120_BLOCK_0, CNumber.Text)
                     Catch ex As Exception
                         Throw New Exception("Failed to write card", ex)
                     End Try
-                End If
-
-                If cStatus.Checked Then
-                    smartCardReader.UpdateCardBlockValue(1, CNumber.Text)
                 End If
 
                 ExecQueryNonReader("UPDATE HCUSTOMER set CNAME ='" + CNAME.Text + "',CGNDR = '" + getGender() + "',CUDOB = '" + CDOB.Value.ToString("yyyy-MM-dd") + "',cphon = '" + cphone.Text + "',ccpon = '" + ccell.Text + "', cmail = '" + cmail.Text + "', cadd1 = '" + caddress.Text + "', cstat = '" + getCustomerStatus() + "' WHERE IDCUS LIKE '" + CNumber.Text + "'")
@@ -309,14 +319,5 @@ Public Class _002_04_Customer
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         MsgBox(MsgBox(cDetailGrid.Rows(0).Cells(10).Value.ToString))
-    End Sub
-
-    Private Sub smartCardReader_readerCardStateChanged(ByVal sender As Object, ByVal e As ReaderCardStateChangedEventArgs)
-        If e.ReaderCardState = ReaderCardState.CARD_PRESENT Then
-            smartCard = smartCardReader.SmartCard
-        Else
-            smartCard = Nothing
-        End If
-        savable = (e.ReaderCardState = ReaderCardState.CARD_PRESENT)
     End Sub
 End Class

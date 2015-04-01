@@ -1,7 +1,9 @@
 ﻿Imports MySql.Data.MySqlClient
-Imports MacsautoIndonesia.SmartCard.Reader
 Imports MacsautoIndonesia.Printing.Page
 Imports MacsautoIndonesia.Services
+Imports MacsautoIndonesia.SmartCard
+Imports MacsautoIndonesia.SmartCard.Reader
+Imports System.Text.RegularExpressions
 
 Public Class _003_07_TrDetail2
 #Region "Constants"
@@ -136,6 +138,7 @@ Public Class _003_07_TrDetail2
     Private _authorizationForm As _006_04_Authorization_Form
     Private _voidReasonForm As _003_09_Void_Remark
     Private _transactionCompleted As Boolean = False
+    Private _acrReader As AcrReader
 
     Property ProductSubtotal As Double
         Set(ByVal value As Double)
@@ -294,10 +297,33 @@ Public Class _003_07_TrDetail2
             ShowServiceForm()
         ElseIf e.KeyData = Keys.F3 Then
             ShowProductForm()
+        ElseIf e.KeyData = Keys.F4 AndAlso Not _acrReader Is Nothing Then
+            If _acrReader.GetTag() Is Nothing Then
+                MsgBox("No card detected", MsgBoxStyle.OkOnly Or MsgBoxStyle.Critical, "Warning")
+            Else
+                Try
+                    _acrReader.Login(1)
+
+                    Dim tempCustomerId As String = _acrReader.ReadBlock(ACR120_Block.ACR120_BLOCK_0).ToString()
+                    Dim customerId As String
+
+                    For Each c As Char In tempCustomerId.ToArray()
+                        If Not (Char.IsControl(c)) Then
+                            customerId &= c.ToString()
+                        End If
+                    Next
+
+                    SelectCustomer(customerId)
+                Catch ex As Exception
+                    MsgBox("Read failed. Message: " & ex.Message)
+                End Try
+            End If
         End If
     End Sub
 
     Private Sub SelectCustomer(ByVal customerId As String)
+        customerId = Regex.Replace(customerId, "/\s/g", "")
+
         DoInTransaction(
             Function(command As MySqlCommand)
                 TransactionService.CheckPointExpiry(command, customerId)
@@ -465,7 +491,7 @@ Public Class _003_07_TrDetail2
             If VehicleSizeTxt.Text <> CurrentVehicleSize AndAlso TransactionServiceDataGrid.Rows.Count > 0 Then
                 MsgBox("The selected vehicle is different from previous, all existing services will be removed", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Warning")
                 TransactionServiceDataGrid.Rows.Clear()
-        End If
+            End If
 
             CurrentVehicleSize = VehicleSizeTxt.Text
 
@@ -606,7 +632,7 @@ Public Class _003_07_TrDetail2
                     command.Parameters.AddWithValue("vehicleSize", VehicleSizeTxt.Text)
                     command.Parameters.AddWithValue("vehicleMileage", VehicleMileageTxt.Text)
                     command.Parameters.AddWithValue("vehicleReg", VehicleRegCbo.SelectedValue)
-                    command.Parameters.AddWithValue("licenseExpired", VehicleExpiryDate.Value.ToMySQLDateTime())
+                    command.Parameters.AddWithValue("licenseExpired", VehicleExpiryDate.Value.ToMySqlDateTime())
                     command.Parameters.AddWithValue("serviceSubtotal", ServiceSubtotal)
                     command.Parameters.AddWithValue("productSubtotal", ProductSubtotal)
                     command.Parameters.AddWithValue("grandTotal", GrandTotal)
@@ -830,7 +856,7 @@ Public Class _003_07_TrDetail2
         command.Parameters.AddWithValue("vehicleSize", VehicleSizeTxt.Text)
         command.Parameters.AddWithValue("vehicleMileage", VehicleMileageTxt.Text)
         command.Parameters.AddWithValue("vehicleReg", VehicleRegCbo.SelectedValue)
-        command.Parameters.AddWithValue("licenseExpired", VehicleExpiryDate.Value.ToMySQLDateTime())
+        command.Parameters.AddWithValue("licenseExpired", VehicleExpiryDate.Value.ToMySqlDateTime())
         command.Parameters.AddWithValue("serviceSubtotal", ServiceSubtotal)
         command.Parameters.AddWithValue("productSubtotal", ProductSubtotal)
         command.Parameters.AddWithValue("grandTotal", GrandTotal)
@@ -1079,6 +1105,22 @@ Public Class _003_07_TrDetail2
 
     Private Sub TransactionProductDataGrid_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles TransactionProductDataGrid.CellEnter
         RemoveProductBtn.Enabled = (TransactionProductDataGrid(ProductPreAddedCol.Index, e.RowIndex).Value = False)
+    End Sub
+
+    Private Sub _003_07_TrDetail2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        RefreshReader()
+    End Sub
+
+    Private Sub RefreshReader()
+        InitializeAcr()
+
+        If AcrReaders.Count > 0 Then
+            _acrReader = AcrReaders.FirstOrDefault()
+        Else
+            _acrReader = Nothing
+        End If
+
+        HelpF4Lbl.Visible = Not _acrReader Is Nothing
     End Sub
 End Class
 

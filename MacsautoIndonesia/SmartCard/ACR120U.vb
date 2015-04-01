@@ -190,4 +190,11 @@ Namespace SmartCard
         ACR120_LOGIN_KEYTYPE_STORED_A = &HAF
         ACR120_LOGIN_KEYTYPE_STORED_B = &HBF
     End Enum
+
+    Public Enum ACR120_Block
+        ACR120_BLOCK_0 = 0
+        ACR120_BLOCK_1 = 1
+        ACR120_BLOCK_2 = 2
+        ACR120_BLOCK_3 = 3
+    End Enum
 End Namespace
