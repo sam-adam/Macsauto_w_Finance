@@ -486,7 +486,7 @@
         If consume.Checked = True Then
             _005_13_Product_GL_Act.flag = "6"
         Else
-            _005_13_Product_GL_Act.flag = "2"
+            _005_13_Product_GL_Act.flag = "1"
         End If
         _005_13_Product_GL_Act.Show()
 
