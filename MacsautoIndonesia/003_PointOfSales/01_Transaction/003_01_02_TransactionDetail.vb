@@ -410,7 +410,8 @@ Public Class _003_01_02_TransactionDetail
     Private Sub ShowCustomerForm()
         If _selectedMode = PointOfSalesMode.NewTransaction Then
             If _searchCustomerForm Is Nothing Then
-                _searchCustomerForm = New _005_15_Search_Vehicle()
+                _searchCustomerForm = New _005_15_Search_Vehicle(_005_15_Search_Vehicle.CustomerVehicleMode)
+
                 AddHandler _searchCustomerForm.CustomerVehicleSelected, AddressOf _searchCustomer_CustomerVehicleSelected
             End If
 
@@ -722,9 +723,9 @@ Public Class _003_01_02_TransactionDetail
     End Sub
 
     Private Sub _paymentForm_PaymentSubmitted(ByVal sender As Object, ByVal e As PaymentSubmittedEventArgs)
-        Dim memberCurrentPoint As Integer
-        Dim memberEarnedPoint As Integer
-        Dim newTransactionId As String
+        Dim memberCurrentPoint As Integer = 0
+        Dim memberEarnedPoint As Integer = 0
+        Dim newTransactionId As String = ""
 
         DoInTransaction(
             Function(command As MySqlCommand)

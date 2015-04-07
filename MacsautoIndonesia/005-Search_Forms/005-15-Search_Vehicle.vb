@@ -1,13 +1,25 @@
 ﻿Public Class _005_15_Search_Vehicle
+    Public Event CustomerSelected As EventHandler(Of CustomerSelectedEventArgs)
     Public Event CustomerVehicleSelected As EventHandler(Of CustomerVehicleSelectedEventArgs)
+
+    Public Shared CustomerMode As Integer = 0
+    Public Shared CustomerVehicleMode As Integer = 1
 
     Private ReadOnly _customersDataTable As DataTable
     Private ReadOnly _vehicleDataTable As DataTable
     Private ReadOnly _customerVehiclesDataTable As DataTable
+    Private ReadOnly _mode As Integer
     Private _customersDataView As DataView
 
-    Public Sub New()
+    Public Sub New(ByVal mode As Integer, Optional ByVal memberOnly As Boolean = False)
         InitializeComponent()
+
+        _mode = mode
+
+        If memberOnly Then
+            MemberOnlyChk.Checked = True
+            MemberOnlyChk.AutoCheck = False
+        End If
 
         _customersDataTable = New DataTable()
         _customersDataView = New DataView()
@@ -34,7 +46,7 @@
     End Sub
 
     Private Sub ReloadData()
-        Const allCustomerQuery As String =
+        Dim allCustomerQuery As String =
             "SELECT hcustomer.idcus," & _
             "   hcustomer.cname," & _
             "   hcustomer.cgndr," & _
@@ -68,6 +80,10 @@
             " LEFT JOIN vehiclecolor ON dcustomer.idcol = vehiclecolor.idcol" & _
             " LEFT JOIN vehiclesize ON vehiclemodel.idsiz = vehiclesize.idsiz"
 
+        If MemberOnlyChk.Checked Then
+            allCustomerQuery &= " WHERE hcustomer.cstat = 'Member'"
+        End If
+
         _customersDataTable.Rows.Clear()
         _customersDataTable.Load(ExecQueryReader(allCustomerQuery))
         _customersDataView = _customersDataTable.AsDataView()
@@ -89,7 +105,21 @@
     End Sub
 
     Private Sub SelectBtn_Click(sender As Object, e As EventArgs) Handles SelectBtn.Click
-        SelectCustomerVehicle()
+        If _mode = CustomerMode Then
+            SelectCustomer()
+        Else
+            SelectCustomerVehicle()
+        End If
+    End Sub
+
+    Private Sub SelectCustomer()
+        If CustomerDataGrid.SelectedCells.Count = 0 Then
+            MsgBox("No customer selected", MsgBoxStyle.Critical Or MsgBoxStyle.OkOnly, "Error")
+        Else
+            Dim selectedCustomerId As String = CustomerDataGrid.CurrentRow.Cells(CustomerIdCol.Index).Value
+
+            RaiseEvent CustomerSelected(Me, New CustomerSelectedEventArgs(selectedCustomerId))
+        End If
     End Sub
 
     Private Sub SelectCustomerVehicle()
@@ -134,7 +164,7 @@
             Function(row As DataRow)
                 Return ("'" & row("idcus") & "'")
             End Function))
-        
+
         _customersDataView.RowFilter = "cname LIKE '%" & SearchTxt.Text & "%'"
 
         If Not String.IsNullOrEmpty(customerIds) Then
@@ -153,11 +183,19 @@
     End Sub
 
     Private Sub CustomerDataGrid_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles CustomerDataGrid.CellDoubleClick
-        SelectCustomerVehicle()
+        If _mode = CustomerMode Then
+            SelectCustomer()
+        Else
+            SelectCustomerVehicle()
+        End If
     End Sub
 
     Private Sub VehicleDataGrid_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles VehicleDataGrid.CellDoubleClick
-        SelectCustomerVehicle()
+        If _mode = CustomerMode Then
+            SelectCustomer()
+        Else
+            SelectCustomerVehicle()
+        End If
     End Sub
 
     Private Sub CustomerDataGrid_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles CustomerDataGrid.RowsRemoved
@@ -168,13 +206,21 @@
 
     Private Sub CustomerDataGrid_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CustomerDataGrid.KeyPress
         If e.KeyChar.SameAsKey(Keys.Enter) Then
-            SelectCustomerVehicle()
+            If _mode = CustomerMode Then
+                SelectCustomer()
+            Else
+                SelectCustomerVehicle()
+            End If
         End If
     End Sub
 
     Private Sub VehicleDataGrid_KeyPress(sender As Object, e As KeyPressEventArgs) Handles VehicleDataGrid.KeyPress
         If e.KeyChar.SameAsKey(Keys.Enter) Then
-            SelectCustomerVehicle()
+            If _mode = CustomerMode Then
+                SelectCustomer()
+            Else
+                SelectCustomerVehicle()
+            End If
         End If
     End Sub
 
@@ -216,5 +262,21 @@ Public Class CustomerVehicleSelectedEventArgs
     Public Sub New(ByVal customerId As String, ByVal vehicleReg As String)
         _customerId = customerId
         _vehicleReg = vehicleReg
+    End Sub
+End Class
+
+Public Class CustomerSelectedEventArgs
+    Inherits EventArgs
+
+    Private ReadOnly _customerId
+
+    ReadOnly Property CustomerId() As String
+        Get
+            Return _customerId
+        End Get
+    End Property
+
+    Public Sub New(ByVal customerId As String)
+        _customerId = customerId
     End Sub
 End Class

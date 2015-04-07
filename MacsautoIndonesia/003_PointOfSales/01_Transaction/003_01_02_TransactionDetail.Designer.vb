@@ -104,6 +104,7 @@ Partial Class _003_01_02_TransactionDetail
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.HelpF4Lbl = New System.Windows.Forms.Label()
         Me.HelpF3Lbl = New System.Windows.Forms.Label()
         Me.HelpF2Lbl = New System.Windows.Forms.Label()
         Me.HelpF1Lbl = New System.Windows.Forms.Label()
@@ -124,7 +125,6 @@ Partial Class _003_01_02_TransactionDetail
         Me.QueueBtn = New System.Windows.Forms.Button()
         Me.VoidBtn = New System.Windows.Forms.Button()
         Me.CancelBtn = New System.Windows.Forms.Button()
-        Me.HelpF4Lbl = New System.Windows.Forms.Label()
         Me.CustomerPanel.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.VehiclePanel.SuspendLayout()
@@ -904,6 +904,18 @@ Partial Class _003_01_02_TransactionDetail
         Me.Panel7.Size = New System.Drawing.Size(1048, 32)
         Me.Panel7.TabIndex = 28
         '
+        'HelpF4Lbl
+        '
+        Me.HelpF4Lbl.AutoSize = True
+        Me.HelpF4Lbl.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.HelpF4Lbl.ForeColor = System.Drawing.Color.Red
+        Me.HelpF4Lbl.Location = New System.Drawing.Point(434, 7)
+        Me.HelpF4Lbl.Name = "HelpF4Lbl"
+        Me.HelpF4Lbl.Size = New System.Drawing.Size(174, 17)
+        Me.HelpF4Lbl.TabIndex = 4
+        Me.HelpF4Lbl.Text = "F4 - Read From RFID Reader"
+        Me.HelpF4Lbl.Visible = False
+        '
         'HelpF3Lbl
         '
         Me.HelpF3Lbl.AutoSize = True
@@ -1147,18 +1159,6 @@ Partial Class _003_01_02_TransactionDetail
         Me.CancelBtn.Size = New System.Drawing.Size(61, 56)
         Me.CancelBtn.TabIndex = 27
         Me.CancelBtn.UseVisualStyleBackColor = True
-        '
-        'HelpF4Lbl
-        '
-        Me.HelpF4Lbl.AutoSize = True
-        Me.HelpF4Lbl.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.HelpF4Lbl.ForeColor = System.Drawing.Color.Red
-        Me.HelpF4Lbl.Location = New System.Drawing.Point(434, 7)
-        Me.HelpF4Lbl.Name = "HelpF4Lbl"
-        Me.HelpF4Lbl.Size = New System.Drawing.Size(174, 17)
-        Me.HelpF4Lbl.TabIndex = 4
-        Me.HelpF4Lbl.Text = "F4 - Read From RFID Reader"
-        Me.HelpF4Lbl.Visible = False
         '
         '_003_01_02_TransactionDetail
         '

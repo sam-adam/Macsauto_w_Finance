@@ -49,6 +49,7 @@ Partial Class _005_15_Search_Vehicle
         Me.VehicleTypeCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.CancelBtn = New System.Windows.Forms.Button()
+        Me.MemberOnlyChk = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -61,6 +62,7 @@ Partial Class _005_15_Search_Vehicle
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.MemberOnlyChk)
         Me.Panel1.Controls.Add(Me.RefreshBtn)
         Me.Panel1.Controls.Add(Me.SearchTxt)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -73,7 +75,7 @@ Partial Class _005_15_Search_Vehicle
         '
         'RefreshBtn
         '
-        Me.RefreshBtn.Location = New System.Drawing.Point(456, 9)
+        Me.RefreshBtn.Location = New System.Drawing.Point(618, 9)
         Me.RefreshBtn.Name = "RefreshBtn"
         Me.RefreshBtn.Size = New System.Drawing.Size(75, 30)
         Me.RefreshBtn.TabIndex = 3
@@ -284,6 +286,16 @@ Partial Class _005_15_Search_Vehicle
         Me.CancelBtn.Text = "Cancel"
         Me.CancelBtn.UseVisualStyleBackColor = True
         '
+        'MemberOnlyChk
+        '
+        Me.MemberOnlyChk.AutoSize = True
+        Me.MemberOnlyChk.Location = New System.Drawing.Point(456, 15)
+        Me.MemberOnlyChk.Name = "MemberOnlyChk"
+        Me.MemberOnlyChk.Size = New System.Drawing.Size(156, 21)
+        Me.MemberOnlyChk.TabIndex = 4
+        Me.MemberOnlyChk.Text = "Show Members Only"
+        Me.MemberOnlyChk.UseVisualStyleBackColor = True
+        '
         '_005_15_Search_Vehicle
         '
         Me.AcceptButton = Me.SelectBtn
@@ -340,4 +352,5 @@ Partial Class _005_15_Search_Vehicle
     Friend WithEvents CustomerIsMember As System.Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents CancelBtn As System.Windows.Forms.Button
+    Friend WithEvents MemberOnlyChk As System.Windows.Forms.CheckBox
 End Class

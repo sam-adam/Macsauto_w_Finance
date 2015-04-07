@@ -64,7 +64,7 @@ Namespace SmartCard
                 Throw New ApplicationException(GetMessage())
             End If
 
-            Dim readerName As String
+            Dim readerName As String = ""
 
             For i = 0 To 255
                 readerName = readerName & vbNullChar
