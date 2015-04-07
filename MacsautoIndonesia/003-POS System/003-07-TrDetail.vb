@@ -1,4 +1,5 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports MacsautoIndonesia.My
+Imports MySql.Data.MySqlClient
 Imports MacsautoIndonesia.Printing.Page
 Imports MacsautoIndonesia.Services
 Imports MacsautoIndonesia.SmartCard
@@ -302,11 +303,9 @@ Public Class _003_07_TrDetail2
                 MsgBox("No card detected", MsgBoxStyle.OkOnly Or MsgBoxStyle.Critical, "Warning")
             Else
                 Try
-                    _acrReader.Login(1)
+                    _acrReader.Login(MySettings.Default.RFIDSector)
 
-                    Dim customerId As String = _acrReader.ReadBlock(ACR120_Block.ACR120_BLOCK_0).ToString()
-
-                    SelectCustomer(customerId)
+                    SelectCustomer(_acrReader.ReadBlock(MySettings.Default.RFIDDataBlock).ToString())
                 Catch ex As Exception
                     MsgBox("Read failed. Message: " & ex.Message)
                 End Try
