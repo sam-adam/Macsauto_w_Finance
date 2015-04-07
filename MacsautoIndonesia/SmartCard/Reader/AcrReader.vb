@@ -40,7 +40,7 @@ Namespace SmartCard.Reader
             _pollingTimer.Stop()
         End Sub
 
-        Public Function GetTag() As AcrSmartCard?
+        Public Function GetTag() As AcrSmartCard
             If _hContext = 0 Then
                 Return New AcrSmartCard(_hContext)
             Else
@@ -66,7 +66,16 @@ Namespace SmartCard.Reader
                 result = ACR120U.ACR120_Read(_hContext, block, tempBlockData(0))
 
                 If result = 0 Then
-                    Return System.Text.Encoding.UTF8.GetString(tempBlockData).Trim()
+                    Dim tempString As String = System.Text.Encoding.UTF8.GetString(tempBlockData).Trim()
+                    Dim resultString As String = ""
+
+                    For Each c As Char In tempString.ToArray()
+                        If Not (Char.IsControl(c)) Then
+                            resultString &= c.ToString()
+                        End If
+                    Next
+
+                    Return resultString
                 Else
                     Throw New ApplicationException(ACR120U.GetErrMsg(result))
                 End If

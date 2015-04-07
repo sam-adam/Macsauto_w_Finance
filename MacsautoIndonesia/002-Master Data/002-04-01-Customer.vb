@@ -1,6 +1,7 @@
 ﻿Imports MacsautoIndonesia.SmartCard.Card
 Imports MacsautoIndonesia.SmartCard
 Imports MacsautoIndonesia.SmartCard.Reader
+Imports MacsautoIndonesia.My
 
 Public Class _002_04_Customer
     Dim flag, i As Integer
@@ -102,7 +103,7 @@ Public Class _002_04_Customer
             cStatus.Checked = False
         End If
     End Sub
-    Private Sub loadCustomerDATA()
+    Private Sub LoadCustomerData()
         cHeaderGrid.Rows.Clear()
         reader = ExecQueryReader("SELECT * FROM hcustomer")
         While reader.read
@@ -128,10 +129,10 @@ Public Class _002_04_Customer
             Else
                 If MsgBox("No card reader detected! You will not be able to register a member. Continue anyway?", MsgBoxStyle.OkCancel Or MsgBoxStyle.Critical, "Warning") = MsgBoxResult.Cancel Then
                     Dispose()
-                Else
-                    loadCustomerDATA()
                 End If
             End If
+
+            LoadCustomerData()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -208,8 +209,8 @@ Public Class _002_04_Customer
                                 Throw New Exception("No card available")
                             End If
 
-                            acrReader.Login(1)
-                            acrReader.WriteBlock(ACR120_Block.ACR120_BLOCK_0, CNumber.Text)
+                            acrReader.Login(MySettings.Default.RFIDSector)
+                            acrReader.WriteBlock(MySettings.Default.RFIDDataBlock, CNumber.Text)
                         Catch ex As Exception
                             Throw New Exception("Failed to write card", ex)
                         End Try
@@ -239,16 +240,14 @@ Public Class _002_04_Customer
             If MsgBox("Edit Customer data?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
                 If cStatus.Checked Then
                     Try
-                        Dim existingTag As AcrSmartCard? = acrReader.GetTag()
-
-                        If existingTag Is Nothing Then
-                            Throw New Exception("No card available")
+                        If Not acrReader.GetTag().Connected Then
+                            Throw New ApplicationException("No card available")
                         End If
 
-                        acrReader.Login(1)
-                        acrReader.WriteBlock(ACR120_Block.ACR120_BLOCK_0, CNumber.Text)
+                        acrReader.Login(MySettings.Default.RFIDSector)
+                        acrReader.WriteBlock(MySettings.Default.RFIDDataBlock, CNumber.Text)
                     Catch ex As Exception
-                        Throw New Exception("Failed to write card", ex)
+                        MsgBox("Failed to write card. Reason: " & ex.Message, MsgBoxStyle.OkOnly Or MsgBoxStyle.Critical, "Error")
                     End Try
                 End If
 

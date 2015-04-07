@@ -169,6 +169,33 @@ Namespace My
                 Me("AutomaticPostingConfiguration") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("3")>  _
+        Public ReadOnly Property RFIDSector() As Integer
+            Get
+                Return CType(Me("RFIDSector"),Integer)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+        Public ReadOnly Property RFIDDataBlock() As Integer
+            Get
+                Return CType(Me("RFIDDataBlock"),Integer)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
+        Public ReadOnly Property RFIDAuthBlock() As Integer
+            Get
+                Return CType(Me("RFIDAuthBlock"),Integer)
+            End Get
+        End Property
     End Class
 End Namespace
 

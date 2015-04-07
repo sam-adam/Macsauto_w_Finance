@@ -298,20 +298,13 @@ Public Class _003_07_TrDetail2
         ElseIf e.KeyData = Keys.F3 Then
             ShowProductForm()
         ElseIf e.KeyData = Keys.F4 AndAlso Not _acrReader Is Nothing Then
-            If _acrReader.GetTag() Is Nothing Then
+            If Not _acrReader.GetTag().Connected Then
                 MsgBox("No card detected", MsgBoxStyle.OkOnly Or MsgBoxStyle.Critical, "Warning")
             Else
                 Try
                     _acrReader.Login(1)
 
-                    Dim tempCustomerId As String = _acrReader.ReadBlock(ACR120_Block.ACR120_BLOCK_0).ToString()
-                    Dim customerId As String
-
-                    For Each c As Char In tempCustomerId.ToArray()
-                        If Not (Char.IsControl(c)) Then
-                            customerId &= c.ToString()
-                        End If
-                    Next
+                    Dim customerId As String = _acrReader.ReadBlock(ACR120_Block.ACR120_BLOCK_0).ToString()
 
                     SelectCustomer(customerId)
                 Catch ex As Exception
