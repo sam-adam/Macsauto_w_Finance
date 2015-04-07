@@ -11,7 +11,7 @@
         If SProductGrid.CurrentRow.Cells(2).Value.ToString = "0" Then
             MsgBox("No quantity available for this item")
         Else
-            Dim POS As _003_02_TrDetail2 = CType(Application.OpenForms("_003_02_TrDetail2"), _003_02_TrDetail2)
+            Dim POS As TransactionDetail_Old = CType(Application.OpenForms("TransactionDetail_Old"), TransactionDetail_Old)
             POS.ProductGrid.Rows.Add()
             POS.ProductGrid.CurrentCell = POS.ProductGrid.Item(1, POS.ProductGrid.Rows.Count - 1)
             POS.addSeqNumber(POS.ProductGrid)

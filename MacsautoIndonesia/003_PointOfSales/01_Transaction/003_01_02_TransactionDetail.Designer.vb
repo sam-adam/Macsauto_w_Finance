@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class _003_07_TrDetail2
+Partial Class _003_01_02_TransactionDetail
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -35,7 +35,7 @@ Partial Class _003_07_TrDetail2
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_003_07_TrDetail2))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_003_01_02_TransactionDetail))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -1160,7 +1160,7 @@ Partial Class _003_07_TrDetail2
         Me.HelpF4Lbl.Text = "F4 - Read From RFID Reader"
         Me.HelpF4Lbl.Visible = False
         '
-        '_003_07_TrDetail2
+        '_003_01_02_TransactionDetail
         '
         Me.AcceptButton = Me.SaveBtn
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1186,7 +1186,7 @@ Partial Class _003_07_TrDetail2
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "_003_07_TrDetail2"
+        Me.Name = "_003_01_02_TransactionDetail"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = " "
         Me.CustomerPanel.ResumeLayout(False)

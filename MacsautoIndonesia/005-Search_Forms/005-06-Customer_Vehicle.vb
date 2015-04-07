@@ -1,7 +1,7 @@
 ﻿Public Class _005_06_Customer_Vehicle
    
     Private Sub CustomerVehicle_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomerVehicle.DoubleClick
-        Dim vdetail As _003_02_TrDetail2 = CType(Application.OpenForms("_003_02_TrDetail2"), _003_02_TrDetail2)
+        Dim vdetail As TransactionDetail_Old = CType(Application.OpenForms("TransactionDetail_Old"), TransactionDetail_Old)
         vdetail.vType.Text = Me.CustomerVehicle.CurrentRow.Cells(0).Value.ToString
         vdetail.vBrand.Text = Me.CustomerVehicle.CurrentRow.Cells(1).Value.ToString
         vdetail.vModel.Text = Me.CustomerVehicle.CurrentRow.Cells(2).Value.ToString

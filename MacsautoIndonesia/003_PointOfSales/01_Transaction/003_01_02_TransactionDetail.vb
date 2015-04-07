@@ -6,7 +6,7 @@ Imports MacsautoIndonesia.SmartCard
 Imports MacsautoIndonesia.SmartCard.Reader
 Imports System.Text.RegularExpressions
 
-Public Class _003_07_TrDetail2
+Public Class _003_01_02_TransactionDetail
 #Region "Constants"
     Const CustomerQuery As String =
         "SELECT hcustomer.idcus," & _
@@ -135,9 +135,9 @@ Public Class _003_07_TrDetail2
     Private _searchCustomerForm As _005_15_Search_Vehicle
     Private _searchServiceForm As _005_16_Search_Service
     Private _searchProductForm As _005_17_Search_Product
-    Private _paymentForm As _003_08_Payment
+    Private _createPaymentForm As _003_01_04_CreatePayment
     Private _authorizationForm As _006_04_Authorization_Form
-    Private _voidReasonForm As _003_09_Void_Remark
+    Private _voidReasonForm As _003_01_07_TransactionVoidRemark
     Private _transactionCompleted As Boolean = False
     Private _acrReader As AcrReader
 
@@ -589,14 +589,14 @@ Public Class _003_07_TrDetail2
         ElseIf (TransactionProductDataGrid.Rows.Count + TransactionServiceDataGrid.Rows.Count) = 0 Then
             ErrorInput(AddServiceBtn, "No service or product selected")
         ElseIf MsgBox("Make payment?", MsgBoxStyle.Question Or MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
-            If _paymentForm Is Nothing Then
-                _paymentForm = New _003_08_Payment(GrandTotal)
-                AddHandler _paymentForm.PaymentSubmitted, AddressOf _paymentForm_PaymentSubmitted
+            If _createPaymentForm Is Nothing Then
+                _createPaymentForm = New _003_01_04_CreatePayment(GrandTotal)
+                AddHandler _createPaymentForm.PaymentSubmitted, AddressOf _paymentForm_PaymentSubmitted
             Else
-                _paymentForm.GrandTotal = GrandTotal
+                _createPaymentForm.GrandTotal = GrandTotal
             End If
 
-            _paymentForm.ShowDialog(Me)
+            _createPaymentForm.ShowDialog(Me)
         End If
     End Sub
 
@@ -662,11 +662,11 @@ Public Class _003_07_TrDetail2
             AddHandler _authorizationForm.AuthorizationSuccess,
                 Sub(s As Object, evt As AuthorizationSuccessEventArgs)
                     If _voidReasonForm Is Nothing OrElse _voidReasonForm.IsDisposed Then
-                        _voidReasonForm = New _003_09_Void_Remark()
+                        _voidReasonForm = New _003_01_07_TransactionVoidRemark()
 
                         AddHandler _voidReasonForm.ReasonSubmitted,
                             Sub(sV As Object, eV As EventArgs)
-                                Dim form As _003_09_Void_Remark = CType(sV, _003_09_Void_Remark)
+                                Dim form As _003_01_07_TransactionVoidRemark = CType(sV, _003_01_07_TransactionVoidRemark)
 
                                 If MsgBox("Used product quantity will be added back to inventory. Continue void?", MsgBoxStyle.Question Or MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
                                     DoInTransaction(
@@ -733,9 +733,9 @@ Public Class _003_07_TrDetail2
                 memberEarnedPoint = TransactionService.CalculatePointsEarned(GrandTotal, command)
 
                 If (_selectedMode = PointOfSalesMode.NewTransaction) Then
-                    newTransactionId = NewTransactionInsert(command, e.PaymentForm, memberEarnedPoint)
+                    newTransactionId = NewTransactionInsert(command, e.CreatePaymentForm, memberEarnedPoint)
                 Else
-                    newTransactionId = QueuedTransactionUpdate(command, e.PaymentForm, memberEarnedPoint)
+                    newTransactionId = QueuedTransactionUpdate(command, e.CreatePaymentForm, memberEarnedPoint)
                 End If
 
                 '===========================================================================================================================================
@@ -746,7 +746,7 @@ Public Class _003_07_TrDetail2
 
                 command.Parameters.AddWithValue("paymentId", newPaymentId)
                 command.Parameters.AddWithValue("transactionId", newTransactionId)
-                command.Parameters.AddWithValue("paymentAmount", If(e.PaymentForm.SelectedPaymentType = "Cash", e.PaymentForm.CashPayment, GrandTotal))
+                command.Parameters.AddWithValue("paymentAmount", If(e.CreatePaymentForm.SelectedPaymentType = "Cash", e.CreatePaymentForm.CashPayment, GrandTotal))
 
                 command.ExecuteNonQuery()
                 '===========================================================================================================================================
@@ -803,9 +803,9 @@ Public Class _003_07_TrDetail2
         Next
 
         If IsMemberChk.Checked Then
-            transactionPage.SetPayment(GrandTotal, e.PaymentForm.SelectedPaymentType, memberEarnedPoint, memberCurrentPoint, DateTime.Now.AddYears(1).ToString("dd-MM-yyyy"))
+            transactionPage.SetPayment(GrandTotal, e.CreatePaymentForm.SelectedPaymentType, memberEarnedPoint, memberCurrentPoint, DateTime.Now.AddYears(1).ToString("dd-MM-yyyy"))
         Else
-            transactionPage.SetPayment(GrandTotal, e.PaymentForm.SelectedPaymentType)
+            transactionPage.SetPayment(GrandTotal, e.CreatePaymentForm.SelectedPaymentType)
         End If
 
         transactionPage.AppendFooter("PERIKSA KEMBALI KONDISI")
@@ -818,11 +818,11 @@ Public Class _003_07_TrDetail2
         PrintPage(Me, transactionPage)
         '===========================================================================================================================================
 
-        TryPostJournal(newTransactionId, e.PaymentForm.SelectedPaymentType)
+        TryPostJournal(newTransactionId, e.CreatePaymentForm.SelectedPaymentType)
 
         MsgBox("Transaction saved", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Success")
 
-        _paymentForm.Close()
+        _createPaymentForm.Close()
 
         _transactionCompleted = True
 
@@ -831,7 +831,7 @@ Public Class _003_07_TrDetail2
         Close()
     End Sub
 
-    Private Function NewTransactionInsert(ByVal command As MySqlCommand, ByVal paymentForm As _003_08_Payment, ByVal pointsEarned As Integer) As String
+    Private Function NewTransactionInsert(ByVal command As MySqlCommand, ByVal createPaymentForm As _003_01_04_CreatePayment, ByVal pointsEarned As Integer) As String
         Dim customer As DataRow = _customerDataTable.Select("idcus = '" & CustomerIdTxt.Text & "'").FirstOrDefault()
         Dim newTransactionId As String = TransactionService.GetNewTransactionId(command)
 
@@ -852,12 +852,12 @@ Public Class _003_07_TrDetail2
         command.Parameters.AddWithValue("serviceSubtotal", ServiceSubtotal)
         command.Parameters.AddWithValue("productSubtotal", ProductSubtotal)
         command.Parameters.AddWithValue("grandTotal", GrandTotal)
-        command.Parameters.AddWithValue("paymentTotal", If(paymentForm.SelectedPaymentType = "Cash", paymentForm.CashPayment, paymentForm.GrandTotal))
-        command.Parameters.AddWithValue("paymentTerm", paymentForm.SelectedPaymentType)
+        command.Parameters.AddWithValue("paymentTotal", If(createPaymentForm.SelectedPaymentType = "Cash", createPaymentForm.CashPayment, createPaymentForm.GrandTotal))
+        command.Parameters.AddWithValue("paymentTerm", createPaymentForm.SelectedPaymentType)
         command.Parameters.AddWithValue("transactionStatus", "PAID")
         command.Parameters.AddWithValue("serviceStatus", "")
         command.Parameters.AddWithValue("pointsEarned", If(IsMemberChk.Checked, pointsEarned, 0))
-        command.Parameters.AddWithValue("paymentChange", If(paymentForm.SelectedPaymentType = "Cash", paymentForm.CashChange, 0))
+        command.Parameters.AddWithValue("paymentChange", If(createPaymentForm.SelectedPaymentType = "Cash", createPaymentForm.CashChange, 0))
         command.Parameters.AddWithValue("employee", LoggedInEmployee.Id)
         command.Parameters.AddWithValue("transactionRemark", "")
         command.Parameters.AddWithValue("currentPoint", customer("cpoin"))
@@ -913,7 +913,7 @@ Public Class _003_07_TrDetail2
         Next
     End Sub
 
-    Private Function QueuedTransactionUpdate(ByVal command As MySqlCommand, ByVal paymentForm As _003_08_Payment, ByVal pointsEarned As Integer)
+    Private Function QueuedTransactionUpdate(ByVal command As MySqlCommand, ByVal createPaymentForm As _003_01_04_CreatePayment, ByVal pointsEarned As Integer)
         _customerDataTable.Load(ExecQueryReader(String.Format(CustomerQuery, CustomerIdTxt.Text)))
 
         Dim customer As DataRow = _customerDataTable.Select("idcus = '" & CustomerIdTxt.Text & "'").FirstOrDefault()
@@ -929,12 +929,12 @@ Public Class _003_07_TrDetail2
         command.Parameters.Clear()
 
         command.Parameters.AddWithValue("transactionId", TransactionIdLbl.Text)
-        command.Parameters.AddWithValue("grandTotal", paymentForm.GrandTotal)
-        command.Parameters.AddWithValue("paymentTotal", If(paymentForm.SelectedPaymentType = "Cash", paymentForm.CashPayment, paymentForm.GrandTotal))
-        command.Parameters.AddWithValue("paymentTerm", paymentForm.SelectedPaymentType)
+        command.Parameters.AddWithValue("grandTotal", createPaymentForm.GrandTotal)
+        command.Parameters.AddWithValue("paymentTotal", If(createPaymentForm.SelectedPaymentType = "Cash", createPaymentForm.CashPayment, createPaymentForm.GrandTotal))
+        command.Parameters.AddWithValue("paymentTerm", createPaymentForm.SelectedPaymentType)
         command.Parameters.AddWithValue("transactionStatus", "PAID")
         command.Parameters.AddWithValue("pointsEarned", If(IsMemberChk.Checked, pointsEarned, 0))
-        command.Parameters.AddWithValue("paymentChange", If(paymentForm.SelectedPaymentType = "Cash", paymentForm.CashChange, 0))
+        command.Parameters.AddWithValue("paymentChange", If(createPaymentForm.SelectedPaymentType = "Cash", createPaymentForm.CashChange, 0))
         command.Parameters.AddWithValue("employee", LoggedInEmployee.Id)
         command.Parameters.AddWithValue("serviceSubtotal", ServiceSubtotal)
         command.Parameters.AddWithValue("productSubtotal", ProductSubtotal)

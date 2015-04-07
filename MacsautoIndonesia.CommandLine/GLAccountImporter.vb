@@ -54,10 +54,14 @@ Public Class GLAccountImporter
 
             If String.IsNullOrEmpty(temp) Then
                 Console.WriteLine("Input needed!")
+
+                Return ""
             Else
                 Return temp
             End If
         Loop
+
+        Return ""
     End Function
 
     Private Sub DoImport(ByVal skipHeader As Boolean)

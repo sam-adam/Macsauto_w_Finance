@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class _003_03_TrViewPayment
+Partial Class _003_01_03_TransactionPaymentHistory
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -72,7 +72,7 @@ Partial Class _003_03_TrViewPayment
         Me.Column4.ReadOnly = True
         Me.Column4.Width = 120
         '
-        '_003_03_TrViewPayment
+        '_003_01_03_TransactionPaymentHistory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font

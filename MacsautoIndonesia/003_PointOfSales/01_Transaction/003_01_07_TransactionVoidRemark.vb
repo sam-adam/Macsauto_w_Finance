@@ -1,4 +1,4 @@
-﻿Public Class _003_09_Void_Remark
+﻿Public Class _003_01_07_TransactionVoidRemark
     Public Event ReasonSubmitted As EventHandler
 
     ReadOnly Property VoidReason() As String

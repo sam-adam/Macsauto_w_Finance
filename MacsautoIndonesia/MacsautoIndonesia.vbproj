@@ -309,22 +309,22 @@
     <Compile Include="002-Master Data\002-09-Customer.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="003-POS System\003-07-TrDetail.Designer.vb">
-      <DependentUpon>003-07-TrDetail.vb</DependentUpon>
+    <Compile Include="003_PointOfSales\01_Transaction\003_02_TransactionDetail.Designer.vb">
+      <DependentUpon>003_02_TransactionDetail.vb</DependentUpon>
     </Compile>
-    <Compile Include="003-POS System\003-07-TrDetail.vb">
+    <Compile Include="003_PointOfSales\01_Transaction\003_02_TransactionDetail.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="003-POS System\003-08-Payment.Designer.vb">
+    <Compile Include="003_PointOfSales\01_Transaction\003-08-Payment.Designer.vb">
       <DependentUpon>003-08-Payment.vb</DependentUpon>
     </Compile>
-    <Compile Include="003-POS System\003-08-Payment.vb">
+    <Compile Include="003_PointOfSales\01_Transaction\003-08-Payment.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="003-POS System\003-09-Void_Remark.Designer.vb">
+    <Compile Include="003_PointOfSales\01_Transaction\003-09-Void_Remark.Designer.vb">
       <DependentUpon>003-09-Void_Remark.vb</DependentUpon>
     </Compile>
-    <Compile Include="003-POS System\003-09-Void_Remark.vb">
+    <Compile Include="003_PointOfSales\01_Transaction\003-09-Void_Remark.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="005-Search_Forms\005-11-GLAccount.designer.vb">
@@ -376,41 +376,41 @@
     <Compile Include="002-Master Data\_002_06_User.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="003-POS System\003-01-TrList.Designer.vb">
-      <DependentUpon>003-01-TrList.vb</DependentUpon>
+    <Compile Include="003_PointOfSales\01_Transaction\003_01_TransactionList.Designer.vb">
+      <DependentUpon>003_01_TransactionList.vb</DependentUpon>
     </Compile>
-    <Compile Include="003-POS System\003-01-TrList.vb">
+    <Compile Include="003_PointOfSales\01_Transaction\003_01_TransactionList.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="003-POS System\003-02-TrDetail.vb">
+    <Compile Include="003_PointOfSales\01_Transaction\003_02_TransactionDetail_Old.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="003-POS System\003-02-TrDetail.Designer.vb">
-      <DependentUpon>003-02-TrDetail.vb</DependentUpon>
+    <Compile Include="003_PointOfSales\01_Transaction\003_02_TransactionDetail_Old.Designer.vb">
+      <DependentUpon>003_02_TransactionDetail_Old.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="003-POS System\003_03-TrViewPayment.Designer.vb">
+    <Compile Include="003_PointOfSales\01_Transaction\003_03-TrViewPayment.Designer.vb">
       <DependentUpon>003_03-TrViewPayment.vb</DependentUpon>
     </Compile>
-    <Compile Include="003-POS System\003_03-TrViewPayment.vb">
+    <Compile Include="003_PointOfSales\01_Transaction\003_03-TrViewPayment.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="003-POS System\003_04-TrMerchandiseRedemption.Designer.vb">
+    <Compile Include="003_PointOfSales\003_04-TrMerchandiseRedemption.Designer.vb">
       <DependentUpon>003_04-TrMerchandiseRedemption.vb</DependentUpon>
     </Compile>
-    <Compile Include="003-POS System\003_04-TrMerchandiseRedemption.vb">
+    <Compile Include="003_PointOfSales\003_04-TrMerchandiseRedemption.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="003-POS System\003_05_Cancel_Transaction.Designer.vb">
+    <Compile Include="003_PointOfSales\01_Transaction\003_05_Cancel_Transaction.Designer.vb">
       <DependentUpon>003_05_Cancel_Transaction.vb</DependentUpon>
     </Compile>
-    <Compile Include="003-POS System\003_05_Cancel_Transaction.vb">
+    <Compile Include="003_PointOfSales\01_Transaction\003_05_Cancel_Transaction.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="003-POS System\003_06_Print_Transaction.Designer.vb">
+    <Compile Include="003_PointOfSales\01_Transaction\003_06_Print_Transaction.Designer.vb">
       <DependentUpon>003_06_Print_Transaction.vb</DependentUpon>
     </Compile>
-    <Compile Include="003-POS System\003_06_Print_Transaction.vb">
+    <Compile Include="003_PointOfSales\01_Transaction\003_06_Print_Transaction.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="004-Material Management\004-02-Stock_Transfers.Designer.vb">
@@ -805,32 +805,32 @@
     <EmbeddedResource Include="002-Master Data\_002_06_User.resx">
       <DependentUpon>_002_06_User.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="003-POS System\003-01-TrList.resx">
-      <DependentUpon>003-01-TrList.vb</DependentUpon>
+    <EmbeddedResource Include="003_PointOfSales\01_Transaction\003_01_TransactionList.resx">
+      <DependentUpon>003_01_TransactionList.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="003-POS System\003-02-TrDetail.resx">
-      <DependentUpon>003-02-TrDetail.vb</DependentUpon>
+    <EmbeddedResource Include="003_PointOfSales\01_Transaction\003_02_TransactionDetail_Old.resx">
+      <DependentUpon>003_02_TransactionDetail_Old.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="003-POS System\003-08-Payment.resx">
+    <EmbeddedResource Include="003_PointOfSales\01_Transaction\003-08-Payment.resx">
       <DependentUpon>003-08-Payment.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="003-POS System\003-09-Void_Remark.resx">
+    <EmbeddedResource Include="003_PointOfSales\01_Transaction\003-09-Void_Remark.resx">
       <DependentUpon>003-09-Void_Remark.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="003-POS System\003_03-TrViewPayment.resx">
+    <EmbeddedResource Include="003_PointOfSales\01_Transaction\003_03-TrViewPayment.resx">
       <DependentUpon>003_03-TrViewPayment.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="003-POS System\003_04-TrMerchandiseRedemption.resx">
+    <EmbeddedResource Include="003_PointOfSales\003_04-TrMerchandiseRedemption.resx">
       <DependentUpon>003_04-TrMerchandiseRedemption.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="003-POS System\003_05_Cancel_Transaction.resx">
+    <EmbeddedResource Include="003_PointOfSales\01_Transaction\003_05_Cancel_Transaction.resx">
       <DependentUpon>003_05_Cancel_Transaction.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="003-POS System\003_06_Print_Transaction.resx">
+    <EmbeddedResource Include="003_PointOfSales\01_Transaction\003_06_Print_Transaction.resx">
       <DependentUpon>003_06_Print_Transaction.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="003-POS System\003-07-TrDetail.resx">
-      <DependentUpon>003-07-TrDetail.vb</DependentUpon>
+    <EmbeddedResource Include="003_PointOfSales\01_Transaction\003_02_TransactionDetail.resx">
+      <DependentUpon>003_02_TransactionDetail.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="004-Material Management\004-02-Stock_Transfers.resx">
       <DependentUpon>004-02-Stock_Transfers.vb</DependentUpon>

@@ -80,7 +80,7 @@
     End Sub
 
     Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
-        _003_05_Cancel_Transaction.Show()
+        _003_01_05_TransactionCancel.Show()
     End Sub
 
     Private Sub Button15_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button15.Click

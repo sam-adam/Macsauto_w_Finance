@@ -3,11 +3,11 @@ Imports MacsautoIndonesia.Printing.Page
 Imports MacsautoIndonesia.Printing
 Imports MySql.Data.MySqlClient
 
-Public Class _003_02_TrDetail2
+Public Class _003_02_TransactionDetail_Old
     Public SizeNumber, TrNumber As String
     Public remainAR As Integer = 0
     Dim smartCardReader As SmartCardReader
- 
+
     Private Sub updateStock()
         Dim i As Integer
         If ProductGrid.Rows.Count <> 0 Then
@@ -469,7 +469,7 @@ Public Class _003_02_TrDetail2
                 End If
 
 
-                Dim POS As _003_01_TrList = CType(Application.OpenForms("_003_01_TrList"), _003_01_TrList)
+                Dim POS As _003_01_TransactionList = CType(Application.OpenForms("_003_01_TrList"), _003_01_TransactionList)
                 POS.loadTransactionList()
                 Me.Close()
 
@@ -653,7 +653,7 @@ Public Class _003_02_TrDetail2
                     Me.Close()
 
 
-                    Dim POS As _003_01_TrList = CType(Application.OpenForms("_003_01_TrList"), _003_01_TrList)
+                    Dim POS As _003_01_TransactionList = CType(Application.OpenForms("_003_01_TrList"), _003_01_TransactionList)
                     POS.loadTransactionList()
                 Else
                     MsgBox("Transaction not created, can not be void")
@@ -667,7 +667,7 @@ Public Class _003_02_TrDetail2
 
     End Sub
 
-    Private Sub QUEUE_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles QUEUE.Click
+    Private Sub QUEUE_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Queue.Click
 
         If ServiceGrid.Rows.Count = 0 And ProductGrid.Rows.Count = 0 Then
             MsgBox("Please select at least one transaction detail")
@@ -701,7 +701,7 @@ Public Class _003_02_TrDetail2
 
                     MsgBox("Transasction queued")
                     Me.Close()
-                    Dim POS As _003_01_TrList = CType(Application.OpenForms("_003_01_TrList"), _003_01_TrList)
+                    Dim POS As _003_01_TransactionList = CType(Application.OpenForms("_003_01_TrList"), _003_01_TransactionList)
                     POS.loadTransactionList()
                     Me.Close()
                 End If

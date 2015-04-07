@@ -1,6 +1,6 @@
 ﻿Imports MacsautoIndonesia.Services
 
-Public Class _003_01_TrList
+Public Class _003_01_01_TransactionList
     Const AccountingNotReadyMsg As String = "Autopost configuration is invalid, please configure autopost accounts"
 
     Public Sub New()
@@ -24,60 +24,60 @@ Public Class _003_01_TrList
         Marking(TrlistGrid)
     End Sub
     Public Sub loadServiceTable()
-        _003_02_TrDetail2.ServiceGrid.Rows.Clear()
+        _003_01_02_TransactionDetail_Old.ServiceGrid.Rows.Clear()
         reader = ExecQueryReader("select seqnr,a.idsvc,svcdc,trqty,uomdc,price,idisc,rmark from DTransaction A, HService B WHERE A.idsvc = B.idsvc AND TTYPE = 'S' AND a.trsid LIKE '" + TrlistGrid.CurrentRow.Cells(0).Value.ToString + "' ORder by seqnr")
         While reader.read()
-            _003_02_TrDetail2.ServiceGrid.Rows.Add(reader(0).ToString, reader(1).ToString, reader(2).ToString, reader(3).ToString, reader(4).ToString, reader(5).ToString, reader(6).ToString, reader(7).ToString)
+            _003_01_02_TransactionDetail_Old.ServiceGrid.Rows.Add(reader(0).ToString, reader(1).ToString, reader(2).ToString, reader(3).ToString, reader(4).ToString, reader(5).ToString, reader(6).ToString, reader(7).ToString)
         End While
     End Sub
     Public Sub loadProductTable()
-        _003_02_TrDetail2.ProductGrid.Rows.Clear()
+        _003_01_02_TransactionDetail_Old.ProductGrid.Rows.Clear()
         ' reader = ExecQueryReader("select seqnr,a.idpdt,pdtds,trqty,uomdc,idisc,price from DTransaction A, HProduct B WHERE A.idpdt = B.idpdt AND TTYPE = 'P' AND a.trsid LIKE '" + TrlistGrid.CurrentRow.Cells(0).Value.ToString + "' ORder by seqnr")
         reader = ExecQueryReader("select seqnr,a.idpdt,pdtds,trqty,uomdc,idisc,price,C.slqty,uomdc from DTransaction A, HProduct B,DProduct C WHERE A.idpdt = B.idpdt AND B.idpdt = C.idpdt AND TTYPE = 'P'AND c.defsl = 'True' and a.trsid LIKE '" + TrlistGrid.CurrentRow.Cells(0).Value.ToString + "' ORder by seqnr")
 
         While reader.read()
-            _003_02_TrDetail2.ProductGrid.Rows.Add(reader(0).ToString, reader(1).ToString, reader(2).ToString, reader(3).ToString, reader(4).ToString, reader(6).ToString, reader(5).ToString, reader(7).ToString, reader(8).ToString)
+            _003_01_02_TransactionDetail_Old.ProductGrid.Rows.Add(reader(0).ToString, reader(1).ToString, reader(2).ToString, reader(3).ToString, reader(4).ToString, reader(6).ToString, reader(5).ToString, reader(7).ToString, reader(8).ToString)
         End While
     End Sub
 
     Private Sub TrListDisplaybtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TrListDisplaybtn.Click
         If TrlistGrid.Rows.Count <> 0 Then
-            _003_02_TrDetail2.TextBox4.Text = TrlistGrid.CurrentRow.Cells(0).Value.ToString
-            _003_02_TrDetail2.cNumber.Text = TrlistGrid.CurrentRow.Cells(2).Value.ToString
-            _003_02_TrDetail2.vType.Text = TrlistGrid.CurrentRow.Cells(3).Value.ToString
-            _003_02_TrDetail2.vBrand.Text = TrlistGrid.CurrentRow.Cells(4).Value.ToString
-            _003_02_TrDetail2.vModel.Text = TrlistGrid.CurrentRow.Cells(5).Value.ToString
-            _003_02_TrDetail2.vColor.Text = TrlistGrid.CurrentRow.Cells(6).Value.ToString
-            _003_02_TrDetail2.vSize.Text = TrlistGrid.CurrentRow.Cells(7).Value.ToString
-            _003_02_TrDetail2.vKilo.Text = TrlistGrid.CurrentRow.Cells(8).Value.ToString
-            _003_02_TrDetail2.vNumber.Text = TrlistGrid.CurrentRow.Cells(9).Value.ToString
-            _003_02_TrDetail2.vExpDate.Value = TrlistGrid.CurrentRow.Cells(10).Value.ToString()
-            _003_02_TrDetail2.totalService.Text = TrlistGrid.CurrentRow.Cells(11).Value.ToString()
-            _003_02_TrDetail2.totalProduct.Text = TrlistGrid.CurrentRow.Cells(12).Value.ToString()
-            _003_02_TrDetail2.GrandTotal.Text = TrlistGrid.CurrentRow.Cells(13).Value.ToString()
+            _003_01_02_TransactionDetail_Old.TextBox4.Text = TrlistGrid.CurrentRow.Cells(0).Value.ToString
+            _003_01_02_TransactionDetail_Old.cNumber.Text = TrlistGrid.CurrentRow.Cells(2).Value.ToString
+            _003_01_02_TransactionDetail_Old.vType.Text = TrlistGrid.CurrentRow.Cells(3).Value.ToString
+            _003_01_02_TransactionDetail_Old.vBrand.Text = TrlistGrid.CurrentRow.Cells(4).Value.ToString
+            _003_01_02_TransactionDetail_Old.vModel.Text = TrlistGrid.CurrentRow.Cells(5).Value.ToString
+            _003_01_02_TransactionDetail_Old.vColor.Text = TrlistGrid.CurrentRow.Cells(6).Value.ToString
+            _003_01_02_TransactionDetail_Old.vSize.Text = TrlistGrid.CurrentRow.Cells(7).Value.ToString
+            _003_01_02_TransactionDetail_Old.vKilo.Text = TrlistGrid.CurrentRow.Cells(8).Value.ToString
+            _003_01_02_TransactionDetail_Old.vNumber.Text = TrlistGrid.CurrentRow.Cells(9).Value.ToString
+            _003_01_02_TransactionDetail_Old.vExpDate.Value = TrlistGrid.CurrentRow.Cells(10).Value.ToString()
+            _003_01_02_TransactionDetail_Old.totalService.Text = TrlistGrid.CurrentRow.Cells(11).Value.ToString()
+            _003_01_02_TransactionDetail_Old.totalProduct.Text = TrlistGrid.CurrentRow.Cells(12).Value.ToString()
+            _003_01_02_TransactionDetail_Old.GrandTotal.Text = TrlistGrid.CurrentRow.Cells(13).Value.ToString()
             loadServiceTable()
             loadProductTable()
 
-            _003_02_TrDetail2.Column3.DefaultCellStyle.BackColor = Color.LightGray
-            _003_02_TrDetail2.Column5.DefaultCellStyle.BackColor = Color.LightGray
+            _003_01_02_TransactionDetail_Old.Column3.DefaultCellStyle.BackColor = Color.LightGray
+            _003_01_02_TransactionDetail_Old.Column5.DefaultCellStyle.BackColor = Color.LightGray
 
 
-            _003_02_TrDetail2.DataGridViewTextBoxColumn3.DefaultCellStyle.BackColor = Color.LightGray
-            _003_02_TrDetail2.DataGridViewTextBoxColumn4.DefaultCellStyle.BackColor = Color.LightGray
-            _003_02_TrDetail2.ShowDialog()
+            _003_01_02_TransactionDetail_Old.DataGridViewTextBoxColumn3.DefaultCellStyle.BackColor = Color.LightGray
+            _003_01_02_TransactionDetail_Old.DataGridViewTextBoxColumn4.DefaultCellStyle.BackColor = Color.LightGray
+            _003_01_02_TransactionDetail_Old.ShowDialog()
         End If
 
     End Sub
 
     Private Sub TrListViewPayBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TrListViewPayBtn.Click
         If TrlistGrid.Rows.Count <> 0 Then
-            _003_03_TrViewPayment.DataGridView1.Rows.Clear()
+            _003_01_03_TransactionPaymentHistory.DataGridView1.Rows.Clear()
             reader = ExecQueryReader("SELECT * FROM payment where trsid like '" + TrlistGrid.CurrentRow.Cells(0).Value.ToString + "'")
             While reader.read
-                _003_03_TrViewPayment.DataGridView1.Rows.Add(reader(0).ToString, reader(1).ToString, "Rp. " & toCurrencyFormat(reader(2).ToString), reader(3).ToString)
+                _003_01_03_TransactionPaymentHistory.DataGridView1.Rows.Add(reader(0).ToString, reader(1).ToString, "Rp. " & toCurrencyFormat(reader(2).ToString), reader(3).ToString)
             End While
-            Marking(_003_03_TrViewPayment.DataGridView1)
-            _003_03_TrViewPayment.ShowDialog()
+            Marking(_003_01_03_TransactionPaymentHistory.DataGridView1)
+            _003_01_03_TransactionPaymentHistory.ShowDialog()
         End If
     End Sub
 
@@ -137,7 +137,7 @@ Public Class _003_01_TrList
 
             accountingConfiguration.ShowDialog(Me)
         Else
-            Dim trDetail As _003_07_TrDetail2 = New _003_07_TrDetail2(PointOfSalesMode.NewTransaction)
+            Dim trDetail As _003_01_02_TransactionDetail = New _003_01_02_TransactionDetail(PointOfSalesMode.NewTransaction)
 
             AddHandler trDetail.TransactionUpdated,
                 Sub()
@@ -156,7 +156,7 @@ Public Class _003_01_TrList
 
             accountingConfiguration.ShowDialog(Me)
         Else
-            Dim trDetail As _003_07_TrDetail2 = New _003_07_TrDetail2(PointOfSalesMode.ExistingTransaction, TrlistGrid.CurrentRow.Cells(0).Value)
+            Dim trDetail As _003_01_02_TransactionDetail = New _003_01_02_TransactionDetail(PointOfSalesMode.ExistingTransaction, TrlistGrid.CurrentRow.Cells(0).Value)
 
             AddHandler trDetail.TransactionUpdated,
                 Sub()
@@ -175,7 +175,7 @@ Public Class _003_01_TrList
 
             accountingConfiguration.ShowDialog(Me)
         Else
-            Dim trDetail As _003_07_TrDetail2 = New _003_07_TrDetail2(PointOfSalesMode.ExistingTransaction, TrlistGrid.CurrentRow.Cells(0).Value)
+            Dim trDetail As _003_01_02_TransactionDetail = New _003_01_02_TransactionDetail(PointOfSalesMode.ExistingTransaction, TrlistGrid.CurrentRow.Cells(0).Value)
 
             AddHandler trDetail.TransactionUpdated,
                 Sub()

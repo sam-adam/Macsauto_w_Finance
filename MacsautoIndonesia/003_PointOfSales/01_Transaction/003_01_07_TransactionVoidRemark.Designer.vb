@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class _003_09_Void_Remark
+Partial Class _003_01_07_TransactionVoidRemark
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.

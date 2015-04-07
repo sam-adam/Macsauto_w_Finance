@@ -109,7 +109,7 @@ Public Class _006_03_Main_Form_Version2
     End Sub
 
     Private Sub PointOfSalesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PointOfSalesToolStripMenuItem.Click
-        LoadForm(Of _003_01_TrList)()
+        LoadForm(Of TransactionList)()
     End Sub
 
     Private Sub ProductMovementToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ProductMovementToolStripMenuItem.Click
