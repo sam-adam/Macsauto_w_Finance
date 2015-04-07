@@ -109,7 +109,7 @@ Public Class _006_03_Main_Form_Version2
     End Sub
 
     Private Sub PointOfSalesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PointOfSalesToolStripMenuItem.Click
-        LoadForm(Of TransactionList)()
+        LoadForm(Of _003_01_01_TransactionList)()
     End Sub
 
     Private Sub ProductMovementToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ProductMovementToolStripMenuItem.Click
@@ -342,11 +342,11 @@ Public Class _006_03_Main_Form_Version2
     End Sub
 
     Private Sub PrintPreviousTransactionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrintPreviousTransactionToolStripMenuItem.Click
-        LoadForm(Of _003_06_Print_Transaction)()
+        LoadForm(Of _003_01_06_TransactionPrint)()
     End Sub
 
     Private Sub CancelTransactionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CancelTransactionToolStripMenuItem.Click
-        LoadForm(Of _003_05_Cancel_Transaction)()
+        LoadForm(Of _003_01_05_TransactionCancel)()
     End Sub
 
     Private Sub DefineTransactionAutopostToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DefineTransactionAutopostToolStripMenuItem.Click

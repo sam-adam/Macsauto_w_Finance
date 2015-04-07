@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class _003_06_Print_Transaction
+Partial Class _003_01_06_TransactionPrint
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -115,7 +115,7 @@ Partial Class _003_06_Print_Transaction
         Me.TransactionDetailView.TabIndex = 3
         Me.TransactionDetailView.VehicleType = "Motorcycle"
         '
-        '_003_06_Print_Transaction
+        '_003_01_06_TransactionPrint
         '
         Me.AcceptButton = Me.PrintBtn
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -126,7 +126,7 @@ Partial Class _003_06_Print_Transaction
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "_003_06_Print_Transaction"
+        Me.Name = "_003_01_06_TransactionPrint"
         Me.Text = "Transaction - Print"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)

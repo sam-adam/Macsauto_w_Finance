@@ -3,7 +3,7 @@ Imports MacsautoIndonesia.Printing.Page
 Imports MacsautoIndonesia.Printing
 Imports MySql.Data.MySqlClient
 
-Public Class _003_02_TransactionDetail_Old
+Public Class _003_01_02_TransactionDetail_Old
     Public SizeNumber, TrNumber As String
     Public remainAR As Integer = 0
     Dim smartCardReader As SmartCardReader
@@ -469,7 +469,7 @@ Public Class _003_02_TransactionDetail_Old
                 End If
 
 
-                Dim POS As _003_01_TransactionList = CType(Application.OpenForms("_003_01_TrList"), _003_01_TransactionList)
+                Dim POS As _003_01_01_TransactionList = CType(Application.OpenForms("_003_01_TrList"), _003_01_01_TransactionList)
                 POS.loadTransactionList()
                 Me.Close()
 
@@ -653,7 +653,7 @@ Public Class _003_02_TransactionDetail_Old
                     Me.Close()
 
 
-                    Dim POS As _003_01_TransactionList = CType(Application.OpenForms("_003_01_TrList"), _003_01_TransactionList)
+                    Dim POS As _003_01_01_TransactionList = CType(Application.OpenForms("_003_01_TrList"), _003_01_01_TransactionList)
                     POS.loadTransactionList()
                 Else
                     MsgBox("Transaction not created, can not be void")
@@ -667,7 +667,7 @@ Public Class _003_02_TransactionDetail_Old
 
     End Sub
 
-    Private Sub QUEUE_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Queue.Click
+    Private Sub QUEUE_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles QUEUE.Click
 
         If ServiceGrid.Rows.Count = 0 And ProductGrid.Rows.Count = 0 Then
             MsgBox("Please select at least one transaction detail")
@@ -701,7 +701,7 @@ Public Class _003_02_TransactionDetail_Old
 
                     MsgBox("Transasction queued")
                     Me.Close()
-                    Dim POS As _003_01_TransactionList = CType(Application.OpenForms("_003_01_TrList"), _003_01_TransactionList)
+                    Dim POS As _003_01_01_TransactionList = CType(Application.OpenForms("_003_01_TrList"), _003_01_01_TransactionList)
                     POS.loadTransactionList()
                     Me.Close()
                 End If

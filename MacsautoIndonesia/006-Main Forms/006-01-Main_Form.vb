@@ -99,7 +99,7 @@ Public Class _006_01_Main_Form
     End Sub
 
     Private Sub PointOfSalesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PointOfSalesToolStripMenuItem.Click
-        Dim form = New TransactionList
+        Dim form = New _003_01_01_TransactionList
         form.MdiParent = Me
         form.Dock = DockStyle.None
         form.Show()

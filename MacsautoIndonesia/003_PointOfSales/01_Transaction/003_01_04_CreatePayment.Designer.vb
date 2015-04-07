@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class _003_01_08_CreatePayment
+Partial Class _003_01_04_CreatePayment
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -298,7 +298,7 @@ Partial Class _003_01_08_CreatePayment
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Grand Total:"
         '
-        '_003_01_08_CreatePayment
+        '_003_01_04_CreatePayment
         '
         Me.AcceptButton = Me.SubmitBtn
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -311,7 +311,7 @@ Partial Class _003_01_08_CreatePayment
         Me.MaximumSize = New System.Drawing.Size(580, 290)
         Me.MinimizeBox = False
         Me.MinimumSize = New System.Drawing.Size(580, 290)
-        Me.Name = "_003_01_08_CreatePayment"
+        Me.Name = "_003_01_04_CreatePayment"
         Me.ShowIcon = False
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent

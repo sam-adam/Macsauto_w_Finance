@@ -1,4 +1,4 @@
-﻿Public Class _003_01_08_CreatePayment
+﻿Public Class _003_01_04_CreatePayment
     Public Event PaymentSubmitted As EventHandler(Of PaymentSubmittedEventArgs)
 
     Property GrandTotal() As Double
@@ -140,15 +140,15 @@ End Class
 Public Class PaymentSubmittedEventArgs
     Inherits EventArgs
 
-    Private ReadOnly _createPaymentForm As _003_01_08_CreatePayment
+    Private ReadOnly _createPaymentForm As _003_01_04_CreatePayment
 
-    ReadOnly Property CreatePaymentForm() As _003_01_08_CreatePayment
+    ReadOnly Property CreatePaymentForm() As _003_01_04_CreatePayment
         Get
             Return _createPaymentForm
         End Get
     End Property
 
-    Public Sub New(ByVal createPaymentForm As _003_01_08_CreatePayment)
+    Public Sub New(ByVal createPaymentForm As _003_01_04_CreatePayment)
         _createPaymentForm = createPaymentForm
     End Sub
 End Class

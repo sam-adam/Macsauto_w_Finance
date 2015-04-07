@@ -3,7 +3,7 @@ Imports MacsautoIndonesia.Printing
 Imports System.Drawing.Printing
 Imports System.Globalization
 
-Public Class _003_06_Print_Transaction
+Public Class _003_01_06_TransactionPrint
     Public Sub New()
         InitializeComponent()
 

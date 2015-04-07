@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class _003_05_Cancel_Transaction
+Partial Class _003_01_05_TransactionCancel
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -150,7 +150,7 @@ Partial Class _003_05_Cancel_Transaction
         Me.Label15.TabIndex = 3
         Me.Label15.Text = "*Only transaction that has not been cancelled can be cancelled"
         '
-        '_003_05_Cancel_Transaction
+        '_003_01_05_TransactionCancel
         '
         Me.AcceptButton = Me.SubmitBtn
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -162,7 +162,7 @@ Partial Class _003_05_Cancel_Transaction
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "_003_05_Cancel_Transaction"
+        Me.Name = "_003_01_05_TransactionCancel"
         Me.Text = "Transaction - Cancel"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
@@ -172,7 +172,7 @@ Partial Class _003_05_Cancel_Transaction
         Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
 
-End Sub
+    End Sub
     Friend WithEvents TransactionIdTxt As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Panel1 As System.Windows.Forms.Panel

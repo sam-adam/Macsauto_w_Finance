@@ -1,7 +1,7 @@
 ﻿Public Class _005_08_POS_Service
 
     Private Sub DataGridView1_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles servSearchGrid.DoubleClick
-        Dim POS As TransactionDetail_Old = CType(Application.OpenForms("TransactionDetail_Old"), TransactionDetail_Old)
+        Dim POS As _003_01_02_TransactionDetail_Old = CType(Application.OpenForms("_003_01_02_TransactionDetail_Old"), _003_01_02_TransactionDetail_Old)
 
 
         POS.ServiceGrid.CurrentRow.Cells(1).Value = Me.servSearchGrid.CurrentRow.Cells(0).Value.ToString

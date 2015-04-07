@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports MacsautoIndonesia.Services
 
-Public Class _003_05_Cancel_Transaction
+Public Class _003_01_05_TransactionCancel
     Private _authorizationForm As _006_04_Authorization_Form
 
     Public Sub New()

@@ -8,7 +8,7 @@
         Marking(CustomerGrid)
     End Sub
     Private Sub CustomerGrid_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomerGrid.DoubleClick
-        Dim cust As _003_02_TrDetail2 = CType(Application.OpenForms("_003_02_TrDetail2"), _003_02_TrDetail2)
+        Dim cust As _003_01_02_TransactionDetail_Old = CType(Application.OpenForms("_003_01_02_TransactionDetail_Old"), _003_01_02_TransactionDetail_Old)
         cust.cNumber.Text = Me.CustomerGrid.CurrentRow.Cells(0).Value.ToString
         cust.cNAme.Text = Me.CustomerGrid.CurrentRow.Cells(1).Value.ToString
         cust.cAddress.Text = Me.CustomerGrid.CurrentRow.Cells(2).Value.ToString
