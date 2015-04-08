@@ -11,7 +11,7 @@
     Private ReadOnly _mode As Integer
     Private _customersDataView As DataView
 
-    Public Sub New(ByVal mode As Integer, Optional ByVal memberOnly As Boolean = False)
+    Public Sub New(Optional ByVal mode As Integer = 1, Optional ByVal memberOnly As Boolean = False)
         InitializeComponent()
 
         _mode = mode
@@ -19,6 +19,10 @@
         If memberOnly Then
             MemberOnlyChk.Checked = True
             MemberOnlyChk.AutoCheck = False
+        End If
+
+        If _mode = CustomerMode Then
+            Text = "Customer - Search"
         End If
 
         _customersDataTable = New DataTable()

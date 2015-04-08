@@ -22,15 +22,14 @@ Namespace SmartCard
         End Sub
 
         Public Sub InitializeAcr()
-            If (_cardReaders Is Nothing) Then
+            If (_acrReaders Is Nothing) Then
                 _acrReaders = New List(Of AcrReader)()
 
                 For Each port As Integer In System.Enum.GetValues(GetType(ACR120_UsbPorts))
                     _returnCode = ACR120U.ACR120_Open(port)
+                    _hContext = _returnCode
 
                     If _returnCode >= 0 Then
-                        _hContext = _returnCode
-
                         Exit For
                     End If
                 Next

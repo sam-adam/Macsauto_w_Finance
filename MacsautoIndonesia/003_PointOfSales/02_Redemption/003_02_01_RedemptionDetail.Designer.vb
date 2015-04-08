@@ -22,13 +22,15 @@ Partial Class _003_04_TrMerchandiseRedemption
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle27 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(_003_04_TrMerchandiseRedemption))
         Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.RedemptionIdLbl = New System.Windows.Forms.Label()
+        Me.RedemptionDate = New System.Windows.Forms.DateTimePicker()
         Me.ServicePanel = New System.Windows.Forms.Panel()
         Me.MerchandiseGrid = New System.Windows.Forms.DataGridView()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -37,18 +39,11 @@ Partial Class _003_04_TrMerchandiseRedemption
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Point = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Label29 = New System.Windows.Forms.Label()
         Me.RemoveServBtn = New System.Windows.Forms.Button()
         Me.AddServiceBtn = New System.Windows.Forms.Button()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.TotalPointRequired = New System.Windows.Forms.TextBox()
-        Me.CancelBtn = New System.Windows.Forms.Button()
-        Me.SaveBtn = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.RedemptionIdLbl = New System.Windows.Forms.Label()
-        Me.RedemptionDate = New System.Windows.Forms.DateTimePicker()
         Me.CustomerPanel = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label26 = New System.Windows.Forms.Label()
@@ -64,20 +59,25 @@ Partial Class _003_04_TrMerchandiseRedemption
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.HelpF4Lbl = New System.Windows.Forms.Label()
+        Me.HelpF2Lbl = New System.Windows.Forms.Label()
         Me.HelpF1Lbl = New System.Windows.Forms.Label()
         Me.Label32 = New System.Windows.Forms.Label()
-        Me.HelpF2Lbl = New System.Windows.Forms.Label()
+        Me.CustomerPointTxt = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel8.SuspendLayout()
         Me.ServicePanel.SuspendLayout()
         CType(Me.MerchandiseGrid, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel5.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        Me.Panel3.SuspendLayout()
         Me.CustomerPanel.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.Panel7.SuspendLayout()
+        Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel8
@@ -92,17 +92,40 @@ Partial Class _003_04_TrMerchandiseRedemption
         Me.Panel8.Size = New System.Drawing.Size(924, 51)
         Me.Panel8.TabIndex = 30
         '
+        'RedemptionIdLbl
+        '
+        Me.RedemptionIdLbl.AutoSize = True
+        Me.RedemptionIdLbl.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RedemptionIdLbl.Location = New System.Drawing.Point(4, 12)
+        Me.RedemptionIdLbl.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.RedemptionIdLbl.Name = "RedemptionIdLbl"
+        Me.RedemptionIdLbl.Size = New System.Drawing.Size(166, 25)
+        Me.RedemptionIdLbl.TabIndex = 16
+        Me.RedemptionIdLbl.Text = "New Redemption"
+        '
+        'RedemptionDate
+        '
+        Me.RedemptionDate.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.RedemptionDate.Enabled = False
+        Me.RedemptionDate.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.RedemptionDate.Location = New System.Drawing.Point(669, 12)
+        Me.RedemptionDate.Margin = New System.Windows.Forms.Padding(4)
+        Me.RedemptionDate.Name = "RedemptionDate"
+        Me.RedemptionDate.Size = New System.Drawing.Size(242, 25)
+        Me.RedemptionDate.TabIndex = 17
+        '
         'ServicePanel
         '
         Me.ServicePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ServicePanel.Controls.Add(Me.Panel4)
         Me.ServicePanel.Controls.Add(Me.MerchandiseGrid)
-        Me.ServicePanel.Controls.Add(Me.Panel5)
         Me.ServicePanel.Controls.Add(Me.RemoveServBtn)
         Me.ServicePanel.Controls.Add(Me.AddServiceBtn)
         Me.ServicePanel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ServicePanel.Location = New System.Drawing.Point(528, 26)
+        Me.ServicePanel.Location = New System.Drawing.Point(528, 8)
         Me.ServicePanel.Name = "ServicePanel"
-        Me.ServicePanel.Size = New System.Drawing.Size(381, 206)
+        Me.ServicePanel.Size = New System.Drawing.Size(381, 216)
         Me.ServicePanel.TabIndex = 34
         '
         'MerchandiseGrid
@@ -111,15 +134,15 @@ Partial Class _003_04_TrMerchandiseRedemption
         Me.MerchandiseGrid.AllowUserToDeleteRows = False
         Me.MerchandiseGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.MerchandiseGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column7, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.Column8, Me.Point})
-        Me.MerchandiseGrid.Location = New System.Drawing.Point(3, 3)
+        Me.MerchandiseGrid.Location = New System.Drawing.Point(3, 2)
         Me.MerchandiseGrid.Name = "MerchandiseGrid"
         Me.MerchandiseGrid.Size = New System.Drawing.Size(587, 162)
         Me.MerchandiseGrid.TabIndex = 16
         '
         'Column7
         '
-        DataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Column7.DefaultCellStyle = DataGridViewCellStyle26
         Me.Column7.HeaderText = "Seq"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
@@ -127,16 +150,16 @@ Partial Class _003_04_TrMerchandiseRedemption
         '
         'DataGridViewTextBoxColumn1
         '
-        DataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle27
         Me.DataGridViewTextBoxColumn1.HeaderText = "Merchandise ID"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
         '
         'DataGridViewTextBoxColumn2
         '
-        DataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle28
         Me.DataGridViewTextBoxColumn2.HeaderText = "Description"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
@@ -144,17 +167,17 @@ Partial Class _003_04_TrMerchandiseRedemption
         '
         'DataGridViewTextBoxColumn3
         '
-        DataGridViewCellStyle19.Format = "N0"
-        DataGridViewCellStyle19.NullValue = "0"
-        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle29.Format = "N0"
+        DataGridViewCellStyle29.NullValue = "0"
+        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle29
         Me.DataGridViewTextBoxColumn3.HeaderText = "qty"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.Width = 60
         '
         'Column8
         '
-        DataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Column8.DefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Column8.DefaultCellStyle = DataGridViewCellStyle30
         Me.Column8.HeaderText = "UoM"
         Me.Column8.Name = "Column8"
         Me.Column8.ReadOnly = True
@@ -164,26 +187,6 @@ Partial Class _003_04_TrMerchandiseRedemption
         '
         Me.Point.HeaderText = "Point"
         Me.Point.Name = "Point"
-        '
-        'Panel5
-        '
-        Me.Panel5.BackColor = System.Drawing.Color.Gold
-        Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel5.Controls.Add(Me.Label29)
-        Me.Panel5.Location = New System.Drawing.Point(-3, 186)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(151, 22)
-        Me.Panel5.TabIndex = 15
-        '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label29.Location = New System.Drawing.Point(15, 1)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(126, 14)
-        Me.Label29.TabIndex = 0
-        Me.Label29.Text = "Redemption Item Detail"
         '
         'RemoveServBtn
         '
@@ -230,34 +233,6 @@ Partial Class _003_04_TrMerchandiseRedemption
         Me.TotalPointRequired.Text = "0"
         Me.TotalPointRequired.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'CancelBtn
-        '
-        Me.CancelBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CancelBtn.BackgroundImage = CType(resources.GetObject("CancelBtn.BackgroundImage"), System.Drawing.Image)
-        Me.CancelBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.CancelBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CancelBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.CancelBtn.Location = New System.Drawing.Point(811, 8)
-        Me.CancelBtn.Name = "CancelBtn"
-        Me.CancelBtn.Size = New System.Drawing.Size(101, 53)
-        Me.CancelBtn.TabIndex = 36
-        Me.CancelBtn.Text = "CANCEL"
-        Me.CancelBtn.UseVisualStyleBackColor = True
-        '
-        'SaveBtn
-        '
-        Me.SaveBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SaveBtn.BackgroundImage = CType(resources.GetObject("SaveBtn.BackgroundImage"), System.Drawing.Image)
-        Me.SaveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.SaveBtn.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SaveBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.SaveBtn.Location = New System.Drawing.Point(704, 8)
-        Me.SaveBtn.Name = "SaveBtn"
-        Me.SaveBtn.Size = New System.Drawing.Size(101, 53)
-        Me.SaveBtn.TabIndex = 35
-        Me.SaveBtn.Text = "SAVE"
-        Me.SaveBtn.UseVisualStyleBackColor = True
-        '
         'Panel2
         '
         Me.Panel2.Controls.Add(Me.CustomerPanel)
@@ -266,47 +241,14 @@ Partial Class _003_04_TrMerchandiseRedemption
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 51)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(924, 291)
+        Me.Panel2.Size = New System.Drawing.Size(924, 361)
         Me.Panel2.TabIndex = 38
-        '
-        'Panel3
-        '
-        Me.Panel3.Controls.Add(Me.Label14)
-        Me.Panel3.Controls.Add(Me.TotalPointRequired)
-        Me.Panel3.Controls.Add(Me.SaveBtn)
-        Me.Panel3.Controls.Add(Me.CancelBtn)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel3.Location = New System.Drawing.Point(0, 224)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(924, 67)
-        Me.Panel3.TabIndex = 37
-        '
-        'RedemptionIdLbl
-        '
-        Me.RedemptionIdLbl.AutoSize = True
-        Me.RedemptionIdLbl.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RedemptionIdLbl.Location = New System.Drawing.Point(4, 12)
-        Me.RedemptionIdLbl.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.RedemptionIdLbl.Name = "RedemptionIdLbl"
-        Me.RedemptionIdLbl.Size = New System.Drawing.Size(166, 25)
-        Me.RedemptionIdLbl.TabIndex = 16
-        Me.RedemptionIdLbl.Text = "New Redemption"
-        '
-        'RedemptionDate
-        '
-        Me.RedemptionDate.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.RedemptionDate.Enabled = False
-        Me.RedemptionDate.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.RedemptionDate.Location = New System.Drawing.Point(669, 12)
-        Me.RedemptionDate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.RedemptionDate.Name = "RedemptionDate"
-        Me.RedemptionDate.Size = New System.Drawing.Size(242, 25)
-        Me.RedemptionDate.TabIndex = 17
         '
         'CustomerPanel
         '
         Me.CustomerPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CustomerPanel.Controls.Add(Me.CustomerPointTxt)
+        Me.CustomerPanel.Controls.Add(Me.Label5)
         Me.CustomerPanel.Controls.Add(Me.Panel1)
         Me.CustomerPanel.Controls.Add(Me.IsMemberChk)
         Me.CustomerPanel.Controls.Add(Me.CustomerCellphoneTxt)
@@ -322,9 +264,9 @@ Partial Class _003_04_TrMerchandiseRedemption
         Me.CustomerPanel.Controls.Add(Me.Label3)
         Me.CustomerPanel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CustomerPanel.Location = New System.Drawing.Point(10, 8)
-        Me.CustomerPanel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CustomerPanel.Margin = New System.Windows.Forms.Padding(4)
         Me.CustomerPanel.Name = "CustomerPanel"
-        Me.CustomerPanel.Size = New System.Drawing.Size(511, 227)
+        Me.CustomerPanel.Size = New System.Drawing.Size(511, 258)
         Me.CustomerPanel.TabIndex = 37
         '
         'Panel1
@@ -334,7 +276,7 @@ Partial Class _003_04_TrMerchandiseRedemption
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.Label26)
         Me.Panel1.Location = New System.Drawing.Point(330, -1)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(180, 30)
         Me.Panel1.TabIndex = 12
@@ -348,15 +290,15 @@ Partial Class _003_04_TrMerchandiseRedemption
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(178, 28)
         Me.Label26.TabIndex = 0
-        Me.Label26.Text = "CUSTOMER DATA"
+        Me.Label26.Text = "MEMBER DATA"
         Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'IsMemberChk
         '
         Me.IsMemberChk.AutoCheck = False
         Me.IsMemberChk.AutoSize = True
-        Me.IsMemberChk.Location = New System.Drawing.Point(323, 191)
-        Me.IsMemberChk.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.IsMemberChk.Location = New System.Drawing.Point(168, 224)
+        Me.IsMemberChk.Margin = New System.Windows.Forms.Padding(4)
         Me.IsMemberChk.Name = "IsMemberChk"
         Me.IsMemberChk.Size = New System.Drawing.Size(162, 21)
         Me.IsMemberChk.TabIndex = 11
@@ -367,7 +309,7 @@ Partial Class _003_04_TrMerchandiseRedemption
         '
         Me.CustomerCellphoneTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.CustomerCellphoneTxt.Location = New System.Drawing.Point(88, 190)
-        Me.CustomerCellphoneTxt.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CustomerCellphoneTxt.Margin = New System.Windows.Forms.Padding(4)
         Me.CustomerCellphoneTxt.Name = "CustomerCellphoneTxt"
         Me.CustomerCellphoneTxt.Size = New System.Drawing.Size(227, 25)
         Me.CustomerCellphoneTxt.TabIndex = 10
@@ -385,7 +327,7 @@ Partial Class _003_04_TrMerchandiseRedemption
         'FindCustomerBtn
         '
         Me.FindCustomerBtn.Location = New System.Drawing.Point(265, 12)
-        Me.FindCustomerBtn.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FindCustomerBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.FindCustomerBtn.Name = "FindCustomerBtn"
         Me.FindCustomerBtn.Size = New System.Drawing.Size(49, 25)
         Me.FindCustomerBtn.TabIndex = 8
@@ -396,7 +338,7 @@ Partial Class _003_04_TrMerchandiseRedemption
         '
         Me.CustomerPhoneTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.CustomerPhoneTxt.Location = New System.Drawing.Point(88, 157)
-        Me.CustomerPhoneTxt.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CustomerPhoneTxt.Margin = New System.Windows.Forms.Padding(4)
         Me.CustomerPhoneTxt.Name = "CustomerPhoneTxt"
         Me.CustomerPhoneTxt.Size = New System.Drawing.Size(227, 25)
         Me.CustomerPhoneTxt.TabIndex = 7
@@ -405,7 +347,7 @@ Partial Class _003_04_TrMerchandiseRedemption
         '
         Me.CustomerAddressTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.CustomerAddressTxt.Location = New System.Drawing.Point(88, 78)
-        Me.CustomerAddressTxt.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CustomerAddressTxt.Margin = New System.Windows.Forms.Padding(4)
         Me.CustomerAddressTxt.Multiline = True
         Me.CustomerAddressTxt.Name = "CustomerAddressTxt"
         Me.CustomerAddressTxt.Size = New System.Drawing.Size(300, 71)
@@ -415,7 +357,7 @@ Partial Class _003_04_TrMerchandiseRedemption
         '
         Me.CustomerNameTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.CustomerNameTxt.Location = New System.Drawing.Point(88, 45)
-        Me.CustomerNameTxt.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CustomerNameTxt.Margin = New System.Windows.Forms.Padding(4)
         Me.CustomerNameTxt.Name = "CustomerNameTxt"
         Me.CustomerNameTxt.Size = New System.Drawing.Size(300, 25)
         Me.CustomerNameTxt.TabIndex = 5
@@ -424,7 +366,7 @@ Partial Class _003_04_TrMerchandiseRedemption
         '
         Me.CustomerIdTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.CustomerIdTxt.Location = New System.Drawing.Point(88, 12)
-        Me.CustomerIdTxt.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CustomerIdTxt.Margin = New System.Windows.Forms.Padding(4)
         Me.CustomerIdTxt.MaxLength = 11
         Me.CustomerIdTxt.Name = "CustomerIdTxt"
         Me.CustomerIdTxt.ReadOnly = True
@@ -471,6 +413,16 @@ Partial Class _003_04_TrMerchandiseRedemption
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Address"
         '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.Label14)
+        Me.Panel3.Controls.Add(Me.TotalPointRequired)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel3.Location = New System.Drawing.Point(0, 294)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(924, 67)
+        Me.Panel3.TabIndex = 37
+        '
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.Gold
@@ -480,8 +432,8 @@ Partial Class _003_04_TrMerchandiseRedemption
         Me.Panel7.Controls.Add(Me.HelpF1Lbl)
         Me.Panel7.Controls.Add(Me.Label32)
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel7.Location = New System.Drawing.Point(0, 342)
-        Me.Panel7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel7.Location = New System.Drawing.Point(0, 412)
+        Me.Panel7.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(924, 32)
         Me.Panel7.TabIndex = 38
@@ -491,12 +443,22 @@ Partial Class _003_04_TrMerchandiseRedemption
         Me.HelpF4Lbl.AutoSize = True
         Me.HelpF4Lbl.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.HelpF4Lbl.ForeColor = System.Drawing.Color.Red
-        Me.HelpF4Lbl.Location = New System.Drawing.Point(297, 7)
+        Me.HelpF4Lbl.Location = New System.Drawing.Point(326, 7)
         Me.HelpF4Lbl.Name = "HelpF4Lbl"
         Me.HelpF4Lbl.Size = New System.Drawing.Size(174, 17)
         Me.HelpF4Lbl.TabIndex = 4
         Me.HelpF4Lbl.Text = "F4 - Read From RFID Reader"
-        Me.HelpF4Lbl.Visible = False
+        '
+        'HelpF2Lbl
+        '
+        Me.HelpF2Lbl.AutoSize = True
+        Me.HelpF2Lbl.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.HelpF2Lbl.ForeColor = System.Drawing.Color.Red
+        Me.HelpF2Lbl.Location = New System.Drawing.Point(159, 7)
+        Me.HelpF2Lbl.Name = "HelpF2Lbl"
+        Me.HelpF2Lbl.Size = New System.Drawing.Size(152, 17)
+        Me.HelpF2Lbl.TabIndex = 3
+        Me.HelpF2Lbl.Text = "F2 - Search Merchandise"
         '
         'HelpF1Lbl
         '
@@ -522,22 +484,56 @@ Partial Class _003_04_TrMerchandiseRedemption
         Me.Label32.TabIndex = 0
         Me.Label32.Text = "Copyrights © 2013 – Macsauto Indonesia"
         '
-        'HelpF2Lbl
+        'CustomerPointTxt
         '
-        Me.HelpF2Lbl.AutoSize = True
-        Me.HelpF2Lbl.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.HelpF2Lbl.ForeColor = System.Drawing.Color.Red
-        Me.HelpF2Lbl.Location = New System.Drawing.Point(159, 7)
-        Me.HelpF2Lbl.Name = "HelpF2Lbl"
-        Me.HelpF2Lbl.Size = New System.Drawing.Size(122, 17)
-        Me.HelpF2Lbl.TabIndex = 3
-        Me.HelpF2Lbl.Text = "F2 - Search Product"
+        Me.CustomerPointTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CustomerPointTxt.Location = New System.Drawing.Point(88, 223)
+        Me.CustomerPointTxt.Margin = New System.Windows.Forms.Padding(4)
+        Me.CustomerPointTxt.Name = "CustomerPointTxt"
+        Me.CustomerPointTxt.ReadOnly = True
+        Me.CustomerPointTxt.Size = New System.Drawing.Size(72, 25)
+        Me.CustomerPointTxt.TabIndex = 14
+        Me.CustomerPointTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(43, 225)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(37, 17)
+        Me.Label5.TabIndex = 13
+        Me.Label5.Text = "Point"
+        '
+        'Panel4
+        '
+        Me.Panel4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel4.BackColor = System.Drawing.Color.Gold
+        Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel4.Controls.Add(Me.Label6)
+        Me.Panel4.Location = New System.Drawing.Point(-1, 185)
+        Me.Panel4.Margin = New System.Windows.Forms.Padding(4)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(180, 30)
+        Me.Panel4.TabIndex = 17
+        '
+        'Label6
+        '
+        Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Label6.Location = New System.Drawing.Point(0, 0)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(178, 28)
+        Me.Label6.TabIndex = 0
+        Me.Label6.Text = "MEMBER DATA"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         '_003_04_TrMerchandiseRedemption
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.SystemColors.Info
-        Me.ClientSize = New System.Drawing.Size(924, 374)
+        Me.ClientSize = New System.Drawing.Size(924, 444)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel7)
         Me.Controls.Add(Me.Panel8)
@@ -552,16 +548,15 @@ Partial Class _003_04_TrMerchandiseRedemption
         Me.Panel8.PerformLayout()
         Me.ServicePanel.ResumeLayout(False)
         CType(Me.MerchandiseGrid, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel5.ResumeLayout(False)
-        Me.Panel5.PerformLayout()
         Me.Panel2.ResumeLayout(False)
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
         Me.CustomerPanel.ResumeLayout(False)
         Me.CustomerPanel.PerformLayout()
         Me.Panel1.ResumeLayout(False)
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
+        Me.Panel4.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -569,8 +564,6 @@ Partial Class _003_04_TrMerchandiseRedemption
     Friend WithEvents ServicePanel As System.Windows.Forms.Panel
     Friend WithEvents RemoveServBtn As System.Windows.Forms.Button
     Friend WithEvents AddServiceBtn As System.Windows.Forms.Button
-    Friend WithEvents Panel5 As System.Windows.Forms.Panel
-    Friend WithEvents Label29 As System.Windows.Forms.Label
     Friend WithEvents MerchandiseGrid As System.Windows.Forms.DataGridView
     Friend WithEvents Column7 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -580,8 +573,6 @@ Partial Class _003_04_TrMerchandiseRedemption
     Friend WithEvents Point As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents TotalPointRequired As System.Windows.Forms.TextBox
-    Friend WithEvents CancelBtn As System.Windows.Forms.Button
-    Friend WithEvents SaveBtn As System.Windows.Forms.Button
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents RedemptionIdLbl As System.Windows.Forms.Label
@@ -606,4 +597,8 @@ Partial Class _003_04_TrMerchandiseRedemption
     Friend WithEvents HelpF1Lbl As System.Windows.Forms.Label
     Friend WithEvents Label32 As System.Windows.Forms.Label
     Friend WithEvents HelpF2Lbl As System.Windows.Forms.Label
+    Friend WithEvents CustomerPointTxt As System.Windows.Forms.TextBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Panel4 As System.Windows.Forms.Panel
+    Friend WithEvents Label6 As System.Windows.Forms.Label
 End Class

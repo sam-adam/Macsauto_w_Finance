@@ -25,6 +25,7 @@ Partial Class _005_15_Search_Vehicle
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.MemberOnlyChk = New System.Windows.Forms.CheckBox()
         Me.RefreshBtn = New System.Windows.Forms.Button()
         Me.SearchTxt = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -49,7 +50,6 @@ Partial Class _005_15_Search_Vehicle
         Me.VehicleTypeCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.CancelBtn = New System.Windows.Forms.Button()
-        Me.MemberOnlyChk = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -62,6 +62,7 @@ Partial Class _005_15_Search_Vehicle
         '
         'Panel1
         '
+        Me.Panel1.BackColor = System.Drawing.SystemColors.Info
         Me.Panel1.Controls.Add(Me.MemberOnlyChk)
         Me.Panel1.Controls.Add(Me.RefreshBtn)
         Me.Panel1.Controls.Add(Me.SearchTxt)
@@ -70,40 +71,50 @@ Partial Class _005_15_Search_Vehicle
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(924, 50)
+        Me.Panel1.Size = New System.Drawing.Size(808, 56)
         Me.Panel1.TabIndex = 0
+        '
+        'MemberOnlyChk
+        '
+        Me.MemberOnlyChk.AutoSize = True
+        Me.MemberOnlyChk.Location = New System.Drawing.Point(356, 16)
+        Me.MemberOnlyChk.Name = "MemberOnlyChk"
+        Me.MemberOnlyChk.Size = New System.Drawing.Size(148, 21)
+        Me.MemberOnlyChk.TabIndex = 4
+        Me.MemberOnlyChk.Text = "Show Members Only"
+        Me.MemberOnlyChk.UseVisualStyleBackColor = True
         '
         'RefreshBtn
         '
-        Me.RefreshBtn.Location = New System.Drawing.Point(618, 9)
+        Me.RefreshBtn.Location = New System.Drawing.Point(510, 10)
         Me.RefreshBtn.Name = "RefreshBtn"
-        Me.RefreshBtn.Size = New System.Drawing.Size(75, 30)
+        Me.RefreshBtn.Size = New System.Drawing.Size(90, 32)
         Me.RefreshBtn.TabIndex = 3
         Me.RefreshBtn.Text = "Refresh"
         Me.RefreshBtn.UseVisualStyleBackColor = True
         '
         'SearchTxt
         '
-        Me.SearchTxt.Location = New System.Drawing.Point(251, 13)
+        Me.SearchTxt.Location = New System.Drawing.Point(175, 14)
         Me.SearchTxt.Name = "SearchTxt"
-        Me.SearchTxt.Size = New System.Drawing.Size(199, 23)
+        Me.SearchTxt.Size = New System.Drawing.Size(175, 25)
         Me.SearchTxt.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 16)
+        Me.Label1.Location = New System.Drawing.Point(10, 17)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(233, 17)
+        Me.Label1.Size = New System.Drawing.Size(159, 17)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Customer Name Or Vehicle Number"
+        Me.Label1.Text = "Name Or Vehicle Number"
         '
         'SelectBtn
         '
         Me.SelectBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SelectBtn.Location = New System.Drawing.Point(837, 4)
+        Me.SelectBtn.Location = New System.Drawing.Point(706, 4)
         Me.SelectBtn.Name = "SelectBtn"
-        Me.SelectBtn.Size = New System.Drawing.Size(75, 30)
+        Me.SelectBtn.Size = New System.Drawing.Size(90, 32)
         Me.SelectBtn.TabIndex = 2
         Me.SelectBtn.Text = "Select"
         Me.SelectBtn.UseVisualStyleBackColor = True
@@ -112,7 +123,7 @@ Partial Class _005_15_Search_Vehicle
         '
         Me.SplitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer1.Location = New System.Drawing.Point(0, 50)
+        Me.SplitContainer1.Location = New System.Drawing.Point(0, 56)
         Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(4)
         Me.SplitContainer1.Name = "SplitContainer1"
         Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
@@ -123,9 +134,10 @@ Partial Class _005_15_Search_Vehicle
         '
         'SplitContainer1.Panel2
         '
+        Me.SplitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Info
         Me.SplitContainer1.Panel2.Controls.Add(Me.VehicleDataGrid)
-        Me.SplitContainer1.Size = New System.Drawing.Size(924, 381)
-        Me.SplitContainer1.SplitterDistance = 211
+        Me.SplitContainer1.Size = New System.Drawing.Size(808, 402)
+        Me.SplitContainer1.SplitterDistance = 264
         Me.SplitContainer1.SplitterWidth = 5
         Me.SplitContainer1.TabIndex = 1
         '
@@ -142,7 +154,7 @@ Partial Class _005_15_Search_Vehicle
         Me.CustomerDataGrid.Name = "CustomerDataGrid"
         Me.CustomerDataGrid.ReadOnly = True
         Me.CustomerDataGrid.RowHeadersVisible = False
-        Me.CustomerDataGrid.Size = New System.Drawing.Size(920, 207)
+        Me.CustomerDataGrid.Size = New System.Drawing.Size(804, 260)
         Me.CustomerDataGrid.TabIndex = 0
         '
         'CustomerIdCol
@@ -228,7 +240,7 @@ Partial Class _005_15_Search_Vehicle
         Me.VehicleDataGrid.Name = "VehicleDataGrid"
         Me.VehicleDataGrid.ReadOnly = True
         Me.VehicleDataGrid.RowHeadersVisible = False
-        Me.VehicleDataGrid.Size = New System.Drawing.Size(920, 161)
+        Me.VehicleDataGrid.Size = New System.Drawing.Size(804, 129)
         Me.VehicleDataGrid.TabIndex = 0
         '
         'VehicleRegColumn
@@ -236,7 +248,7 @@ Partial Class _005_15_Search_Vehicle
         Me.VehicleRegColumn.HeaderText = "Vehicle Reg."
         Me.VehicleRegColumn.Name = "VehicleRegColumn"
         Me.VehicleRegColumn.ReadOnly = True
-        Me.VehicleRegColumn.Width = 113
+        Me.VehicleRegColumn.Width = 104
         '
         'VehicleModelCol
         '
@@ -250,68 +262,59 @@ Partial Class _005_15_Search_Vehicle
         Me.VehicleBrandCol.HeaderText = "Brand"
         Me.VehicleBrandCol.Name = "VehicleBrandCol"
         Me.VehicleBrandCol.ReadOnly = True
-        Me.VehicleBrandCol.Width = 71
+        Me.VehicleBrandCol.Width = 67
         '
         'VehicleColorCol
         '
         Me.VehicleColorCol.HeaderText = "Color"
         Me.VehicleColorCol.Name = "VehicleColorCol"
         Me.VehicleColorCol.ReadOnly = True
-        Me.VehicleColorCol.Width = 66
+        Me.VehicleColorCol.Width = 65
         '
         'VehicleTypeCol
         '
         Me.VehicleTypeCol.HeaderText = "Type"
         Me.VehicleTypeCol.Name = "VehicleTypeCol"
         Me.VehicleTypeCol.ReadOnly = True
-        Me.VehicleTypeCol.Width = 65
+        Me.VehicleTypeCol.Width = 61
         '
         'Panel2
         '
+        Me.Panel2.BackColor = System.Drawing.SystemColors.Info
         Me.Panel2.Controls.Add(Me.CancelBtn)
         Me.Panel2.Controls.Add(Me.SelectBtn)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 431)
+        Me.Panel2.Location = New System.Drawing.Point(0, 458)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(924, 40)
+        Me.Panel2.Size = New System.Drawing.Size(808, 42)
         Me.Panel2.TabIndex = 1
         '
         'CancelBtn
         '
         Me.CancelBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CancelBtn.Location = New System.Drawing.Point(756, 4)
+        Me.CancelBtn.Location = New System.Drawing.Point(610, 4)
         Me.CancelBtn.Name = "CancelBtn"
-        Me.CancelBtn.Size = New System.Drawing.Size(75, 30)
+        Me.CancelBtn.Size = New System.Drawing.Size(90, 32)
         Me.CancelBtn.TabIndex = 3
         Me.CancelBtn.Text = "Cancel"
         Me.CancelBtn.UseVisualStyleBackColor = True
         '
-        'MemberOnlyChk
-        '
-        Me.MemberOnlyChk.AutoSize = True
-        Me.MemberOnlyChk.Location = New System.Drawing.Point(456, 15)
-        Me.MemberOnlyChk.Name = "MemberOnlyChk"
-        Me.MemberOnlyChk.Size = New System.Drawing.Size(156, 21)
-        Me.MemberOnlyChk.TabIndex = 4
-        Me.MemberOnlyChk.Text = "Show Members Only"
-        Me.MemberOnlyChk.UseVisualStyleBackColor = True
-        '
         '_005_15_Search_Vehicle
         '
         Me.AcceptButton = Me.SelectBtn
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(924, 471)
+        Me.ClientSize = New System.Drawing.Size(808, 500)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
-        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(940, 510)
+        Me.MaximumSize = New System.Drawing.Size(824, 539)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(940, 510)
+        Me.MinimumSize = New System.Drawing.Size(824, 539)
         Me.Name = "_005_15_Search_Vehicle"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.Text = "Vehicle - Search"

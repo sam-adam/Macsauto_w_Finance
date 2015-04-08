@@ -22,9 +22,9 @@ Partial Class _005_17_Search_Product
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.CancelBtn = New System.Windows.Forms.Button()
         Me.SelectBtn = New System.Windows.Forms.Button()
@@ -48,6 +48,7 @@ Partial Class _005_17_Search_Product
         '
         'Panel2
         '
+        Me.Panel2.BackColor = System.Drawing.SystemColors.Info
         Me.Panel2.Controls.Add(Me.CancelBtn)
         Me.Panel2.Controls.Add(Me.SelectBtn)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -59,9 +60,9 @@ Partial Class _005_17_Search_Product
         'CancelBtn
         '
         Me.CancelBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CancelBtn.Location = New System.Drawing.Point(674, 4)
+        Me.CancelBtn.Location = New System.Drawing.Point(644, 4)
         Me.CancelBtn.Name = "CancelBtn"
-        Me.CancelBtn.Size = New System.Drawing.Size(75, 30)
+        Me.CancelBtn.Size = New System.Drawing.Size(90, 30)
         Me.CancelBtn.TabIndex = 3
         Me.CancelBtn.Text = "Cancel"
         Me.CancelBtn.UseVisualStyleBackColor = True
@@ -69,15 +70,16 @@ Partial Class _005_17_Search_Product
         'SelectBtn
         '
         Me.SelectBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SelectBtn.Location = New System.Drawing.Point(755, 4)
+        Me.SelectBtn.Location = New System.Drawing.Point(740, 4)
         Me.SelectBtn.Name = "SelectBtn"
-        Me.SelectBtn.Size = New System.Drawing.Size(75, 30)
+        Me.SelectBtn.Size = New System.Drawing.Size(90, 30)
         Me.SelectBtn.TabIndex = 2
         Me.SelectBtn.Text = "Select"
         Me.SelectBtn.UseVisualStyleBackColor = True
         '
         'Panel1
         '
+        Me.Panel1.BackColor = System.Drawing.SystemColors.Info
         Me.Panel1.Controls.Add(Me.RefreshBtn)
         Me.Panel1.Controls.Add(Me.SearchTxt)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -92,7 +94,8 @@ Partial Class _005_17_Search_Product
         '
         Me.RefreshBtn.Location = New System.Drawing.Point(321, 9)
         Me.RefreshBtn.Name = "RefreshBtn"
-        Me.RefreshBtn.Size = New System.Drawing.Size(75, 30)
+        Me.RefreshBtn.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.RefreshBtn.Size = New System.Drawing.Size(90, 30)
         Me.RefreshBtn.TabIndex = 3
         Me.RefreshBtn.Text = "Refresh"
         Me.RefreshBtn.UseVisualStyleBackColor = True
@@ -101,7 +104,7 @@ Partial Class _005_17_Search_Product
         '
         Me.SearchTxt.Location = New System.Drawing.Point(116, 13)
         Me.SearchTxt.Name = "SearchTxt"
-        Me.SearchTxt.Size = New System.Drawing.Size(199, 23)
+        Me.SearchTxt.Size = New System.Drawing.Size(199, 25)
         Me.SearchTxt.TabIndex = 1
         '
         'Label1
@@ -109,7 +112,7 @@ Partial Class _005_17_Search_Product
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(12, 16)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(98, 17)
+        Me.Label1.Size = New System.Drawing.Size(92, 17)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Product Name"
         '
@@ -141,7 +144,7 @@ Partial Class _005_17_Search_Product
         Me.ProductDescriptionCol.HeaderText = "Product"
         Me.ProductDescriptionCol.Name = "ProductDescriptionCol"
         Me.ProductDescriptionCol.ReadOnly = True
-        Me.ProductDescriptionCol.Width = 82
+        Me.ProductDescriptionCol.Width = 78
         '
         'ProductTypeIdCol
         '
@@ -156,30 +159,30 @@ Partial Class _005_17_Search_Product
         Me.ProductTypeDescriptionCol.HeaderText = "Type"
         Me.ProductTypeDescriptionCol.Name = "ProductTypeDescriptionCol"
         Me.ProductTypeDescriptionCol.ReadOnly = True
-        Me.ProductTypeDescriptionCol.Width = 65
+        Me.ProductTypeDescriptionCol.Width = 61
         '
         'ProductStockCol
         '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle1.Format = "N0"
-        Me.ProductStockCol.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle4.Format = "N0"
+        Me.ProductStockCol.DefaultCellStyle = DataGridViewCellStyle4
         Me.ProductStockCol.HeaderText = "Stock"
         Me.ProductStockCol.Name = "ProductStockCol"
         Me.ProductStockCol.ReadOnly = True
-        Me.ProductStockCol.Width = 68
+        Me.ProductStockCol.Width = 64
         '
         'ProductUoMCol
         '
         Me.ProductUoMCol.HeaderText = "Unit"
         Me.ProductUoMCol.Name = "ProductUoMCol"
         Me.ProductUoMCol.ReadOnly = True
-        Me.ProductUoMCol.Width = 58
+        Me.ProductUoMCol.Width = 56
         '
         'ProductPurchasePriceCol
         '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle2.Format = "N0"
-        Me.ProductPurchasePriceCol.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle5.Format = "N0"
+        Me.ProductPurchasePriceCol.DefaultCellStyle = DataGridViewCellStyle5
         Me.ProductPurchasePriceCol.HeaderText = "Purchase Price"
         Me.ProductPurchasePriceCol.Name = "ProductPurchasePriceCol"
         Me.ProductPurchasePriceCol.ReadOnly = True
@@ -188,24 +191,23 @@ Partial Class _005_17_Search_Product
         '
         'ProductSellPriceCol
         '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle3.Format = "N0"
-        Me.ProductSellPriceCol.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle6.Format = "N0"
+        Me.ProductSellPriceCol.DefaultCellStyle = DataGridViewCellStyle6
         Me.ProductSellPriceCol.HeaderText = "Price"
         Me.ProductSellPriceCol.Name = "ProductSellPriceCol"
         Me.ProductSellPriceCol.ReadOnly = True
-        Me.ProductSellPriceCol.Width = 65
+        Me.ProductSellPriceCol.Width = 61
         '
         '_005_17_Search_Product
         '
         Me.AcceptButton = Me.SelectBtn
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.ClientSize = New System.Drawing.Size(842, 386)
         Me.Controls.Add(Me.ProductDataGrid)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
-        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "_005_17_Search_Product"

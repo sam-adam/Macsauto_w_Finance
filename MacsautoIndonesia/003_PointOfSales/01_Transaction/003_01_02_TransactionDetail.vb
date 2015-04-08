@@ -316,22 +316,28 @@ Public Class _003_01_02_TransactionDetail
     Private Sub SelectCustomer(ByVal customerId As String)
         customerId = Regex.Replace(customerId, "/\s/g", "")
 
-        DoInTransaction(
-            Function(command As MySqlCommand)
-                TransactionService.CheckPointExpiry(command, customerId)
-
-                Return True
-            End Function)
-
         _customerDataTable.Rows.Clear()
         _customerDataTable.Load(ExecQueryReader(String.Format(CustomerQuery, customerId)))
 
-        _vehiclesDataTable.Rows.Clear()
-        _vehiclesDataTable.Load(ExecQueryReader(String.Format(VehiclesQuery, customerId)))
+        If _customerDataTable.Rows.Count = 0 Then
+            _customerDataTable.Rows.Clear()
 
-        _selectedVehicleBinding.ResetBindings(False)
+            MsgBox("Customer not found", MsgBoxStyle.OkOnly Or MsgBoxStyle.Critical, "Warning")
+        Else
+            DoInTransaction(
+                Function(command As MySqlCommand)
+                    TransactionService.CheckPointExpiry(command, customerId)
 
-        PerformBindings()
+                    Return True
+                End Function)
+
+            _vehiclesDataTable.Rows.Clear()
+            _vehiclesDataTable.Load(ExecQueryReader(String.Format(VehiclesQuery, customerId)))
+
+            _selectedVehicleBinding.ResetBindings(False)
+
+            PerformBindings()
+        End If
     End Sub
 
     Private Sub _searchCustomer_CustomerVehicleSelected(ByVal sender As Object, ByVal e As CustomerVehicleSelectedEventArgs)
