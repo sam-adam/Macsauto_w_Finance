@@ -357,6 +357,12 @@
     <Compile Include="005-Search_Forms\005-17-Search_Product.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="005-Search_Forms\005_18_SearchMerchandise.Designer.vb">
+      <DependentUpon>005_18_SearchMerchandise.vb</DependentUpon>
+    </Compile>
+    <Compile Include="005-Search_Forms\005_18_SearchMerchandise.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="008-Reporting\008_08_CustomerTransactionHistoryReport.Designer.vb">
       <DependentUpon>008_08_CustomerTransactionHistoryReport.vb</DependentUpon>
     </Compile>
@@ -888,6 +894,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="005-Search_Forms\005-17-Search_Product.resx">
       <DependentUpon>005-17-Search_Product.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="005-Search_Forms\005_18_SearchMerchandise.resx">
+      <DependentUpon>005_18_SearchMerchandise.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="006-Main Forms\006-02-Login_Form.resx">
       <DependentUpon>006-02-Login_Form.vb</DependentUpon>
