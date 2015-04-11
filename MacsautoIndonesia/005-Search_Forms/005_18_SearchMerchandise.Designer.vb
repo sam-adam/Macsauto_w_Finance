@@ -23,22 +23,24 @@ Partial Class _005_18_SearchMerchandise
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.RefreshBtn = New System.Windows.Forms.Button()
         Me.SearchTxt = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.MerchandiseDataGrid = New System.Windows.Forms.DataGridView()
-        Me.ServiceIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServiceDescriptionCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServiceTypeIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServiceTypeDescriptionCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ServicePriceCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.CancelBtn = New System.Windows.Forms.Button()
         Me.SelectBtn = New System.Windows.Forms.Button()
+        Me.MerchandiseDataGrid = New System.Windows.Forms.DataGridView()
+        Me.MerchandiseIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MerchandiseDescriptionCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MerchandiseStockCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MerchandiseUoMCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MerchandisePointCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
-        CType(Me.MerchandiseDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
+        CType(Me.MerchandiseDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -79,62 +81,6 @@ Partial Class _005_18_SearchMerchandise
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Merchandise Name"
         '
-        'MerchandiseDataGrid
-        '
-        Me.MerchandiseDataGrid.AllowUserToAddRows = False
-        Me.MerchandiseDataGrid.AllowUserToDeleteRows = False
-        Me.MerchandiseDataGrid.AllowUserToResizeRows = False
-        Me.MerchandiseDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
-        Me.MerchandiseDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.MerchandiseDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ServiceIdCol, Me.ServiceDescriptionCol, Me.ServiceTypeIdCol, Me.ServiceTypeDescriptionCol, Me.ServicePriceCol})
-        Me.MerchandiseDataGrid.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.MerchandiseDataGrid.Location = New System.Drawing.Point(0, 50)
-        Me.MerchandiseDataGrid.Name = "MerchandiseDataGrid"
-        Me.MerchandiseDataGrid.ReadOnly = True
-        Me.MerchandiseDataGrid.RowHeadersVisible = False
-        Me.MerchandiseDataGrid.Size = New System.Drawing.Size(842, 296)
-        Me.MerchandiseDataGrid.TabIndex = 5
-        '
-        'ServiceIdCol
-        '
-        Me.ServiceIdCol.HeaderText = "ServiceId"
-        Me.ServiceIdCol.Name = "ServiceIdCol"
-        Me.ServiceIdCol.ReadOnly = True
-        Me.ServiceIdCol.Visible = False
-        Me.ServiceIdCol.Width = 72
-        '
-        'ServiceDescriptionCol
-        '
-        Me.ServiceDescriptionCol.HeaderText = "Service"
-        Me.ServiceDescriptionCol.Name = "ServiceDescriptionCol"
-        Me.ServiceDescriptionCol.ReadOnly = True
-        Me.ServiceDescriptionCol.Width = 74
-        '
-        'ServiceTypeIdCol
-        '
-        Me.ServiceTypeIdCol.HeaderText = "Service Type"
-        Me.ServiceTypeIdCol.Name = "ServiceTypeIdCol"
-        Me.ServiceTypeIdCol.ReadOnly = True
-        Me.ServiceTypeIdCol.Visible = False
-        Me.ServiceTypeIdCol.Width = 116
-        '
-        'ServiceTypeDescriptionCol
-        '
-        Me.ServiceTypeDescriptionCol.HeaderText = "Type"
-        Me.ServiceTypeDescriptionCol.Name = "ServiceTypeDescriptionCol"
-        Me.ServiceTypeDescriptionCol.ReadOnly = True
-        Me.ServiceTypeDescriptionCol.Width = 61
-        '
-        'ServicePriceCol
-        '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle1.Format = "N0"
-        Me.ServicePriceCol.DefaultCellStyle = DataGridViewCellStyle1
-        Me.ServicePriceCol.HeaderText = "Price"
-        Me.ServicePriceCol.Name = "ServicePriceCol"
-        Me.ServicePriceCol.ReadOnly = True
-        Me.ServicePriceCol.Width = 61
-        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.Info
@@ -166,6 +112,70 @@ Partial Class _005_18_SearchMerchandise
         Me.SelectBtn.Text = "Select"
         Me.SelectBtn.UseVisualStyleBackColor = True
         '
+        'MerchandiseDataGrid
+        '
+        Me.MerchandiseDataGrid.AllowUserToAddRows = False
+        Me.MerchandiseDataGrid.AllowUserToDeleteRows = False
+        Me.MerchandiseDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.MerchandiseDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.MerchandiseDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.MerchandiseIdCol, Me.ProductIdCol, Me.MerchandiseDescriptionCol, Me.MerchandiseStockCol, Me.MerchandiseUoMCol, Me.MerchandisePointCol})
+        Me.MerchandiseDataGrid.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.MerchandiseDataGrid.Location = New System.Drawing.Point(0, 50)
+        Me.MerchandiseDataGrid.Name = "MerchandiseDataGrid"
+        Me.MerchandiseDataGrid.ReadOnly = True
+        Me.MerchandiseDataGrid.RowHeadersVisible = False
+        Me.MerchandiseDataGrid.Size = New System.Drawing.Size(842, 296)
+        Me.MerchandiseDataGrid.TabIndex = 7
+        '
+        'MerchandiseIdCol
+        '
+        Me.MerchandiseIdCol.HeaderText = "MerchandiseId"
+        Me.MerchandiseIdCol.Name = "MerchandiseIdCol"
+        Me.MerchandiseIdCol.ReadOnly = True
+        Me.MerchandiseIdCol.Visible = False
+        '
+        'ProductIdCol
+        '
+        Me.ProductIdCol.HeaderText = "ProductId"
+        Me.ProductIdCol.Name = "ProductIdCol"
+        Me.ProductIdCol.ReadOnly = True
+        Me.ProductIdCol.Visible = False
+        Me.ProductIdCol.Width = 70
+        '
+        'MerchandiseDescriptionCol
+        '
+        Me.MerchandiseDescriptionCol.HeaderText = "Merchandise"
+        Me.MerchandiseDescriptionCol.Name = "MerchandiseDescriptionCol"
+        Me.MerchandiseDescriptionCol.ReadOnly = True
+        Me.MerchandiseDescriptionCol.Width = 108
+        '
+        'MerchandiseStockCol
+        '
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle1.Format = "N0"
+        Me.MerchandiseStockCol.DefaultCellStyle = DataGridViewCellStyle1
+        Me.MerchandiseStockCol.HeaderText = "Stock"
+        Me.MerchandiseStockCol.Name = "MerchandiseStockCol"
+        Me.MerchandiseStockCol.ReadOnly = True
+        Me.MerchandiseStockCol.Width = 64
+        '
+        'MerchandiseUoMCol
+        '
+        Me.MerchandiseUoMCol.HeaderText = "Unit"
+        Me.MerchandiseUoMCol.Name = "MerchandiseUoMCol"
+        Me.MerchandiseUoMCol.ReadOnly = True
+        Me.MerchandiseUoMCol.Width = 56
+        '
+        'MerchandisePointCol
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.Format = "N0"
+        Me.MerchandisePointCol.DefaultCellStyle = DataGridViewCellStyle2
+        Me.MerchandisePointCol.HeaderText = "Point Cost"
+        Me.MerchandisePointCol.Name = "MerchandisePointCol"
+        Me.MerchandisePointCol.ReadOnly = True
+        Me.MerchandisePointCol.Width = 92
+        '
         '_005_18_SearchMerchandise
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -180,8 +190,8 @@ Partial Class _005_18_SearchMerchandise
         Me.Text = "Merchandise - Search"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.MerchandiseDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
+        CType(Me.MerchandiseDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -189,13 +199,14 @@ Partial Class _005_18_SearchMerchandise
     Friend WithEvents RefreshBtn As System.Windows.Forms.Button
     Friend WithEvents SearchTxt As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents MerchandiseDataGrid As System.Windows.Forms.DataGridView
-    Friend WithEvents ServiceIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ServiceDescriptionCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ServiceTypeIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ServiceTypeDescriptionCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ServicePriceCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents CancelBtn As System.Windows.Forms.Button
     Friend WithEvents SelectBtn As System.Windows.Forms.Button
+    Friend WithEvents MerchandiseDataGrid As System.Windows.Forms.DataGridView
+    Friend WithEvents MerchandiseIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ProductIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents MerchandiseDescriptionCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents MerchandiseStockCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents MerchandiseUoMCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents MerchandisePointCol As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
