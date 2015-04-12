@@ -25,6 +25,7 @@ Public Class _003_04_TrMerchandiseRedemption
 
     Private ReadOnly _customerDataTable As DataTable
     Private _searchCustomerForm As _005_15_Search_Vehicle
+    Private _searchMerchandiseForm As _005_18_SearchMerchandise
     Private _acrReader As AcrReader
 
     Public Sub New()
@@ -38,6 +39,7 @@ Public Class _003_04_TrMerchandiseRedemption
         If e.KeyData = Keys.F1 Then
             ShowCustomerForm()
         ElseIf e.KeyData = Keys.F2 Then
+            ShowMerchandiseForm()
         ElseIf e.KeyData = Keys.F4 Then
             While _acrReader Is Nothing And MsgBox("No card reader found. Try again?", MsgBoxStyle.YesNo Or MsgBoxStyle.Question, "Warning") = MsgBoxResult.Yes
                 TryInitializeAcr()
@@ -57,12 +59,6 @@ Public Class _003_04_TrMerchandiseRedemption
                 End If
             End If
         End If
-    End Sub
-
-    Private Sub _searchCustomer_CustomerSelected(ByVal sender As Object, ByVal e As CustomerSelectedEventArgs)
-        SelectCustomer(e.CustomerId)
-
-        _searchCustomerForm.Close()
     End Sub
 
     Private Function TryInitializeAcr() As Boolean
@@ -85,6 +81,54 @@ Public Class _003_04_TrMerchandiseRedemption
         End If
 
         _searchCustomerForm.ShowDialog(Me)
+    End Sub
+
+    Private Sub ShowMerchandiseForm()
+        If String.IsNullOrEmpty(CustomerIdTxt.Text) Then
+            ErrorInput(FindCustomerBtn, "Customer and vehicle is required")
+        Else
+            If _searchMerchandiseForm Is Nothing Then
+                _searchMerchandiseForm = New _005_18_SearchMerchandise()
+
+                AddHandler _searchMerchandiseForm.MerchandiseSelected, AddressOf _searchMerchandise_MerchandiseSelected
+            End If
+
+            _searchMerchandiseForm.ShowDialog(Me)
+        End If
+    End Sub
+
+    Private Sub _searchCustomer_CustomerSelected(ByVal sender As Object, ByVal e As CustomerSelectedEventArgs)
+        SelectCustomer(e.CustomerId)
+
+        _searchCustomerForm.Close()
+    End Sub
+
+    Private Sub _searchMerchandise_MerchandiseSelected(ByVal sender As Object, ByVal e As MerchandiseSelectedEventArgs)
+        Dim selectedMerchandiseRow As DataRow = e.MerchandiseDataRow
+        Dim alreadyExisted As DataGridViewRow = MerchandiseDataGrid.Rows.OfType(Of DataGridViewRow).FirstOrDefault(
+            Function(row As DataGridViewRow)
+                Return row.Cells(ProductIdCol.Index).Value = selectedMerchandiseRow("idpdt")
+            End Function)
+
+        If Not alreadyExisted Is Nothing Then
+            If (MerchandiseDataGrid(ProductQuantityCol.Index, alreadyExisted.Index).Value + 1) > MerchandiseDataGrid(ProductRemainingQtyCol.Index, alreadyExisted.Index).Value Then
+                MsgBox("Remaining quantity is not enough", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Warning")
+            Else
+                MerchandiseDataGrid(ProductQuantityCol.Index, alreadyExisted.Index).Value += 1
+            End If
+        Else
+            MerchandiseDataGrid.Rows.Add(
+                selectedMerchandiseRow("idpdt"),
+                selectedMerchandiseRow("idmrch"),
+                selectedMerchandiseRow("pdtdc"),
+                0,
+                selectedMerchandiseRow("slqty"),
+                selectedMerchandiseRow("uodsc"),
+                selectedMerchandiseRow("mpoin"),
+                selectedMerchandiseRow("ppamt"))
+        End If
+
+        _searchMerchandiseForm.Close()
     End Sub
 
     Private Sub SelectCustomer(ByVal customerId As String)
@@ -115,5 +159,33 @@ Public Class _003_04_TrMerchandiseRedemption
                 IsMemberChk.DataBindings.Add("Checked", _customerDataTable, "is_member", False, DataSourceUpdateMode.Never)
             End If
         End If
+    End Sub
+
+    Private Sub AddProductBtn_Click(sender As Object, e As EventArgs) Handles AddProductBtn.Click
+        ShowMerchandiseForm()
+    End Sub
+
+    Private Sub RemoveProductBtn_Click(sender As Object, e As EventArgs) Handles RemoveProductBtn.Click
+        If MerchandiseDataGrid.SelectedCells.Count = 0 Then
+            MsgBox("Nothing to remove", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Warning")
+        Else
+            MerchandiseDataGrid.Rows.RemoveAt(MerchandiseDataGrid.CurrentRow.Index)
+        End If
+    End Sub
+
+    Private Sub MerchandiseDataGrid_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles MerchandiseDataGrid.RowsAdded
+        RemoveProductBtn.Enabled = (MerchandiseDataGrid.Rows.Count > 0)
+
+        Recalculate()
+    End Sub
+
+    Private Sub MerchandiseDataGrid_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles MerchandiseDataGrid.RowsRemoved
+        RemoveProductBtn.Enabled = (MerchandiseDataGrid.Rows.Count > 0)
+
+        Recalculate()
+    End Sub
+
+    Private Sub Recalculate()
+
     End Sub
 End Class

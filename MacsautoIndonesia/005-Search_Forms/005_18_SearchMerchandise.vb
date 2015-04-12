@@ -28,7 +28,7 @@
 
     Private Sub ReloadData()
         Const allMerchandisesQuery As String =
-            "SELECT hmerchandise.idmrch" & _
+            "SELECT hmerchandise.idmrch," & _
             "   hmerchandise.mpoin," & _
             "   hproduct.idpdt," & _
             "   hproduct.idptp," & _
@@ -70,11 +70,7 @@
         If MerchandiseDataGrid.SelectedCells.Count = 0 Then
             MsgBox("No merchandise selected", MsgBoxStyle.Critical Or MsgBoxStyle.OkOnly, "Error")
         Else
-            Dim productId As String = MerchandiseDataGrid.CurrentRow.Cells(ProductIdCol.Index).Value
-            Dim merchandiseId As String = MerchandiseDataGrid.CurrentRow.Cells(MerchandiseIdCol.Index).Value
-            Dim merchandisePoint As String = Integer.Parse(MerchandiseDataGrid.CurrentRow.Cells(MerchandisePointCol.Index).Value)
-
-            RaiseEvent MerchandiseSelected(Me, New MerchandiseSelectedEventArgs(productId, merchandiseId, merchandisePoint))
+            RaiseEvent MerchandiseSelected(Me, New MerchandiseSelectedEventArgs(_merchandiseDataTable.Select("idpdt = '" & MerchandiseDataGrid.CurrentRow.Cells(ProductIdCol.Index).Value & "'").FirstOrDefault()))
         End If
     End Sub
 
@@ -97,36 +93,30 @@
             ReloadData()
         End If
     End Sub
+
+    Private Sub MerchandiseDataGrid_KeyPress(sender As Object, e As KeyPressEventArgs) Handles MerchandiseDataGrid.KeyPress
+        If e.KeyChar.SameAsKey(Keys.Enter) Then
+            SelectMerchandise()
+        End If
+    End Sub
+
+    Private Sub MerchandiseDataGrid_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles MerchandiseDataGrid.CellDoubleClick
+        SelectMerchandise()
+    End Sub
 End Class
 
 Public Class MerchandiseSelectedEventArgs
     Inherits EventArgs
 
-    Private ReadOnly _productId As String
-    Private ReadOnly _merchandiseId As String
-    Private ReadOnly _merchandisePoint As Integer
+    Private ReadOnly _merchandiseDataRow As DataRow
 
-    ReadOnly Property ProductId() As String
+    ReadOnly Property MerchandiseDataRow() As DataRow
         Get
-            Return _productId
+            Return _merchandiseDataRow
         End Get
     End Property
 
-    ReadOnly Property MerchandiseId() As String
-        Get
-            Return _merchandiseId
-        End Get
-    End Property
-
-    ReadOnly Property MerchandisePoint() As Integer
-        Get
-            Return _merchandisePoint
-        End Get
-    End Property
-
-    Public Sub New(ByVal productId As String, ByVal merchandiseId As String, ByVal merchandisePoint As Integer)
-        _productId = productId
-        _merchandiseId = merchandiseId
-        _merchandisePoint = merchandisePoint
+    Public Sub New(ByVal merchandiseDataRow As DataRow)
+        _merchandiseDataRow = merchandiseDataRow
     End Sub
 End Class
