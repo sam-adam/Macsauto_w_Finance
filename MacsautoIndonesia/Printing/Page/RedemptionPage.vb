@@ -1,5 +1,6 @@
 ﻿Imports MacsautoIndonesia.Printing.Page.Content
 Imports MacsautoIndonesia.Printing.Renderer
+Imports MacsautoIndonesia.Services
 
 Namespace Printing.Page
     Public Class RedemptionPage
@@ -25,6 +26,7 @@ Namespace Printing.Page
 
             InitializeLines()
             InitializeSeparator()
+            InitializeDefaults()
         End Sub
 
         Public Sub New(ByVal width As Integer, ByVal font As Font)
@@ -34,6 +36,7 @@ Namespace Printing.Page
 
             InitializeLines()
             InitializeSeparator()
+            InitializeDefaults()
         End Sub
 
         Private Sub InitializeLines()
@@ -60,6 +63,29 @@ Namespace Printing.Page
             End While
 
             _separator = (New Line("HEADER LINE", _defaultFont).AddText(line, ContentAlignment.MiddleCenter))
+        End Sub
+
+        Private Sub InitializeDefaults()
+            Dim currentCompany As Company = CompanyService.GetCurrentCompany()
+
+            If Not currentCompany Is Nothing Then
+                AppendTitle(currentCompany.Name)
+                AppendTitle(currentCompany.Address)
+
+                If Not String.IsNullOrEmpty(currentCompany.Street) Then
+                    AppendTitle(currentCompany.Street)
+                End If
+
+                AppendTitle("Phone: " & currentCompany.Phone1)
+
+                If Not String.IsNullOrEmpty(currentCompany.Phone2) Then
+                    AppendTitle("Hotline: " & currentCompany.Phone2)
+                End If
+
+                If Not String.IsNullOrEmpty(currentCompany.Website) Then
+                    AppendTitle(currentCompany.Website)
+                End If
+            End If
         End Sub
 
         Public Sub AppendTitle(ByVal titleToAppend As String, ByVal fontStyle As FontStyle, ByVal fontSize As Integer)

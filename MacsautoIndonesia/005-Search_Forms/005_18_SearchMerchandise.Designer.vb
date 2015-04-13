@@ -22,8 +22,8 @@ Partial Class _005_18_SearchMerchandise
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.RefreshBtn = New System.Windows.Forms.Button()
         Me.SearchTxt = New System.Windows.Forms.TextBox()
@@ -151,9 +151,9 @@ Partial Class _005_18_SearchMerchandise
         '
         'MerchandiseStockCol
         '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle1.Format = "N0"
-        Me.MerchandiseStockCol.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle3.Format = "N0"
+        Me.MerchandiseStockCol.DefaultCellStyle = DataGridViewCellStyle3
         Me.MerchandiseStockCol.HeaderText = "Stock"
         Me.MerchandiseStockCol.Name = "MerchandiseStockCol"
         Me.MerchandiseStockCol.ReadOnly = True
@@ -168,9 +168,9 @@ Partial Class _005_18_SearchMerchandise
         '
         'MerchandisePointCol
         '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle2.Format = "N0"
-        Me.MerchandisePointCol.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle4.Format = "N0"
+        Me.MerchandisePointCol.DefaultCellStyle = DataGridViewCellStyle4
         Me.MerchandisePointCol.HeaderText = "Point Cost"
         Me.MerchandisePointCol.Name = "MerchandisePointCol"
         Me.MerchandisePointCol.ReadOnly = True
@@ -178,8 +178,10 @@ Partial Class _005_18_SearchMerchandise
         '
         '_005_18_SearchMerchandise
         '
+        Me.AcceptButton = Me.SelectBtn
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.SystemColors.Info
+        Me.CancelButton = Me.CancelBtn
         Me.ClientSize = New System.Drawing.Size(842, 386)
         Me.Controls.Add(Me.MerchandiseDataGrid)
         Me.Controls.Add(Me.Panel2)

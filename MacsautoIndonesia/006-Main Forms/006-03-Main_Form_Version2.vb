@@ -212,7 +212,7 @@ Public Class _006_03_Main_Form_Version2
     End Sub
 
     Private Sub PointRedemptionToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PointRedemptionToolStripMenuItem.Click
-        LoadForm(Of _003_04_TrMerchandiseRedemption)()
+        LoadForm(Of _003_04_TrMerchandiseRedemption)(False, True)
     End Sub
 
     Private Sub BrutoReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BrutoReportToolStripMenuItem.Click
@@ -357,7 +357,7 @@ Public Class _006_03_Main_Form_Version2
         Text = String.Format("Macsauto | [USER: {0} - {1}] - [LOGIN: {2}] - [BRANCH: {3}] | {4}", If(LoggedInEmployee.Position = Position.Manager, "Manager", "Staff"), LoggedInEmployee.Name, DateTime.Now.ToLongFriendlyDateTimeFormat(), LoggedInEmployee.Company.Name, DateTime.Now.ToString("HH:mm:ss tt"))
     End Sub
 
-    Private Sub LoadForm(Of T As Form)()
+    Private Sub LoadForm(Of T As Form)(Optional ByVal AsChild As Boolean = True, Optional ByVal AsDialog As Boolean = False)
         Dim formType As Type = GetType(T)
         Dim form As Form = Nothing
 
@@ -370,9 +370,18 @@ Public Class _006_03_Main_Form_Version2
                 form = Activator.CreateInstance(formType)
             End If
 
-            form.MdiParent = Me
-            form.Dock = DockStyle.None
-            form.Show()
+            If AsChild Then
+                form.MdiParent = Me
+                form.Dock = DockStyle.None
+                form.Show()
+            Else
+                If AsDialog Then
+                    form.ShowDialog()
+                Else
+                    form.Show()
+                End If
+            End If
+
             form.Focus()
         Catch ex As Exception
             ex.Handle()

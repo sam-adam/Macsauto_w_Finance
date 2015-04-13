@@ -18,7 +18,7 @@
 
         With MerchandiseDataGrid
             .Columns(MerchandiseIdCol.Index).DataPropertyName = "idmrch"
-            .Columns(ProductIdCol.Index).DataPropertyName = "idmrch"
+            .Columns(ProductIdCol.Index).DataPropertyName = "idpdt"
             .Columns(MerchandiseDescriptionCol.Index).DataPropertyName = "pdtds"
             .Columns(MerchandiseStockCol.Index).DataPropertyName = "slqty"
             .Columns(MerchandiseUoMCol.Index).DataPropertyName = "uodsc"

@@ -151,6 +151,7 @@ Module ExtensionModule
 #End Region
 
     <Extension>
+    <DebuggerStepThrough()>
     Public Sub Handle(ByVal exception As Exception)
         Dim backgroundWorker As BackgroundWorker = New BackgroundWorker()
 

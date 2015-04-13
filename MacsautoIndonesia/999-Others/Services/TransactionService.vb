@@ -3,6 +3,7 @@
 Namespace Services
     Public Class TransactionService
         Const TransactionIdFormat As String = "{0:000}/{1:00}-{2:0000}/{3:0000}/{4:000}"
+        Const RedemptionIdFormat As String = "{0:000}/{1:00}-{2:0000}/{3:0000}/{4:000}"
         Const PaymentIdFormat As String = "P{0:00}{1:000}.{2:00000}"
 
         Public Shared Function GetNewTransactionId(Optional ByRef command As MySqlCommand = Nothing) As String
@@ -35,6 +36,24 @@ Namespace Services
             totalAnnualPayment = Integer.Parse(command.ExecuteScalar())
 
             Return String.Format(PaymentIdFormat, DateTime.Now.ToString("yy"), LoggedInEmployee.Company.Id, (totalAnnualPayment + 1))
+        End Function
+
+        Public Shared Function GetNewRedemptionId(Optional ByRef command As MySqlCommand = Nothing) As String
+            If command Is Nothing Then
+                command = New MySqlCommand()
+                command.Connection = GetConnection()
+            End If
+
+            Dim totalDailyRedemptions As Integer = 0
+            Dim totalMonthlyRedemptions As Integer = 0
+
+            command.CommandText = "SELECT COUNT(rdmpid) AS total_daily_transaction FROM hredemption WHERE DATE(rdmpdat) = DATE(NOW())"
+            totalDailyRedemptions = Integer.Parse(command.ExecuteScalar())
+
+            command.CommandText = "SELECT COUNT(rdmpid) AS total_monthly_transaction FROM hredemption WHERE MONTH(rdmpdat) = MONTH(NOW())"
+            totalMonthlyRedemptions = Integer.Parse(command.ExecuteScalar())
+
+            Return String.Format(RedemptionIdFormat, LoggedInEmployee.Company.Id, DateTime.Now.Month, DateTime.Now.Year, (totalMonthlyRedemptions + 1), (totalDailyRedemptions + 1))
         End Function
 
         Public Shared Function CheckPointExpiry(ByRef command As MySqlCommand, ByVal customerId As String) As Boolean
