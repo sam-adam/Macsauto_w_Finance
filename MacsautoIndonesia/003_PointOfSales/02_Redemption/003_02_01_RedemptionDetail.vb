@@ -259,7 +259,7 @@ Public Class _003_04_TrMerchandiseRedemption
                     '===========================================================================================================================================
                     ' Create New Redemption
                     '===========================================================================================================================================
-                    command.CommandText = "INSERT INTO hredemption(rdmpid, rdmpdat, idcus, tpoin, cpoin) VALUES(@redemptionId, NOW(), @customerId, @totalPoint, @currentPoint)"
+                    command.CommandText = "INSERT INTO hredemption(rdmpid, rdmpdat, idcus, tpoin, cpoin, createdBy) VALUES(@redemptionId, NOW(), @customerId, @totalPoint, @currentPoint, @cashierId)"
 
                     command.CreateParameter()
                     command.Parameters.Clear()
@@ -268,6 +268,7 @@ Public Class _003_04_TrMerchandiseRedemption
                     command.Parameters.AddWithValue("customerId", CustomerIdTxt.Text)
                     command.Parameters.AddWithValue("totalPoint", PointRequired)
                     command.Parameters.AddWithValue("currentPoint", Integer.Parse(CustomerPointTxt.Text))
+                    command.Parameters.AddWithValue("cashierId", LoggedInEmployee.Id)
 
                     command.ExecuteNonQuery()
 
