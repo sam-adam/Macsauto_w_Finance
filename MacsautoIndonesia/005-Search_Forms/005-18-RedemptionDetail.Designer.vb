@@ -22,11 +22,15 @@ Partial Class _005_18_RedemptionDetail
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.SplitContainer = New System.Windows.Forms.SplitContainer()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.CustomerPointLeftTxt = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.CustomerCurrentPointTxt = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.PointRequiredLbl = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.DateTxt = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.CustomerCellphoneTxt = New System.Windows.Forms.TextBox()
@@ -36,19 +40,16 @@ Partial Class _005_18_RedemptionDetail
         Me.Label2 = New System.Windows.Forms.Label()
         Me.CustomerNameTxt = New System.Windows.Forms.TextBox()
         Me.TransactionDetailDataGrid = New System.Windows.Forms.DataGridView()
-        Me.ItemTypeCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemNameCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemUoMCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemPriceCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemQuantityCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemDiscountCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemSubTotalCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemRemarkcol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label9 = New System.Windows.Forms.Label()
+        Me.MerchandiseIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MerchandiseNameCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MerchandiseQuantityCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MerchandiseUoMCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MerchandisePointCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.SplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer.Panel1.SuspendLayout()
         Me.SplitContainer.Panel2.SuspendLayout()
         Me.SplitContainer.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         CType(Me.TransactionDetailDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -62,6 +63,7 @@ Partial Class _005_18_RedemptionDetail
         '
         'SplitContainer.Panel1
         '
+        Me.SplitContainer.Panel1.Controls.Add(Me.GroupBox1)
         Me.SplitContainer.Panel1.Controls.Add(Me.Label9)
         Me.SplitContainer.Panel1.Controls.Add(Me.DateTxt)
         Me.SplitContainer.Panel1.Controls.Add(Me.Label4)
@@ -79,6 +81,87 @@ Partial Class _005_18_RedemptionDetail
         Me.SplitContainer.Size = New System.Drawing.Size(867, 385)
         Me.SplitContainer.SplitterDistance = 150
         Me.SplitContainer.TabIndex = 13
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.CustomerPointLeftTxt)
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.CustomerCurrentPointTxt)
+        Me.GroupBox1.Controls.Add(Me.Label11)
+        Me.GroupBox1.Controls.Add(Me.PointRequiredLbl)
+        Me.GroupBox1.Location = New System.Drawing.Point(424, 5)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(257, 125)
+        Me.GroupBox1.TabIndex = 22
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Point Information"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(29, 90)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(68, 17)
+        Me.Label5.TabIndex = 22
+        Me.Label5.Text = "Point Left"
+        '
+        'CustomerPointLeftTxt
+        '
+        Me.CustomerPointLeftTxt.Location = New System.Drawing.Point(103, 87)
+        Me.CustomerPointLeftTxt.Name = "CustomerPointLeftTxt"
+        Me.CustomerPointLeftTxt.ReadOnly = True
+        Me.CustomerPointLeftTxt.Size = New System.Drawing.Size(116, 23)
+        Me.CustomerPointLeftTxt.TabIndex = 21
+        Me.CustomerPointLeftTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(6, 61)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(91, 17)
+        Me.Label1.TabIndex = 20
+        Me.Label1.Text = "Current Point"
+        '
+        'CustomerCurrentPointTxt
+        '
+        Me.CustomerCurrentPointTxt.Location = New System.Drawing.Point(103, 58)
+        Me.CustomerCurrentPointTxt.Name = "CustomerCurrentPointTxt"
+        Me.CustomerCurrentPointTxt.ReadOnly = True
+        Me.CustomerCurrentPointTxt.Size = New System.Drawing.Size(116, 23)
+        Me.CustomerCurrentPointTxt.TabIndex = 19
+        Me.CustomerCurrentPointTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
+        Me.Label11.ForeColor = System.Drawing.Color.Black
+        Me.Label11.Location = New System.Drawing.Point(16, 26)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(140, 24)
+        Me.Label11.TabIndex = 18
+        Me.Label11.Text = "Point Required:"
+        '
+        'PointRequiredLbl
+        '
+        Me.PointRequiredLbl.AutoSize = True
+        Me.PointRequiredLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
+        Me.PointRequiredLbl.ForeColor = System.Drawing.Color.Black
+        Me.PointRequiredLbl.Location = New System.Drawing.Point(162, 26)
+        Me.PointRequiredLbl.Name = "PointRequiredLbl"
+        Me.PointRequiredLbl.Size = New System.Drawing.Size(0, 24)
+        Me.PointRequiredLbl.TabIndex = 17
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(82, 37)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(38, 17)
+        Me.Label9.TabIndex = 21
+        Me.Label9.Text = "Date"
         '
         'DateTxt
         '
@@ -158,7 +241,7 @@ Partial Class _005_18_RedemptionDetail
         Me.TransactionDetailDataGrid.AllowUserToDeleteRows = False
         Me.TransactionDetailDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.TransactionDetailDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.TransactionDetailDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemTypeCol, Me.ItemNameCol, Me.ItemUoMCol, Me.ItemPriceCol, Me.ItemQuantityCol, Me.ItemDiscountCol, Me.ItemSubTotalCol, Me.ItemRemarkcol})
+        Me.TransactionDetailDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.MerchandiseIdCol, Me.MerchandiseNameCol, Me.MerchandiseQuantityCol, Me.MerchandiseUoMCol, Me.MerchandisePointCol})
         Me.TransactionDetailDataGrid.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TransactionDetailDataGrid.Location = New System.Drawing.Point(0, 0)
         Me.TransactionDetailDataGrid.Name = "TransactionDetailDataGrid"
@@ -167,86 +250,41 @@ Partial Class _005_18_RedemptionDetail
         Me.TransactionDetailDataGrid.Size = New System.Drawing.Size(863, 227)
         Me.TransactionDetailDataGrid.TabIndex = 1
         '
-        'ItemTypeCol
+        'MerchandiseIdCol
         '
-        Me.ItemTypeCol.HeaderText = "Item Type"
-        Me.ItemTypeCol.Name = "ItemTypeCol"
-        Me.ItemTypeCol.ReadOnly = True
-        Me.ItemTypeCol.Width = 95
+        Me.MerchandiseIdCol.HeaderText = "MerchandiseId"
+        Me.MerchandiseIdCol.Name = "MerchandiseIdCol"
+        Me.MerchandiseIdCol.ReadOnly = True
+        Me.MerchandiseIdCol.Visible = False
+        Me.MerchandiseIdCol.Width = 106
         '
-        'ItemNameCol
+        'MerchandiseNameCol
         '
-        Me.ItemNameCol.HeaderText = "Name"
-        Me.ItemNameCol.Name = "ItemNameCol"
-        Me.ItemNameCol.ReadOnly = True
-        Me.ItemNameCol.Width = 70
+        Me.MerchandiseNameCol.HeaderText = "Merchandise"
+        Me.MerchandiseNameCol.Name = "MerchandiseNameCol"
+        Me.MerchandiseNameCol.ReadOnly = True
+        Me.MerchandiseNameCol.Width = 114
         '
-        'ItemUoMCol
+        'MerchandiseQuantityCol
         '
-        Me.ItemUoMCol.HeaderText = "Measurement"
-        Me.ItemUoMCol.Name = "ItemUoMCol"
-        Me.ItemUoMCol.ReadOnly = True
-        Me.ItemUoMCol.Width = 119
+        Me.MerchandiseQuantityCol.HeaderText = "Quantity"
+        Me.MerchandiseQuantityCol.Name = "MerchandiseQuantityCol"
+        Me.MerchandiseQuantityCol.ReadOnly = True
+        Me.MerchandiseQuantityCol.Width = 86
         '
-        'ItemPriceCol
+        'MerchandiseUoMCol
         '
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle5.Format = "N0"
-        DataGridViewCellStyle5.NullValue = Nothing
-        Me.ItemPriceCol.DefaultCellStyle = DataGridViewCellStyle5
-        Me.ItemPriceCol.HeaderText = "Price"
-        Me.ItemPriceCol.Name = "ItemPriceCol"
-        Me.ItemPriceCol.ReadOnly = True
-        Me.ItemPriceCol.Width = 65
+        Me.MerchandiseUoMCol.HeaderText = "Measurement"
+        Me.MerchandiseUoMCol.Name = "MerchandiseUoMCol"
+        Me.MerchandiseUoMCol.ReadOnly = True
+        Me.MerchandiseUoMCol.Width = 119
         '
-        'ItemQuantityCol
+        'MerchandisePointCol
         '
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle6.Format = "N0"
-        DataGridViewCellStyle6.NullValue = Nothing
-        Me.ItemQuantityCol.DefaultCellStyle = DataGridViewCellStyle6
-        Me.ItemQuantityCol.HeaderText = "Quantity"
-        Me.ItemQuantityCol.Name = "ItemQuantityCol"
-        Me.ItemQuantityCol.ReadOnly = True
-        Me.ItemQuantityCol.Width = 86
-        '
-        'ItemDiscountCol
-        '
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle7.Format = "N0"
-        DataGridViewCellStyle7.NullValue = "0"
-        Me.ItemDiscountCol.DefaultCellStyle = DataGridViewCellStyle7
-        Me.ItemDiscountCol.HeaderText = "Discount"
-        Me.ItemDiscountCol.Name = "ItemDiscountCol"
-        Me.ItemDiscountCol.ReadOnly = True
-        Me.ItemDiscountCol.Width = 88
-        '
-        'ItemSubTotalCol
-        '
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle8.Format = "N0"
-        DataGridViewCellStyle8.NullValue = Nothing
-        Me.ItemSubTotalCol.DefaultCellStyle = DataGridViewCellStyle8
-        Me.ItemSubTotalCol.HeaderText = "SubTotal"
-        Me.ItemSubTotalCol.Name = "ItemSubTotalCol"
-        Me.ItemSubTotalCol.ReadOnly = True
-        Me.ItemSubTotalCol.Width = 90
-        '
-        'ItemRemarkcol
-        '
-        Me.ItemRemarkcol.HeaderText = "Remark"
-        Me.ItemRemarkcol.Name = "ItemRemarkcol"
-        Me.ItemRemarkcol.ReadOnly = True
-        Me.ItemRemarkcol.Width = 82
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(82, 37)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(38, 17)
-        Me.Label9.TabIndex = 21
-        Me.Label9.Text = "Date"
+        Me.MerchandisePointCol.HeaderText = "Point"
+        Me.MerchandisePointCol.Name = "MerchandisePointCol"
+        Me.MerchandisePointCol.ReadOnly = True
+        Me.MerchandisePointCol.Width = 65
         '
         '_005_18_RedemptionDetail
         '
@@ -263,6 +301,8 @@ Partial Class _005_18_RedemptionDetail
         Me.SplitContainer.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         CType(Me.TransactionDetailDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -277,14 +317,18 @@ Partial Class _005_18_RedemptionDetail
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents CustomerNameTxt As System.Windows.Forms.TextBox
     Friend WithEvents TransactionDetailDataGrid As System.Windows.Forms.DataGridView
-    Friend WithEvents ItemTypeCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ItemNameCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ItemUoMCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ItemPriceCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ItemQuantityCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ItemDiscountCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ItemSubTotalCol As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ItemRemarkcol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents PointRequiredLbl As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents CustomerPointLeftTxt As System.Windows.Forms.TextBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents CustomerCurrentPointTxt As System.Windows.Forms.TextBox
+    Friend WithEvents MerchandiseIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents MerchandiseNameCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents MerchandiseQuantityCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents MerchandiseUoMCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents MerchandisePointCol As System.Windows.Forms.DataGridViewTextBoxColumn
 
 End Class

@@ -4,18 +4,18 @@ Imports System.ComponentModel
 Public Class _005_18_RedemptionDetail
     Implements INotifyPropertyChanged
 
-    Private ReadOnly _transactionHeaderDataTable As DataTable
-    Private ReadOnly _transactionDetailDataTable As DataTable
+    Private ReadOnly _redemptionHeaderDataTable As DataTable
+    Private ReadOnly _redemptionDetailDataTable As DataTable
 
-    ReadOnly Property TransactionHeaderDataTable() As DataTable
+    ReadOnly Property RedemptionHeaderDataTable() As DataTable
         Get
-            Return _transactionHeaderDataTable
+            Return _redemptionHeaderDataTable
         End Get
     End Property
 
     ReadOnly Property HasResult As Boolean
         Get
-            Return _transactionHeaderDataTable.Rows.Count > 0
+            Return _redemptionHeaderDataTable.Rows.Count > 0
         End Get
     End Property
 
@@ -25,28 +25,28 @@ Public Class _005_18_RedemptionDetail
         End Get
     End Property
 
-    ReadOnly Property TransactionDetailDataTable() As DataTable
+    ReadOnly Property RedemptionDetailDataTable() As DataTable
         Get
-            Return _transactionDetailDataTable
+            Return _redemptionDetailDataTable
         End Get
     End Property
-    
+
     Public Sub New()
         InitializeComponent()
 
-        _transactionHeaderDataTable = New DataTable()
-        _transactionDetailDataTable = New DataTable()
+        _redemptionHeaderDataTable = New DataTable()
+        _redemptionDetailDataTable = New DataTable()
     End Sub
 
     Public Sub PerformBinding()
-        DoFindTransaction("", "")
+        DoFindRedemption("")
 
-        CustomerNameTxt.DataBindings.Add("Text", _transactionHeaderDataTable, "cname", False, DataSourceUpdateMode.Never)
-        CustomerPhoneTxt.DataBindings.Add("Text", _transactionHeaderDataTable, "cphon", False, DataSourceUpdateMode.Never)
-        CustomerCellphoneTxt.DataBindings.Add("Text", _transactionHeaderDataTable, "ccpon", False, DataSourceUpdateMode.Never)
-        IsMemberChk.DataBindings.Add("Checked", _transactionHeaderDataTable, "is_member", False, DataSourceUpdateMode.Never)
-        
-        Dim dateBinding As New Binding("Text", _transactionHeaderDataTable, "trdat")
+        CustomerNameTxt.DataBindings.Add("Text", _redemptionHeaderDataTable, "cname", False, DataSourceUpdateMode.Never)
+        CustomerPhoneTxt.DataBindings.Add("Text", _redemptionHeaderDataTable, "cphon", False, DataSourceUpdateMode.Never)
+        CustomerCellphoneTxt.DataBindings.Add("Text", _redemptionHeaderDataTable, "ccpon", False, DataSourceUpdateMode.Never)
+        IsMemberChk.DataBindings.Add("Checked", _redemptionHeaderDataTable, "is_member", False, DataSourceUpdateMode.Never)
+
+        Dim dateBinding As New Binding("Text", _redemptionHeaderDataTable, "trdat")
         AddHandler dateBinding.Format,
             Sub(s As Object, evt As ConvertEventArgs)
                 If evt.DesiredType Is GetType(String) Then
@@ -54,27 +54,24 @@ Public Class _005_18_RedemptionDetail
                 End If
             End Sub
         DateTxt.DataBindings.Add(dateBinding)
-
-        DataBindings.Add("VehicleType", _transactionHeaderDataTable, "vtype")
-        DataBindings.Add("PaymentType", _transactionHeaderDataTable, "pterm")
     End Sub
 
-    Public Sub FindTransaction(ByVal transactionId As String, Optional ByVal transactionStatus As String = "")
-        _transactionHeaderDataTable.Clear()
-        _transactionDetailDataTable.Clear()
+    Public Sub FindRedemption(ByVal redemptionId As String)
+        _redemptionHeaderDataTable.Clear()
+        _redemptionDetailDataTable.Clear()
 
         TransactionDetailDataGrid.Rows.Clear()
 
-        If transactionId.Length = "001/03-2014/0001/001".Length Then
-            DoFindTransaction(transactionId, transactionStatus)
+        If redemptionId.Length = "001/03-2014/0001/001".Length Then
+            DoFindRedemption(redemptionId)
         End If
 
-        NotifyPropertyChanged("TransactionHeaderDataTable")
+        NotifyPropertyChanged("RedemptionHeaderDataTable")
         NotifyPropertyChanged("HasResult")
     End Sub
 
-    Private Sub DoFindTransaction(ByVal transactionId As String, ByVal transactionStatus As String)
-        Dim transactionHeaderQuery As String =
+    Private Sub DoFindRedemption(ByVal redemptionId As String)
+        Dim redemptionHeaderQuery As String =
                 "SELECT" & _
                 "   htransaction.trsid," & _
                 "   htransaction.trdat," & _
@@ -98,8 +95,8 @@ Public Class _005_18_RedemptionDetail
                 "   IF(hcustomer.cstat = 'Member', 1, 0) AS is_member" & _
                 " FROM htransaction" & _
                 " LEFT JOIN hcustomer ON htransaction.idcus = hcustomer.idcus" & _
-                " WHERE htransaction.trsid = '" & transactionId & "'"
-        Dim transactionDetailQuery As String =
+                " WHERE htransaction.trsid = '" & redemptionId & "'"
+        Dim redemptionDetailQuery As String =
             "SELECT" & _
             "   dtransaction.trsid," & _
             "   dtransaction.ttype," & _
@@ -120,24 +117,12 @@ Public Class _005_18_RedemptionDetail
             " LEFT JOIN hservice ON dtransaction.idsvc = hservice.idsvc" & _
             " LEFT JOIN servicetype ON hservice.idsvt = servicetype.idsvt" & _
             " LEFT JOIN htransaction ON dtransaction.trsid = htransaction.trsid" & _
-            " WHERE dtransaction.trsid = '" & transactionId & "'"
+            " WHERE dtransaction.trsid = '" & redemptionId & "'"
 
-        If Not String.IsNullOrEmpty(transactionStatus) Then
-            If transactionStatus.IndexOf("NOT", StringComparison.Ordinal) = 0 Then
-                transactionStatus = transactionStatus.Replace("NOT ", "")
+        _redemptionHeaderDataTable.Load(ExecQueryReader(redemptionHeaderQuery))
+        _redemptionDetailDataTable.Load(ExecQueryReader(redemptionDetailQuery))
 
-                transactionHeaderQuery &= " AND htransaction.trstat <> '" & transactionStatus.ToUpper() & "'"
-                transactionDetailQuery &= " AND htransaction.trstat <> '" & transactionStatus.ToUpper() & "'"
-            Else
-                transactionHeaderQuery &= " AND htransaction.trstat = '" & transactionStatus.ToUpper() & "'"
-                transactionDetailQuery &= " AND htransaction.trstat = '" & transactionStatus.ToUpper() & "'"
-            End If
-        End If
-
-        _transactionHeaderDataTable.Load(ExecQueryReader(transactionHeaderQuery))
-        _transactionDetailDataTable.Load(ExecQueryReader(transactionDetailQuery))
-
-        For Each detail As DataRow In _transactionDetailDataTable.Rows
+        For Each detail As DataRow In _redemptionDetailDataTable.Rows
             With TransactionDetailDataGrid
                 Dim hasDiscount As Boolean = (Not String.IsNullOrEmpty(detail("idisc")) AndAlso detail("idisc") > 0)
 

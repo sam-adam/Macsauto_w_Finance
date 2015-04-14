@@ -3,6 +3,8 @@
     Private ReadOnly _allCustomerDataTable As DataTable
     Private ReadOnly _transactionPreviewerForm As Form
     Private ReadOnly _transactionPreviewer As _005_14_TransactionDetail
+    Private ReadOnly _redemptionPreviewerForm As Form
+    Private ReadOnly _redemptionPreviewer As _005_18_RedemptionDetail
 
     Public Sub New()
         InitializeComponent()
@@ -21,18 +23,40 @@
         _transactionPreviewerForm = New Form()
         _transactionPreviewer = New _005_14_TransactionDetail()
 
-        Dim panel As Panel = New Panel()
+        _redemptionPreviewerForm = New Form()
+        _redemptionPreviewer = New _005_18_RedemptionDetail()
 
-        panel.Controls.Add(_transactionPreviewer)
-        panel.Dock = DockStyle.Fill
+        Dim transactionPanel As Panel = New Panel()
 
+        transactionPanel.Controls.Add(_transactionPreviewer)
+        transactionPanel.Dock = DockStyle.Fill
+        
         _transactionPreviewer.PerformBinding()
 
-        _transactionPreviewerForm.Controls.Add(panel)
-        _transactionPreviewerForm.Size = _transactionPreviewer.Size
-        _transactionPreviewerForm.MaximumSize = _transactionPreviewer.Size
-        _transactionPreviewerForm.MinimumSize = _transactionPreviewer.Size
-        _transactionPreviewerForm.SizeGripStyle = SizeGripStyle.Hide
+        With _transactionPreviewerForm
+            .Controls.Add(transactionPanel)
+
+            .Size = _transactionPreviewer.Size
+            .MaximumSize = _transactionPreviewer.Size
+            .MinimumSize = _transactionPreviewer.Size
+            .SizeGripStyle = SizeGripStyle.Hide
+        End With
+
+        Dim redemptionPanel As Panel = New Panel()
+
+        redemptionPanel.Controls.Add(_redemptionPreviewer)
+        redemptionPanel.Dock = DockStyle.Fill
+
+        _redemptionPreviewer.PerformBinding()
+
+        With _redemptionPreviewerForm
+            .Controls.Add(redemptionPanel)
+
+            .Size = _transactionPreviewer.Size
+            .MaximumSize = _transactionPreviewer.Size
+            .MinimumSize = _transactionPreviewer.Size
+            .SizeGripStyle = SizeGripStyle.Hide
+        End With
     End Sub
 
     Private Sub RefreshData()
@@ -105,6 +129,9 @@
         If DataGridView(TransactionTypeCol.Index, e.RowIndex).Value = "transaction" Then
             _transactionPreviewer.FindTransaction(DataGridView(TransactionIdCol.Index, e.RowIndex).Value)
             _transactionPreviewerForm.ShowDialog(Me)
+        ElseIf DataGridView(TransactionTypeCol.Index, e.RowIndex).Value = "redemption" Then
+            _redemptionPreviewer.FindRedemption(DataGridView(TransactionIdCol.Index, e.RowIndex).Value)
+            _redemptionPreviewerForm.ShowDialog(Me)
         End If
     End Sub
 End Class
