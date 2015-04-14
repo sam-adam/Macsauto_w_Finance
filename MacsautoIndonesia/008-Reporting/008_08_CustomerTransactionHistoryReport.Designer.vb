@@ -22,16 +22,16 @@ Partial Class _008_08_CustomerTransactionHistoryReport
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.BtnExport = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ToDtp = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.FromDtp = New System.Windows.Forms.DateTimePicker()
         Me.PanelTop = New System.Windows.Forms.Panel()
-        Me.DataGridView = New System.Windows.Forms.DataGridView()
         Me.CustomerCbo = New System.Windows.Forms.ComboBox()
+        Me.DataGridView = New System.Windows.Forms.DataGridView()
         Me.TransactionTypeCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TransactionIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TransactionDateCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -102,10 +102,19 @@ Partial Class _008_08_CustomerTransactionHistoryReport
         Me.PanelTop.Size = New System.Drawing.Size(1043, 54)
         Me.PanelTop.TabIndex = 4
         '
+        'CustomerCbo
+        '
+        Me.CustomerCbo.FormattingEnabled = True
+        Me.CustomerCbo.Location = New System.Drawing.Point(12, 16)
+        Me.CustomerCbo.Name = "CustomerCbo"
+        Me.CustomerCbo.Size = New System.Drawing.Size(206, 24)
+        Me.CustomerCbo.TabIndex = 8
+        '
         'DataGridView
         '
         Me.DataGridView.AllowUserToAddRows = False
         Me.DataGridView.AllowUserToDeleteRows = False
+        Me.DataGridView.AllowUserToResizeRows = False
         Me.DataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TransactionTypeCol, Me.TransactionIdCol, Me.TransactionDateCol, Me.TransactionAmountCol})
@@ -118,47 +127,39 @@ Partial Class _008_08_CustomerTransactionHistoryReport
         Me.DataGridView.Size = New System.Drawing.Size(1043, 438)
         Me.DataGridView.TabIndex = 3
         '
-        'CustomerCbo
-        '
-        Me.CustomerCbo.FormattingEnabled = True
-        Me.CustomerCbo.Location = New System.Drawing.Point(12, 16)
-        Me.CustomerCbo.Name = "CustomerCbo"
-        Me.CustomerCbo.Size = New System.Drawing.Size(206, 24)
-        Me.CustomerCbo.TabIndex = 8
-        '
         'TransactionTypeCol
         '
         Me.TransactionTypeCol.HeaderText = "Type (Transaction / Redemption)"
         Me.TransactionTypeCol.Name = "TransactionTypeCol"
         Me.TransactionTypeCol.ReadOnly = True
-        Me.TransactionTypeCol.Width = 242
+        Me.TransactionTypeCol.Width = 220
         '
         'TransactionIdCol
         '
         Me.TransactionIdCol.HeaderText = "Transaction Id"
         Me.TransactionIdCol.Name = "TransactionIdCol"
         Me.TransactionIdCol.ReadOnly = True
-        Me.TransactionIdCol.Width = 123
+        Me.TransactionIdCol.Width = 113
         '
         'TransactionDateCol
         '
-        DataGridViewCellStyle5.Format = "D"
-        DataGridViewCellStyle5.NullValue = Nothing
-        Me.TransactionDateCol.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle3.Format = "D"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.TransactionDateCol.DefaultCellStyle = DataGridViewCellStyle3
         Me.TransactionDateCol.HeaderText = "Transaction Date"
         Me.TransactionDateCol.Name = "TransactionDateCol"
         Me.TransactionDateCol.ReadOnly = True
-        Me.TransactionDateCol.Width = 142
+        Me.TransactionDateCol.Width = 130
         '
         'TransactionAmountCol
         '
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle6.Format = "N0"
-        Me.TransactionAmountCol.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle4.Format = "N0"
+        Me.TransactionAmountCol.DefaultCellStyle = DataGridViewCellStyle4
         Me.TransactionAmountCol.HeaderText = "Transaction Amount"
         Me.TransactionAmountCol.Name = "TransactionAmountCol"
         Me.TransactionAmountCol.ReadOnly = True
-        Me.TransactionAmountCol.Width = 160
+        Me.TransactionAmountCol.Width = 146
         '
         '_008_08_CustomerTransactionHistoryReport
         '
@@ -168,7 +169,7 @@ Partial Class _008_08_CustomerTransactionHistoryReport
         Me.Controls.Add(Me.DataGridView)
         Me.Controls.Add(Me.PanelTop)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "_008_08_CustomerTransactionHistoryReport"
         Me.Text = "Report - Customer Transaction History"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

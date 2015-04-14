@@ -28,6 +28,7 @@ Public Class _003_04_TrMerchandiseRedemption
     Private _searchCustomerForm As _005_15_Search_Vehicle
     Private _searchMerchandiseForm As _005_18_SearchMerchandise
     Private _acrReader As AcrReader
+    Private _transactionCompleted As Boolean = False
 
     Property PointRequired() As Integer
         Set(ByVal value As Integer)
@@ -63,7 +64,7 @@ Public Class _003_04_TrMerchandiseRedemption
         ElseIf e.KeyData = Keys.F2 Then
             ShowMerchandiseForm()
         ElseIf e.KeyData = Keys.F4 Then
-            While _acrReader Is Nothing And MsgBox("No card reader found. Try again?", MsgBoxStyle.YesNo Or MsgBoxStyle.Question, "Warning") = MsgBoxResult.Yes
+            While _acrReader Is Nothing AndAlso MsgBox("No card reader found. Try again?", MsgBoxStyle.YesNo Or MsgBoxStyle.Question, "Warning") = MsgBoxResult.Yes
                 TryInitializeAcr()
             End While
 
@@ -227,6 +228,10 @@ Public Class _003_04_TrMerchandiseRedemption
     End Sub
 
     Private Function ConfirmExit() As Boolean
+        If _transactionCompleted Then
+            Return True
+        End If
+
         Return MsgBox("Cancelling transaction. Are you sure?", MsgBoxStyle.Question Or MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes
     End Function
 
@@ -237,7 +242,7 @@ Public Class _003_04_TrMerchandiseRedemption
     End Sub
 
     Private Sub CancelBtn_Click(sender As Object, e As EventArgs) Handles CancelBtn.Click
-        ConfirmExit()
+        Close()
     End Sub
 
     Private Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
@@ -313,6 +318,7 @@ Public Class _003_04_TrMerchandiseRedemption
 
             redemptionPage.Logo = Resources.Logo_MACSAUTO_only__background_putih__1_
             redemptionPage.SetTransactionInformation(newRedemptionId, RedemptionDate.Value.ToString("dd/MM/yyyy"), DateTime.Now.ToShortTimeString())
+            redemptionPage.SetData(CustomerIdTxt.Text, CustomerNameTxt.Text, PointRequired.ToString(), PointLeft.ToString(), DateTime.Now.AddYears(1).ToString("dd/MM/yyyy"))
 
             redemptionPage.AppendFooter("PERIKSA KEMBALI KONDISI")
             redemptionPage.AppendFooter("KENDARAAN DAN BARANG BAWAAN ANDA.")
@@ -326,6 +332,8 @@ Public Class _003_04_TrMerchandiseRedemption
             MsgBox("Transaction saved", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "Success")
 
             RaiseEvent RedemptionCreated(Me, New RedemptionCreatedEventArgs(newRedemptionId))
+
+            _transactionCompleted = True
 
             Close()
         End If

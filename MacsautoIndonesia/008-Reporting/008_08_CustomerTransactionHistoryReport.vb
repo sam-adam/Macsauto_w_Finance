@@ -1,6 +1,8 @@
 ﻿Public Class _008_08_CustomerTransactionHistoryReport
     Private ReadOnly _allTransactionDataTable As DataTable
     Private ReadOnly _allCustomerDataTable As DataTable
+    Private ReadOnly _transactionPreviewerForm As Form
+    Private ReadOnly _transactionPreviewer As _005_14_TransactionDetail
 
     Public Sub New()
         InitializeComponent()
@@ -11,8 +13,26 @@
         _allCustomerDataTable.Load(ExecQueryReader("SELECT idcus, cname FROM hcustomer"))
 
         CustomerCbo.DataSource = _allCustomerDataTable
+        CustomerCbo.AutoCompleteSource = AutoCompleteSource.ListItems
+        CustomerCbo.AutoCompleteMode = AutoCompleteMode.SuggestAppend
         CustomerCbo.DisplayMember = "cname"
         CustomerCbo.ValueMember = "idcus"
+
+        _transactionPreviewerForm = New Form()
+        _transactionPreviewer = New _005_14_TransactionDetail()
+
+        Dim panel As Panel = New Panel()
+
+        panel.Controls.Add(_transactionPreviewer)
+        panel.Dock = DockStyle.Fill
+
+        _transactionPreviewer.PerformBinding()
+
+        _transactionPreviewerForm.Controls.Add(panel)
+        _transactionPreviewerForm.Size = _transactionPreviewer.Size
+        _transactionPreviewerForm.MaximumSize = _transactionPreviewer.Size
+        _transactionPreviewerForm.MinimumSize = _transactionPreviewer.Size
+        _transactionPreviewerForm.SizeGripStyle = SizeGripStyle.Hide
     End Sub
 
     Private Sub RefreshData()
@@ -79,5 +99,12 @@
 
     Private Sub BtnExport_Click(sender As Object, e As EventArgs) Handles BtnExport.Click
         excelExport(DataGridView, "CustomerHistory - " & CustomerCbo.SelectedValue.ToString() & " -(" & FromDtp.Value.ToString("ddMMyyyy") & " - " & ToDtp.Value.ToString("ddMMyyyy") & ")")
+    End Sub
+
+    Private Sub DataGridView_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView.CellDoubleClick
+        If DataGridView(TransactionTypeCol.Index, e.RowIndex).Value = "transaction" Then
+            _transactionPreviewer.FindTransaction(DataGridView(TransactionIdCol.Index, e.RowIndex).Value)
+            _transactionPreviewerForm.ShowDialog(Me)
+        End If
     End Sub
 End Class

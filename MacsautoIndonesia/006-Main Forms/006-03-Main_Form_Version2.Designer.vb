@@ -84,6 +84,7 @@ Partial Class _006_03_Main_Form_Version2
         Me.PettyCashAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DefineAccountingPeriodToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DefineServiceAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DefineTransactionAutopostToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.CompanyWebsiteLbl = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -99,7 +100,7 @@ Partial Class _006_03_Main_Form_Version2
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SidebarPictureBox = New System.Windows.Forms.PictureBox()
         Me.CurrentTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.DefineTransactionAutopostToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CustomerTransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PnlLogo.SuspendLayout()
         CType(Me.PBoxMaskot, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -415,57 +416,57 @@ Partial Class _006_03_Main_Form_Version2
         '
         'CtxReporting
         '
-        Me.CtxReporting.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StockTransferToolStripMenuItem, Me.GoodIssueToolStripMenuItem, Me.GoodReceiptToolStripMenuItem, Me.InitialStockToolStripMenuItem, Me.PettyCashToolStripMenuItem1, Me.BrutoReportToolStripMenuItem, Me.ProductMovementToolStripMenuItem1})
+        Me.CtxReporting.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StockTransferToolStripMenuItem, Me.GoodIssueToolStripMenuItem, Me.GoodReceiptToolStripMenuItem, Me.InitialStockToolStripMenuItem, Me.PettyCashToolStripMenuItem1, Me.BrutoReportToolStripMenuItem, Me.ProductMovementToolStripMenuItem1, Me.CustomerTransactionToolStripMenuItem})
         Me.CtxReporting.Name = "CtxMasterData"
-        Me.CtxReporting.Size = New System.Drawing.Size(178, 158)
+        Me.CtxReporting.Size = New System.Drawing.Size(192, 202)
         '
         'StockTransferToolStripMenuItem
         '
         Me.StockTransferToolStripMenuItem.Name = "StockTransferToolStripMenuItem"
-        Me.StockTransferToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.StockTransferToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
         Me.StockTransferToolStripMenuItem.Text = "Stock Transfer"
         '
         'GoodIssueToolStripMenuItem
         '
         Me.GoodIssueToolStripMenuItem.Name = "GoodIssueToolStripMenuItem"
-        Me.GoodIssueToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.GoodIssueToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
         Me.GoodIssueToolStripMenuItem.Text = "Good Issue"
         '
         'GoodReceiptToolStripMenuItem
         '
         Me.GoodReceiptToolStripMenuItem.Name = "GoodReceiptToolStripMenuItem"
-        Me.GoodReceiptToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.GoodReceiptToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
         Me.GoodReceiptToolStripMenuItem.Text = "Good Receipt"
         '
         'InitialStockToolStripMenuItem
         '
         Me.InitialStockToolStripMenuItem.Name = "InitialStockToolStripMenuItem"
-        Me.InitialStockToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.InitialStockToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
         Me.InitialStockToolStripMenuItem.Text = "Initial Stock"
         '
         'PettyCashToolStripMenuItem1
         '
         Me.PettyCashToolStripMenuItem1.Name = "PettyCashToolStripMenuItem1"
-        Me.PettyCashToolStripMenuItem1.Size = New System.Drawing.Size(177, 22)
+        Me.PettyCashToolStripMenuItem1.Size = New System.Drawing.Size(191, 22)
         Me.PettyCashToolStripMenuItem1.Text = "Petty Cash"
         '
         'BrutoReportToolStripMenuItem
         '
         Me.BrutoReportToolStripMenuItem.Name = "BrutoReportToolStripMenuItem"
-        Me.BrutoReportToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.BrutoReportToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
         Me.BrutoReportToolStripMenuItem.Text = "Bruto Report"
         '
         'ProductMovementToolStripMenuItem1
         '
         Me.ProductMovementToolStripMenuItem1.Name = "ProductMovementToolStripMenuItem1"
-        Me.ProductMovementToolStripMenuItem1.Size = New System.Drawing.Size(177, 22)
+        Me.ProductMovementToolStripMenuItem1.Size = New System.Drawing.Size(191, 22)
         Me.ProductMovementToolStripMenuItem1.Text = "Product Movement"
         '
         'CtxFinance
         '
         Me.CtxFinance.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GeneralLedgerAccountToolStripMenuItem, Me.JournalTransactionEntryToolStripMenuItem, Me.JournalTransactionListToolStripMenuItem, Me.GeneralLedgerReportToolStripMenuItem, Me.ConfigurationToolStripMenuItem})
         Me.CtxFinance.Name = "CtxFinance"
-        Me.CtxFinance.Size = New System.Drawing.Size(208, 136)
+        Me.CtxFinance.Size = New System.Drawing.Size(208, 114)
         '
         'GeneralLedgerAccountToolStripMenuItem
         '
@@ -552,6 +553,12 @@ Partial Class _006_03_Main_Form_Version2
         Me.DefineServiceAccountToolStripMenuItem.Name = "DefineServiceAccountToolStripMenuItem"
         Me.DefineServiceAccountToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
         Me.DefineServiceAccountToolStripMenuItem.Text = "Define Service Account"
+        '
+        'DefineTransactionAutopostToolStripMenuItem
+        '
+        Me.DefineTransactionAutopostToolStripMenuItem.Name = "DefineTransactionAutopostToolStripMenuItem"
+        Me.DefineTransactionAutopostToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.DefineTransactionAutopostToolStripMenuItem.Text = "Define Transaction Autopost"
         '
         'SplitContainer1
         '
@@ -720,11 +727,11 @@ Partial Class _006_03_Main_Form_Version2
         '
         Me.CurrentTimer.Interval = 1000
         '
-        'DefineTransactionAutopostToolStripMenuItem
+        'CustomerTransactionToolStripMenuItem
         '
-        Me.DefineTransactionAutopostToolStripMenuItem.Name = "DefineTransactionAutopostToolStripMenuItem"
-        Me.DefineTransactionAutopostToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
-        Me.DefineTransactionAutopostToolStripMenuItem.Text = "Define Transaction Autopost"
+        Me.CustomerTransactionToolStripMenuItem.Name = "CustomerTransactionToolStripMenuItem"
+        Me.CustomerTransactionToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
+        Me.CustomerTransactionToolStripMenuItem.Text = "Customer Transaction"
         '
         '_006_03_Main_Form_Version2
         '
@@ -833,4 +840,5 @@ Partial Class _006_03_Main_Form_Version2
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents CancelTransactionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DefineTransactionAutopostToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents CustomerTransactionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

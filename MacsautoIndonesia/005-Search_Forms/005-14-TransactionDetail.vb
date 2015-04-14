@@ -103,13 +103,13 @@ Public Class _005_14_TransactionDetail
     End Sub
 
     Public Sub FindTransaction(ByVal transactionId As String, Optional ByVal transactionStatus As String = "")
+        _transactionHeaderDataTable.Clear()
+        _transactionDetailDataTable.Clear()
+
+        TransactionDetailDataGrid.Rows.Clear()
+
         If transactionId.Length = "001/03-2014/0001/001".Length Then
             DoFindTransaction(transactionId, transactionStatus)
-        Else
-            _transactionHeaderDataTable.Clear()
-            _transactionDetailDataTable.Clear()
-
-            TransactionDetailDataGrid.Rows.Clear()
         End If
 
         NotifyPropertyChanged("TransactionHeaderDataTable")
