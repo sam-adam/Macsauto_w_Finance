@@ -39,8 +39,9 @@ Partial Class _005_18_RedemptionDetail
         Me.IsMemberChk = New System.Windows.Forms.CheckBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.CustomerNameTxt = New System.Windows.Forms.TextBox()
-        Me.TransactionDetailDataGrid = New System.Windows.Forms.DataGridView()
+        Me.RedemptionDetailDataGrid = New System.Windows.Forms.DataGridView()
         Me.MerchandiseIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductIdCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MerchandiseNameCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MerchandiseQuantityCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MerchandiseUoMCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -50,7 +51,7 @@ Partial Class _005_18_RedemptionDetail
         Me.SplitContainer.Panel2.SuspendLayout()
         Me.SplitContainer.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.TransactionDetailDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RedemptionDetailDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SplitContainer
@@ -73,12 +74,12 @@ Partial Class _005_18_RedemptionDetail
         Me.SplitContainer.Panel1.Controls.Add(Me.IsMemberChk)
         Me.SplitContainer.Panel1.Controls.Add(Me.Label2)
         Me.SplitContainer.Panel1.Controls.Add(Me.CustomerNameTxt)
-        Me.SplitContainer.Panel1MinSize = 100
+        Me.SplitContainer.Panel1MinSize = 150
         '
         'SplitContainer.Panel2
         '
-        Me.SplitContainer.Panel2.Controls.Add(Me.TransactionDetailDataGrid)
-        Me.SplitContainer.Size = New System.Drawing.Size(867, 385)
+        Me.SplitContainer.Panel2.Controls.Add(Me.RedemptionDetailDataGrid)
+        Me.SplitContainer.Size = New System.Drawing.Size(867, 308)
         Me.SplitContainer.SplitterDistance = 150
         Me.SplitContainer.TabIndex = 13
         '
@@ -235,20 +236,20 @@ Partial Class _005_18_RedemptionDetail
         Me.CustomerNameTxt.Size = New System.Drawing.Size(250, 23)
         Me.CustomerNameTxt.TabIndex = 12
         '
-        'TransactionDetailDataGrid
+        'RedemptionDetailDataGrid
         '
-        Me.TransactionDetailDataGrid.AllowUserToAddRows = False
-        Me.TransactionDetailDataGrid.AllowUserToDeleteRows = False
-        Me.TransactionDetailDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.TransactionDetailDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.TransactionDetailDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.MerchandiseIdCol, Me.MerchandiseNameCol, Me.MerchandiseQuantityCol, Me.MerchandiseUoMCol, Me.MerchandisePointCol})
-        Me.TransactionDetailDataGrid.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TransactionDetailDataGrid.Location = New System.Drawing.Point(0, 0)
-        Me.TransactionDetailDataGrid.Name = "TransactionDetailDataGrid"
-        Me.TransactionDetailDataGrid.ReadOnly = True
-        Me.TransactionDetailDataGrid.RowHeadersVisible = False
-        Me.TransactionDetailDataGrid.Size = New System.Drawing.Size(863, 227)
-        Me.TransactionDetailDataGrid.TabIndex = 1
+        Me.RedemptionDetailDataGrid.AllowUserToAddRows = False
+        Me.RedemptionDetailDataGrid.AllowUserToDeleteRows = False
+        Me.RedemptionDetailDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.RedemptionDetailDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.RedemptionDetailDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.MerchandiseIdCol, Me.ProductIdCol, Me.MerchandiseNameCol, Me.MerchandiseQuantityCol, Me.MerchandiseUoMCol, Me.MerchandisePointCol})
+        Me.RedemptionDetailDataGrid.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.RedemptionDetailDataGrid.Location = New System.Drawing.Point(0, 0)
+        Me.RedemptionDetailDataGrid.Name = "RedemptionDetailDataGrid"
+        Me.RedemptionDetailDataGrid.ReadOnly = True
+        Me.RedemptionDetailDataGrid.RowHeadersVisible = False
+        Me.RedemptionDetailDataGrid.Size = New System.Drawing.Size(863, 150)
+        Me.RedemptionDetailDataGrid.TabIndex = 1
         '
         'MerchandiseIdCol
         '
@@ -257,6 +258,14 @@ Partial Class _005_18_RedemptionDetail
         Me.MerchandiseIdCol.ReadOnly = True
         Me.MerchandiseIdCol.Visible = False
         Me.MerchandiseIdCol.Width = 106
+        '
+        'ProductIdCol
+        '
+        Me.ProductIdCol.HeaderText = "Product Id"
+        Me.ProductIdCol.Name = "ProductIdCol"
+        Me.ProductIdCol.ReadOnly = True
+        Me.ProductIdCol.Visible = False
+        Me.ProductIdCol.Width = 78
         '
         'MerchandiseNameCol
         '
@@ -295,7 +304,7 @@ Partial Class _005_18_RedemptionDetail
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MinimumSize = New System.Drawing.Size(867, 0)
         Me.Name = "_005_18_RedemptionDetail"
-        Me.Size = New System.Drawing.Size(867, 385)
+        Me.Size = New System.Drawing.Size(867, 308)
         Me.SplitContainer.Panel1.ResumeLayout(False)
         Me.SplitContainer.Panel1.PerformLayout()
         Me.SplitContainer.Panel2.ResumeLayout(False)
@@ -303,7 +312,7 @@ Partial Class _005_18_RedemptionDetail
         Me.SplitContainer.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.TransactionDetailDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RedemptionDetailDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -316,7 +325,7 @@ Partial Class _005_18_RedemptionDetail
     Friend WithEvents IsMemberChk As System.Windows.Forms.CheckBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents CustomerNameTxt As System.Windows.Forms.TextBox
-    Friend WithEvents TransactionDetailDataGrid As System.Windows.Forms.DataGridView
+    Friend WithEvents RedemptionDetailDataGrid As System.Windows.Forms.DataGridView
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
@@ -326,6 +335,7 @@ Partial Class _005_18_RedemptionDetail
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents CustomerCurrentPointTxt As System.Windows.Forms.TextBox
     Friend WithEvents MerchandiseIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ProductIdCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents MerchandiseNameCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents MerchandiseQuantityCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents MerchandiseUoMCol As System.Windows.Forms.DataGridViewTextBoxColumn

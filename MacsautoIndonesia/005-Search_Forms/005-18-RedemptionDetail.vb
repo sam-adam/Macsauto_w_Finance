@@ -44,9 +44,11 @@ Public Class _005_18_RedemptionDetail
         CustomerNameTxt.DataBindings.Add("Text", _redemptionHeaderDataTable, "cname", False, DataSourceUpdateMode.Never)
         CustomerPhoneTxt.DataBindings.Add("Text", _redemptionHeaderDataTable, "cphon", False, DataSourceUpdateMode.Never)
         CustomerCellphoneTxt.DataBindings.Add("Text", _redemptionHeaderDataTable, "ccpon", False, DataSourceUpdateMode.Never)
+        CustomerCurrentPointTxt.DataBindings.Add("Text", _redemptionHeaderDataTable, "cpoin", False, DataSourceUpdateMode.Never)
+        PointRequiredLbl.DataBindings.Add("Text", _redemptionHeaderDataTable, "tpoin", False, DataSourceUpdateMode.Never)
         IsMemberChk.DataBindings.Add("Checked", _redemptionHeaderDataTable, "is_member", False, DataSourceUpdateMode.Never)
 
-        Dim dateBinding As New Binding("Text", _redemptionHeaderDataTable, "trdat")
+        Dim dateBinding As New Binding("Text", _redemptionHeaderDataTable, "rdmpdat")
         AddHandler dateBinding.Format,
             Sub(s As Object, evt As ConvertEventArgs)
                 If evt.DesiredType Is GetType(String) Then
@@ -60,7 +62,7 @@ Public Class _005_18_RedemptionDetail
         _redemptionHeaderDataTable.Clear()
         _redemptionDetailDataTable.Clear()
 
-        TransactionDetailDataGrid.Rows.Clear()
+        RedemptionDetailDataGrid.Rows.Clear()
 
         If redemptionId.Length = "001/03-2014/0001/001".Length Then
             DoFindRedemption(redemptionId)
@@ -72,81 +74,48 @@ Public Class _005_18_RedemptionDetail
 
     Private Sub DoFindRedemption(ByVal redemptionId As String)
         Dim redemptionHeaderQuery As String =
-                "SELECT" & _
-                "   htransaction.trsid," & _
-                "   htransaction.trdat," & _
-                "   htransaction.idcus," & _
-                "   htransaction.linum," & _
-                "   htransaction.vtype," & _
-                "   htransaction.vbrnd," & _
-                "   htransaction.vmodl," & _
-                "   htransaction.vsize," & _
-                "   htransaction.vcolr," & _
-                "   htransaction.trdat," & _
-                "   htransaction.pterm," & _
-                "   htransaction.toamt," & _
-                "   htransaction.topay," & _
-                "   htransaction.chnce," & _
-                "   htransaction.cpoin," & _
-                "   htransaction.tpoin," & _
-                "   hcustomer.cname," & _
-                "   hcustomer.cphon," & _
-                "   hcustomer.ccpon," & _
-                "   IF(hcustomer.cstat = 'Member', 1, 0) AS is_member" & _
-                " FROM htransaction" & _
-                " LEFT JOIN hcustomer ON htransaction.idcus = hcustomer.idcus" & _
-                " WHERE htransaction.trsid = '" & redemptionId & "'"
+            "SELECT" & _
+            "   hredemption.rdmpid," & _
+            "   hredemption.rdmpdat," & _
+            "   hredemption.idcus," & _
+            "   hredemption.tpoin," & _
+            "   hredemption.cpoin," & _
+            "   hcustomer.cname," & _
+            "   hcustomer.cphon," & _
+            "   hcustomer.ccpon," & _
+            "   IF(hcustomer.cstat = 'Member', 1, 0) AS is_member" & _
+            " FROM hredemption" & _
+            " LEFT JOIN hcustomer ON hredemption.idcus = hcustomer.idcus" & _
+            " WHERE hredemption.rdmpid = '" & redemptionId & "'"
         Dim redemptionDetailQuery As String =
             "SELECT" & _
-            "   dtransaction.trsid," & _
-            "   dtransaction.ttype," & _
-            "   dtransaction.idsvc," & _
-            "   dtransaction.idpdt," & _
-            "   dtransaction.trqty," & _
-            "   dtransaction.uomdc," & _
-            "   dtransaction.price," & _
-            "   dtransaction.idisc," & _
-            "   dtransaction.rmark," & _
+            "   dredemption.rdmpid," & _
+            "   dredemption.idmrch," & _
+            "   dredemption.point," & _
+            "   dredemption.qty," & _
+            "   hmerchandise.idpdt," & _
+            "   uom.uodsc," & _
             "   hproduct.pdtds," & _
-            "   producttype.ptpdc," & _
-            "   hservice.svcdc," & _
-            "   servicetype.svtdc" & _
-            " FROM dtransaction" & _
-            " LEFT JOIN hproduct ON dtransaction.idpdt = hproduct.idpdt" & _
+            "   producttype.ptpdc" & _
+            " FROM dredemption" & _
+            " LEFT JOIN hmerchandise ON dredemption.idmrch = hmerchandise.idmrch" & _
+            " LEFT JOIN hproduct ON hmerchandise.idpdt = hproduct.idpdt" & _
             " LEFT JOIN producttype ON hproduct.idptp = producttype.idptp" & _
-            " LEFT JOIN hservice ON dtransaction.idsvc = hservice.idsvc" & _
-            " LEFT JOIN servicetype ON hservice.idsvt = servicetype.idsvt" & _
-            " LEFT JOIN htransaction ON dtransaction.trsid = htransaction.trsid" & _
-            " WHERE dtransaction.trsid = '" & redemptionId & "'"
+            " LEFT JOIN uom ON hproduct.iduom = uom.iduom" & _
+            " WHERE dredemption.rdmpid = '" & redemptionId & "'"
 
         _redemptionHeaderDataTable.Load(ExecQueryReader(redemptionHeaderQuery))
         _redemptionDetailDataTable.Load(ExecQueryReader(redemptionDetailQuery))
 
         For Each detail As DataRow In _redemptionDetailDataTable.Rows
-            With TransactionDetailDataGrid
-                Dim hasDiscount As Boolean = (Not String.IsNullOrEmpty(detail("idisc")) AndAlso detail("idisc") > 0)
-
-                If detail("ttype") = "P" Then
-                    TransactionDetailDataGrid.Rows.Add(
-                        "Product",
-                         detail("pdtds"),
-                         detail("uomdc"),
-                         detail("price"),
-                         detail("trqty"),
-                         detail("idisc"),
-                         If(hasDiscount, (detail("price") * (100 - detail("idisc")) / 100), detail("price")),
-                         detail("rmark"))
-                Else
-                    TransactionDetailDataGrid.Rows.Add(
-                        "Service",
-                         detail("svcdc"),
-                         detail("uomdc"),
-                         detail("price"),
-                         detail("trqty"),
-                         detail("idisc"),
-                         If(hasDiscount, (detail("price") * (100 - detail("idisc")) / 100), detail("price")),
-                         detail("rmark"))
-                End If
+            With RedemptionDetailDataGrid
+                RedemptionDetailDataGrid.Rows.Add(
+                    detail("idmrch"),
+                    detail("idpdt"),
+                    detail("pdtds"),
+                    detail("qty"),
+                    detail("uodsc"),
+                    detail("point"))
             End With
         Next
     End Sub
@@ -171,5 +140,23 @@ Public Class _005_18_RedemptionDetail
 
     Private Sub NotifyPropertyChanged(ByVal info As String)
         RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(info))
+    End Sub
+
+    Private Sub CalculatePointLeft()
+        Dim pointRequired As Integer = 0
+        Dim currentPoint As Integer = 0
+
+        Integer.TryParse(PointRequiredLbl.Text, pointRequired)
+        Integer.TryParse(CustomerCurrentPointTxt.Text, currentPoint)
+
+        CustomerPointLeftTxt.Text = currentPoint - pointRequired
+    End Sub
+
+    Private Sub CustomerCurrentPointTxt_TextChanged(sender As Object, e As EventArgs) Handles CustomerCurrentPointTxt.TextChanged
+        CalculatePointLeft()
+    End Sub
+
+    Private Sub PointRequiredLbl_TextChanged(sender As Object, e As EventArgs) Handles PointRequiredLbl.TextChanged
+        CalculatePointLeft()
     End Sub
 End Class
