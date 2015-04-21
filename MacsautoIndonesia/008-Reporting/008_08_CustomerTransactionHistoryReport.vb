@@ -72,6 +72,8 @@
             End Sub
 
         DataGridView.AddContextMenuItem({viewDetailToolItem})
+
+        FromDtp.Value = Date.Now.Subtract(TimeSpan.FromDays(7))
     End Sub
 
     Private Sub RefreshData()

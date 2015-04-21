@@ -22,7 +22,7 @@ Namespace SmartCard
         End Sub
 
         Public Sub InitializeAcr()
-            If (_acrReaders Is Nothing) Then
+            If (_acrReaders Is Nothing OrElse _acrReaders.Count = 0) Then
                 _acrReaders = New List(Of AcrReader)()
 
                 For Each port As Integer In System.Enum.GetValues(GetType(ACR120_UsbPorts))

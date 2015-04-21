@@ -284,7 +284,13 @@ Public Class _003_01_02_TransactionDetail
             VehicleModelTxt.DataBindings.Add("Text", _selectedVehicleBinding, "modsc")
             VehicleColorTxt.DataBindings.Add("Text", _selectedVehicleBinding, "coldc")
             VehicleSizeTxt.DataBindings.Add("Text", _selectedVehicleBinding, "sizdc")
-            VehicleExpiryDate.DataBindings.Add("Text", _selectedVehicleBinding, "vexpd")
+
+            Try
+                VehicleExpiryDate.DataBindings.Add("Text", _selectedVehicleBinding, "vexpd")
+            Catch ex As Exception
+
+            End Try
+
             VehicleMileageTxt.DataBindings.Add("Text", _selectedVehicleBinding, "vkilo")
             DataBindings.Add("SelectedVehicleType", _selectedVehicleBinding, "vtype")
             DataBindings.Add("SelectedVehicleSize", _selectedVehicleBinding, "idsiz")

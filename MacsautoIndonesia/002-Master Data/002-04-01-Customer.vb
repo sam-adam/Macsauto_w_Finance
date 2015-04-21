@@ -5,7 +5,7 @@ Imports MacsautoIndonesia.My
 
 Public Class _002_04_Customer
     Dim flag, i As Integer
-    Dim acrReader As AcrReader
+    Private _acrReader As AcrReader
     Dim savable As Boolean
 
     Public Function getPrefix()
@@ -121,16 +121,9 @@ Public Class _002_04_Customer
     End Sub
     Private Sub _002_04_Customer_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
-            SmartCardManager.InitializeAcr()
-            acrReader = SmartCardManager.AcrReaders.FirstOrDefault()
-
-            If Not acrReader Is Nothing Then
-                savable = False
-            Else
-                If MsgBox("No card reader detected! You will not be able to register a member. Continue anyway?", MsgBoxStyle.OkCancel Or MsgBoxStyle.Critical, "Warning") = MsgBoxResult.Cancel Then
-                    Dispose()
-                End If
-            End If
+            While _acrReader Is Nothing AndAlso MsgBox("No card reader found. Try again?", MsgBoxStyle.YesNo Or MsgBoxStyle.Question, "Warning") = MsgBoxResult.Yes
+                TryInitializeAcr()
+            End While
 
             LoadCustomerData()
         Catch ex As Exception
@@ -203,14 +196,14 @@ Public Class _002_04_Customer
 
                     If cStatus.Checked Then
                         Try
-                            Dim existingTag As AcrSmartCard? = acrReader.GetTag()
+                            Dim existingTag As AcrSmartCard? = _acrReader.GetTag()
 
                             If existingTag Is Nothing Then
                                 Throw New Exception("No card available")
                             End If
 
-                            acrReader.Login(MySettings.Default.RFIDSector)
-                            acrReader.WriteBlock(MySettings.Default.RFIDDataBlock, CNumber.Text)
+                            _acrReader.Login(MySettings.Default.RFIDSector)
+                            _acrReader.WriteBlock(MySettings.Default.RFIDDataBlock, CNumber.Text)
                         Catch ex As Exception
                             Throw New Exception("Failed to write card", ex)
                         End Try
@@ -229,7 +222,7 @@ Public Class _002_04_Customer
                     MsgBox("New Customer added")
                     disableSave()
                     ClearCustomerDetail()
-                    loadCustomerDATA()
+                    LoadCustomerData()
                     CNumber.Text = "xxxxx"
 
                     TabControl1.SelectedIndex = 0
@@ -240,12 +233,12 @@ Public Class _002_04_Customer
             If MsgBox("Edit Customer data?", MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
                 If cStatus.Checked Then
                     Try
-                        If Not acrReader.GetTag().Connected Then
+                        If Not _acrReader.GetTag().Connected Then
                             Throw New ApplicationException("No card available")
                         End If
 
-                        acrReader.Login(MySettings.Default.RFIDSector)
-                        acrReader.WriteBlock(MySettings.Default.RFIDDataBlock, CNumber.Text)
+                        _acrReader.Login(MySettings.Default.RFIDSector)
+                        _acrReader.WriteBlock(MySettings.Default.RFIDDataBlock, CNumber.Text)
                     Catch ex As Exception
                         MsgBox("Failed to write card. Reason: " & ex.Message, MsgBoxStyle.OkOnly Or MsgBoxStyle.Critical, "Error")
                     End Try
@@ -269,7 +262,7 @@ Public Class _002_04_Customer
                 MsgBox("Customer data modified")
                 disableSave()
                 ClearCustomerDetail()
-                loadCustomerDATA()
+                LoadCustomerData()
                 CNumber.Text = "xxxxx"
 
                 TabControl1.SelectedIndex = 0
@@ -319,4 +312,16 @@ Public Class _002_04_Customer
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         MsgBox(MsgBox(cDetailGrid.Rows(0).Cells(10).Value.ToString))
     End Sub
+
+    Private Function TryInitializeAcr() As Boolean
+        Try
+            InitializeAcr()
+
+            _acrReader = AcrReaders.FirstOrDefault()
+
+            Return Not _acrReader Is Nothing
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
 End Class
