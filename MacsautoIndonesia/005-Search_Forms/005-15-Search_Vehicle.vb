@@ -128,7 +128,7 @@
 
     Private Sub SelectCustomerVehicle()
         If VehicleDataGrid.SelectedCells.Count = 0 Then
-            MsgBox("No vehicle selected", MsgBoxStyle.Critical Or MsgBoxStyle.OkOnly, "Error")
+            SelectCustomer()
         Else
             Dim selectedCustomerId As String = CustomerDataGrid.CurrentRow.Cells(CustomerIdCol.Index).Value
             Dim selectedVehicleReg As String = VehicleDataGrid.CurrentRow.Cells(0).Value
@@ -139,9 +139,13 @@
 
     Private Sub CustomerDataGrid_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles CustomerDataGrid.CellEnter
         Dim selectedCustomerId As String = CustomerDataGrid.CurrentRow.Cells(CustomerIdCol.Index).Value
+        Dim selectedCustomer As DataRow() = _vehicleDataTable.Select("idcus = '" & selectedCustomerId & "'")
 
         _customerVehiclesDataTable.Rows.Clear()
-        _customerVehiclesDataTable.Load(_vehicleDataTable.Select("idcus = '" & selectedCustomerId & "'").CopyToDataTable().CreateDataReader())
+
+        If selectedCustomer.Length > 0 Then
+            _customerVehiclesDataTable.Load(selectedCustomer.CopyToDataTable().CreateDataReader())
+        End If
     End Sub
 
     Private Sub _005_15_Search_Vehicle_Load(sender As Object, e As EventArgs) Handles MyBase.Load

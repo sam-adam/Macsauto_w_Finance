@@ -352,6 +352,12 @@ Public Class _003_01_02_TransactionDetail
         _searchCustomerForm.Close()
     End Sub
 
+    Private Sub _searchCustomer_CustomerSelected(ByVal sender As Object, ByVal e As CustomerSelectedEventArgs)
+        SelectCustomer(e.CustomerId)
+
+        _searchCustomerForm.Close()
+    End Sub
+
     Private Sub _searchService_ServiceSelected(ByVal sender As Object, ByVal e As ServiceSelectedEventArgs)
         Dim selectedServiceRow As DataRow = e.ServiceRow
         Dim alreadyExisted As Boolean = TransactionServiceDataGrid.Rows.OfType(Of DataGridViewRow).Any(
@@ -425,6 +431,7 @@ Public Class _003_01_02_TransactionDetail
                 _searchCustomerForm = New _005_15_Search_Vehicle(_005_15_Search_Vehicle.CustomerVehicleMode)
 
                 AddHandler _searchCustomerForm.CustomerVehicleSelected, AddressOf _searchCustomer_CustomerVehicleSelected
+                AddHandler _searchCustomerForm.CustomerSelected, AddressOf _searchCustomer_CustomerSelected
             End If
 
             If _selectedVehicleBinding.Count = 0 OrElse (TransactionServiceDataGrid.Rows.Count = 0 OrElse MsgBox("Changing customer will remove all existing services. Continue?", MsgBoxStyle.Exclamation Or MsgBoxStyle.YesNo, "Warning") = MsgBoxResult.Yes) Then
@@ -455,8 +462,8 @@ Public Class _003_01_02_TransactionDetail
     End Sub
 
     Private Sub ShowProductForm()
-        If _selectedVehicleBinding.Count = 0 Then
-            ErrorInput(FindCustomerBtn, "Customer and vehicle is required")
+        If String.IsNullOrEmpty(CustomerIdTxt.Text) Then
+            ErrorInput(FindCustomerBtn, "Customer is required")
         Else
             If _searchProductForm Is Nothing Then
                 _searchProductForm = New _005_17_Search_Product()
@@ -597,11 +604,17 @@ Public Class _003_01_02_TransactionDetail
     End Sub
 
     Private Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
-        If _selectedVehicleBinding.Count = 0 Then
-            ErrorInput(FindCustomerBtn, "Customer and vehicle is required")
+        Dim confirmationMessage As String = "Make payment?"
+
+        If Not String.IsNullOrEmpty(CustomerIdTxt.Text) AndAlso _VehicleRegCbo.SelectedIndex = -1 Then
+            confirmationMessage = "Continuing will make a product sales transaction. Make payment?"
+        End If
+
+        If String.IsNullOrEmpty(CustomerIdTxt.Text) Then
+            ErrorInput(FindCustomerBtn, "Customer is required")
         ElseIf (TransactionProductDataGrid.Rows.Count + TransactionServiceDataGrid.Rows.Count) = 0 Then
             ErrorInput(AddServiceBtn, "No service or product selected")
-        ElseIf MsgBox("Make payment?", MsgBoxStyle.Question Or MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
+        ElseIf MsgBox(confirmationMessage, MsgBoxStyle.Question Or MsgBoxStyle.YesNo, "Confirmation") = MsgBoxResult.Yes Then
             If _createPaymentForm Is Nothing Then
                 _createPaymentForm = New _003_01_04_CreatePayment(GrandTotal)
                 AddHandler _createPaymentForm.PaymentSubmitted, AddressOf _paymentForm_PaymentSubmitted
