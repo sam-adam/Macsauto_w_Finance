@@ -1117,15 +1117,19 @@ Public Class _003_01_02_TransactionDetail
     End Sub
 
     Private Sub RefreshReader()
-        InitializeAcr()
+        Try
+            InitializeAcr()
 
-        If AcrReaders.Count > 0 Then
-            _acrReader = AcrReaders.FirstOrDefault()
-        Else
-            _acrReader = Nothing
-        End If
+            If AcrReaders.Count > 0 Then
+                _acrReader = AcrReaders.FirstOrDefault()
+            Else
+                _acrReader = Nothing
+            End If
 
-        HelpF4Lbl.Visible = Not _acrReader Is Nothing
+            HelpF4Lbl.Visible = Not _acrReader Is Nothing
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class
 
