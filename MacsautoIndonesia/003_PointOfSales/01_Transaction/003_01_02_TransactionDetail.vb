@@ -648,7 +648,7 @@ Public Class _003_01_02_TransactionDetail
                     command.Parameters.AddWithValue("vehicleModel", VehicleModelTxt.Text)
                     command.Parameters.AddWithValue("vehicleColor", VehicleColorTxt.Text)
                     command.Parameters.AddWithValue("vehicleSize", VehicleSizeTxt.Text)
-                    command.Parameters.AddWithValue("vehicleMileage", VehicleMileageTxt.Text)
+                    command.Parameters.AddWithValue("vehicleMileage", If(String.IsNullOrEmpty(VehicleMileageTxt.Text), 0, VehicleMileageTxt.Text))
                     command.Parameters.AddWithValue("vehicleReg", VehicleRegCbo.SelectedValue)
                     command.Parameters.AddWithValue("licenseExpired", VehicleExpiryDate.Value.ToMySqlDateTime())
                     command.Parameters.AddWithValue("serviceSubtotal", ServiceSubtotal)
