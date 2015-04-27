@@ -93,8 +93,8 @@ Partial Class _002_01_Product
         Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PurchasePriceCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SalesPriceCol = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -142,7 +142,7 @@ Partial Class _002_01_Product
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.ProductGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.ProductGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ProductGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column9, Me.Column10, Me.Column2, Me.Column3, Me.Column12, Me.Column4, Me.Column8, Me.Column13, Me.Column14})
+        Me.ProductGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column9, Me.Column10, Me.Column2, Me.PurchasePriceCol, Me.SalesPriceCol, Me.Column4, Me.Column8, Me.Column13, Me.Column14})
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveBorder
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -847,24 +847,24 @@ Partial Class _002_01_Product
         Me.Column2.ReadOnly = True
         Me.Column2.Width = 200
         '
-        'Column3
+        'PurchasePriceCol
         '
         DataGridViewCellStyle2.Format = "N0"
         DataGridViewCellStyle2.NullValue = Nothing
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle2
-        Me.Column3.HeaderText = "Prch. Price"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 150
+        Me.PurchasePriceCol.DefaultCellStyle = DataGridViewCellStyle2
+        Me.PurchasePriceCol.HeaderText = "Prch. Price"
+        Me.PurchasePriceCol.Name = "PurchasePriceCol"
+        Me.PurchasePriceCol.ReadOnly = True
+        Me.PurchasePriceCol.Width = 150
         '
-        'Column12
+        'SalesPriceCol
         '
         DataGridViewCellStyle3.Format = "N0"
-        Me.Column12.DefaultCellStyle = DataGridViewCellStyle3
-        Me.Column12.HeaderText = "Sales Price"
-        Me.Column12.Name = "Column12"
-        Me.Column12.ReadOnly = True
-        Me.Column12.Width = 150
+        Me.SalesPriceCol.DefaultCellStyle = DataGridViewCellStyle3
+        Me.SalesPriceCol.HeaderText = "Sales Price"
+        Me.SalesPriceCol.Name = "SalesPriceCol"
+        Me.SalesPriceCol.ReadOnly = True
+        Me.SalesPriceCol.Width = 150
         '
         'Column4
         '
@@ -1006,8 +1006,8 @@ Partial Class _002_01_Product
     Friend WithEvents Column9 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column10 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column12 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents PurchasePriceCol As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SalesPriceCol As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column4 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column8 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column13 As System.Windows.Forms.DataGridViewTextBoxColumn

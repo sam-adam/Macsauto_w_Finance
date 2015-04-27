@@ -125,6 +125,12 @@
         Return j
     End Function
     Private Sub _002_01_Product_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        ProductGridView.Columns(PurchasePriceCol.Index).Visible = (LoggedInEmployee.Position = Position.Manager)
+        ProductGridView.Columns(SalesPriceCol.Index).Visible = (LoggedInEmployee.Position = Position.Manager)
+        Add.Visible = (LoggedInEmployee.Position = Position.Manager)
+        Edit.Visible = (LoggedInEmployee.Position = Position.Manager)
+        Remove.Visible = (LoggedInEmployee.Position = Position.Manager)
+
         LoadUnitofMeasure()
         loadProductTable()
         LoadProductType()

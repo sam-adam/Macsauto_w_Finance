@@ -77,7 +77,6 @@ Public Class _006_03_Main_Form_Version2
 
         UserToolStripMenuItem.Visible = (LoggedInEmployee.Position = Position.Manager)
         ProductMovementToolStripMenuItem.Visible = (LoggedInEmployee.Position = Position.Manager)
-        ProductToolStripMenuItem.Visible = (LoggedInEmployee.Position = Position.Manager)
 
         Me.Show()
         Me.Focus()
